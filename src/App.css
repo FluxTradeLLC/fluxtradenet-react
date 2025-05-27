@@ -1,5 +1,8 @@
 .App {
-  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #181a20;
+  color: #f1f1f1;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -14,14 +17,64 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: #23263a;
+  color: #fff;
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.App-header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  color: #61dafb;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+nav a {
   color: white;
+  margin: 0 0.75rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+nav a:hover {
+  color: #fff;
+}
+
+main {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.Section {
+  background: #23263a;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  margin-bottom: 2rem;
+  padding: 2rem 1.5rem;
+}
+.Section h2 {
+  margin-top: 0;
+  color: #61dafb;
+}
+.Section ul {
+  padding-left: 1.2rem;
+}
+
+.App-footer {
+  background: #23263a;
+  color: #aaa;
+  text-align: center;
+  padding: 1rem 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 1rem;
+  border-top: 1px solid #22243a;
 }
 
 .App-link {
@@ -35,4 +88,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #181a20;
+}
+::-webkit-scrollbar-thumb {
+  background: #23263a;
+  border-radius: 4px;
 }
