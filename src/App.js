@@ -14,7 +14,7 @@ function App() {
       </header>
       <main>
         <section>
-          <img src={header} alt='FluxTrade header' width={650} className="Section"/>
+          <img src={header} alt='FluxTrade header' width="93%" className="Section"/>
         </section>
         <section id="about" className="Section">
           <h2>About FluxTrade</h2>
