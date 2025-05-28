@@ -1,5 +1,6 @@
 import './App.css';
 import logo from './assets/logo.png';
+import header from './assets/header.png'
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
         </nav>
       </header>
       <main>
+        <section>
+          <img src={header} alt='FluxTrade header' width={650} className="Section"/>
+        </section>
         <section id="about" className="Section">
           <h2>About FluxTrade</h2>
           <p>FluxTrade builds advanced trading software for individuals and institutions. We offer robust, reliable, and innovative solutions to help you succeed in the markets.</p>
