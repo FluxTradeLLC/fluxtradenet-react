@@ -49,8 +49,8 @@ function App() {
         <section id="partners" className="my-12 mt-24">
           <h2 className="text-3xl font-bold text-center mb-8">Official NinjaTrader Ecosystem Vendor</h2>
           <div className="flex justify-center items-center space-x-8 bg-white p-6 rounded-lg">
-            <img src={ntLogo} width={300} alt="NinjaTrader Logo" />
-            <img src={kinetickLogo} alt="Kinetick Logo" className="h-16 ml-[20px]" />
+            <a href="http://account.ninjatrader.com/register?introducingPartner=FluxTrade"><img src={ntLogo} width={300} alt="NinjaTrader Logo" /></a>
+            <a href="http://kinetick.com/NinjaTrader"><img src={kinetickLogo} alt="Kinetick Logo" className="h-16 ml-[20px]" /></a>
           </div>
         </section>
       </main>
