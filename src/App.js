@@ -23,9 +23,9 @@ function App() {
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       <header className="p-4 flex flex-col justify-center items-center">
-        <div className="flex items-center">
+        <div className="flex items-center mt-[20px] flex-col md:flex-row">
           <img src={fluxLogo} alt="Flux Trade Logo" className="h-[75px]" />
-          <h1 className="text-6xl font-bold italic">FluxTrade</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold italic ml-[40px] text-center">FluxTrade Trading System</h1>
         </div>
         <h2 className="mt-[50px] lg:text-[100px] md:text-[50px] text-[40px] text-center">Understand the <span className="italic bg-gradient-to-tl from-red-600 via-gray-300 to-green-600 hover:bg-gradient-to-br hover:from-green-500 hover:via-green-200 hover:to-lime-500 text-transparent bg-clip-text bg-300 animate-gradient-pan cursor-default">markets</span>.</h2>
         <h2 className="lg:text-[100px] md:text-[50px] text-[40px] text-center">Gain an <span className="italic bg-gradient-to-tl from-green-500 via-yellow-500 to-purple-800 hover:bg-gradient-to-br hover:from-purple-400 hover:via-indigo-400 hover:to-blue-400 text-transparent bg-clip-text bg-300 animate-gradient-pan cursor-default">edge</span>.</h2>
