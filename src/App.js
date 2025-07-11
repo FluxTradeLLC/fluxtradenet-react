@@ -1,49 +1,80 @@
 import './App.css';
-import logo from './assets/logo.png';
-import header from './assets/header.png'
+import fluxLogo from './assets/logo.png';
+import kinetickLogo from './assets/logos/Kinetick_Logo.png';
+import ntLogo from './assets/logos/NinjaTrader_Wordmark_color_RGB.png';
+import fluxConfluence from './assets/indicators/FluxConfluence.PNG';
+import fluxPivot from './assets/indicators/FluxPivot.PNG';
+import fluxSignal from './assets/indicators/FluxSignal.PNG';
+import marketRegime from './assets/indicators/MarketRegime.PNG';
+import parabolicRSI from './assets/indicators/ParabolicRSI.PNG';
+import previousLevels from './assets/indicators/PreviousLevels.PNG';
+
 
 function App() {
+  const indicators = [
+    { name: 'FluxConfluence', image: fluxConfluence, features: ["Trade with the trend", "Get multiple confluences", "Buy and sell signals"]},
+    { name: 'FluxPivot', image: fluxPivot, features: ["Pivot between buying and selling", "Add into existing positions", "Smart pivot detection"]},
+    { name: 'FluxSignal', image: fluxSignal, features: ["Understand changing markets", "Buy and sell signals", "Catch new trends as they start"]},
+    { name: 'Market Regime', image: marketRegime, features: ["Understand market regimes", "High and low volatility", "Sideways or trending"]},
+    { name: 'Parabolic RSI', image: parabolicRSI, features: ["Parabolic SAR + RSI", "Paired with Ultimate Entry Indicator", "Overbought and oversold areas"]},
+    { name: 'Previous Levels', image: previousLevels, features: ["Identify previous highs and lows", "Trade reversals and breakouts", "Yesterday, premarket, and opening range"]},
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="FluxTrade Logo" style={{ height: '60px', marginRight: '16px', verticalAlign: 'middle' }} />
-        <h1 style={{ display: 'inline', verticalAlign: 'middle' }}>FluxTrade</h1>
-        <nav>
-          <a href="#about">About</a> | <a href="#services">Services</a> | <a href="#contact">Contact</a> | <a href="#policies">Policies</a>
-        </nav>
+    <div className="bg-gray-900 text-white min-h-screen">
+      <header className="p-4 flex justify-center items-center">
+        <img src={fluxLogo} alt="Flux Trade Logo" className="h-[75px]" />
+        <h1 className="text-6xl font-bold ml-[20px] italic">FluxTrade</h1>
+        <div />
       </header>
-      <main>
-        <section>
-          <img src={header} alt='FluxTrade header' width="93%" className="Section"/>
+
+      <main className="p-8">
+        <section id="indicators" className="my-8">
+          <h2 className="text-3xl font-bold text-center mb-8">Our Indicators</h2>
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
+            {indicators.map(indicator => (
+              <div key={indicator.name} className="bg-gray-800 rounded-lg p-4 flex flex-col items-center">
+                <img src={indicator.image} alt={indicator.name} className="w-full h-auto rounded-md mb-4" />
+                <h3 className="text-xl font-semibold mb-2">{indicator.name}</h3>
+                <ul className="list-disc list-inside">
+                  {indicator?.features?.map(feature => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </section>
-        <section id="about" className="Section">
-          <h2>About FluxTrade</h2>
-          <p>FluxTrade builds advanced trading software for individuals and institutions. We offer robust, reliable, and innovative solutions to help you succeed in the markets.</p>
-        </section>
-        <section id="services" className="Section">
-          <h2>Our Services</h2>
-          <ul>
-            <li>Trading software licenses</li>
-            <li>Subscription-based trading tools and analytics</li>
-            <li>Custom trading solutions for professionals</li>
-          </ul>
-        </section>
-        <section id="contact" className="Section">
-          <h2>Contact Us</h2>
-          <p>Email: <a href="mailto:hello@fluxtrade.net" style={{color: "white"}}>hello@fluxtrade.net</a></p>
-        </section>
-        <section id="policies" className="Section">
-          <h2>Policies</h2>
-          <h3>Refund & Dispute Policy</h3>
-          <p>All sales are final. FluxTrade does not offer refunds or accept disputes under any circumstances. Please review your purchase carefully before completing your order.</p>
-          <h3>Cancelation Policy</h3>
-          <p>Subscriptions can be canceled at any time, but no refunds will be issued for any remaining period.</p>
-          <h3>Legal & Export Restrictions</h3>
-          <p>Our software may be subject to export laws and regulations. It is your responsibility to ensure compliance with all applicable laws in your jurisdiction.</p>
+
+        <section id="partners" className="my-12 mt-24">
+          <h2 className="text-3xl font-bold text-center mb-8">Official NinjaTrader Ecosystem Vendor</h2>
+          <div className="flex justify-center items-center space-x-8 bg-white p-6 rounded-lg">
+            <img src={ntLogo} width={300} alt="NinjaTrader Logo" />
+            <img src={kinetickLogo} alt="Kinetick Logo" className="h-16 ml-[20px]" />
+          </div>
         </section>
       </main>
-      <footer className="App-footer">
-        <p>&copy; {new Date().getFullYear()} FluxTrade. All rights reserved.</p>
+
+      <footer className="p-8 text-md text-white">
+        <p className="mb-4">Disclaimers</p>
+        <p className="mb-4">Futures and forex trading contains substantial risk and is not for every investor. An investor could
+potentially lose all or more than the initial investment. Risk capital is money that can be lost without
+jeopardizing ones’ financial security or life style. Only risk capital should be used for trading and only
+those with sufficient risk capital should consider trading. Past performance is not necessarily indicative of
+future results</p>
+        <p className="mb-4">Hypothetical performance results have many inherent limitations, some of which are described below. No
+representation is being made that any account will or is likely to achieve profits or losses similar to those
+shown; in fact, there are frequently sharp differences between hypothetical performance results and the
+actual results subsequently achieved by any particular trading program. One of the limitations of
+hypothetical performance results is that they are generally prepared with the benefit of hindsight. In
+addition, hypothetical trading does not involve financial risk, and no hypothetical trading record can
+completely account for the impact of financial risk of actual trading. for example, the ability to withstand
+losses or to adhere to a particular trading program in spite of trading losses are material points which
+can also adversely affect actual trading results. There are numerous other factors related to the markets
+in general or to the implementation of any specific trading program which cannot be fully accounted for
+in the preparation of hypothetical performance results and all which can adversely affect trading results.</p>
+        <p>Testimonials appearing on this website may not be representative of other clients or customers and is not
+        a guarantee of future performance or success. </p>
       </footer>
     </div>
   );
