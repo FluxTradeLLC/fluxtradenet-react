@@ -10,6 +10,15 @@ import marketRegime from '../assets/indicators/MarketRegime.PNG';
 import parabolicRSI from '../assets/indicators/ParabolicRSI.PNG';
 import previousLevels from '../assets/indicators/PreviousLevels.PNG';
 
+import fluxLightning1 from '../assets/strategies/FluxLightning1.PNG';
+import fluxLightning2 from '../assets/strategies/FluxLightning2.PNG';
+import fluxPivotStrat1 from '../assets/strategies/FluxPivotStrat1.PNG';
+import fluxPivotStrat2 from '../assets/strategies/FluxPivotStrat2.PNG';
+import fluxSignalStrat1 from '../assets/strategies/FluxSignalStrat1.PNG';
+import fluxSignalStrat2 from '../assets/strategies/FluxSignalStrat2.PNG';
+import fluxTrident1 from '../assets/strategies/FluxTrident1.PNG';
+import fluxTrident2 from '../assets/strategies/FluxTrident2.PNG';
+
 import '../App.css';
 
 
@@ -21,6 +30,29 @@ export function LandingPage() {
     { name: 'Market Regime', image: marketRegime, features: ["Understand market regimes", "High and low volatility", "Sideways or trending"]},
     { name: 'Parabolic RSI', image: parabolicRSI, features: ["Parabolic SAR + RSI", "Paired with Ultimate Entry Indicator", "Overbought and oversold areas"]},
     { name: 'Previous Levels', image: previousLevels, features: ["Identify previous highs and lows", "Trade reversals and breakouts", "Yesterday, premarket, and opening range"]},
+  ];
+
+  const strategies = [
+    { 
+        name: 'FluxLightning', 
+        images: [fluxLightning1, fluxLightning2], 
+        features: ["Fully automated strategy", "Great for trending markets", "Long and short signals"]
+    },
+    { 
+        name: 'FluxPivot Strategy', 
+        images: [fluxPivotStrat1, fluxPivotStrat2], 
+        features: ["Automated pivot detection", "Trade with institutional levels", "Works great with FluxPivot indicator"]
+    },
+    { 
+        name: 'FluxSignal Strategy', 
+        images: [fluxSignalStrat1, fluxSignalStrat2], 
+        features: ["Uses Flux Signal for entries", "Catches trends early", "Simple to use"]
+    },
+    { 
+        name: 'FluxTrident', 
+        images: [fluxTrident1, fluxTrident2], 
+        features: ["Three-step trend confirmation", "Powerful scalping strategy", "Identifies strong trend continuations"]
+    }
   ];
 
   return (
@@ -43,17 +75,39 @@ export function LandingPage() {
 
       <main className="p-8">
         <section id="indicators" className="my-8">
-          <h2 className="text-3xl font-bold text-center mb-8">Our Indicators</h2>
+          <h2 className="text-3xl font-bold text-center mb-2">Our Indicators</h2>
+          <h3 className="text-2xl text-center mb-8">Learn how to trade manually with a plan and strategy built with indicators</h3>
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
             {indicators.map(indicator => (
               <div key={indicator.name} className="bg-gray-800 rounded-lg p-4 flex flex-col items-center">
-                <img src={indicator.image} alt={indicator.name} className="w-full h-auto rounded-md mb-4" />
                 <h3 className="text-xl font-semibold mb-2">{indicator.name}</h3>
-                <ul className="list-disc list-inside">
+                <ul className="list-disc list-inside mb-4">
                   {indicator?.features?.map(feature => (
                     <li key={feature}>{feature}</li>
                   ))}
                 </ul>
+                <img src={indicator.image} alt={indicator.name} className="w-full h-auto rounded-md mb-4" />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="strategies" className="my-12 mt-16">
+          <h2 className="text-3xl font-bold text-center mb-2">Our Automated Strategies</h2>
+          <h3 className="text-2xl text-center mb-8">Highly customizable with automated entries and exits</h3>
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
+            {strategies.map(strategy => (
+              <div key={strategy.name} className="bg-gray-800 rounded-lg p-4 flex flex-col items-center">
+                <h3 className="text-xl font-semibold mb-2">{strategy.name}</h3>
+                <ul className="list-disc list-inside mb-4">
+                  {strategy.features.map(feature => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+                <div className="flex flex-col">
+                  <img src={strategy.images[0]} alt={`${strategy.name} 1`} className="w-full h-auto rounded-md mb-4" />
+                  <img src={strategy.images[1]} alt={`${strategy.name} 2`} className="w-full h-auto rounded-md mb-4" />
+                </div>
               </div>
             ))}
           </div>
