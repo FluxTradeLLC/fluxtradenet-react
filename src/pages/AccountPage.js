@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 import { SignUp } from '../components/auth/SignUp';
 import { SignIn } from '../components/auth/SignIn';
 import { SignOut } from '../components/auth/SignOut';
+import { Link } from 'react-router-dom';
 
 export const AccountPage = () => {
   const [activeTab, setActiveTab] = useState('signin');
@@ -16,6 +17,11 @@ export const AccountPage = () => {
   return (
     <div className="bg-gray-900 text-white min-h-screen p-4 sm:p-6 md:p-8">
       <h1 className="text-4xl font-bold text-center mb-12">Account Management</h1>
+      <nav className="flex w-full md:w-auto justify-center md:justify-end items-center space-x-8 p-6 rounded-lg md:ml-[100px] md:-mt-[100px]">
+          <ul><Link to="/">Home</Link></ul>
+          <ul><Link to="/pricing">{hasSession ? "Select a Plan" : "Pricing"}</Link></ul>
+          <ul><a href="https://discord.gg/UTcxDRQ26U">Free Discord</a></ul>
+      </nav>
       {hasSession ? (
         <div className="mt-12">
           <SignOut />
