@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../api/axios';
+import Cookies from 'js-cookie';
 
 export const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -10,7 +11,8 @@ export const SignIn = () => {
     e.preventDefault();
     setError('');
     try {
-      await api.post('/login', { email, password });
+      const res = await api.post('/login', { email, password });
+      Cookies.set('token', res.data.token, { expires: 7 });
       alert('Signed in!');
     } catch (err) {
       setError(err.response?.data?.error || 'Sign in failed');

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../api/axios';
+import Cookies from 'js-cookie';
 
 export const SignOut = () => {
   const [error, setError] = useState('');
@@ -8,6 +9,7 @@ export const SignOut = () => {
     setError('');
     try {
       await api.post('/logout');
+      Cookies.remove('token');
       alert('Logged out!');
     } catch (err) {
       setError('Logout failed');
