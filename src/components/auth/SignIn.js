@@ -11,7 +11,7 @@ export const SignIn = () => {
     e.preventDefault();
     setError('');
     try {
-      const res = await api.post('/login', { email, password });
+      const res = await api.post('/users/login', { email, password });
       Cookies.set('token', res.data.token, { expires: 7 });
       alert('Signed in!');
     } catch (err) {
@@ -22,7 +22,7 @@ export const SignIn = () => {
   const handleGoogleSubmit = async () => {
     setError('');
     try {
-      const res = await api.get('/login/google');
+      const res = await api.get('/users/login/google');
       window.location.href = res.data.url;
     } catch (err) {
       setError(err.response?.data?.error || 'Google sign in failed');

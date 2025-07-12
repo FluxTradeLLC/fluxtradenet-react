@@ -10,7 +10,7 @@ export const SignUp = () => {
     e.preventDefault();
     setError('');
     try {
-      await api.post('/register', { email, password });
+      await api.post('/users/register', { email, password });
       alert('Registered! Now sign in.');
     } catch (err) {
       setError(err.response?.data?.error || 'Registration failed');
@@ -20,7 +20,7 @@ export const SignUp = () => {
   const handleGoogleSubmit = async () => {
     setError('');
     try {
-      const res = await api.get('/login/google');
+      const res = await api.get('/users/login/google');
       window.location.href = res.data.url;
     } catch (err) {
       setError(err.response?.data?.error || 'Google sign in failed');
