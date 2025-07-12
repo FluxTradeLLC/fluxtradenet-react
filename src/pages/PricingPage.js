@@ -9,10 +9,11 @@ export function PricingPage() {
             <header className="p-4 flex flex-col-reverse md:flex-row md:items-center justify-end">
                 <div className="flex items-center mt-[20px] flex-col md:flex-row">
                 <img src={fluxLogo} alt="Flux Trade Logo" className="h-[75px]" />
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold italic ml-[40px] text-center">FluxTrade Trading System</h1>
-                </div>
-            <nav className="flex w-full md:w-auto justify-center md:justify-end items-center space-x-8 p-6 rounded-lg md:ml-[100px]">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold italic ml-[40px] text-center">FluxTrade</h1>
+            </div>
+            <nav className="flex w-full md:w-auto justify-center md:justify-end items-center space-x-8 p-6 rounded-lg md:ml-[100px] md:-mt-[50px]">
                 <ul><Link to="/">Home</Link></ul>
+                <ul><a>My Account</a></ul>
                 <ul><a href="https://discord.gg/UTcxDRQ26U">Free Discord</a></ul>
             </nav>
             </header>
@@ -20,8 +21,7 @@ export function PricingPage() {
                 <h1 className="text-5xl font-extrabold mb-4">Choose Your Plan</h1>
                 <p className="text-lg text-gray-400">Unlock the full potential of FluxTrade with our tailored plans.</p>
             </div>
-            <div className="flex justify-center gap-8">
-                {/* Free Plan */}
+            <div className="flex flex-wrap justify-center gap-8 pb-16">
                 <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-gray-700 transform hover:scale-105 transition-transform duration-300">
                     <h2 className="text-3xl font-bold text-center mb-4">Standard</h2>
                     <p className="text-center text-4xl font-extrabold mb-6">$49<span className="text-lg font-medium text-gray-400">/mo</span></p>

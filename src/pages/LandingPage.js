@@ -60,10 +60,11 @@ export function LandingPage() {
       <header className="p-4 flex flex-col-reverse md:flex-row md:items-center justify-end">
         <div className="flex items-center mt-[20px] flex-col md:flex-row">
           <img src={fluxLogo} alt="Flux Trade Logo" className="h-[75px]" />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold italic ml-[40px] text-center">FluxTrade Trading System</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold italic ml-[40px] text-center">FluxTrade</h1>
         </div>
-        <nav className="flex w-full md:w-auto justify-center md:justify-end items-center space-x-8 p-6 rounded-lg md:ml-[100px]">
+        <nav className="flex w-full md:w-auto justify-center md:justify-end items-center space-x-8 p-6 rounded-lg md:ml-[100px] md:-mt-[50px]">
           <ul><Link to="/pricing">Pricing</Link></ul>
+          <ul><a>My Account</a></ul>
           <ul><a href="https://discord.gg/UTcxDRQ26U">Free Discord</a></ul>
         </nav>
       </header>
