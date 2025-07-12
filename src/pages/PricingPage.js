@@ -20,10 +20,10 @@ export function PricingPage() {
         try {
             const response = await api.post('/payment/create-checkout-session', {
                 priceId: priceId,
-                subscription: true
+                subscription: true,
             });
             // Redirect to Stripe checkout
-            window.location.href = response.data.url;
+            window.location.href = response.data.redirect;
         } catch (error) {
             console.error('Error creating checkout session:', error);
             // Handle error, e.g., show a notification to the user

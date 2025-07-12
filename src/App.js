@@ -3,6 +3,7 @@ import { LandingPage } from './pages/LandingPage';
 import { PricingPage } from './pages/PricingPage';
 import { AccountPage } from './pages/AccountPage';
 import { AuthCallback } from './components/auth/AuthCallback';
+import { PaymentSuccessPage } from './pages/PaymentSuccessPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/account" element={<AccountPage />} />
+        <Route path="/payment/success" element={<PaymentSuccessPage />} />
       </Routes>
     </Router>
   );
