@@ -64,7 +64,7 @@ export function LandingPage() {
         </div>
         <nav className="flex w-full md:w-auto justify-center md:justify-end items-center space-x-8 p-6 rounded-lg md:ml-[100px] md:-mt-[50px]">
           <ul><Link to="/pricing">Pricing</Link></ul>
-          <ul><a>My Account</a></ul>
+          <ul><Link to="/account">My Account</Link></ul>
           <ul><a href="https://discord.gg/UTcxDRQ26U">Free Discord</a></ul>
         </nav>
       </header>
