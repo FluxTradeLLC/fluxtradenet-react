@@ -1,9 +1,46 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import api from '../api/axios';
 
 import fluxLogo from '../assets/logo.png';
 
 export function PricingPage() {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = Cookies.get('token');
+        if (token) {
+            setIsAuthenticated(true);
+        }
+    }, []);
+
+    const handleCheckout = async (priceId) => {
+        try {
+            const response = await api.post('/payment/create-checkout-session', {
+                priceId: priceId,
+                subscription: true
+            });
+            // Redirect to Stripe checkout
+            window.location.href = response.data.url;
+        } catch (error) {
+            console.error('Error creating checkout session:', error);
+            // Handle error, e.g., show a notification to the user
+        }
+    };
+
+    const PRICING_IDS = {
+        TEST: {
+            STANDARD: "price_1Rk96ZDHqntRcM5inO0o24TP",
+            PRO: "price_1Rk971DHqntRcM5i5pndgfLL"
+        },
+        PRODUCTION: {
+            STANDARD: "",
+            PRO: ""
+        }
+    }
+
     return (
         <div className="bg-gray-900 text-white min-h-screen">
             <header className="p-4 flex flex-col-reverse md:flex-row md:items-center justify-end">
@@ -39,9 +76,19 @@ export function PricingPage() {
                             <span>Cancel anytime</span>
                         </li>
                     </ul>
-                    <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Get Started
-                    </button>
+                    {isAuthenticated ? (
+                        <button 
+                            onClick={() => handleCheckout(PRICING_IDS.TEST.STANDARD)}
+                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
+                            Go To Checkout
+                        </button>
+                    ) : (
+                        <button 
+                            onClick={() => navigate('/account')}
+                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
+                            Get Started
+                        </button>
+                    )}
                 </div>
 
                 {/* Pro Plan */}
@@ -65,9 +112,19 @@ export function PricingPage() {
                             <span>Direct access to new features</span>
                         </li>
                     </ul>
-                    <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Get Started
-                    </button>
+                    {isAuthenticated ? (
+                        <button 
+                            onClick={() => handleCheckout(PRICING_IDS.TEST.PRO)}
+                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
+                            Go To Checkout
+                        </button>
+                    ) : (
+                        <button 
+                            onClick={() => navigate('/account')}
+                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
+                            Get Started
+                        </button>
+                    )}
                 </div>
             </div>
         </div>
