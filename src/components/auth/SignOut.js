@@ -8,9 +8,10 @@ export const SignOut = () => {
   const handleSignOut = async () => {
     setError('');
     try {
-      await api.post('/logout');
+      await api.post('/users/logout');
       Cookies.remove('token');
-      alert('Logged out!');
+      // alert('Logged out!');
+      window.location.reload()
     } catch (err) {
       setError('Logout failed');
     }
