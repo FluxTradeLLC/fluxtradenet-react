@@ -11,7 +11,8 @@ export const SignUp = () => {
     setError('');
     try {
       await api.post('/users/register', { email, password });
-      alert('Registered! Now sign in.');
+      localStorage.setItem('userEmail', email);
+      // alert('Registered! Now sign in.');
     } catch (err) {
       setError(err.response?.data?.error || 'Registration failed');
     }

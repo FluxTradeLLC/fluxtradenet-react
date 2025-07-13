@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
 
 export const AuthCallback = () => {
   const location = useLocation();
@@ -15,6 +16,10 @@ export const AuthCallback = () => {
       
       if (accessToken) {
         Cookies.set('token', accessToken, { secure: true, sameSite: 'Strict' });
+        const decodedToken = jwtDecode(accessToken);
+        if (decodedToken && decodedToken.email) {
+          localStorage.setItem('userEmail', decodedToken.email);
+        }
       }
       if (refreshToken) {
         Cookies.set('refresh_token', refreshToken, { secure: true, sameSite: 'Strict' });

@@ -4,6 +4,7 @@ import { SignUp } from '../components/auth/SignUp';
 import { SignIn } from '../components/auth/SignIn';
 import { SignOut } from '../components/auth/SignOut';
 import { Link } from 'react-router-dom';
+import api from '../api/axios';
 
 export const AccountPage = () => {
   const [activeTab, setActiveTab] = useState('signin');
@@ -14,6 +15,16 @@ export const AccountPage = () => {
     setHasSession(!!token);
   }, []);
 
+  const handleCustomerPortal = async () => {
+    try {
+      const email = localStorage.getItem('userEmail');
+      const { data } = await api.post('/payment/customer-portal', { email });
+      window.location.href = data.url;
+    } catch (error) {
+      console.error('Error creating customer portal session:', error);
+    }
+  };
+
   return (
     <div className="bg-gray-900 text-white min-h-screen p-4 sm:p-6 md:p-8">
       <h1 className="text-4xl font-bold text-center mb-12">Account Management</h1>
@@ -23,8 +34,14 @@ export const AccountPage = () => {
           <ul><a href="https://discord.gg/UTcxDRQ26U">Free Discord</a></ul>
       </nav>
       {hasSession ? (
-        <div className="mt-12">
+        <div className="mt-12 text-center">
           <SignOut />
+          <button
+            onClick={handleCustomerPortal}
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            Customer Settings
+          </button>
         </div>
       ) : (
         <div className="max-w-md mx-auto">

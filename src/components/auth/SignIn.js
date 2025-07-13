@@ -13,7 +13,9 @@ export const SignIn = () => {
     try {
       const res = await api.post('/users/login', { email, password });
       Cookies.set('token', res.data.token, { expires: 7 });
-      alert('Signed in!');
+      localStorage.setItem('userEmail', email);
+      // alert('Signed in!');
+      window.location.reload();
     } catch (err) {
       setError(err.response?.data?.error || 'Sign in failed');
     }
