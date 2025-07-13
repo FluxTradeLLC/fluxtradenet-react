@@ -10,12 +10,27 @@ export const AccountPage = () => {
   const [activeTab, setActiveTab] = useState('signin');
   const [hasSession, setHasSession] = useState(false);
   const [userEmail, setUserEmail] = useState(null);
+  const [isPaid, setIsPaid] = useState(false);
 
   useEffect(() => {
     const token = Cookies.get('token');
     setHasSession(!!token);
     if (token) {
-      setUserEmail(localStorage.getItem('userEmail'));
+      const email = localStorage.getItem('userEmail');
+      setUserEmail(email);
+      if (email) {
+        const fetchSubscriptionStatus = async () => {
+          try {
+            const { data } = await api.get(
+              `/payment/subscription-status/${email}`
+            );
+            setIsPaid(data.paid);
+          } catch (error) {
+            console.error('Error fetching subscription status:', error);
+          }
+        };
+        fetchSubscriptionStatus();
+      }
     }
   }, []);
 
@@ -41,7 +56,12 @@ export const AccountPage = () => {
           <div className="mt-12 flex justify-center items-center">
             <button
               onClick={handleCustomerPortal}
-              className="mr-[20px] px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              className={`mr-[20px] px-4 py-2 rounded ${
+                isPaid
+                  ? 'bg-blue-500 text-white hover:bg-blue-600'
+                  : 'bg-gray-500 text-gray-300 cursor-not-allowed'
+              }`}
+              disabled={!isPaid}
             >
               Customer Settings
             </button>
