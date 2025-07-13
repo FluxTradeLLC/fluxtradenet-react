@@ -14,15 +14,24 @@ export const AuthCallback = () => {
       const accessToken = params.get('access_token');
       const refreshToken = params.get('refresh_token');
       
+      const cookieOptions = {
+        secure: true,
+        sameSite: 'Lax',
+      };
+
+      if (process.env.NODE_ENV === 'production') {
+        cookieOptions.domain = '.fluxtrade.net';
+      }
+
       if (accessToken) {
-        Cookies.set('token', accessToken, { secure: true, sameSite: 'Strict' });
+        Cookies.set('token', accessToken, cookieOptions);
         const decodedToken = jwtDecode(accessToken);
         if (decodedToken && decodedToken.email) {
           localStorage.setItem('userEmail', decodedToken.email);
         }
       }
       if (refreshToken) {
-        Cookies.set('refresh_token', refreshToken, { secure: true, sameSite: 'Strict' });
+        Cookies.set('refresh_token', refreshToken, cookieOptions);
       }
 
       // Redirect to a protected route, e.g., account page
