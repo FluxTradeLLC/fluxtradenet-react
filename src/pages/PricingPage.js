@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import api from '../api/axios';
 import { Header } from '../components/layout/Header';
@@ -67,7 +67,7 @@ export function PricingPage() {
                     </ul>
                     {isAuthenticated ? (
                         <button 
-                            onClick={() => handleCheckout(PRICING_IDS[process.env.NODE_ENV.toUpperCase() || "LOCAL"].STANDARD)}
+                            onClick={() => handleCheckout(PRICING_IDS[process.env.REACT_APP_NODE_ENV.toUpperCase() || "LOCAL"].STANDARD)}
                             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
                             Go To Checkout
                         </button>
@@ -103,7 +103,7 @@ export function PricingPage() {
                     </ul>
                     {isAuthenticated ? (
                         <button 
-                            onClick={() => handleCheckout(PRICING_IDS[process.env.NODE_ENV.toUpperCase() || "LOCAL"].PRO)}
+                            onClick={() => handleCheckout(PRICING_IDS[process.env.REACT_APP_NODE_ENV.toUpperCase() || "LOCAL"].PRO)}
                             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
                             Go To Checkout
                         </button>
