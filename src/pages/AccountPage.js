@@ -9,10 +9,14 @@ import api from '../api/axios';
 export const AccountPage = () => {
   const [activeTab, setActiveTab] = useState('signin');
   const [hasSession, setHasSession] = useState(false);
+  const [userEmail, setUserEmail] = useState(null);
 
   useEffect(() => {
     const token = Cookies.get('token');
     setHasSession(!!token);
+    if (token) {
+      setUserEmail(localStorage.getItem('userEmail'));
+    }
   }, []);
 
   const handleCustomerPortal = async () => {
@@ -30,14 +34,19 @@ export const AccountPage = () => {
       <Header />
       <h1 className="text-4xl font-bold text-center mb-12">Account</h1>
       {hasSession ? (
-        <div className="mt-12 text-center">
-          <SignOut />
-          <button
-            onClick={handleCustomerPortal}
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
-            Customer Settings
-          </button>
+        <div className="max-w-md mx-auto text-center">
+          {userEmail && (
+            <p className="text-lg mb-4">Logged in as: {userEmail}</p>
+          )}
+          <div className="mt-12 flex justify-center items-center">
+            <button
+              onClick={handleCustomerPortal}
+              className="mr-[20px] px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            >
+              Customer Settings
+            </button>
+            <SignOut />
+          </div>
         </div>
       ) : (
         <div className="max-w-md mx-auto">

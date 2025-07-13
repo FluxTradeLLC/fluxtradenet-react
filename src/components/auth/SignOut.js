@@ -25,7 +25,7 @@ export const SignOut = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 text-center">
+    <div className="ext-center">
       {error && <p className="text-red-500 mb-4">{error}</p>}
       <button
         onClick={handleSignOut}
