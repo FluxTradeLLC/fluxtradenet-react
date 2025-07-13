@@ -9,8 +9,15 @@ export const SignOut = () => {
     setError('');
     try {
       await api.post('/users/logout');
-      Cookies.remove('token');
-      // alert('Logged out!');
+      
+      const cookieOptions = {
+        domain: process.env.NODE_ENV === 'production' ? '.fluxtrade.net' : 'localhost',
+      };
+
+      Cookies.remove('token', cookieOptions);
+      Cookies.remove('refresh_token', cookieOptions);
+      localStorage.removeItem('userEmail');
+
       window.location.reload()
     } catch (err) {
       setError('Logout failed');
