@@ -30,13 +30,13 @@ export function PricingPage() {
     };
 
     const PRICING_IDS = {
-        TEST: {
+        LOCAL: {
             STANDARD: "price_1Rk96ZDHqntRcM5inO0o24TP",
             PRO: "price_1Rk971DHqntRcM5i5pndgfLL"
         },
         PRODUCTION: {
-            STANDARD: "",
-            PRO: ""
+            STANDARD: "price_1RkWkiDHqntRcM5i8UrCeTsw",
+            PRO: "price_1RkWkcDHqntRcM5i4MakObtw"
         }
     }
 
@@ -67,7 +67,7 @@ export function PricingPage() {
                     </ul>
                     {isAuthenticated ? (
                         <button 
-                            onClick={() => handleCheckout(PRICING_IDS.TEST.STANDARD)}
+                            onClick={() => handleCheckout(PRICING_IDS[process.env.NODE_ENV.toUpperCase() || "LOCAL"].STANDARD)}
                             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
                             Go To Checkout
                         </button>
@@ -103,7 +103,7 @@ export function PricingPage() {
                     </ul>
                     {isAuthenticated ? (
                         <button 
-                            onClick={() => handleCheckout(PRICING_IDS.TEST.PRO)}
+                            onClick={() => handleCheckout(PRICING_IDS[process.env.NODE_ENV.toUpperCase() || "LOCAL"].PRO)}
                             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
                             Go To Checkout
                         </button>
