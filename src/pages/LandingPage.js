@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Header } from '../components/layout/Header';
 
 import fluxLogo from '../assets/logo.png';
 import kinetickLogo from '../assets/logos/Kinetick_Logo.png';
@@ -57,17 +58,7 @@ export function LandingPage() {
 
   return (
     <div className="bg-gray-900 text-white min-h-screen">
-      <header className="p-4 flex flex-col-reverse md:flex-row md:items-center justify-end">
-        <div className="flex items-center mt-[20px] flex-col md:flex-row">
-          <img src={fluxLogo} alt="Flux Trade Logo" className="h-[75px]" />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold italic ml-[40px] text-center">FluxTrade</h1>
-        </div>
-        <nav className="flex w-full md:w-auto justify-center md:justify-end items-center space-x-8 p-6 rounded-lg md:ml-[100px] md:-mt-[50px]">
-          <ul><Link to="/pricing">Pricing</Link></ul>
-          <ul><Link to="/account">My Account</Link></ul>
-          <ul><a href="https://discord.gg/UTcxDRQ26U">Free Discord</a></ul>
-        </nav>
-      </header>
+      <Header />
 
       <section>
       <h2 className="mt-[50px] lg:text-[100px] md:text-[50px] text-[40px] text-center">Understand the <span className="italic bg-gradient-to-tl from-red-600 via-gray-300 to-green-600 hover:bg-gradient-to-br hover:from-green-500 hover:via-green-200 hover:to-lime-500 text-transparent bg-clip-text bg-300 animate-gradient-pan cursor-default">markets</span>.</h2>

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import api from '../api/axios';
-
-import fluxLogo from '../assets/logo.png';
+import { Header } from '../components/layout/Header';
 
 export function PricingPage() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -43,17 +42,7 @@ export function PricingPage() {
 
     return (
         <div className="bg-gray-900 text-white min-h-screen">
-            <header className="p-4 flex flex-col-reverse md:flex-row md:items-center justify-end">
-                <div className="flex items-center mt-[20px] flex-col md:flex-row">
-                <img src={fluxLogo} alt="Flux Trade Logo" className="h-[75px]" />
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold italic ml-[40px] text-center">FluxTrade</h1>
-            </div>
-            <nav className="flex w-full md:w-auto justify-center md:justify-end items-center space-x-8 p-6 rounded-lg md:ml-[100px] md:-mt-[50px]">
-                <ul><Link to="/">Home</Link></ul>
-                <ul><Link to="/account">My Account</Link></ul>
-                <ul><a href="https://discord.gg/UTcxDRQ26U">Free Discord</a></ul>
-            </nav>
-            </header>
+            <Header />
             <div className="text-center mb-12 mt-12">
                 <h1 className="text-5xl font-extrabold mb-4">Choose Your Plan</h1>
                 <p className="text-lg text-gray-400">Unlock the full potential of FluxTrade with our tailored plans.</p>
