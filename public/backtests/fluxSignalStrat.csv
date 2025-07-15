@@ -1,0 +1,4 @@
+Trade number,Instrument,Account,Strategy,Market pos.,Qty,Entry price,Exit price,Entry time,Exit time,Entry name,Exit name,Profit,Cum. net profit,Commission,MAE,MFE,ETD,Bars,
+1,MNQ SEP25,Backtest,FluxSignalStrat,Short,50,21999.25,21987.00,1/29/2025 9:32:00 AM,1/29/2025 9:33:00 AM,Flip Short,Buy to cover,$1225.00,$1225.00,$0.00,$350.00,$1875.00,$650.00,2,
+2,MNQ SEP25,Backtest,FluxSignalStrat,Long,50,19912.75,19955.25,3/14/2025 9:33:00 AM,3/14/2025 9:34:00 AM,Flip Long,Profit target,$4250.00,$5475.00,$0.00,$550.00,$4250.00,$0.00,2,
+3,MNQ SEP25,Backtest,FluxSignalStrat,Short,50,21577.50,21553.25,5/29/2025 11:59:00 AM,5/29/2025 12:00:00 PM,Flip Short,Buy to cover,$2425.00,$7900.00,$0.00,$225.00,$3300.00,$875.00,2,

@@ -37,22 +37,26 @@ export function LandingPage() {
     { 
         name: 'FluxLightning', 
         images: [fluxLightning1, fluxLightning2], 
-        features: ["Fully automated strategy", "Great for trending markets", "Long and short signals"]
+        features: ["Fully automated strategy", "Great for trending markets", "Long and short signals"],
+        backtestUrl: "/backtests/flux_lightning"
     },
     { 
         name: 'FluxPivot Strategy', 
         images: [fluxPivotStrat1, fluxPivotStrat2], 
-        features: ["Automated pivot detection", "Trade with institutional levels", "Works great with FluxPivot indicator"]
+        features: ["Automated pivot detection", "Trade with institutional levels", "Works great with FluxPivot indicator"],
+        backtestUrl: "/backtests/flux_pivot_strat"
     },
     { 
         name: 'FluxSignal Strategy', 
         images: [fluxSignalStrat1, fluxSignalStrat2], 
-        features: ["Uses Flux Signal for entries", "Catches trends early", "Simple to use"]
+        features: ["Uses Flux Signal for entries", "Catches trends early", "Simple to use"],
+        backtestUrl: "/backtests/flux_signal_strat"
     },
     { 
         name: 'FluxTrident', 
         images: [fluxTrident1, fluxTrident2], 
-        features: ["Three-step trend confirmation", "Powerful scalping strategy", "Identifies strong trend continuations"]
+        features: ["Three-step trend confirmation", "Powerful scalping strategy", "Identifies strong trend continuations"],
+        backtestUrl: "/backtests/flux_trident"
     }
   ];
 
@@ -96,6 +100,9 @@ export function LandingPage() {
                     <li key={feature}>{feature}</li>
                   ))}
                 </ul>
+                <Link to={strategy.backtestUrl} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300">
+                  View Backtest
+                </Link>
                 <div className="flex flex-col">
                   <img src={strategy.images[0]} alt={`${strategy.name} 1`} className="w-full h-auto rounded-md mb-4" />
                   <img src={strategy.images[1]} alt={`${strategy.name} 2`} className="w-full h-auto rounded-md mb-4" />
