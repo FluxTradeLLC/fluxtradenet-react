@@ -62,10 +62,8 @@ export function LandingPage() {
 
   return (
     <div className="bg-gray-900 text-white min-h-screen">
-      <Header />
-
       <section>
-      <h2 className="mt-[50px] lg:text-[100px] md:text-[50px] text-[40px] text-center">Understand the <span className="italic bg-gradient-to-tl from-red-600 via-gray-300 to-green-600 hover:bg-gradient-to-br hover:from-green-500 hover:via-green-200 hover:to-lime-500 text-transparent bg-clip-text bg-300 animate-gradient-pan cursor-default">markets</span>.</h2>
+      <h2 className="pt-[50px] lg:text-[100px] md:text-[50px] text-[40px] text-center">Understand the <span className="italic bg-gradient-to-tl from-red-600 via-gray-300 to-green-600 hover:bg-gradient-to-br hover:from-green-500 hover:via-green-200 hover:to-lime-500 text-transparent bg-clip-text bg-300 animate-gradient-pan cursor-default">markets</span>.</h2>
       <h2 className="lg:text-[100px] md:text-[50px] text-[40px] text-center">Gain an <span className="italic bg-gradient-to-tl from-green-500 via-yellow-500 to-purple-800 hover:bg-gradient-to-br hover:from-purple-400 hover:via-indigo-400 hover:to-blue-400 text-transparent bg-clip-text bg-300 animate-gradient-pan cursor-default">edge</span>.</h2>
       </section>
 
@@ -120,28 +118,6 @@ export function LandingPage() {
           </div>
         </section>
       </main>
-
-      <footer className="p-8 text-md text-white">
-        <p className="mb-4">Disclaimers</p>
-        <p className="mb-4">Futures and forex trading contains substantial risk and is not for every investor. An investor could
-potentially lose all or more than the initial investment. Risk capital is money that can be lost without
-jeopardizing ones’ financial security or life style. Only risk capital should be used for trading and only
-those with sufficient risk capital should consider trading. Past performance is not necessarily indicative of
-future results</p>
-        <p className="mb-4">Hypothetical performance results have many inherent limitations, some of which are described below. No
-representation is being made that any account will or is likely to achieve profits or losses similar to those
-shown; in fact, there are frequently sharp differences between hypothetical performance results and the
-actual results subsequently achieved by any particular trading program. One of the limitations of
-hypothetical performance results is that they are generally prepared with the benefit of hindsight. In
-addition, hypothetical trading does not involve financial risk, and no hypothetical trading record can
-completely account for the impact of financial risk of actual trading. for example, the ability to withstand
-losses or to adhere to a particular trading program in spite of trading losses are material points which
-can also adversely affect actual trading results. There are numerous other factors related to the markets
-in general or to the implementation of any specific trading program which cannot be fully accounted for
-in the preparation of hypothetical performance results and all which can adversely affect trading results.</p>
-        <p>Testimonials appearing on this website may not be representative of other clients or customers and is not
-        a guarantee of future performance or success. </p>
-      </footer>
     </div>
   );
 }

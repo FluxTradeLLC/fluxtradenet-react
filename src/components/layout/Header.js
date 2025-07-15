@@ -21,6 +21,7 @@ export const Header = () => {
         <ul><Link to="/">Home</Link></ul>
         <ul><Link to="/pricing">{hasSession ? "Select a Plan" : "Pricing"}</Link></ul>
         <ul><a href="https://discord.gg/UTcxDRQ26U">Free Discord</a></ul>
+        <ul><a href="https://shoulditradetoday.com">Should I Trade Today?</a></ul>
         <ul><Link to="/account">Account</Link></ul>
       </nav>
     </header>

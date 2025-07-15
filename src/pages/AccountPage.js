@@ -46,7 +46,6 @@ export const AccountPage = () => {
 
   return (
     <div className="bg-gray-900 text-white min-h-screen">
-      <Header />
       <h1 className="text-4xl font-bold text-center mb-12">Account</h1>
       {hasSession ? (
         <div className="max-w-md mx-auto text-center">

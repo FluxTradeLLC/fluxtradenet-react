@@ -8,11 +8,13 @@ import { BacktestPage } from './pages/BacktestPage';
 import { Header } from './components/layout/Header';
 import { SignIn } from './components/auth/SignIn';
 import { SignUp } from './components/auth/SignUp';
+import { Footer } from './components/layout/Footer';
 
 function App() {
   return (
     <Router>
       <div className="App">
+        <Header/>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/pricing" element={<PricingPage />} />
@@ -26,6 +28,7 @@ function App() {
           <Route path="/backtests/flux_pivot_strat" element={<BacktestPage file="fluxPivotStrat.csv" />} />
           <Route path="/backtests/flux_lightning" element={<BacktestPage file="fluxLightning.csv" />} />
         </Routes>
+        <Footer/> 
       </div>
     </Router>
   );
