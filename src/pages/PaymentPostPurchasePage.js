@@ -45,7 +45,7 @@ export function PaymentPostPurchasePage() {
                 <h2 className="text-2xl font-bold mb-4 text-indigo-400">Get Started</h2>
                 
                 {success ? (
-                    <div className="text-green-400 font-semibold text-center">Info submitted successfully! We'll be in touch soon. 🚀</div>
+                    <div className="text-green-400 font-semibold text-center">Info submitted successfully! We'll add access for these accounts shortly. In the meantime, please check your email for information on how to download and install the Add-ons. 🚀</div>
                 ) : (
                     <>
                         <p>Please enter your Discord username and NinjaTrader User-Defined Machine ID in the form below, and we will get you set up with your license on our end.</p>
@@ -54,7 +54,7 @@ export function PaymentPostPurchasePage() {
                             <li>In the NinjaTrader Control Center, click "Help" &gt; then click “3rd party licensing”</li>
                             <li>Put "FluxTrade" into the “Vendor name” field</li>
                             <li>In the "User defined ID" section, put a string to add to your machine ID into the “User defined ID” field. (example: JoeRichardsPC)</li>
-                            <li>Click "Submit" &gt; then copy the newly generated Machine ID &gt; email that to ID to us us with the newly generated machine ID</li>
+                            <li>Click "Submit" &gt; then copy the newly generated Machine ID &gt; email that to ID to us (<a href="mailto:hello@fluxtrade.net" className='text-blue-400'>hello@fluxtrade.net</a>) with the newly generated machine ID</li>
                         </ol>
                         <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
                             <label className="flex flex-col text-left">
