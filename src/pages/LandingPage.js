@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Header } from '../components/layout/Header';
 
-import fluxLogo from '../assets/logo.png';
 import kinetickLogo from '../assets/logos/Kinetick_Logo.png';
 import ntLogo from '../assets/logos/NinjaTrader_Wordmark_color_RGB.png';
 import fluxConfluence from '../assets/indicators/FluxConfluence.PNG';

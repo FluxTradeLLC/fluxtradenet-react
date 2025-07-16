@@ -3,7 +3,6 @@ import Cookies from 'js-cookie';
 import { SignUp } from '../components/auth/SignUp';
 import { SignIn } from '../components/auth/SignIn';
 import { SignOut } from '../components/auth/SignOut';
-import { Header } from '../components/layout/Header';
 import api from '../api/axios';
 
 export const AccountPage = () => {

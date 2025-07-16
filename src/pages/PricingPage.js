@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import api from '../api/axios';
-import { Header } from '../components/layout/Header';
 
 export function PricingPage() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
