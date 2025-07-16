@@ -5,6 +5,7 @@ import axios from '../api/axios';
 export function PaymentPostPurchasePage() {
     const [discordName, setDiscordName] = useState('');
     const [machineId, setMachineId] = useState('');
+    const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -17,6 +18,7 @@ export function PaymentPostPurchasePage() {
             await axios.post('/payment/send-post-purchase-info', {
                 discordName,
                 machineId,
+                email,
             });
             setSuccess(true);
         } catch (err) {
@@ -41,49 +43,63 @@ export function PaymentPostPurchasePage() {
             {/* New Form Section */}
             <div className="bg-gray-800 rounded-lg p-6 mb-8 w-full max-w-md shadow-lg mt-12">
                 <h2 className="text-2xl font-bold mb-4 text-indigo-400">Get Started</h2>
-                <p>Please enter your Discord username and NinjaTrader User-Defined Machine ID in the form below, and we will get you set up with your license on our end.</p>
-                <p className='mt-4'>To get the User-Defined Machine ID:</p>
-                <ol className='list-decimal m-4'>
-                    <li>In the NinjaTrader Control Center, click "Help" &gt; then click “3rd party licensing”</li>
-                    <li>Put "FluxTrade" into the “Vendor name” field</li>
-                    <li>In the "User defined ID" section, put a string to add to your machine ID into the “User defined ID” field. (example: JoeRichardsPC)</li>
-                    <li>Click "Submit" &gt; then copy the newly generated Machine ID &gt; email that to ID to us us with the newly generated machine ID</li>
-                </ol>
+                
                 {success ? (
                     <div className="text-green-400 font-semibold text-center">Info submitted successfully! We'll be in touch soon. 🚀</div>
                 ) : (
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                        <label className="flex flex-col text-left">
-                            <span className="mb-1 font-semibold">Discord Username</span>
-                            <input
-                                type="text"
-                                className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                placeholder="e.g. trader#1234"
-                                value={discordName}
-                                onChange={e => setDiscordName(e.target.value)}
-                                required
-                            />
-                        </label>
-                        <label className="flex flex-col text-left">
-                            <span className="mb-1 font-semibold">User-Defined Machine ID</span>
-                            <input
-                                type="text"
-                                className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                placeholder="Enter your custom machine ID"
-                                value={machineId}
-                                onChange={e => setMachineId(e.target.value)}
-                                required
-                            />
-                        </label>
-                        {error && <div className="text-red-400 text-sm">{error}</div>}
-                        <button
-                            type="submit"
-                            className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 disabled:opacity-60"
-                            disabled={loading}
-                        >
-                            {loading ? 'Submitting...' : 'Submit Info'}
-                        </button>
-                    </form>
+                    <>
+                        <p>Please enter your Discord username and NinjaTrader User-Defined Machine ID in the form below, and we will get you set up with your license on our end.</p>
+                        <p className='mt-4'>To get the User-Defined Machine ID:</p>
+                        <ol className='list-decimal m-4'>
+                            <li>In the NinjaTrader Control Center, click "Help" &gt; then click “3rd party licensing”</li>
+                            <li>Put "FluxTrade" into the “Vendor name” field</li>
+                            <li>In the "User defined ID" section, put a string to add to your machine ID into the “User defined ID” field. (example: JoeRichardsPC)</li>
+                            <li>Click "Submit" &gt; then copy the newly generated Machine ID &gt; email that to ID to us us with the newly generated machine ID</li>
+                        </ol>
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
+                            <label className="flex flex-col text-left">
+                                <span className="mb-1 font-semibold">Email</span>
+                                <input
+                                    type="email"
+                                    className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    placeholder="your@email.com"
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)}
+                                    required
+                                />
+                            </label>
+                            <label className="flex flex-col text-left">
+                                <span className="mb-1 font-semibold">Discord Username</span>
+                                <input
+                                    type="text"
+                                    className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    placeholder="e.g. Trader"
+                                    value={discordName}
+                                    onChange={e => setDiscordName(e.target.value)}
+                                    required
+                                />
+                            </label>
+                            <label className="flex flex-col text-left">
+                                <span className="mb-1 font-semibold">User-Defined Machine ID</span>
+                                <input
+                                    type="text"
+                                    className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    placeholder="Enter your custom machine ID"
+                                    value={machineId}
+                                    onChange={e => setMachineId(e.target.value)}
+                                    required
+                                />
+                            </label>
+                            {error && <div className="text-red-400 text-sm">{error}</div>}
+                            <button
+                                type="submit"
+                                className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 disabled:opacity-60"
+                                disabled={loading}
+                            >
+                                {loading ? 'Submitting...' : 'Submit Info'}
+                            </button>
+                        </form>
+                    </>
                 )}
             </div>
             
