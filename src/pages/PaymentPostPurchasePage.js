@@ -1,9 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from '../api/axios';
 
 export function PaymentPostPurchasePage() {
+    const [discordName, setDiscordName] = useState('');
+    const [machineId, setMachineId] = useState('');
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setError('');
+        try {
+            await axios.post('/payment/send-post-purchase-info', {
+                discordName,
+                machineId,
+            });
+            setSuccess(true);
+        } catch (err) {
+            setError('Failed to submit info. Please try again.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
-        <div className="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-4">
+        <div className="bg-gray-900 text-white min-h-screen flex flex-col items-center p-4 pt-12">
             <h1 className="text-4xl font-extrabold mb-4 text-green-400">Congrats, your purchase is complete! 🎉</h1>
             <p className="text-lg text-gray-300 mb-6 max-w-xl">
                 Thank you for joining FluxTrade! Your subscription is now active and you have full access to all premium features. Check your email for a receipt and onboarding instructions. If you have any questions, our support team is here to help.
@@ -14,6 +38,55 @@ export function PaymentPostPurchasePage() {
             <Link to="/account" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg">
                 Go to My Account
             </Link>
+            {/* New Form Section */}
+            <div className="bg-gray-800 rounded-lg p-6 mb-8 w-full max-w-md shadow-lg mt-12">
+                <h2 className="text-2xl font-bold mb-4 text-indigo-400">Get Started</h2>
+                <p>Please enter your Discord username and NinjaTrader User-Defined Machine ID in the form below, and we will get you set up with your license on our end.</p>
+                <p className='mt-4'>To get the User-Defined Machine ID:</p>
+                <ol className='list-decimal m-4'>
+                    <li>In the NinjaTrader Control Center, click "Help" &gt; then click “3rd party licensing”</li>
+                    <li>Put "FluxTrade" into the “Vendor name” field</li>
+                    <li>In the "User defined ID" section, put a string to add to your machine ID into the “User defined ID” field. (example: JoeRichardsPC)</li>
+                    <li>Click "Submit" &gt; then copy the newly generated Machine ID &gt; email that to ID to us us with the newly generated machine ID</li>
+                </ol>
+                {success ? (
+                    <div className="text-green-400 font-semibold text-center">Info submitted successfully! We'll be in touch soon. 🚀</div>
+                ) : (
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                        <label className="flex flex-col text-left">
+                            <span className="mb-1 font-semibold">Discord Username</span>
+                            <input
+                                type="text"
+                                className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                placeholder="e.g. trader#1234"
+                                value={discordName}
+                                onChange={e => setDiscordName(e.target.value)}
+                                required
+                            />
+                        </label>
+                        <label className="flex flex-col text-left">
+                            <span className="mb-1 font-semibold">User-Defined Machine ID</span>
+                            <input
+                                type="text"
+                                className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                placeholder="Enter your custom machine ID"
+                                value={machineId}
+                                onChange={e => setMachineId(e.target.value)}
+                                required
+                            />
+                        </label>
+                        {error && <div className="text-red-400 text-sm">{error}</div>}
+                        <button
+                            type="submit"
+                            className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 disabled:opacity-60"
+                            disabled={loading}
+                        >
+                            {loading ? 'Submitting...' : 'Submit Info'}
+                        </button>
+                    </form>
+                )}
+            </div>
+            
         </div>
     );
 } 
