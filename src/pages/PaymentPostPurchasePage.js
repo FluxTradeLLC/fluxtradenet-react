@@ -44,7 +44,7 @@ export function PaymentPostPurchasePage() {
             <div className="bg-gray-800 rounded-lg p-6 mb-8 w-full max-w-md shadow-lg mt-12">
                 <h2 className="text-2xl font-bold mb-4 text-indigo-400">Get Started</h2>
                 
-                {true ? (
+                {success ? (
                     <div className="text-green-400 font-semibold text-center">Info submitted successfully! We'll add access for these accounts shortly. In the meantime, please check your email for information on how to download and install the Add-ons. 🚀<p className='mt-6'>Join the <a className="text-blue-400" href="https://discord.gg/UTcxDRQ26U">Discord!</a></p></div>
                 ) : (
                     <>
