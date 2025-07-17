@@ -43,7 +43,7 @@ export function PricingPage() {
         <div className="bg-gray-900 text-white min-h-screen">
             <div className="text-center mb-12 pt-12">
                 <h1 className="text-5xl font-extrabold mb-4">Choose Your Plan</h1>
-                <p className="text-lg text-gray-400">Unlock the full potential of FluxTrade with our tailored plans.</p>
+                <p className="text-lg text-gray-400">Unlock the full potential of FluxTrade with our tailored plans. Both plans offer a 30 day free trial!</p>
             </div>
             <div className="flex flex-wrap justify-center gap-8 pb-16">
                 <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-gray-700 transform hover:scale-105 transition-transform duration-300">
