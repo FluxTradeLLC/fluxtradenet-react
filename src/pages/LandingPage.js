@@ -2,12 +2,17 @@ import { Link } from 'react-router-dom';
 
 import kinetickLogo from '../assets/logos/Kinetick_Logo.png';
 import ntLogo from '../assets/logos/NinjaTrader_Wordmark_color_RGB.png';
+
 import fluxConfluence from '../assets/indicators/FluxConfluence.PNG';
 import fluxPivot from '../assets/indicators/FluxPivot.PNG';
 import fluxSignal from '../assets/indicators/FluxSignal.PNG';
 import marketRegime from '../assets/indicators/MarketRegime.PNG';
 import parabolicRSI from '../assets/indicators/ParabolicRSI.PNG';
 import previousLevels from '../assets/indicators/PreviousLevels.PNG';
+import fluxTarget from '../assets/indicators/FluxTarget.PNG';
+import marketPhase from '../assets/indicators/MarketPhase.PNG';
+import ttmSqueeze from '../assets/indicators/TTM Squeeze.PNG';
+import volatilityCycle from '../assets/indicators/VolatilityCycle.PNG';
 
 import fluxLightning1 from '../assets/strategies/FluxLightning1.PNG';
 import fluxLightning2 from '../assets/strategies/FluxLightning2.PNG';
@@ -23,12 +28,18 @@ import '../App.css';
 
 export function LandingPage() {
   const indicators = [
+    // NEW INDICATORS
+    { name: 'FluxTarget', image: fluxTarget, features: ["Dynamic target bands", "Adaptive to volatility", "Great for exits"], isNew: true },
+    { name: 'Market Phase', image: marketPhase, features: ["Visual market phase detection", "Trend and range highlighting", "Easy to interpret"], isNew: true },
+    { name: 'TTM Squeeze', image: ttmSqueeze, features: ["Momentum and squeeze detection", "Great for breakout trades", "Visual histogram"], isNew: true },
+    { name: 'Volatility Cycle', image: volatilityCycle, features: ["Volatility cycle oscillator", "Spot expansion and contraction", "Pairs well with other indicators"], isNew: true },
+
     { name: 'FluxConfluence', image: fluxConfluence, features: ["Trade with the trend", "Get multiple confluences", "Buy and sell signals"]},
     { name: 'FluxPivot', image: fluxPivot, features: ["Pivot between buying and selling", "Add into existing positions", "Smart pivot detection"]},
     { name: 'FluxSignal', image: fluxSignal, features: ["Understand changing markets", "Buy and sell signals", "Catch new trends as they start"]},
     { name: 'Market Regime', image: marketRegime, features: ["Understand market regimes", "High and low volatility", "Sideways or trending"]},
     { name: 'Parabolic RSI', image: parabolicRSI, features: ["Parabolic SAR + RSI", "Paired with Ultimate Entry Indicator", "Overbought and oversold areas"]},
-    { name: 'Previous Levels', image: previousLevels, features: ["Identify previous highs and lows", "Trade reversals and breakouts", "Yesterday, premarket, and opening range"]},
+    { name: 'Previous Levels', image: previousLevels, features: ["Identify previous highs and lows", "Trade reversals and breakouts", "Yesterday, premarket, and opening range"]}, 
   ];
 
   const strategies = [
@@ -71,8 +82,13 @@ export function LandingPage() {
           <h3 className="text-2xl text-center mb-8">Learn how to trade manually with a plan and strategy built with indicators</h3>
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
             {indicators.map(indicator => (
-              <div key={indicator.name} className="bg-gray-800 rounded-lg p-4 flex flex-col items-center">
-                <h3 className="text-xl font-semibold mb-2">{indicator.name}</h3>
+              <div key={indicator.name} className="bg-gray-800 rounded-lg p-4 flex flex-col items-center relative">
+                <h3 className="text-xl font-semibold mb-2 flex items-center">
+                  {indicator.name}
+                  {indicator.isNew && (
+                    <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">NEW!</span>
+                  )}
+                </h3>
                 <ul className="list-disc list-inside mb-4">
                   {indicator?.features?.map(feature => (
                     <li key={feature}>{feature}</li>
