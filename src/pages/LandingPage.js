@@ -22,6 +22,10 @@ import fluxSignalStrat1 from '../assets/strategies/FluxSignalStrat1.PNG';
 import fluxSignalStrat2 from '../assets/strategies/FluxSignalStrat2.PNG';
 import fluxTrident1 from '../assets/strategies/FluxTrident1.PNG';
 import fluxTrident2 from '../assets/strategies/FluxTrident2.PNG';
+import cointegratedPairs1 from '../assets/strategies/CointegratedPairs1.PNG';
+import cointegratedPairs2 from '../assets/strategies/CointegratedPairs2.PNG';
+import rileySR1 from '../assets/strategies/RileySR1.PNG';
+import rileySR2 from '../assets/strategies/RileySR2.PNG';
 
 import '../App.css';
 
@@ -43,6 +47,28 @@ export function LandingPage() {
   ];
 
   const strategies = [
+    {
+      name: 'CointegratedPairs',
+      images: [cointegratedPairs1, cointegratedPairs2],
+      features: [
+        "Pairs trading strategy",
+        "Statistical arbitrage",
+        "Dynamic Z-Score entries and exits"
+      ],
+      backtestUrl: "/backtests/cointegrated_pairs",
+      isNew: true
+    },
+    {
+      name: 'RileySR',
+      images: [rileySR1, rileySR2],
+      features: [
+        "Support/resistance breakout",
+        "Multiple indicator filters",
+        "Volume and RSI confirmation"
+      ],
+      backtestUrl: "/backtests/rileySR",
+      isNew: true
+    },
     { 
         name: 'FluxLightning', 
         images: [fluxLightning1, fluxLightning2], 
@@ -106,7 +132,12 @@ export function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
             {strategies.map(strategy => (
               <div key={strategy.name} className="bg-gray-800 rounded-lg p-4 flex flex-col items-center">
-                <h3 className="text-xl font-semibold mb-2">{strategy.name}</h3>
+                <h3 className="text-xl font-semibold mb-2 flex items-center">
+                  {strategy.name}
+                  {strategy.isNew && (
+                    <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">NEW!</span>
+                  )}
+                </h3>
                 <ul className="list-disc list-inside mb-4">
                   {strategy.features.map(feature => (
                     <li key={feature}>{feature}</li>

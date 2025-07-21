@@ -29,6 +29,8 @@ function App() {
           <Route path="/backtests/flux_signal_strat" element={<BacktestPage file="fluxSignalStrat.csv" />} />
           <Route path="/backtests/flux_pivot_strat" element={<BacktestPage file="fluxPivotStrat.csv" />} />
           <Route path="/backtests/flux_lightning" element={<BacktestPage file="fluxLightning.csv" />} />
+          <Route path="/backtests/rileySR" element={<BacktestPage file="rileySR.csv" />} />
+          <Route path="/backtests/cointegrated_pairs" element={<BacktestPage file="cointegratedPairs.csv" />} />
         </Routes>
         <Footer/> 
       </div>
