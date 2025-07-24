@@ -19,7 +19,7 @@ export const Header = () => {
           <img src={fluxLogo} alt="Flux Trade Logo" className="h-[75px]" />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold italic ml-[40px] text-center">FluxTrade</h1>
       </Link>
-      <nav className="flex w-full md:w-auto justify-center md:justify-end items-center space-x-8 p-6 rounded-lg md:ml-[100px] md:-mt-[100px]">
+      <nav className="flex w-full flex-wrap md:w-auto gap-2 justify-center md:justify-end items-center space-x-8 p-6 rounded-lg md:ml-[300px] md:-mt-[100px]">
         <ul>
           <Link
             to="/"
