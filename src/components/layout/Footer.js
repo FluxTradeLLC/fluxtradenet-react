@@ -21,6 +21,8 @@ in the preparation of hypothetical performance results and all which can adverse
         <p>Testimonials appearing on this website may not be representative of other clients or customers and is not
         a guarantee of future performance or success. </p>
 
+        
+        <div className="flex justify-center w-full mt-12"><iframe title="Discord" src="https://discord.com/widget?id=1296225730568388640&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>
         <p className="text-center mt-12">Copyright &copy; {new Date().getFullYear()}, FluxTrade, LLC. All rights reserved.</p>
       </footer>
     )
