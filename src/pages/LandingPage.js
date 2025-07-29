@@ -26,6 +26,8 @@ import cointegratedPairs1 from '../assets/strategies/CointegratedPairs1.PNG';
 import cointegratedPairs2 from '../assets/strategies/CointegratedPairs2.PNG';
 import rileySR1 from '../assets/strategies/RileySR1.PNG';
 import rileySR2 from '../assets/strategies/RileySR2.PNG';
+import orb1 from '../assets/strategies/ORB1.PNG';
+import orb2 from '../assets/strategies/ORB2.PNG';
 
 import '../App.css';
 
@@ -47,6 +49,18 @@ export function LandingPage() {
   ];
 
   const strategies = [
+    {
+      name: 'ORB (Opening Range Break)',
+      images: [orb1, orb2],
+      features: [
+        'Classic opening range breakout',
+        'Automated entries and exits',
+        'Works on all timeframes',
+        'Great for volatility and momentum'
+      ],
+      backtestUrl: '/backtests/orb',
+      isNew: true
+    },
     {
       name: 'CointegratedPairs',
       images: [cointegratedPairs1, cointegratedPairs2],
