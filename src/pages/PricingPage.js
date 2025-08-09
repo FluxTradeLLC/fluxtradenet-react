@@ -5,12 +5,19 @@ import api from '../api/axios';
 
 export function PricingPage() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isTestMode, setIsTestMode] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
         const token = Cookies.get('token');
         if (token) {
             setIsAuthenticated(true);
+        }
+        try {
+            const testModeValue = localStorage.getItem('TEST_MODE');
+            setIsTestMode(testModeValue === "true");
+        } catch (error) {
+            setIsTestMode(false);
         }
     }, []);
 
@@ -31,13 +38,18 @@ export function PricingPage() {
     const PRICING_IDS = {
         LOCAL: {
             STANDARD: "price_1Rk96ZDHqntRcM5inO0o24TP",
-            PRO: "price_1Rk971DHqntRcM5i5pndgfLL"
+            PRO: "price_1Rk971DHqntRcM5i5pndgfLL",
+            TEST: "price_1RuGDIDHqntRcM5iboesQtD5"
         },
         PRODUCTION: {
             STANDARD: "price_1RkWkiDHqntRcM5i8UrCeTsw",
-            PRO: "price_1RkWkcDHqntRcM5i4MakObtw"
+            PRO: "price_1RkWkcDHqntRcM5i4MakObtw",
+            TEST: "price_1RuG9KDHqntRcM5iW0OPXS5D"
         }
     }
+
+    const envKey = (process.env.REACT_APP_NODE_ENV ? process.env.REACT_APP_NODE_ENV.toUpperCase() : 'LOCAL');
+    const testPriceId = PRICING_IDS[envKey]?.TEST;
 
     return (
         <div className="bg-gray-900 text-white min-h-screen">
@@ -65,7 +77,7 @@ export function PricingPage() {
                     </ul>
                     {isAuthenticated ? (
                         <button 
-                            onClick={() => handleCheckout(PRICING_IDS[process.env.REACT_APP_NODE_ENV.toUpperCase() || "LOCAL"].STANDARD)}
+                            onClick={() => handleCheckout(PRICING_IDS[envKey].STANDARD)}
                             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
                             Go To Checkout
                         </button>
@@ -101,7 +113,7 @@ export function PricingPage() {
                     </ul>
                     {isAuthenticated ? (
                         <button 
-                            onClick={() => handleCheckout(PRICING_IDS[process.env.REACT_APP_NODE_ENV.toUpperCase() || "LOCAL"].PRO)}
+                            onClick={() => handleCheckout(PRICING_IDS[envKey].PRO)}
                             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
                             Go To Checkout
                         </button>
@@ -113,6 +125,34 @@ export function PricingPage() {
                         </button>
                     )}
                 </div>
+                {/* Test Plan (only when TEST_MODE is truthy and a TEST price exists) */}
+                {isTestMode && testPriceId ? (
+                    <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-yellow-500 transform hover:scale-105 transition-transform duration-300">
+                        <h2 className="text-3xl font-bold text-center mb-4 text-yellow-400">Test</h2>
+                        <p className="text-center text-lg font-medium text-gray-400 mb-6">Stripe test price</p>
+                        <ul className="space-y-4 text-gray-300 mb-8">
+                            <li className="flex items-center">
+                                <svg className="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>For testing checkout flows only</span>
+                            </li>
+                        </ul>
+                        {isAuthenticated ? (
+                            <button
+                                onClick={() => handleCheckout(testPriceId)}
+                                className="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
+                            >
+                                Use Test Checkout
+                            </button>
+                        ) : (
+                            <button
+                                onClick={() => navigate('/account')}
+                                className="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
+                            >
+                                Get Started
+                            </button>
+                        )}
+                    </div>
+                ) : null}
             </div>
         </div>
     );
