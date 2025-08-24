@@ -6,6 +6,8 @@ export function PaymentPostPurchasePage() {
     const [discordName, setDiscordName] = useState('');
     const [machineId, setMachineId] = useState('');
     const [email, setEmail] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -19,6 +21,8 @@ export function PaymentPostPurchasePage() {
                 discordName,
                 machineId,
                 email,
+                firstName,
+                lastName,
             });
             setSuccess(true);
         } catch (err) {
@@ -57,6 +61,28 @@ export function PaymentPostPurchasePage() {
                             <li>Click "Submit" &gt; then copy the newly generated Machine ID &gt; email that to ID to us (<a href="mailto:hello@fluxtrade.net" className='text-blue-400'>hello@fluxtrade.net</a>) with the newly generated machine ID</li>
                         </ol>
                         <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
+                            <label className="flex flex-col text-left">
+                                <span className="mb-1 font-semibold">First Name</span>
+                                <input
+                                    type="text"
+                                    className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    placeholder="First Name"
+                                    value={firstName}
+                                    onChange={e => setFirstName(e.target.value)}
+                                    required
+                                />
+                            </label>
+                            <label className="flex flex-col text-left">
+                                <span className="mb-1 font-semibold">Last Name</span>
+                                <input
+                                    type="text"
+                                    className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    placeholder="Last Name"
+                                    value={lastName}
+                                    onChange={e => setLastName(e.target.value)}
+                                    required
+                                />
+                            </label>
                             <label className="flex flex-col text-left">
                                 <span className="mb-1 font-semibold">Email</span>
                                 <input
