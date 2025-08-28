@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
 import api from '../../api/axios';
 import Cookies from 'js-cookie';
 
@@ -6,13 +7,20 @@ export const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  // const navigate = useNavigate();
+  const cookieOptions = {
+    path: '/',
+    sameSite: 'Lax',
+    secure: process.env.NODE_ENV === 'production',
+    ...(process.env.NODE_ENV === 'production' ? { domain: '.fluxtrade.net' } : {})
+  };
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
     setError('');
     try {
       const res = await api.post('/users/login', { email, password });
-      Cookies.set('token', res.data.token, { expires: 7 });
+      Cookies.set('token', res.data.token, { ...cookieOptions, expires: 7 });
       localStorage.setItem('userEmail', email);
       // alert('Signed in!');
       window.location.reload();

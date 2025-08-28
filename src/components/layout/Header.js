@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Cookies from 'js-cookie';
 import fluxLogo from '../../assets/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
@@ -9,8 +8,8 @@ export const Header = () => {
   const [hasSession, setHasSession] = useState(false);
 
   useEffect(() => {
-    const token = Cookies.get('token');
-    setHasSession(!!token);
+    const email = localStorage.getItem('userEmail');
+    setHasSession(!!email);
   }, []);
 
   return (

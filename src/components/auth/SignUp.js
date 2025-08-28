@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import api from '../../api/axios';
 
 export const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  // const navigate = useNavigate();
+  const cookieOptions = {
+    path: '/',
+    sameSite: 'Lax',
+    secure: process.env.NODE_ENV === 'production',
+    ...(process.env.NODE_ENV === 'production' ? { domain: '.fluxtrade.net' } : {} )
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,7 +21,13 @@ export const SignUp = () => {
     try {
       await api.post('/users/register', { email, password });
       localStorage.setItem('userEmail', email);
-      // alert('Registered! Now sign in.');
+      // Immediately log the user in after successful registration
+      const res = await api.post('/users/login', { email, password });
+      if (res?.data?.token) {
+        // Align cookie options with SignIn and AuthCallback behavior
+        Cookies.set('token', res.data.token, { ...cookieOptions, expires: 7 });
+      }
+      window.location.reload()
     } catch (err) {
       setError(err.response?.data?.error || 'Registration failed');
     }

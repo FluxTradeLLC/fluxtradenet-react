@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Cookies from 'js-cookie';
 import { SignUp } from '../components/auth/SignUp';
 import { SignIn } from '../components/auth/SignIn';
 import { SignOut } from '../components/auth/SignOut';
@@ -12,24 +11,21 @@ export const AccountPage = () => {
   const [isPaid, setIsPaid] = useState(false);
 
   useEffect(() => {
-    const token = Cookies.get('token');
-    setHasSession(!!token);
-    if (token) {
-      const email = localStorage.getItem('userEmail');
+    const email = localStorage.getItem('userEmail');
+    setHasSession(!!email);
+    if (email) {
       setUserEmail(email);
-      if (email) {
-        const fetchSubscriptionStatus = async () => {
-          try {
-            const { data } = await api.get(
-              `/payment/subscription-status/${email}`
-            );
-            setIsPaid(data.paid);
-          } catch (error) {
-            console.error('Error fetching subscription status:', error);
-          }
-        };
-        fetchSubscriptionStatus();
-      }
+      const fetchSubscriptionStatus = async () => {
+        try {
+          const { data } = await api.get(
+            `/payment/subscription-status/${email}`
+          );
+          setIsPaid(data.paid);
+        } catch (error) {
+          console.error('Error fetching subscription status:', error);
+        }
+      };
+      fetchSubscriptionStatus();
     }
   }, []);
 

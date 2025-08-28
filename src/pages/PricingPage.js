@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
 import api from '../api/axios';
 
 export function PricingPage() {
@@ -9,8 +8,8 @@ export function PricingPage() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const token = Cookies.get('token');
-        if (token) {
+        const email = localStorage.getItem('userEmail');
+        if (email) {
             setIsAuthenticated(true);
         }
         try {

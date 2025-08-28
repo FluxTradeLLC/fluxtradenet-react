@@ -9,13 +9,18 @@ export const SignOut = () => {
     setError('');
     try {
       await api.post('/users/logout');
-      
-      const cookieOptions = {
-        domain: process.env.NODE_ENV === 'production' ? '.fluxtrade.net' : 'localhost',
-      };
 
-      Cookies.remove('token', cookieOptions);
-      Cookies.remove('refresh_token', cookieOptions);
+      // Remove cookies regardless of how they were originally set
+      const domainOptions = process.env.NODE_ENV === 'production'
+        ? { domain: '.fluxtrade.net', path: '/' }
+        : { path: '/' };
+      const hostOnlyOptions = { path: '/' };
+
+      // Attempt removal for domain cookie (production) and host-only cookie variants
+      Cookies.remove('token', domainOptions);
+      Cookies.remove('refresh_token', domainOptions);
+      Cookies.remove('token', hostOnlyOptions);
+      Cookies.remove('refresh_token', hostOnlyOptions);
       localStorage.removeItem('userEmail');
 
       window.location.reload()

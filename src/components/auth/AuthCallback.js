@@ -15,8 +15,10 @@ export const AuthCallback = () => {
       const refreshToken = params.get('refresh_token');
       
       const cookieOptions = {
-        secure: true,
+        path: '/',
         sameSite: 'Lax',
+        secure: process.env.NODE_ENV === 'production',
+        ...(process.env.NODE_ENV === 'production' ? { domain: '.fluxtrade.net' } : {})
       };
 
       if (process.env.NODE_ENV === 'production') {
