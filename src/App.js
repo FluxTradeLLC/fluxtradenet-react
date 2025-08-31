@@ -32,6 +32,11 @@ function App() {
           <Route path="/backtests/rileySR" element={<BacktestPage file="rileySR.csv" />} />
           <Route path="/backtests/cointegrated_pairs" element={<BacktestPage file="cointegratedPairs.csv" />} />
           <Route path="/backtests/orb" element={<BacktestPage file="orb.csv" />} />
+          <Route path="/backtests/elliot_wave" element={<BacktestPage file="elliotWave.csv" />} />
+          <Route path="/backtests/icc_choch" element={<BacktestPage file="ICCChoCh.csv" />} />
+          <Route path="/backtests/low_volatility" element={<BacktestPage file="lowVolatility.csv" />} />
+          <Route path="/backtests/project_gamma" element={<BacktestPage file="projectGamma.csv" />} />
+          <Route path="/backtests/trend_catcher" element={<BacktestPage file="trendCatcher.csv" />} />
         </Routes>
         <Footer/> 
       </div>

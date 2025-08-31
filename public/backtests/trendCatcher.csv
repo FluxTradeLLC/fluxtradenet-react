@@ -1,0 +1,4 @@
+Trade number,Instrument,Account,Strategy,Market pos.,Qty,Entry price,Exit price,Entry time,Exit time,Entry name,Exit name,Profit,Cum. net profit,Commission,MAE,MFE,ETD,Bars,
+1,NQ SEP25,Backtest,TrendCatcher,Long,50,23003.75,23031.25,7/9/2025 9:32:00 AM,7/9/2025 9:36:00 AM,LongEntry,Profit target,$27216.00,$27216.00,$284.00,$7250.00,$27500.00,$284.00,5,
+2,NQ SEP25,Backtest,TrendCatcher,Long,50,23458.75,23486.25,8/22/2025 10:02:00 AM,8/22/2025 10:02:00 AM,LongEntry,Profit target,$27216.00,$54432.00,$284.00,$0.00,$27500.00,$284.00,1,
+3,NQ SEP25,Backtest,TrendCatcher,Long,50,23704.75,23732.25,8/28/2025 9:32:00 AM,8/28/2025 9:32:00 AM,LongEntry,Profit target,$27216.00,$81648.00,$284.00,$0.00,$27500.00,$284.00,1,

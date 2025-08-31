@@ -29,6 +29,18 @@ import rileySR2 from '../assets/strategies/RileySR2.PNG';
 import orb1 from '../assets/strategies/ORB1.PNG';
 import orb2 from '../assets/strategies/ORB2.PNG';
 
+// New strategy assets
+import elliotWave1 from '../assets/strategies/ElliotWave1.PNG';
+import elliotWave2 from '../assets/strategies/ElliotWave2.PNG';
+import iccChoch1 from '../assets/strategies/ICCChoch1.PNG';
+import iccChoch2 from '../assets/strategies/ICCChoch2.PNG';
+import lowVolatility1 from '../assets/strategies/LowVolatility1.PNG';
+import lowVolatility2 from '../assets/strategies/LowVolatility2.PNG';
+import projectGamma1 from '../assets/strategies/ProjectGamma1.PNG';
+import projectGamma2 from '../assets/strategies/ProjectGamma2.PNG';
+import trendCatcher1 from '../assets/strategies/TrendCatcher.PNG';
+import trendCatcher2 from '../assets/strategies/TrendCatcher2.PNG';
+
 import '../App.css';
 
 
@@ -50,6 +62,61 @@ export function LandingPage() {
 
   const strategies = [
     {
+      name: 'ElliotWave',
+      images: [elliotWave1, elliotWave2],
+      features: [
+        'Automated Elliott Wave counts',
+        'Identifies impulse and corrective waves',
+        'Risk targets aligned with structure'
+      ],
+      backtestUrl: '/backtests/elliot_wave',
+      isNew: true
+    },
+    {
+      name: 'ICC ChoCh',
+      images: [iccChoch1, iccChoch2],
+      features: [
+        'Smart structure shift detection',
+        'ChoCh/BOS signals for reversals',
+        'Trend continuation and reversal logic'
+      ],
+      backtestUrl: '/backtests/icc_choch',
+      isNew: true
+    },
+    {
+      name: 'Low Volatility',
+      images: [lowVolatility1, lowVolatility2],
+      features: [
+        'Mean reversion in quiet regimes',
+        'Adaptive filters and bands',
+        'Captures squeeze expansions'
+      ],
+      backtestUrl: '/backtests/low_volatility',
+      isNew: true
+    },
+    {
+      name: 'Project Gamma',
+      images: [projectGamma1, projectGamma2],
+      features: [
+        'Options gamma regime concepts',
+        'Volatility-aware entries and exits',
+        'Great on indices and futures'
+      ],
+      backtestUrl: '/backtests/project_gamma',
+      isNew: true
+    },
+    {
+      name: 'TrendCatcher',
+      images: [trendCatcher1, trendCatcher2],
+      features: [
+        'Ride sustained trends',
+        'Dynamic trailing stop logic',
+        'Multi-timeframe confirmation'
+      ],
+      backtestUrl: '/backtests/trend_catcher',
+      isNew: true
+    },
+    {
       name: 'ORB (Opening Range Break)',
       images: [orb1, orb2],
       features: [
@@ -59,7 +126,6 @@ export function LandingPage() {
         'Great for volatility and momentum'
       ],
       backtestUrl: '/backtests/orb',
-      isNew: true
     },
     {
       name: 'CointegratedPairs',
@@ -70,7 +136,6 @@ export function LandingPage() {
         "Dynamic Z-Score entries and exits"
       ],
       backtestUrl: "/backtests/cointegrated_pairs",
-      isNew: true
     },
     {
       name: 'RileySR',
@@ -81,7 +146,6 @@ export function LandingPage() {
         "Volume and RSI confirmation"
       ],
       backtestUrl: "/backtests/rileySR",
-      isNew: true
     },
     { 
         name: 'FluxLightning', 

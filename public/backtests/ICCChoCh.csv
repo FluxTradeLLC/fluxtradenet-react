@@ -1,0 +1,8 @@
+Trade number,Instrument,Account,Strategy,Market pos.,Qty,Entry price,Exit price,Entry time,Exit time,Entry name,Exit name,Profit,Cum. net profit,Commission,MAE,MFE,ETD,Bars,
+1,NQ SEP25,Backtest,PermissiveChoChLongShort,Long,5,23832.75,23830.25,8/12/2025 11:13:00 AM,8/12/2025 11:13:00 AM,ChoChLong,Stop loss,($250.00),($250.00),$0.00,$250.00,$0.00,$250.00,1,
+2,NQ SEP25,Backtest,PermissiveChoChLongShort,Long,5,23158.50,23203.50,8/20/2025 11:19:00 AM,8/20/2025 11:24:00 AM,ChoChLong,Profit target,$4500.00,$4250.00,$0.00,$0.00,$4500.00,$0.00,6,
+3,NQ SEP25,Backtest,PermissiveChoChLongShort,Long,5,23215.75,23260.75,8/20/2025 11:29:00 AM,8/20/2025 11:39:00 AM,ChoChLong,Profit target,$4500.00,$8750.00,$0.00,$150.00,$4500.00,$0.00,11,
+4,NQ SEP25,Backtest,PermissiveChoChLongShort,Long,5,23458.75,23503.75,8/22/2025 10:02:00 AM,8/22/2025 10:02:00 AM,ChoChLong,Profit target,$4500.00,$13250.00,$0.00,$0.00,$4500.00,$0.00,1,
+5,NQ SEP25,Backtest,PermissiveChoChLongShort,Long,5,23526.50,23524.00,8/22/2025 10:05:00 AM,8/22/2025 10:05:00 AM,ChoChLong,Stop loss,($250.00),$13000.00,$0.00,$250.00,$0.00,$250.00,1,
+6,NQ SEP25,Backtest,PermissiveChoChLongShort,Long,5,23560.25,23557.75,8/22/2025 10:10:00 AM,8/22/2025 10:10:00 AM,ChoChLong,Stop loss,($250.00),$12750.00,$0.00,$250.00,$0.00,$250.00,1,
+7,NQ SEP25,Backtest,PermissiveChoChLongShort,Long,5,23586.75,23631.75,8/22/2025 10:16:00 AM,8/22/2025 10:17:00 AM,ChoChLong,Profit target,$4500.00,$17250.00,$0.00,$225.00,$4500.00,$0.00,2,
