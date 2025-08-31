@@ -69,7 +69,7 @@ export function LandingPage() {
         'Identifies impulse and corrective waves',
         'Risk targets aligned with structure'
       ],
-      backtestUrl: '/backtests/elliot_wave',
+      backtestUrl: '/backtests/elliot-wave',
       isNew: true
     },
     {
@@ -80,7 +80,7 @@ export function LandingPage() {
         'ChoCh/BOS signals for reversals',
         'Trend continuation and reversal logic'
       ],
-      backtestUrl: '/backtests/icc_choch',
+      backtestUrl: '/backtests/icc-choch',
       isNew: true
     },
     {
@@ -91,18 +91,18 @@ export function LandingPage() {
         'Adaptive filters and bands',
         'Captures squeeze expansions'
       ],
-      backtestUrl: '/backtests/low_volatility',
+      backtestUrl: '/backtests/low-volatility',
       isNew: true
     },
     {
       name: 'Project Gamma',
       images: [projectGamma1, projectGamma2],
       features: [
-        'Options gamma regime concepts',
+        'Bullish and bearish engulfing pattern detection',
         'Volatility-aware entries and exits',
         'Great on indices and futures'
       ],
-      backtestUrl: '/backtests/project_gamma',
+      backtestUrl: '/backtests/project-gamma',
       isNew: true
     },
     {
@@ -113,7 +113,7 @@ export function LandingPage() {
         'Dynamic trailing stop logic',
         'Multi-timeframe confirmation'
       ],
-      backtestUrl: '/backtests/trend_catcher',
+      backtestUrl: '/backtests/trend-catcher',
       isNew: true
     },
     {
@@ -135,7 +135,7 @@ export function LandingPage() {
         "Statistical arbitrage",
         "Dynamic Z-Score entries and exits"
       ],
-      backtestUrl: "/backtests/cointegrated_pairs",
+      backtestUrl: "/backtests/cointegrated-pairs",
     },
     {
       name: 'RileySR',
@@ -145,31 +145,31 @@ export function LandingPage() {
         "Multiple indicator filters",
         "Volume and RSI confirmation"
       ],
-      backtestUrl: "/backtests/rileySR",
+      backtestUrl: "/backtests/riley-sr",
     },
     { 
         name: 'FluxLightning', 
         images: [fluxLightning1, fluxLightning2], 
         features: ["Fully automated strategy", "Great for trending markets", "Long and short signals"],
-        backtestUrl: "/backtests/flux_lightning"
+        backtestUrl: "/backtests/flux-lightning"
     },
     { 
         name: 'FluxPivot Strategy', 
         images: [fluxPivotStrat1, fluxPivotStrat2], 
         features: ["Automated pivot detection", "Trade with institutional levels", "Works great with FluxPivot indicator"],
-        backtestUrl: "/backtests/flux_pivot_strat"
+        backtestUrl: "/backtests/flux-pivot-strat"
     },
     { 
         name: 'FluxSignal Strategy', 
         images: [fluxSignalStrat1, fluxSignalStrat2], 
         features: ["Uses Flux Signal for entries", "Catches trends early", "Simple to use"],
-        backtestUrl: "/backtests/flux_signal_strat"
+        backtestUrl: "/backtests/flux-signal-strat"
     },
     { 
         name: 'FluxTrident', 
         images: [fluxTrident1, fluxTrident2], 
         features: ["Three-step trend confirmation", "Powerful scalping strategy", "Identifies strong trend continuations"],
-        backtestUrl: "/backtests/flux_trident"
+        backtestUrl: "/backtests/flux-trident"
     }
   ];
 

@@ -25,18 +25,18 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/auth/callback" element={<AuthCallback />} />
-          <Route path="/backtests/flux_trident" element={<BacktestPage file="fluxTrident.csv" />} />
-          <Route path="/backtests/flux_signal_strat" element={<BacktestPage file="fluxSignalStrat.csv" />} />
-          <Route path="/backtests/flux_pivot_strat" element={<BacktestPage file="fluxPivotStrat.csv" />} />
-          <Route path="/backtests/flux_lightning" element={<BacktestPage file="fluxLightning.csv" />} />
-          <Route path="/backtests/rileySR" element={<BacktestPage file="rileySR.csv" />} />
-          <Route path="/backtests/cointegrated_pairs" element={<BacktestPage file="cointegratedPairs.csv" />} />
+          <Route path="/backtests/flux-trident" element={<BacktestPage file="fluxTrident.csv" />} />
+          <Route path="/backtests/flux-signal-strat" element={<BacktestPage file="fluxSignalStrat.csv" />} />
+          <Route path="/backtests/flux-pivot-strat" element={<BacktestPage file="fluxPivotStrat.csv" />} />
+          <Route path="/backtests/flux-lightning" element={<BacktestPage file="fluxLightning.csv" />} />
+          <Route path="/backtests/riley-sr" element={<BacktestPage file="rileySR.csv" />} />
+          <Route path="/backtests/cointegrated-pairs" element={<BacktestPage file="cointegratedPairs.csv" />} />
           <Route path="/backtests/orb" element={<BacktestPage file="orb.csv" />} />
-          <Route path="/backtests/elliot_wave" element={<BacktestPage file="elliotWave.csv" />} />
-          <Route path="/backtests/icc_choch" element={<BacktestPage file="ICCChoCh.csv" />} />
-          <Route path="/backtests/low_volatility" element={<BacktestPage file="lowVolatility.csv" />} />
-          <Route path="/backtests/project_gamma" element={<BacktestPage file="projectGamma.csv" />} />
-          <Route path="/backtests/trend_catcher" element={<BacktestPage file="trendCatcher.csv" />} />
+          <Route path="/backtests/elliot-wave" element={<BacktestPage file="elliotWave.csv" />} />
+          <Route path="/backtests/icc-choch" element={<BacktestPage file="ICCChoCh.csv" />} />
+          <Route path="/backtests/low-volatility" element={<BacktestPage file="lowVolatility.csv" />} />
+          <Route path="/backtests/project-gamma" element={<BacktestPage file="projectGamma.csv" />} />
+          <Route path="/backtests/trend-catcher" element={<BacktestPage file="trendCatcher.csv" />} />
         </Routes>
         <Footer/> 
       </div>

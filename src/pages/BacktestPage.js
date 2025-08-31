@@ -7,6 +7,10 @@ export const BacktestPage = ({ file }) => {
   const [headers, setHeaders] = useState([]);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, [file]);
+
+  useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`/backtests/${file}`);
       const reader = response.body.getReader();
