@@ -40,6 +40,8 @@ import projectGamma1 from '../assets/strategies/ProjectGamma1.PNG';
 import projectGamma2 from '../assets/strategies/ProjectGamma2.PNG';
 import trendCatcher1 from '../assets/strategies/TrendCatcher.PNG';
 import trendCatcher2 from '../assets/strategies/TrendCatcher2.PNG';
+import holyGrail1 from '../assets/strategies/HolyGrail1.PNG';
+import holyGrail2 from '../assets/strategies/HolyGrail2.PNG';
 
 import '../App.css';
 
@@ -61,6 +63,17 @@ export function LandingPage() {
   ];
 
   const strategies = [
+    {
+      name: 'Holy Grail Adaptive',
+      images: [holyGrail1, holyGrail2],
+      features: [
+        'Adaptive trend following',
+        'Automated entries and exits',
+        'Targets and risk controls'
+      ],
+      backtestUrl: '/backtests/holy-grail',
+      isNew: true
+    },
     {
       name: 'ElliotWave',
       images: [elliotWave1, elliotWave2],

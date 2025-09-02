@@ -37,6 +37,7 @@ function App() {
           <Route path="/backtests/low-volatility" element={<BacktestPage file="lowVolatility.csv" />} />
           <Route path="/backtests/project-gamma" element={<BacktestPage file="projectGamma.csv" />} />
           <Route path="/backtests/trend-catcher" element={<BacktestPage file="trendCatcher.csv" />} />
+          <Route path="/backtests/holy-grail" element={<BacktestPage file="holyGrail.csv" />} />
         </Routes>
         <Footer/> 
       </div>
