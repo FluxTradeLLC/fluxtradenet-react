@@ -42,6 +42,8 @@ import trendCatcher1 from '../assets/strategies/TrendCatcher.PNG';
 import trendCatcher2 from '../assets/strategies/TrendCatcher2.PNG';
 import holyGrail1 from '../assets/strategies/HolyGrail1.PNG';
 import holyGrail2 from '../assets/strategies/HolyGrail2.PNG';
+import quadConfluence1 from '../assets/strategies/QuadConfluence1.PNG';
+import quadConfluence2 from '../assets/strategies/QuadConfluence2.PNG';
 
 import '../App.css';
 
@@ -63,6 +65,17 @@ export function LandingPage() {
   ];
 
   const strategies = [
+    {
+      name: 'Quad Confluence',
+      images: [quadConfluence1, quadConfluence2],
+      features: [
+        'Multiple entry trigger types',
+        'Looks for multiple confluences',
+        'Dynamic targets and stops'
+      ],
+      backtestUrl: '/backtests/quad-confluence',
+      isNew: true
+    },
     {
       name: 'Holy Grail Adaptive',
       images: [holyGrail1, holyGrail2],
