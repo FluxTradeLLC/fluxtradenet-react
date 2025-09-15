@@ -1,0 +1,7 @@
+Trade number,Instrument,Account,Strategy,Market pos.,Qty,Entry price,Exit price,Entry time,Exit time,Entry name,Exit name,Profit,Cum. net profit,Commission,MAE,MFE,ETD,Bars,
+1,NQ DEC25,Backtest,FuturePredictionServer,Long,5,22251.50,22244.00,6/18/2025 9:54:00 AM,6/18/2025 9:55:00 AM,Long,Stop loss,($750.00),($750.00),$0.00,$750.00,$600.00,$1350.00,2,
+2,NQ DEC25,Backtest,FuturePredictionServer,Long,5,22806.75,22829.25,6/26/2025 11:35:00 AM,6/26/2025 11:38:00 AM,Long,Profit target,$2250.00,$1500.00,$0.00,$75.00,$2250.00,$0.00,4,
+3,NQ DEC25,Backtest,FuturePredictionServer,Long,5,23202.00,23194.50,7/3/2025 9:32:00 AM,7/3/2025 9:35:00 AM,Long,Stop loss,($750.00),$750.00,$0.00,$750.00,$1650.00,$2400.00,4,
+4,NQ DEC25,Backtest,FuturePredictionServer,Long,5,23246.25,23268.75,7/9/2025 9:34:00 AM,7/9/2025 9:36:00 AM,Long,Profit target,$2250.00,$3000.00,$0.00,$100.00,$2250.00,$0.00,3,
+5,NQ DEC25,Backtest,FuturePredictionServer,Long,5,23267.25,23289.75,7/9/2025 9:39:00 AM,7/9/2025 9:42:00 AM,Long,Profit target,$2250.00,$5250.00,$0.00,$150.00,$2250.00,$0.00,4,
+6,NQ DEC25,Backtest,FuturePredictionServer,Long,5,23691.50,23714.00,8/22/2025 10:02:00 AM,8/22/2025 10:02:00 AM,Long,Profit target,$2250.00,$7500.00,$0.00,$0.00,$2250.00,$0.00,1,

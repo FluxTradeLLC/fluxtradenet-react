@@ -44,6 +44,8 @@ import holyGrail1 from '../assets/strategies/HolyGrail1.PNG';
 import holyGrail2 from '../assets/strategies/HolyGrail2.PNG';
 import quadConfluence1 from '../assets/strategies/QuadConfluence1.PNG';
 import quadConfluence2 from '../assets/strategies/QuadConfluence2.PNG';
+import futurePredictionServer1 from '../assets/strategies/FuturePredictionServer1.PNG';
+import futurePredictionServer2 from '../assets/strategies/FuturePredictionServer2.PNG';
 
 import '../App.css';
 
@@ -65,6 +67,17 @@ export function LandingPage() {
   ];
 
   const strategies = [
+    {
+      name: 'Future Prediction Server',
+      images: [futurePredictionServer1, futurePredictionServer2],
+      features: [
+        'Uses machine learning for labelling and predictions',
+        'Calls out to a remote server',
+        'Reinforcement learning algorithm'
+      ],
+      backtestUrl: '/backtests/future-prediction-server',
+      isNew: true
+    },
     {
       name: 'Quad Confluence',
       images: [quadConfluence1, quadConfluence2],
@@ -107,7 +120,6 @@ export function LandingPage() {
         'Trend continuation and reversal logic'
       ],
       backtestUrl: '/backtests/icc-choch',
-      isNew: true
     },
     {
       name: 'Low Volatility',
@@ -118,7 +130,6 @@ export function LandingPage() {
         'Captures squeeze expansions'
       ],
       backtestUrl: '/backtests/low-volatility',
-      isNew: true
     },
     {
       name: 'Project Gamma',
@@ -129,7 +140,6 @@ export function LandingPage() {
         'Great on indices and futures'
       ],
       backtestUrl: '/backtests/project-gamma',
-      isNew: true
     },
     {
       name: 'TrendCatcher',
@@ -140,7 +150,6 @@ export function LandingPage() {
         'Multi-timeframe confirmation'
       ],
       backtestUrl: '/backtests/trend-catcher',
-      isNew: true
     },
     {
       name: 'ORB (Opening Range Break)',
