@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import fluxLogo from '../../assets/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiscord } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord, faYoutube, faTwitch } from '@fortawesome/free-brands-svg-icons';
 
 export const Header = () => {
   const [hasSession, setHasSession] = useState(false);
@@ -18,7 +18,7 @@ export const Header = () => {
           <img src={fluxLogo} alt="Flux Trade Logo" className="h-[75px]" />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold italic ml-[40px] text-center">FluxTrade</h1>
       </Link>
-      <nav className="flex w-full flex-wrap md:w-auto gap-2 justify-center md:justify-end items-center space-x-8 p-6 rounded-lg md:ml-[300px] md:-mt-[100px]">
+      <nav className="flex w-full flex-wrap md:w-auto gap-2 justify-center md:justify-end items-center space-x-8 p-6 rounded-lg md:ml-[500px] md:-mt-[100px]">
         <ul>
           <Link
             to="/"
@@ -72,6 +72,28 @@ export const Header = () => {
           >
             <span>Account</span>
           </Link>
+        </ul>
+        <ul>
+          <a
+            href="https://www.youtube.com/@FluxTrade_LLC"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 bg-gray-800 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
+            style={{ textDecoration: 'none' }}
+          >
+            <FontAwesomeIcon icon={faYoutube} size="lg" color='red' />
+          </a>
+        </ul>
+        <ul>
+          <a
+            href="https://www.twitch.tv/pseudosaurus"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 bg-gray-800 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
+            style={{ textDecoration: 'none' }}
+          >
+            <FontAwesomeIcon icon={faTwitch} size="lg" color='purple' />
+          </a>
         </ul>
       </nav>
     </header>
