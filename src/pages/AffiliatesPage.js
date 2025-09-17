@@ -57,6 +57,7 @@ export function AffiliatesPage() {
             <li>
               Marketing assets: You may use any materials from our site, including our logo and videos on our channel
               <a className="text-indigo-400 hover:text-indigo-300 ml-1" href="https://www.youtube.com/@FluxTrade_LLC" target="_blank" rel="noopener noreferrer">@FluxTrade_LLC</a>.
+              <p className='ml-5'>We've also created a folder of <a href='https://drive.google.com/drive/folders/1uWxQeNQLEhiq8swh375AQVEkOc_mEn8Z?usp=sharing' className="text-indigo-400 hover:text-indigo-300">Marketing Materials</a> including videos you can use.</p>
             </li>
             <li>
               To get started, create your affiliate account here: 
