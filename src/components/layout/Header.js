@@ -42,6 +42,15 @@ export const Header = () => {
           </Link>
         </ul>
         <ul>
+          <Link
+            to="/affiliates"
+            className="flex items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
+            style={{ textDecoration: 'none' }}
+          >
+            <span>Affiliates</span>
+          </Link>
+        </ul>
+        <ul>
           <a
             href="https://discord.gg/UTcxDRQ26U"
             target="_blank"
