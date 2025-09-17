@@ -1,6 +1,17 @@
+import { Link } from "react-router-dom"
+
 export const Footer = () => {
     return (
         <footer className="p-8 text-md text-white bg-gray-900">
+        <div className="mb-8">
+          <p className="mb-2 font-semibold text-center">Navigation</p>
+          <ul className="text-gray-300 flex gap-2 items-center justify-center">
+            <li><Link to="/" className="hover:underline">Home</Link></li>
+            <li><Link to="/pricing" className="hover:underline">Pricing</Link></li>
+            <li><Link to="/account" className="hover:underline">Account</Link></li>
+            <li><Link to="/refund-policy" className="hover:underline">Refund Policy</Link></li>
+          </ul>
+        </div>
         <p className="mb-4">Disclaimers</p>
         <p className="mb-4">Futures and forex trading contains substantial risk and is not for every investor. An investor could
 potentially lose all or more than the initial investment. Risk capital is money that can be lost without

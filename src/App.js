@@ -9,6 +9,7 @@ import { Header } from './components/layout/Header';
 import { SignIn } from './components/auth/SignIn';
 import { SignUp } from './components/auth/SignUp';
 import { Footer } from './components/layout/Footer';
+import { RefundPolicyPage } from './pages/RefundPolicyPage';
 import { PaymentPostPurchasePage } from './pages/PaymentPostPurchasePage';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path="/backtests/holy-grail" element={<BacktestPage file="holyGrail.csv" />} />
           <Route path="/backtests/quad-confluence" element={<BacktestPage file="quadConfluence.csv" />} />
           <Route path="/backtests/future-prediction-server" element={<BacktestPage file="futurePredictionServer.csv" />} />
+          <Route path="/refund-policy" element={<RefundPolicyPage />} />
         </Routes>
         <Footer/> 
       </div>
