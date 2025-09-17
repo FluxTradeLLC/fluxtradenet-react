@@ -11,6 +11,7 @@ import { SignUp } from './components/auth/SignUp';
 import { Footer } from './components/layout/Footer';
 import { RefundPolicyPage } from './pages/RefundPolicyPage';
 import { PaymentPostPurchasePage } from './pages/PaymentPostPurchasePage';
+import { AffiliatesPage } from './pages/AffiliatesPage';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/backtests/quad-confluence" element={<BacktestPage file="quadConfluence.csv" />} />
           <Route path="/backtests/future-prediction-server" element={<BacktestPage file="futurePredictionServer.csv" />} />
           <Route path="/refund-policy" element={<RefundPolicyPage />} />
+          <Route path="/affiliates" element={<AffiliatesPage />} />
         </Routes>
         <Footer/> 
       </div>
