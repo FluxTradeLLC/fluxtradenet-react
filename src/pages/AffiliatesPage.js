@@ -22,6 +22,18 @@ export function AffiliatesPage() {
             <p className="text-2xl font-bold mb-2">Use Our Assets</p>
             <p className="text-gray-300">Use our logo, site media, and videos in your promos.</p>
           </div>
+          <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
+            <p className="text-2xl font-bold mb-2">Free trial</p>
+            <p className="text-gray-300">We offer a free 30-day trial to our customers</p>
+          </div>
+          <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
+            <p className="text-2xl font-bold mb-2">Powerful tools</p>
+            <p className="text-gray-300">Our suite of tools has been built from the ground up</p>
+          </div>
+          <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
+            <p className="text-2xl font-bold mb-2">Growing community</p>
+            <p className="text-gray-300">Our free Discord allows traders to share and collaborate</p>
+          </div>
         </div>
 
         <div className="flex justify-center mb-12">
