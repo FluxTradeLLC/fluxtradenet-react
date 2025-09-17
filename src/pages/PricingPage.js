@@ -25,6 +25,7 @@ export function PricingPage() {
             const response = await api.post('/payment/create-checkout-session', {
                 priceId: priceId,
                 subscription: true,
+                referral: window.promotekit_referral
             });
             // Redirect to Stripe checkout
             window.location.href = response.data.redirect;
