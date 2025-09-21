@@ -42,6 +42,9 @@ function App() {
           <Route path="/backtests/holy-grail" element={<BacktestPage file="holyGrail.csv" />} />
           <Route path="/backtests/quad-confluence" element={<BacktestPage file="quadConfluence.csv" />} />
           <Route path="/backtests/future-prediction-server" element={<BacktestPage file="futurePredictionServer.csv" />} />
+          <Route path="/backtests/donchian-turtle" element={<BacktestPage file="donchianTurtle.csv" />} />
+          <Route path="/backtests/ichimoko-strat" element={<BacktestPage file="ichimokoStrat.csv" />} />
+          <Route path="/backtests/keltner-strat" element={<BacktestPage file="keltnerStrat.csv" />} />
           <Route path="/refund-policy" element={<RefundPolicyPage />} />
           <Route path="/affiliates" element={<AffiliatesPage />} />
         </Routes>

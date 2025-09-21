@@ -47,6 +47,14 @@ import quadConfluence2 from '../assets/strategies/QuadConfluence2.PNG';
 import futurePredictionServer1 from '../assets/strategies/FuturePredictionServer1.PNG';
 import futurePredictionServer2 from '../assets/strategies/FuturePredictionServer2.PNG';
 
+// Newly added strategy assets
+import donchianTurtle1 from '../assets/strategies/DonchianTurtle1.PNG';
+import donchianTurtle2 from '../assets/strategies/DonchianTurtle2.PNG';
+import ichimokoStrat1 from '../assets/strategies/IchimokoStrat1.PNG';
+import ichimokoStrat2 from '../assets/strategies/IchimokoStrat2.PNG';
+import keltnerStrat1 from '../assets/strategies/KeltnerStrat1.PNG';
+import keltnerStrat2 from '../assets/strategies/KeltnerStrat2.PNG';
+
 import '../App.css';
 
 
@@ -67,6 +75,39 @@ export function LandingPage() {
   ];
 
   const strategies = [
+    {
+      name: 'Donchian Turtle',
+      images: [donchianTurtle1, donchianTurtle2],
+      features: [
+        'Breakout strategy using Donchian channels',
+        'Trend following with pyramiding',
+        'ATR-based stops and position sizing'
+      ],
+      backtestUrl: '/backtests/donchian-turtle',
+      isNew: true
+    },
+    {
+      name: 'IchimokoStrat',
+      images: [ichimokoStrat1, ichimokoStrat2],
+      features: [
+        'Ichimoku Kinko Hyo based entries',
+        'Cloud, Tenkan/Kijun crosses, and Chikou span',
+        'Works across market regimes'
+      ],
+      backtestUrl: '/backtests/ichimoko-strat',
+      isNew: true
+    },
+    {
+      name: 'KeltnerStrat',
+      images: [keltnerStrat1, keltnerStrat2],
+      features: [
+        'Keltner Channel breakouts and pullbacks',
+        'Volatility-adaptive targets and stops',
+        'Pairs well with momentum filters'
+      ],
+      backtestUrl: '/backtests/keltner-strat',
+      isNew: true
+    },
     {
       name: 'Future Prediction Server',
       images: [futurePredictionServer1, futurePredictionServer2],
