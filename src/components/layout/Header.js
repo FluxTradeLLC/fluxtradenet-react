@@ -16,9 +16,9 @@ export const Header = () => {
   return (
     <header className="bg-gray-900 text-white p-4 sm:p-6 md:p-8">
       <div className="lg:flex lg:items-center lg:justify-between">
-        <Link to="/" className="flex items-center flex-col md:flex-row lg:flex-shrink-0">
+        <Link to="/" className="flex items-center justify-center flex-col md:flex-row lg:flex-shrink-0">
             <img src={fluxLogo} alt="Flux Trade Logo" className="h-[75px]" />
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold italic ml-[40px] text-center">FluxTrade</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold italic md:ml-[40px] text-center">FluxTrade</h1>
         </Link>
         <button
           aria-label="Toggle navigation menu"
