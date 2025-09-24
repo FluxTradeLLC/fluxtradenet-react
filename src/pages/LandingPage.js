@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 
 import kinetickLogo from '../assets/logos/Kinetick_Logo.png';
-import ntLogo from '../assets/logos/NinjaTrader_Wordmark_color_RGB.png';
+import ntLogo from '../assets/logos/nt_ecosystem.png';
+import ntUpgrade from '../assets/logos/nt_upgrade.png';
 
 import fluxConfluence from '../assets/indicators/FluxConfluence.PNG';
 import fluxPivot from '../assets/indicators/FluxPivot.PNG';
@@ -311,9 +312,15 @@ export function LandingPage() {
 
         <section id="partners" className="my-12 mt-24">
           <h2 className="text-3xl font-bold text-center mb-8">Official NinjaTrader Ecosystem Vendor</h2>
-          <div className="flex justify-center items-center space-x-8 bg-white p-6 rounded-lg">
-            <a href="http://account.ninjatrader.com/register?introducingPartner=FluxTrade"><img src={ntLogo} width={300} alt="NinjaTrader Logo" /></a>
-            <a href="http://kinetick.com/NinjaTrader"><img src={kinetickLogo} alt="Kinetick Logo" className="h-16 ml-[20px]" /></a>
+          <div className="flex flex-col justify-center items-center space-x-8 bg-white p-6 rounded-lg">
+            <div className="flex justify-center items-center space-x-8">
+              <a href="http://account.ninjatrader.com/register?introducingPartner=FluxTrade"><img src={ntLogo} width={300} alt="NinjaTrader Logo" /></a>
+              <a href="http://kinetick.com/NinjaTrader"><img src={kinetickLogo} alt="Kinetick Logo" className="h-16 ml-[20px]" /></a>
+            </div>
+            <div className="flex justify-center items-center space-x-8 mt-6">
+              <a href="https://ninjatraderus.pxf.io/APNodJ"><img src={ntUpgrade} width={300} alt="NinjaTrader Upgrade Logo" /></a>
+              <p className='text-black w-[300px] ml-[20px]'>(Affiliate link*) <a href="https://ninjatraderus.pxf.io/APNodJ" className='text-blue-500 underline'>Sign up</a> for NinjaTrader, the best desktop trading platform, to start backtesting FluxTrade strategies today. <br/><br/>*NinjaTrader is compensating FluxTrade for this endorsement.</p>
+            </div>
           </div>
         </section>
       </main>
