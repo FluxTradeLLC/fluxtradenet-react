@@ -261,7 +261,7 @@ export function LandingPage() {
         <section id="strategies" className="">
           <h2 className="text-3xl font-bold text-center mb-2">Our Automated Strategies</h2>
           <h3 className="text-2xl text-center mb-8">Highly customizable with automated entries and exits</h3>
-          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
             {strategies.map(strategy => (
               <div key={strategy.name} className="bg-gray-800 rounded-lg p-4 flex flex-col items-center">
                 <h3 className="text-xl font-semibold mb-2 flex items-center">
@@ -290,7 +290,7 @@ export function LandingPage() {
         <section id="indicators" className="my-12 mt-16">
           <h2 className="text-3xl font-bold text-center mb-2">Our Indicators</h2>
           <h3 className="text-2xl text-center mb-8">Learn how to trade manually with a plan and strategy built with indicators</h3>
-          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
             {indicators.map(indicator => (
               <div key={indicator.name} className="bg-gray-800 rounded-lg p-4 flex flex-col items-center relative">
                 <h3 className="text-xl font-semibold mb-2 flex items-center">
