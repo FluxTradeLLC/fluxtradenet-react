@@ -64,6 +64,7 @@ export function LandingPage() {
   const [activeTab, setActiveTab] = useState('NinjaTrader');
   const indicators = [
     // NEW INDICATORS
+    { name: 'DynamicTrend', image: null, features: ["Dynamic trendline", "Support and resistance", "Signals upon crosses"], isNew: true },
     { name: 'FluxTarget', image: fluxTarget, features: ["Dynamic target bands", "Adaptive to volatility", "Great for exits"], isNew: true },
     { name: 'Market Phase', image: marketPhase, features: ["Visual market phase detection", "Trend and range highlighting", "Easy to interpret"], isNew: true },
     { name: 'TTM Squeeze', image: ttmSqueeze, features: ["Momentum and squeeze detection", "Great for breakout trades", "Visual histogram"], isNew: true },
@@ -290,17 +291,17 @@ export function LandingPage() {
   const getStrategyByName = (name) => strategies.find(s => s.name === name);
 
   const tradingViewIndicators = [
-    { name: 'Dynamic Trend', image: tvDynamicTrend, features: [] },
-    { name: 'FluxConfluence', image: tvFluxConfluence, features: getIndicatorByName('FluxConfluence')?.features },
-    { name: 'FluxPivot', image: tvFluxPivot, features: getIndicatorByName('FluxPivot')?.features },
-    { name: 'FluxSignal', image: tvFluxSignal, features: getIndicatorByName('FluxSignal')?.features },
-    { name: 'Parabolic RSI', image: tvParabolicRSI, features: getIndicatorByName('Parabolic RSI')?.features },
-    { name: 'TTM Squeeze', image: tvTtmSqueeze, features: getIndicatorByName('TTM Squeeze')?.features },
-    { name: 'Volatility Cycle', image: tvVolatilityCycle, features: getIndicatorByName('Volatility Cycle')?.features },
-    { name: 'FluxTarget', image: tvFluxTarget, features: getIndicatorByName('FluxTarget')?.features },
-    { name: 'Market Phase', image: tvMarketPhase, features: getIndicatorByName('Market Phase')?.features },
-    { name: 'Market Regime', image: tvMarketRegime, features: getIndicatorByName('Market Regime')?.features },
-    { name: 'Previous Levels', image: tvPreviousLevels, features: getIndicatorByName('Previous Levels')?.features },
+    { name: 'Dynamic Trend', image: tvDynamicTrend, features: getIndicatorByName('DynamicTrend')?.features, isNew: true, },
+    { name: 'FluxConfluence', image: tvFluxConfluence, features: getIndicatorByName('FluxConfluence')?.features, isNew: true, },
+    { name: 'FluxPivot', image: tvFluxPivot, features: getIndicatorByName('FluxPivot')?.features, isNew: true, },
+    { name: 'FluxSignal', image: tvFluxSignal, features: getIndicatorByName('FluxSignal')?.features, isNew: true, },
+    { name: 'Parabolic RSI', image: tvParabolicRSI, features: getIndicatorByName('Parabolic RSI')?.features, isNew: true, },
+    { name: 'TTM Squeeze', image: tvTtmSqueeze, features: getIndicatorByName('TTM Squeeze')?.features, isNew: true, },
+    { name: 'Volatility Cycle', image: tvVolatilityCycle, features: getIndicatorByName('Volatility Cycle')?.features, isNew: true, },
+    { name: 'FluxTarget', image: tvFluxTarget, features: getIndicatorByName('FluxTarget')?.features, isNew: true, },
+    { name: 'Market Phase', image: tvMarketPhase, features: getIndicatorByName('Market Phase')?.features, isNew: true, },
+    { name: 'Market Regime', image: tvMarketRegime, features: getIndicatorByName('Market Regime')?.features, isNew: true, },
+    { name: 'Previous Levels', image: tvPreviousLevels, features: getIndicatorByName('Previous Levels')?.features, isNew: true, },
   ];
 
   const tradingViewStrategies = [
@@ -316,92 +317,104 @@ export function LandingPage() {
       images: [tvFluxLightning],
       features: getStrategyByName('FluxLightning')?.features,
       backtestUrl: getStrategyByName('FluxLightning')?.backtestUrl,
+      isNew: true,
     },
     {
       name: 'FluxPivot Strategy',
       images: [tvFluxPivotStrat],
       features: getStrategyByName('FluxPivot Strategy')?.features,
       backtestUrl: getStrategyByName('FluxPivot Strategy')?.backtestUrl,
+      isNew: true,
     },
     {
       name: 'FluxSignal Strategy',
       images: [tvFluxSignalStrat],
       features: getStrategyByName('FluxSignal Strategy')?.features,
       backtestUrl: getStrategyByName('FluxSignal Strategy')?.backtestUrl,
+      isNew: true,
     },
-    {
-      name: 'FluxSignal Scalper',
-      images: [tvFluxSignalScalper],
-      features: [],
-    },
-    {
-      name: 'Flux Thunder',
-      images: [tvFluxThunder],
-      features: [],
-    },
+    // {
+    //   name: 'FluxSignal Scalper',
+    //   images: [tvFluxSignalScalper],
+    //   features: [],
+    // },
+    // {
+    //   name: 'Flux Thunder',
+    //   images: [tvFluxThunder],
+    //   features: [],
+    // },
     {
       name: 'FluxTrident',
       images: [tvFluxTrident],
       features: getStrategyByName('FluxTrident')?.features,
       backtestUrl: getStrategyByName('FluxTrident')?.backtestUrl,
+      isNew: true,
     },
     {
       name: 'ICC ChoCh',
       images: [tvIccCoch],
       features: getStrategyByName('ICC ChoCh')?.features,
       backtestUrl: getStrategyByName('ICC ChoCh')?.backtestUrl,
+      isNew: true,
     },
     {
       name: 'IchimokoStrat',
       images: [tvIchimoko],
       features: getStrategyByName('IchimokoStrat')?.features,
       backtestUrl: getStrategyByName('IchimokoStrat')?.backtestUrl,
+      isNew: true,
     },
     {
       name: 'KeltnerStrat',
       images: [tvKeltnerStrat],
       features: getStrategyByName('KeltnerStrat')?.features,
       backtestUrl: getStrategyByName('KeltnerStrat')?.backtestUrl,
+      isNew: true,
     },
     {
       name: 'Low Volatility',
       images: [tvLowVolatility],
       features: getStrategyByName('Low Volatility')?.features,
       backtestUrl: getStrategyByName('Low Volatility')?.backtestUrl,
+      isNew: true,
     },
     {
       name: 'ORB (Opening Range Break)',
       images: [tvOrb],
       features: getStrategyByName('ORB (Opening Range Break)')?.features,
       backtestUrl: getStrategyByName('ORB (Opening Range Break)')?.backtestUrl,
+      isNew: true,
     },
     {
       name: 'Project Gamma',
       images: [tvProjectGamma],
       features: getStrategyByName('Project Gamma')?.features,
       backtestUrl: getStrategyByName('Project Gamma')?.backtestUrl,
+      isNew: true,
     },
     {
       name: 'RileySR',
       images: [tvRileySR],
       features: getStrategyByName('RileySR')?.features,
       backtestUrl: getStrategyByName('RileySR')?.backtestUrl,
+      isNew: true,
     },
-    {
-      name: 'Slow and Steady',
-      images: [tvSlowAndSteady],
-      features: [],
-    },
-    {
-      name: 'Super Momentum',
-      images: [tvSuperMomentum],
-      features: [],
-    },
+    // {
+    //   name: 'Slow and Steady',
+    //   images: [tvSlowAndSteady],
+    //   features: [],
+    // },
+    // {
+    //   name: 'Super Momentum',
+    //   images: [tvSuperMomentum],
+    //   features: [],
+    // },
     {
       name: 'TrendCatcher',
       images: [tvTrendCatcher],
       features: getStrategyByName('TrendCatcher')?.features,
       backtestUrl: getStrategyByName('TrendCatcher')?.backtestUrl,
+      isNew: true,
     },
   ];
 
