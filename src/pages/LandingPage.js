@@ -261,13 +261,28 @@ export function LandingPage() {
   const tvParabolicRSI = require('../assets/tradingview/indicators/parabolicRSI.png');
   const tvTtmSqueeze = require('../assets/tradingview/indicators/ttmSqueeze.png');
   const tvVolatilityCycle = require('../assets/tradingview/indicators/volatilityCycle.png');
+  const tvFluxTarget = require('../assets/tradingview/indicators/fluxTarget.png');
+  const tvMarketPhase = require('../assets/tradingview/indicators/marketPhase.png');
+  const tvMarketRegime = require('../assets/tradingview/indicators/marketRegime.png');
+  const tvPreviousLevels = require('../assets/tradingview/indicators/prevLevels.png');
 
   // Strategies
   const tvDonchian = require('../assets/tradingview/strategies/donchian.png');
+  const tvFluxLightning = require('../assets/tradingview/strategies/fluxLightning.png');
   const tvFluxPivotStrat = require('../assets/tradingview/strategies/fluxPivotStrat.png');
   const tvFluxSignalStrat = require('../assets/tradingview/strategies/fluxSignalStrat.png');
+  const tvFluxSignalScalper = require('../assets/tradingview/strategies/fluxSignalScalper.png');
+  const tvFluxThunder = require('../assets/tradingview/strategies/fluxThunder.png');
+  const tvFluxTrident = require('../assets/tradingview/strategies/fluxTrident.png');
   const tvIccCoch = require('../assets/tradingview/strategies/icccoch.png');
+  const tvIchimoko = require('../assets/tradingview/strategies/ichimiko.png');
+  const tvKeltnerStrat = require('../assets/tradingview/strategies/keltnerStrat.png');
+  const tvLowVolatility = require('../assets/tradingview/strategies/lowVolatility.png');
   const tvOrb = require('../assets/tradingview/strategies/orb.png');
+  const tvProjectGamma = require('../assets/tradingview/strategies/projectGamma.png');
+  const tvRileySR = require('../assets/tradingview/strategies/rileySR.png');
+  const tvSlowAndSteady = require('../assets/tradingview/strategies/slowAndSteady.png');
+  const tvSuperMomentum = require('../assets/tradingview/strategies/superMomentum.png');
   const tvTrendCatcher = require('../assets/tradingview/strategies/trendCatcher.png');
 
   // Helper getters to reuse features/backtest info where possible
@@ -282,6 +297,10 @@ export function LandingPage() {
     { name: 'Parabolic RSI', image: tvParabolicRSI, features: getIndicatorByName('Parabolic RSI')?.features },
     { name: 'TTM Squeeze', image: tvTtmSqueeze, features: getIndicatorByName('TTM Squeeze')?.features },
     { name: 'Volatility Cycle', image: tvVolatilityCycle, features: getIndicatorByName('Volatility Cycle')?.features },
+    { name: 'FluxTarget', image: tvFluxTarget, features: getIndicatorByName('FluxTarget')?.features },
+    { name: 'Market Phase', image: tvMarketPhase, features: getIndicatorByName('Market Phase')?.features },
+    { name: 'Market Regime', image: tvMarketRegime, features: getIndicatorByName('Market Regime')?.features },
+    { name: 'Previous Levels', image: tvPreviousLevels, features: getIndicatorByName('Previous Levels')?.features },
   ];
 
   const tradingViewStrategies = [
@@ -291,6 +310,12 @@ export function LandingPage() {
       features: getStrategyByName('Donchian Turtle')?.features,
       backtestUrl: getStrategyByName('Donchian Turtle')?.backtestUrl,
       isNew: true,
+    },
+    {
+      name: 'FluxLightning',
+      images: [tvFluxLightning],
+      features: getStrategyByName('FluxLightning')?.features,
+      backtestUrl: getStrategyByName('FluxLightning')?.backtestUrl,
     },
     {
       name: 'FluxPivot Strategy',
@@ -305,16 +330,72 @@ export function LandingPage() {
       backtestUrl: getStrategyByName('FluxSignal Strategy')?.backtestUrl,
     },
     {
+      name: 'FluxSignal Scalper',
+      images: [tvFluxSignalScalper],
+      features: [],
+    },
+    {
+      name: 'Flux Thunder',
+      images: [tvFluxThunder],
+      features: [],
+    },
+    {
+      name: 'FluxTrident',
+      images: [tvFluxTrident],
+      features: getStrategyByName('FluxTrident')?.features,
+      backtestUrl: getStrategyByName('FluxTrident')?.backtestUrl,
+    },
+    {
       name: 'ICC ChoCh',
       images: [tvIccCoch],
       features: getStrategyByName('ICC ChoCh')?.features,
       backtestUrl: getStrategyByName('ICC ChoCh')?.backtestUrl,
     },
     {
+      name: 'IchimokoStrat',
+      images: [tvIchimoko],
+      features: getStrategyByName('IchimokoStrat')?.features,
+      backtestUrl: getStrategyByName('IchimokoStrat')?.backtestUrl,
+    },
+    {
+      name: 'KeltnerStrat',
+      images: [tvKeltnerStrat],
+      features: getStrategyByName('KeltnerStrat')?.features,
+      backtestUrl: getStrategyByName('KeltnerStrat')?.backtestUrl,
+    },
+    {
+      name: 'Low Volatility',
+      images: [tvLowVolatility],
+      features: getStrategyByName('Low Volatility')?.features,
+      backtestUrl: getStrategyByName('Low Volatility')?.backtestUrl,
+    },
+    {
       name: 'ORB (Opening Range Break)',
       images: [tvOrb],
       features: getStrategyByName('ORB (Opening Range Break)')?.features,
       backtestUrl: getStrategyByName('ORB (Opening Range Break)')?.backtestUrl,
+    },
+    {
+      name: 'Project Gamma',
+      images: [tvProjectGamma],
+      features: getStrategyByName('Project Gamma')?.features,
+      backtestUrl: getStrategyByName('Project Gamma')?.backtestUrl,
+    },
+    {
+      name: 'RileySR',
+      images: [tvRileySR],
+      features: getStrategyByName('RileySR')?.features,
+      backtestUrl: getStrategyByName('RileySR')?.backtestUrl,
+    },
+    {
+      name: 'Slow and Steady',
+      images: [tvSlowAndSteady],
+      features: [],
+    },
+    {
+      name: 'Super Momentum',
+      images: [tvSuperMomentum],
+      features: [],
     },
     {
       name: 'TrendCatcher',
