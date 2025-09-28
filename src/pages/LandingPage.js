@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 import kinetickLogo from '../assets/logos/Kinetick_Logo.png';
 import ntLogo from '../assets/logos/nt_ecosystem.png';
@@ -60,6 +61,7 @@ import '../App.css';
 
 
 export function LandingPage() {
+  const [activeTab, setActiveTab] = useState('NinjaTrader');
   const indicators = [
     // NEW INDICATORS
     { name: 'FluxTarget', image: fluxTarget, features: ["Dynamic target bands", "Adaptive to volatility", "Great for exits"], isNew: true },
@@ -250,6 +252,78 @@ export function LandingPage() {
     }
   ];
 
+  // TradingView assets
+  // Indicators
+  const tvDynamicTrend = require('../assets/tradingview/indicators/dynamicTrend.png');
+  const tvFluxConfluence = require('../assets/tradingview/indicators/fluxConfluence.png');
+  const tvFluxPivot = require('../assets/tradingview/indicators/fluxPivot.png');
+  const tvFluxSignal = require('../assets/tradingview/indicators/fluxsignal.png');
+  const tvParabolicRSI = require('../assets/tradingview/indicators/parabolicRSI.png');
+  const tvTtmSqueeze = require('../assets/tradingview/indicators/ttmSqueeze.png');
+  const tvVolatilityCycle = require('../assets/tradingview/indicators/volatilityCycle.png');
+
+  // Strategies
+  const tvDonchian = require('../assets/tradingview/strategies/donchian.png');
+  const tvFluxPivotStrat = require('../assets/tradingview/strategies/fluxPivotStrat.png');
+  const tvFluxSignalStrat = require('../assets/tradingview/strategies/fluxSignalStrat.png');
+  const tvIccCoch = require('../assets/tradingview/strategies/icccoch.png');
+  const tvOrb = require('../assets/tradingview/strategies/orb.png');
+  const tvTrendCatcher = require('../assets/tradingview/strategies/trendCatcher.png');
+
+  // Helper getters to reuse features/backtest info where possible
+  const getIndicatorByName = (name) => indicators.find(i => i.name === name);
+  const getStrategyByName = (name) => strategies.find(s => s.name === name);
+
+  const tradingViewIndicators = [
+    { name: 'Dynamic Trend', image: tvDynamicTrend, features: [] },
+    { name: 'FluxConfluence', image: tvFluxConfluence, features: getIndicatorByName('FluxConfluence')?.features },
+    { name: 'FluxPivot', image: tvFluxPivot, features: getIndicatorByName('FluxPivot')?.features },
+    { name: 'FluxSignal', image: tvFluxSignal, features: getIndicatorByName('FluxSignal')?.features },
+    { name: 'Parabolic RSI', image: tvParabolicRSI, features: getIndicatorByName('Parabolic RSI')?.features },
+    { name: 'TTM Squeeze', image: tvTtmSqueeze, features: getIndicatorByName('TTM Squeeze')?.features },
+    { name: 'Volatility Cycle', image: tvVolatilityCycle, features: getIndicatorByName('Volatility Cycle')?.features },
+  ];
+
+  const tradingViewStrategies = [
+    {
+      name: 'Donchian Turtle',
+      images: [tvDonchian],
+      features: getStrategyByName('Donchian Turtle')?.features,
+      backtestUrl: getStrategyByName('Donchian Turtle')?.backtestUrl,
+      isNew: true,
+    },
+    {
+      name: 'FluxPivot Strategy',
+      images: [tvFluxPivotStrat],
+      features: getStrategyByName('FluxPivot Strategy')?.features,
+      backtestUrl: getStrategyByName('FluxPivot Strategy')?.backtestUrl,
+    },
+    {
+      name: 'FluxSignal Strategy',
+      images: [tvFluxSignalStrat],
+      features: getStrategyByName('FluxSignal Strategy')?.features,
+      backtestUrl: getStrategyByName('FluxSignal Strategy')?.backtestUrl,
+    },
+    {
+      name: 'ICC ChoCh',
+      images: [tvIccCoch],
+      features: getStrategyByName('ICC ChoCh')?.features,
+      backtestUrl: getStrategyByName('ICC ChoCh')?.backtestUrl,
+    },
+    {
+      name: 'ORB (Opening Range Break)',
+      images: [tvOrb],
+      features: getStrategyByName('ORB (Opening Range Break)')?.features,
+      backtestUrl: getStrategyByName('ORB (Opening Range Break)')?.backtestUrl,
+    },
+    {
+      name: 'TrendCatcher',
+      images: [tvTrendCatcher],
+      features: getStrategyByName('TrendCatcher')?.features,
+      backtestUrl: getStrategyByName('TrendCatcher')?.backtestUrl,
+    },
+  ];
+
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       <section>
@@ -258,11 +332,34 @@ export function LandingPage() {
       </section>
 
       <main className="p-8">
+        {/* Tabs */}
+        <div className="flex justify-center mb-10">
+          <div className="inline-flex rounded-md bg-gray-800 p-1">
+            <button
+              onClick={() => setActiveTab('NinjaTrader')}
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === 'NinjaTrader' ? 'bg-blue-600 text-white' : 'text-gray-300 hover:text-white hover:bg-gray-700'}`}
+            >
+              NinjaTrader
+            </button>
+            <button
+              onClick={() => setActiveTab('TradingView')}
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === 'TradingView' ? 'bg-blue-600 text-white' : 'text-gray-300 hover:text-white hover:bg-gray-700'}`}
+            >
+              TradingView
+            </button>
+          </div>
+        </div>
+
+        {(() => {
+          const currentStrategies = activeTab === 'NinjaTrader' ? strategies : tradingViewStrategies;
+          const currentIndicators = activeTab === 'NinjaTrader' ? indicators : tradingViewIndicators;
+          return (
+            <>
         <section id="strategies" className="">
           <h2 className="text-3xl font-bold text-center mb-2">Our Automated Strategies</h2>
           <h3 className="text-2xl text-center mb-8">Highly customizable with automated entries and exits</h3>
-          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
-            {strategies.map(strategy => (
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
+            {currentStrategies.map(strategy => (
               <div key={strategy.name} className="bg-gray-800 rounded-lg p-4 flex flex-col items-center">
                 <h3 className="text-xl font-semibold mb-2 flex items-center">
                   {strategy.name}
@@ -271,16 +368,19 @@ export function LandingPage() {
                   )}
                 </h3>
                 <ul className="list-disc list-inside mb-4">
-                  {strategy.features.map(feature => (
+                  {strategy?.features?.map(feature => (
                     <li key={feature}>{feature}</li>
                   ))}
                 </ul>
-                <Link to={strategy.backtestUrl} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300">
-                  View Backtest
-                </Link>
-                <div className="flex flex-col">
-                  <img src={strategy.images[0]} alt={`${strategy.name} 1`} className="w-full h-auto rounded-md mb-4" />
-                  <img src={strategy.images[1]} alt={`${strategy.name} 2`} className="w-full h-auto rounded-md mb-4" />
+                {strategy?.backtestUrl && (
+                  <Link to={strategy.backtestUrl} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300">
+                    View Backtest
+                  </Link>
+                )}
+                <div className="flex flex-col w-full">
+                  {Array.isArray(strategy.images) && strategy.images.map((imgSrc, idx) => (
+                    <img key={`${strategy.name}-${idx}`} src={imgSrc} alt={`${strategy.name} ${idx + 1}`} className="w-full h-auto rounded-md mb-4" />
+                  ))}
                 </div>
               </div>
             ))}
@@ -291,7 +391,7 @@ export function LandingPage() {
           <h2 className="text-3xl font-bold text-center mb-2">Our Indicators</h2>
           <h3 className="text-2xl text-center mb-8">Learn how to trade manually with a plan and strategy built with indicators</h3>
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
-            {indicators.map(indicator => (
+            {currentIndicators.map(indicator => (
               <div key={indicator.name} className="bg-gray-800 rounded-lg p-4 flex flex-col items-center relative">
                 <h3 className="text-xl font-semibold mb-2 flex items-center">
                   {indicator.name}
@@ -309,6 +409,9 @@ export function LandingPage() {
             ))}
           </div>
         </section>
+            </>
+          );
+        })()}
 
         <section id="partners" className="my-12 mt-24">
           <h2 className="text-3xl font-bold text-center mb-8">Official NinjaTrader Ecosystem Vendor</h2>

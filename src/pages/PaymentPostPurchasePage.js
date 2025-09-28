@@ -8,6 +8,7 @@ export function PaymentPostPurchasePage() {
     const [email, setEmail] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [tradingViewUsername, setTradingViewUsername] = useState('');
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -23,6 +24,7 @@ export function PaymentPostPurchasePage() {
                 email,
                 firstName,
                 lastName,
+                tradingViewUsername,
             });
             setSuccess(true);
         } catch (err) {
@@ -106,7 +108,17 @@ export function PaymentPostPurchasePage() {
                                 />
                             </label>
                             <label className="flex flex-col text-left">
-                                <span className="mb-1 font-semibold">User-Defined Machine ID</span>
+                                <span className="mb-1 font-semibold">TradingView Username</span>
+                                <input
+                                    type="text"
+                                    className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    placeholder="e.g. tradingview_user"
+                                    value={tradingViewUsername}
+                                    onChange={e => setTradingViewUsername(e.target.value)}
+                                />
+                            </label>
+                            <label className="flex flex-col text-left">
+                                <span className="mb-1 font-semibold">User-Defined Machine ID (for NinjaTrader)</span>
                                 <input
                                     type="text"
                                     className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
