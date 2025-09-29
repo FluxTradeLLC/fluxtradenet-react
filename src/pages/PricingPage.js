@@ -67,7 +67,7 @@ export function PricingPage() {
             </div>
             <div className="flex flex-col items-center">
                 {/* Standard - Single (choose platform) */}
-                <div className='flex gap-14'>
+                <div className='flex gap-14 flex-wrap md:flex-nowrap justify-center w-full'>
                     <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-gray-700 transform hover:scale-105 transition-transform duration-300">
                         <h2 className="text-2xl font-bold text-center mb-1">Standard</h2>
                         <h3 className="text-center text-sm text-gray-400 mb-4">Single Platform</h3>
@@ -126,7 +126,7 @@ export function PricingPage() {
                     </div>
                 </div>
                 
-                <div className='flex gap-6 mt-8'>
+                <div className='flex gap-6 mt-8 flex-wrap md:flex-nowrap justify-center w-full'>
                     {/* Pro - Single (choose platform) */}
                     <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border-2 border-indigo-500 transform hover:scale-105 transition-transform duration-300 relative">
                         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-indigo-500 text-white text-sm font-bold px-4 py-1 rounded-full">MOST POPULAR</div>
