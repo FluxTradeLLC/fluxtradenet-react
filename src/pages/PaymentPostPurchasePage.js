@@ -104,7 +104,7 @@ export function PaymentPostPurchasePage() {
                                     placeholder="e.g. Trader"
                                     value={discordName}
                                     onChange={e => setDiscordName(e.target.value)}
-                                    required
+                                    // required
                                 />
                             </label>
                             <label className="flex flex-col text-left">
@@ -125,7 +125,7 @@ export function PaymentPostPurchasePage() {
                                     placeholder="Enter your custom machine ID"
                                     value={machineId}
                                     onChange={e => setMachineId(e.target.value)}
-                                    required
+                                    // required
                                 />
                             </label>
                             {error && <div className="text-red-400 text-sm">{error}</div>}
