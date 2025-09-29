@@ -57,6 +57,14 @@ import ichimokoStrat2 from '../assets/strategies/IchimokoStrat2.PNG';
 import keltnerStrat1 from '../assets/strategies/KeltnerStrat1.PNG';
 import keltnerStrat2 from '../assets/strategies/KeltnerStrat2.PNG';
 
+// Newly added strategy assets (Liquidity Sweep, Slow and Steady, Super Momentum)
+import liquiditySweep1 from '../assets/strategies/LiquiditySweep1.PNG';
+import liquiditySweep2 from '../assets/strategies/LiquiditySweep2.PNG';
+import slowAndSteady1 from '../assets/strategies/SlowAndSteady1.PNG';
+import slowAndSteady2 from '../assets/strategies/SlowAndSteady2.PNG';
+import superMomentum1 from '../assets/strategies/SuperMomentum1.PNG';
+import superMomentum2 from '../assets/strategies/SuperMomentum2.PNG';
+
 import '../App.css';
 
 
@@ -208,6 +216,39 @@ export function LandingPage() {
       backtestUrl: '/backtests/orb',
     },
     {
+      name: 'Liquidity Sweep',
+      images: [liquiditySweep1, liquiditySweep2],
+      features: [
+        'Sweep liquidity around key levels',
+        'Fade and breakout modes',
+        'Risk-managed entries'
+      ],
+      backtestUrl: '/backtests/liquidity-sweep',
+      isNew: true,
+    },
+    {
+      name: 'Slow and Steady',
+      images: [slowAndSteady1, slowAndSteady2],
+      features: [
+        'High-probability, low-frequency setups',
+        'Tight risk controls',
+        'Ideal for conservative growth'
+      ],
+      backtestUrl: '/backtests/slow-and-steady',
+      isNew: true,
+    },
+    {
+      name: 'Super Momentum',
+      images: [superMomentum1, superMomentum2],
+      features: [
+        'Momentum continuation signals',
+        'Dynamic targets with trailing stops',
+        'Great in strong trend days'
+      ],
+      backtestUrl: '/backtests/super-momentum',
+      isNew: true,
+    },
+    {
       name: 'CointegratedPairs',
       images: [cointegratedPairs1, cointegratedPairs2],
       features: [
@@ -285,6 +326,7 @@ export function LandingPage() {
   const tvSlowAndSteady = require('../assets/tradingview/strategies/slowAndSteady.png');
   const tvSuperMomentum = require('../assets/tradingview/strategies/superMomentum.png');
   const tvTrendCatcher = require('../assets/tradingview/strategies/trendCatcher.png');
+  const liquiditySweep = require('../assets/tradingview/strategies/liquiditySweep.png');
 
   // Helper getters to reuse features/backtest info where possible
   const getIndicatorByName = (name) => indicators.find(i => i.name === name);
@@ -399,16 +441,27 @@ export function LandingPage() {
       backtestUrl: getStrategyByName('RileySR')?.backtestUrl,
       isNew: true,
     },
-    // {
-    //   name: 'Slow and Steady',
-    //   images: [tvSlowAndSteady],
-    //   features: [],
-    // },
-    // {
-    //   name: 'Super Momentum',
-    //   images: [tvSuperMomentum],
-    //   features: [],
-    // },
+    {
+      name: 'Slow and Steady',
+      images: [tvSlowAndSteady],
+      features: getStrategyByName('Slow and Steady')?.features,
+      backtestUrl: getStrategyByName('Slow and Steady')?.backtestUrl,
+      isNew: true,
+    },
+    {
+      name: 'Super Momentum',
+      images: [tvSuperMomentum],
+      features: getStrategyByName('Super Momentum')?.features,
+      backtestUrl: getStrategyByName('Super Momentum')?.backtestUrl,
+      isNew: true,
+    },
+    {
+      name: 'Liquidity Sweep',
+      images: [liquiditySweep],
+      features: getStrategyByName('Liquidity Sweep')?.features,
+      backtestUrl: getStrategyByName('Liquidity Sweep')?.backtestUrl,
+      isNew: true,
+    },
     {
       name: 'TrendCatcher',
       images: [tvTrendCatcher],
