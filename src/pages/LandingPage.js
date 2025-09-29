@@ -88,6 +88,39 @@ export function LandingPage() {
 
   const strategies = [
     {
+      name: 'Liquidity Sweep',
+      images: [liquiditySweep1, liquiditySweep2],
+      features: [
+        'Sweep liquidity around key levels',
+        'Fade and breakout modes',
+        'Risk-managed entries'
+      ],
+      backtestUrl: '/backtests/liquidity-sweep',
+      isNew: true,
+    },
+    {
+      name: 'Slow and Steady',
+      images: [slowAndSteady1, slowAndSteady2],
+      features: [
+        'High-probability, low-frequency setups',
+        'Tight risk controls',
+        'Ideal for conservative growth'
+      ],
+      backtestUrl: '/backtests/slow-and-steady',
+      isNew: true,
+    },
+    {
+      name: 'Super Momentum',
+      images: [superMomentum1, superMomentum2],
+      features: [
+        'Momentum continuation signals',
+        'Dynamic targets with trailing stops',
+        'Great in strong trend days'
+      ],
+      backtestUrl: '/backtests/super-momentum',
+      isNew: true,
+    },
+    {
       name: 'Donchian Turtle',
       images: [donchianTurtle1, donchianTurtle2],
       features: [
@@ -214,39 +247,6 @@ export function LandingPage() {
         'Great for volatility and momentum'
       ],
       backtestUrl: '/backtests/orb',
-    },
-    {
-      name: 'Liquidity Sweep',
-      images: [liquiditySweep1, liquiditySweep2],
-      features: [
-        'Sweep liquidity around key levels',
-        'Fade and breakout modes',
-        'Risk-managed entries'
-      ],
-      backtestUrl: '/backtests/liquidity-sweep',
-      isNew: true,
-    },
-    {
-      name: 'Slow and Steady',
-      images: [slowAndSteady1, slowAndSteady2],
-      features: [
-        'High-probability, low-frequency setups',
-        'Tight risk controls',
-        'Ideal for conservative growth'
-      ],
-      backtestUrl: '/backtests/slow-and-steady',
-      isNew: true,
-    },
-    {
-      name: 'Super Momentum',
-      images: [superMomentum1, superMomentum2],
-      features: [
-        'Momentum continuation signals',
-        'Dynamic targets with trailing stops',
-        'Great in strong trend days'
-      ],
-      backtestUrl: '/backtests/super-momentum',
-      isNew: true,
     },
     {
       name: 'CointegratedPairs',
@@ -492,7 +492,7 @@ export function LandingPage() {
               onClick={() => setActiveTab('TradingView')}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === 'TradingView' ? 'bg-blue-600 text-white' : 'text-gray-300 hover:text-white hover:bg-gray-700'}`}
             >
-              TradingView
+              TradingView <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">NEW!</span>
             </button>
           </div>
         </div>
