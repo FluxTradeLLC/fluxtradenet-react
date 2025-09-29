@@ -67,7 +67,7 @@ export function PricingPage() {
             </div>
             <div className="flex flex-col items-center">
                 {/* Standard - Single (choose platform) */}
-                <div className='flex gap-14 flex-wrap md:flex-nowrap justify-center w-full'>
+                <div className='flex gap-6 flex-wrap md:flex-nowrap justify-center w-full'>
                     <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-gray-700 transform hover:scale-105 transition-transform duration-300">
                         <h2 className="text-2xl font-bold text-center mb-1">Standard</h2>
                         <h3 className="text-center text-sm text-gray-400 mb-4">Single Platform</h3>
