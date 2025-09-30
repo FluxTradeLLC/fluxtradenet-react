@@ -51,17 +51,18 @@ export function PaymentPostPurchasePage() {
                 <h2 className="text-2xl font-bold mb-4 text-indigo-400">Get Started</h2>
                 
                 {success ? (
-                    <div className="text-green-400 font-semibold text-center">Info submitted successfully! We'll add access for these accounts shortly. In the meantime, please check your email for information on how to download and install the Add-ons. 🚀<p className='mt-6'>Join the <a className="text-blue-400" href="https://discord.gg/UTcxDRQ26U">Discord!</a></p></div>
+                    <div className="text-green-400 font-semibold text-center"><p>Info submitted successfully! We'll add access for these accounts shortly. In the meantime, please check your email for information on how to download and install the Add-ons. 🚀</p><p className='mt-6'>Access to TradingView scripts is fully automated, but takes around 30 minutes. Access to NinjaTrader licenses is a manual process, and will occur during the day in the US Eastern timezone.</p><p className='mt-6'>Join the <a className="text-blue-400" href="https://discord.gg/UTcxDRQ26U">Discord!</a></p></div>
                 ) : (
                     <>
-                        <p>Please enter your Discord username and NinjaTrader User-Defined Machine ID in the form below, and we will get you set up with your license on our end.</p>
+                        <p>Please enter your Discord username (optional) and NinjaTrader User-Defined Machine ID and/or TradingView username in the form below, and we will get you set up with your license on our end.</p>
                         <p className='mt-4'>To get the User-Defined Machine ID:</p>
                         <ol className='list-decimal m-4'>
                             <li>In the NinjaTrader Control Center, click "Help" &gt; then click “3rd party licensing”</li>
                             <li>Put "FluxTrade" into the “Vendor name” field</li>
                             <li>In the "User defined ID" section, put a string to add to your machine ID into the “User defined ID” field. (example: JoeRichardsPC)</li>
-                            <li>Click "Submit" &gt; then copy the newly generated Machine ID &gt; email that to ID to us (<a href="mailto:hello@fluxtrade.net" className='text-blue-400'>hello@fluxtrade.net</a>) with the newly generated machine ID</li>
+                            <li>Click "Submit" &gt; then copy the newly generated Machine ID &gt; put it into the form below.</li>
                         </ol>
+                        <p>Need help? Email us at <a href="mailto:hello@fluxtrade.net" className='text-blue-400'>hello@fluxtrade.net</a>.</p>
                         <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
                             <label className="flex flex-col text-left">
                                 <span className="mb-1 font-semibold">First Name</span>
