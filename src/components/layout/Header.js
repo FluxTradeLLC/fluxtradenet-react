@@ -36,7 +36,7 @@ export const Header = () => {
         )}
         </button>
         <nav className={`${isMenuOpen ? 'flex' : 'hidden'} lg:flex lg:flex-1 w-full flex-col lg:flex-row gap-2 md:flex-wrap justify-center lg:justify-end items-center space-y-2 md:space-y-0 lg:space-y-0 lg:gap-4 p-6 rounded-lg`}>
-        <ul className="w-full lg:w-auto max-w-[500px]">
+        <ul className="w-full lg:w-auto max-w-[500px]" onClick={() => setIsMenuOpen(false)}>
           <Link
             to="/"
             className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
@@ -45,7 +45,7 @@ export const Header = () => {
             <span>Home</span>
           </Link>
         </ul>
-        <ul className="w-full lg:w-auto max-w-[500px]">
+        <ul className="w-full lg:w-auto max-w-[500px]" onClick={() => setIsMenuOpen(false)}>
           <Link
             to="/pricing"
             className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gradient-to-r from-blue-400 via-pink-300 to-purple-400 animate-soft-gradient text-black font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-md"
@@ -58,7 +58,7 @@ export const Header = () => {
             <span>{hasSession ? "Select a Plan" : "Pricing"}</span>
           </Link>
         </ul>
-        <ul className="w-full lg:w-auto max-w-[500px]">
+        <ul className="w-full lg:w-auto max-w-[500px]" onClick={() => setIsMenuOpen(false)}>
           <Link
             to="/affiliates"
             className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
@@ -67,7 +67,7 @@ export const Header = () => {
             <span>Affiliates</span>
           </Link>
         </ul>
-        <ul className="w-full lg:w-auto max-w-[500px]">
+        <ul className="w-full lg:w-auto max-w-[500px]" onClick={() => setIsMenuOpen(false)}>
           <a
             href="https://discord.gg/UTcxDRQ26U"
             target="_blank"
@@ -79,7 +79,7 @@ export const Header = () => {
             <span>Free Discord</span>
           </a>
         </ul>
-        <ul className="w-full lg:w-auto max-w-[500px]">
+        <ul className="w-full lg:w-auto max-w-[500px]" onClick={() => setIsMenuOpen(false)}>
           <a
             href="https://shoulditradetoday.com"
             target="_blank"
@@ -90,7 +90,7 @@ export const Header = () => {
             <span>Should I Trade Today?</span>
           </a>
         </ul>
-        <ul className="w-full lg:w-auto max-w-[500px]">
+        <ul className="w-full lg:w-auto max-w-[500px]" onClick={() => setIsMenuOpen(false)}>
           <Link
             to="/account"
             className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
@@ -99,7 +99,7 @@ export const Header = () => {
             <span>Account</span>
           </Link>
         </ul>
-        <ul className="w-full lg:w-auto max-w-[500px]">
+        <ul className="w-full lg:w-auto max-w-[500px]" onClick={() => setIsMenuOpen(false)}>
           <a
             href="https://www.youtube.com/@FluxTrade_LLC"
             target="_blank"
@@ -110,7 +110,7 @@ export const Header = () => {
             <FontAwesomeIcon icon={faYoutube} size="lg" color='red' />
           </a>
         </ul>
-        <ul className="w-full lg:w-auto max-w-[500px]">
+        <ul className="w-full lg:w-auto max-w-[500px]" onClick={() => setIsMenuOpen(false)}>
           <a
             href="https://www.twitch.tv/pseudosaurus"
             target="_blank"
