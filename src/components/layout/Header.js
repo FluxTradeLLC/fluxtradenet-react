@@ -101,7 +101,7 @@ export const Header = () => {
         </ul>
         <ul className="w-full lg:w-auto max-w-[500px]" onClick={() => setIsMenuOpen(false)}>
           <a
-            href="https://www.youtube.com/@FluxTrade_LLC"
+            href="https://www.youtube.com/@FluxTradeLLC"
             target="_blank"
             rel="noopener noreferrer"
             className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gray-800 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
