@@ -11,6 +11,7 @@ export const Footer = () => {
             <li><Link to="/account" className="hover:underline">Account</Link></li>
             <li><Link to="/refund-policy" className="hover:underline">Refund Policy</Link></li>
             <li><Link to="/affiliates" className="hover:underline">Affiliates</Link></li>
+            <li><Link to="/support" className="hover:underline">Support</Link></li>
           </ul>
         </div>
         <p className="mb-4">Disclaimers</p>

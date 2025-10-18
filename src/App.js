@@ -12,6 +12,7 @@ import { Footer } from './components/layout/Footer';
 import { RefundPolicyPage } from './pages/RefundPolicyPage';
 import { PaymentPostPurchasePage } from './pages/PaymentPostPurchasePage';
 import { AffiliatesPage } from './pages/AffiliatesPage';
+import { SupportPage } from './pages/SupportPage';
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path="/backtests/super-momentum" element={<BacktestPage file="superMomentum.csv" />} />
           <Route path="/refund-policy" element={<RefundPolicyPage />} />
           <Route path="/affiliates" element={<AffiliatesPage />} />
+          <Route path="/support" element={<SupportPage />} />
         </Routes>
         <Footer/> 
       </div>
