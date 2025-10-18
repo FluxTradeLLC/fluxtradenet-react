@@ -6,6 +6,7 @@ export function PaymentPostPurchasePage() {
     const [discordName, setDiscordName] = useState('');
     const [machineId, setMachineId] = useState('');
     const [email, setEmail] = useState('');
+    const [ntEmail, setNtEmail] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [tradingViewUsername, setTradingViewUsername] = useState('');
@@ -22,6 +23,7 @@ export function PaymentPostPurchasePage() {
                 discordName,
                 machineId,
                 email,
+                ntEmail,
                 firstName,
                 lastName,
                 tradingViewUsername,
@@ -94,6 +96,17 @@ export function PaymentPostPurchasePage() {
                                     placeholder="your@email.com"
                                     value={email}
                                     onChange={e => setEmail(e.target.value)}
+                                    required
+                                />
+                            </label>
+                            <label className="flex flex-col text-left">
+                                <span className="mb-1 font-semibold">NinjaTrader Account Email (if different than other email)</span>
+                                <input
+                                    type="email"
+                                    className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    placeholder="your@email.com"
+                                    value={ntEmail}
+                                    onChange={e => setNtEmail(e.target.value)}
                                     required
                                 />
                             </label>
