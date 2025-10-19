@@ -49,6 +49,10 @@ function App() {
           <Route path="/backtests/liquidity-sweep" element={<BacktestPage file="liquiditySweep.csv" />} />
           <Route path="/backtests/slow-and-steady" element={<BacktestPage file="slowAndSteady.csv" />} />
           <Route path="/backtests/super-momentum" element={<BacktestPage file="superMomentum.csv" />} />
+          <Route path="/backtests/centauri" element={<BacktestPage file="centauri.csv" />} />
+          <Route path="/backtests/mars" element={<BacktestPage file="mars.csv" />} />
+          <Route path="/backtests/moon" element={<BacktestPage file="moon.csv" />} />
+          <Route path="/backtests/pluto" element={<BacktestPage file="pluto.csv" />} />
           <Route path="/refund-policy" element={<RefundPolicyPage />} />
           <Route path="/affiliates" element={<AffiliatesPage />} />
           <Route path="/support" element={<SupportPage />} />

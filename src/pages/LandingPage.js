@@ -65,6 +65,16 @@ import slowAndSteady2 from '../assets/strategies/SlowAndSteady2.PNG';
 import superMomentum1 from '../assets/strategies/SuperMomentum1.PNG';
 import superMomentum2 from '../assets/strategies/SuperMomentum2.PNG';
 
+// Prop Focused strategies assets
+import centauri1 from '../assets/strategies/Centauri1.png';
+import centauri2 from '../assets/strategies/Centauri2.png';
+import mars1 from '../assets/strategies/Mars1.png';
+import mars2 from '../assets/strategies/Mars2.png';
+import moon1 from '../assets/strategies/Moon1.png';
+import moon2 from '../assets/strategies/Moon2.png';
+import pluto1 from '../assets/strategies/Pluto1.png';
+import pluto2 from '../assets/strategies/Pluto2.png';
+
 import '../App.css';
 
 
@@ -294,6 +304,54 @@ export function LandingPage() {
     }
   ];
 
+  // New Prop Focused strategies (NinjaTrader only)
+  const propFocusedStrategies = [
+    {
+      name: 'Centauri',
+      images: [centauri1, centauri2],
+      features: [
+        'Prop firm friendly risk management',
+        'Designed for low drawdown and consistency',
+        'Strict daily loss compliance'
+      ],
+      backtestUrl: '/backtests/centauri',
+      isNew: true,
+    },
+    {
+      name: 'Mars',
+      images: [mars1, mars2],
+      features: [
+        'Momentum with disciplined risk',
+        'Adaptive targets and stops',
+        'Prop account scaling focus'
+      ],
+      backtestUrl: '/backtests/mars',
+      isNew: true,
+    },
+    {
+      name: 'Moon',
+      images: [moon1, moon2],
+      features: [
+        'Trend capture with tight controls',
+        'High-quality signal filtering',
+        'Consistent performance characteristics'
+      ],
+      backtestUrl: '/backtests/moon',
+      isNew: true,
+    },
+    {
+      name: 'Pluto',
+      images: [pluto1, pluto2],
+      features: [
+        'Structured entries and exits',
+        'Volatility-aware position sizing',
+        'Prop firm objective alignment'
+      ],
+      backtestUrl: '/backtests/pluto',
+      isNew: true,
+    },
+  ];
+
   // TradingView assets
   // Indicators
   const tvDynamicTrend = require('../assets/tradingview/indicators/dynamicTrend.png');
@@ -502,6 +560,39 @@ export function LandingPage() {
           const currentIndicators = activeTab === 'NinjaTrader' ? indicators : tradingViewIndicators;
           return (
             <>
+        {activeTab === 'NinjaTrader' && (
+        <section id="prop-focused-strategies" className="mb-12">
+          <h2 className="text-3xl font-bold text-center mb-2">Prop Firm Focused Strategies</h2>
+          <h3 className="text-2xl text-center mb-8">Built for prop firm rules and consistency</h3>
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
+            {propFocusedStrategies.map(strategy => (
+              <div key={strategy.name} className="bg-gray-800 rounded-lg p-4 flex flex-col items-center">
+                <h3 className="text-xl font-semibold mb-2 flex items-center">
+                  {strategy.name}
+                  {strategy.isNew && (
+                    <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">NEW!</span>
+                  )}
+                </h3>
+                <ul className="list-disc list-inside mb-4">
+                  {strategy?.features?.map(feature => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+                {strategy?.backtestUrl && (
+                  <Link to={strategy.backtestUrl} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300">
+                    View Backtest
+                  </Link>
+                )}
+                <div className="flex flex-col w-full">
+                  {Array.isArray(strategy.images) && strategy.images.map((imgSrc, idx) => (
+                    <img key={`${strategy.name}-${idx}`} src={imgSrc} alt={`${strategy.name} ${idx + 1}`} className="w-full h-auto rounded-md mb-4" />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+        )}
         <section id="strategies" className="">
           <h2 className="text-3xl font-bold text-center mb-2">Our Automated Strategies</h2>
           <h3 className="text-2xl text-center mb-8">Highly customizable with automated entries and exits</h3>
