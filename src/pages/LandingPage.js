@@ -390,6 +390,44 @@ export function LandingPage() {
   const getIndicatorByName = (name) => indicators.find(i => i.name === name);
   const getStrategyByName = (name) => strategies.find(s => s.name === name);
 
+  // TradingView Prop Focused strategy images
+  const tvCentauri = require('../assets/tradingview/strategies/centauri.png');
+  const tvMars = require('../assets/tradingview/strategies/mars.png');
+  const tvMoon = require('../assets/tradingview/strategies/moon.png');
+  const tvPluto = require('../assets/tradingview/strategies/pluto.png');
+
+  // TradingView Prop Focused Strategies (reuse features/backtests from NT equivalents)
+  const tvPropFocusedStrategies = [
+    {
+      name: 'Centauri',
+      images: [tvCentauri],
+      features: propFocusedStrategies.find(s => s.name === 'Centauri')?.features,
+      backtestUrl: propFocusedStrategies.find(s => s.name === 'Centauri')?.backtestUrl,
+      isNew: true,
+    },
+    {
+      name: 'Mars',
+      images: [tvMars],
+      features: propFocusedStrategies.find(s => s.name === 'Mars')?.features,
+      backtestUrl: propFocusedStrategies.find(s => s.name === 'Mars')?.backtestUrl,
+      isNew: true,
+    },
+    {
+      name: 'Moon',
+      images: [tvMoon],
+      features: propFocusedStrategies.find(s => s.name === 'Moon')?.features,
+      backtestUrl: propFocusedStrategies.find(s => s.name === 'Moon')?.backtestUrl,
+      isNew: true,
+    },
+    {
+      name: 'Pluto',
+      images: [tvPluto],
+      features: propFocusedStrategies.find(s => s.name === 'Pluto')?.features,
+      backtestUrl: propFocusedStrategies.find(s => s.name === 'Pluto')?.backtestUrl,
+      isNew: true,
+    },
+  ];
+
   const tradingViewIndicators = [
     { name: 'Dynamic Trend', image: tvDynamicTrend, features: getIndicatorByName('DynamicTrend')?.features, isNew: true, },
     { name: 'FluxConfluence', image: tvFluxConfluence, features: getIndicatorByName('FluxConfluence')?.features, isNew: true, },
@@ -566,6 +604,39 @@ export function LandingPage() {
           <h3 className="text-2xl text-center mb-8">Built for prop firm rules and consistency</h3>
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
             {propFocusedStrategies.map(strategy => (
+              <div key={strategy.name} className="bg-gray-800 rounded-lg p-4 flex flex-col items-center">
+                <h3 className="text-xl font-semibold mb-2 flex items-center">
+                  {strategy.name}
+                  {strategy.isNew && (
+                    <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">NEW!</span>
+                  )}
+                </h3>
+                <ul className="list-disc list-inside mb-4">
+                  {strategy?.features?.map(feature => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+                {strategy?.backtestUrl && (
+                  <Link to={strategy.backtestUrl} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300">
+                    View Backtest
+                  </Link>
+                )}
+                <div className="flex flex-col w-full">
+                  {Array.isArray(strategy.images) && strategy.images.map((imgSrc, idx) => (
+                    <img key={`${strategy.name}-${idx}`} src={imgSrc} alt={`${strategy.name} ${idx + 1}`} className="w-full h-auto rounded-md mb-4" />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+        )}
+        {activeTab === 'TradingView' && (
+        <section id="tv-prop-focused-strategies" className="mb-12">
+          <h2 className="text-3xl font-bold text-center mb-2">Prop Firm Focused Strategies</h2>
+          <h3 className="text-2xl text-center mb-8">Built for prop firm rules and consistency</h3>
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
+            {tvPropFocusedStrategies.map(strategy => (
               <div key={strategy.name} className="bg-gray-800 rounded-lg p-4 flex flex-col items-center">
                 <h3 className="text-xl font-semibold mb-2 flex items-center">
                   {strategy.name}
