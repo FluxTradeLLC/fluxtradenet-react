@@ -69,7 +69,7 @@ export function PricingPage() {
                 {/* Standard - Single (choose platform) */}
                 <div className='flex gap-6 flex-wrap md:flex-nowrap justify-center w-full'>
                     <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-gray-700 transform hover:scale-105 transition-transform duration-300">
-                        <h2 className="text-2xl font-bold text-center mb-1">Standard</h2>
+                        <h2 className="text-2xl font-bold text-center mb-1">Indicators</h2>
                         <h3 className="text-center text-sm text-gray-400 mb-4">Single Platform</h3>
                         <p className="text-center text-4xl font-extrabold mb-6">$49<span className="text-lg font-medium text-gray-400">/mo</span></p>
                         <ul className="space-y-4 text-gray-300 mb-8">
@@ -101,7 +101,7 @@ export function PricingPage() {
 
                     {/* Standard - Both */}
                     <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-gray-700 transform hover:scale-105 transition-transform duration-300">
-                        <h2 className="text-2xl font-bold text-center mb-1">Standard</h2>
+                        <h2 className="text-2xl font-bold text-center mb-1">Indicators</h2>
                         <h3 className="text-center text-sm text-gray-400 mb-4">Both Platforms</h3>
                         <p className="text-center text-4xl font-extrabold mb-6">$69<span className="text-lg font-medium text-gray-400">/mo</span></p>
                         <ul className="space-y-4 text-gray-300 mb-8">
@@ -130,13 +130,13 @@ export function PricingPage() {
                     {/* Pro - Single (choose platform) */}
                     <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border-2 border-indigo-500 transform hover:scale-105 transition-transform duration-300 relative">
                         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-indigo-500 text-white text-sm font-bold px-4 py-1 rounded-full">MOST POPULAR</div>
-                        <h2 className="text-2xl font-bold text-center mb-1 text-indigo-400">Pro</h2>
+                        <h2 className="text-2xl font-bold text-center mb-1 text-indigo-400">Automated Strategies</h2>
                         <h3 className="text-center text-sm text-gray-400 mb-4">Single Platform</h3>
                         <p className="text-center text-4xl font-extrabold mb-6">$99<span className="text-lg font-medium text-gray-400">/mo</span></p>
                         <ul className="space-y-4 text-gray-300 mb-8">
                             <li className="flex items-center">
                                 <svg className="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>All features in Standard</span>
+                                <span>Includes indicators for chosen platform</span>
                             </li>
                             <li className="flex items-center">
                                 <svg className="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
@@ -162,13 +162,13 @@ export function PricingPage() {
 
                     {/* Pro - Both */}
                     <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border-2 border-indigo-500 transform hover:scale-105 transition-transform duration-300">
-                        <h2 className="text-2xl font-bold text-center mb-1 text-indigo-400">Pro</h2>
+                        <h2 className="text-2xl font-bold text-center mb-1 text-indigo-400">Automated Strategies</h2>
                         <h3 className="text-center text-sm text-gray-400 mb-4">Both Platforms</h3>
                         <p className="text-center text-4xl font-extrabold mb-6">$119<span className="text-lg font-medium text-gray-400">/mo</span></p>
                         <ul className="space-y-4 text-gray-300 mb-8">
                             <li className="flex items-center">
                                 <svg className="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>All features in Standard</span>
+                                <span>Includes indicators for both platforms</span>
                             </li>
                             <li className="flex items-center">
                                 <svg className="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
