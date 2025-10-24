@@ -69,7 +69,7 @@ export const Header = () => {
         </ul>
         <ul className="w-full lg:w-auto max-w-[500px]" onClick={() => setIsMenuOpen(false)}>
           <a
-            href="https://discord.gg/UTcxDRQ26U"
+            href="https://discord.gg/fluxtrade"
             target="_blank"
             rel="noopener noreferrer"
             className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
@@ -81,7 +81,7 @@ export const Header = () => {
         </ul>
         <ul className="w-full lg:w-auto max-w-[500px]" onClick={() => setIsMenuOpen(false)}>
           <a
-            href="https://shoulditradetoday.com"
+            href="https://www.shoulditradetoday.com"
             target="_blank"
             rel="noopener noreferrer"
             className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
