@@ -29,6 +29,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/auth/callback" element={<AuthCallback />} />
           <Route path="/backtests/flux-trident" element={<BacktestPage file="fluxTrident.csv" />} />
+          <Route path="/backtests/orms" element={<BacktestPage file="orms.csv" />} />
           <Route path="/backtests/flux-signal-strat" element={<BacktestPage file="fluxSignalStrat.csv" />} />
           <Route path="/backtests/flux-pivot-strat" element={<BacktestPage file="fluxPivotStrat.csv" />} />
           <Route path="/backtests/flux-lightning" element={<BacktestPage file="fluxLightning.csv" />} />

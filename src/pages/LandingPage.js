@@ -24,6 +24,8 @@ import fluxSignalStrat1 from '../assets/strategies/FluxSignalStrat1.PNG';
 import fluxSignalStrat2 from '../assets/strategies/FluxSignalStrat2.PNG';
 import fluxTrident1 from '../assets/strategies/FluxTrident1.PNG';
 import fluxTrident2 from '../assets/strategies/FluxTrident2.PNG';
+import ORMS1 from '../assets/strategies/ORMS1.png';
+import ORMS2 from '../assets/strategies/ORMS2.png';
 import cointegratedPairs1 from '../assets/strategies/CointegratedPairs1.PNG';
 import cointegratedPairs2 from '../assets/strategies/CointegratedPairs2.PNG';
 import rileySR1 from '../assets/strategies/RileySR1.PNG';
@@ -97,6 +99,17 @@ export function LandingPage() {
   ];
 
   const strategies = [
+    {
+      name: 'ORMS',
+      images: [ORMS1, ORMS2],
+      features: [
+        'Momentum scalping around NY open range',
+        'Uses opening range momentum shifts',
+        'Tight risk with quick targets'
+      ],
+      backtestUrl: '/backtests/orms',
+      isNew: true,
+    },
     {
       name: 'Liquidity Sweep',
       images: [liquiditySweep1, liquiditySweep2],
@@ -368,6 +381,7 @@ export function LandingPage() {
 
   // Strategies
   const tvDonchian = require('../assets/tradingview/strategies/donchian.png');
+  const tvOrms = require('../assets/tradingview/strategies/orms.png');
   const tvFluxLightning = require('../assets/tradingview/strategies/fluxLightning.png');
   const tvFluxPivotStrat = require('../assets/tradingview/strategies/fluxPivotStrat.png');
   const tvFluxSignalStrat = require('../assets/tradingview/strategies/fluxSignalStrat.png');
@@ -443,6 +457,13 @@ export function LandingPage() {
   ];
 
   const tradingViewStrategies = [
+    {
+      name: 'ORMS',
+      images: [tvOrms],
+      features: getStrategyByName('ORMS')?.features,
+      backtestUrl: getStrategyByName('ORMS')?.backtestUrl,
+      isNew: true,
+    },
     {
       name: 'Donchian Turtle',
       images: [tvDonchian],
