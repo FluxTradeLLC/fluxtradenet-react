@@ -4,7 +4,6 @@ import axios from '../api/axios';
 
 export function PaymentPostPurchasePage() {
     const [discordName, setDiscordName] = useState('');
-    const [machineId, setMachineId] = useState('');
     const [email, setEmail] = useState('');
     const [ntEmail, setNtEmail] = useState('');
     const [firstName, setFirstName] = useState('');
@@ -21,7 +20,6 @@ export function PaymentPostPurchasePage() {
         try {
             await axios.post('/payment/send-post-purchase-info', {
                 discordName,
-                machineId,
                 email,
                 ntEmail,
                 firstName,
@@ -56,15 +54,10 @@ export function PaymentPostPurchasePage() {
                     <div className="text-green-400 font-semibold text-center"><p>Info submitted successfully! We'll add access for these accounts shortly. In the meantime, please check your email for information on how to download and install the Add-ons. 🚀</p><p className='mt-6'>Access to TradingView scripts is fully automated, but takes around 30 minutes. Access to NinjaTrader licenses is a manual process, and will occur during the day in the US Eastern timezone.</p><p className='mt-6'>Join the <a className="text-blue-400" href="https://discord.gg/UTcxDRQ26U">Discord!</a></p></div>
                 ) : (
                     <>
-                        <p>Please enter your Discord username (optional) and NinjaTrader User-Defined Machine ID and/or TradingView username in the form below, and we will get you set up with your license on our end.</p>
-                        <p className='mt-4'>To get the User-Defined Machine ID:</p>
-                        <ol className='list-decimal m-4'>
-                            <li>In the NinjaTrader Control Center, click "Help" &gt; then click “3rd party licensing”</li>
-                            <li>Put "FluxTrade" into the “Vendor name” field</li>
-                            <li>In the "User defined ID" section, put a string to add to your machine ID into the “User defined ID” field. (example: JoeRichardsPC)</li>
-                            <li>Click "Submit" &gt; then copy the newly generated Machine ID &gt; put it into the form below.</li>
-                        </ol>
-                        <p>Need help? Email us at <a href="mailto:hello@fluxtrade.net" className='text-blue-400'>hello@fluxtrade.net</a>.</p>
+                        <p className='mt-4'>Please enter your Discord username (optional) and NinjaTrader Account email (if different from the other email) and/or TradingView username in the form below, and we will get you set up with your license on our end.</p>
+                        <p className='mt-4'>We are using NinjaTrader's new email licensing system, and no longer need machine ID's.</p>
+                        <p className='mt-4'>Granting access and adding licenses and Discord roles is all done automatically, so please ensure all fields are correct before submitting.</p>
+                        <p className='mt-4'>Need help? Email us at <a href="mailto:hello@fluxtrade.net" className='text-blue-400'>hello@fluxtrade.net</a>.</p>
                         <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
                             <label className="flex flex-col text-left">
                                 <span className="mb-1 font-semibold">First Name</span>
@@ -89,7 +82,7 @@ export function PaymentPostPurchasePage() {
                                 />
                             </label>
                             <label className="flex flex-col text-left">
-                                <span className="mb-1 font-semibold">Email</span>
+                                <span className="mb-1 font-semibold">Purchase Email</span>
                                 <input
                                     type="email"
                                     className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -100,7 +93,7 @@ export function PaymentPostPurchasePage() {
                                 />
                             </label>
                             <label className="flex flex-col text-left">
-                                <span className="mb-1 font-semibold">NinjaTrader Account Email (if different than other email)</span>
+                                <span className="mb-1 font-semibold">NinjaTrader Account Email (if different)</span>
                                 <input
                                     type="email"
                                     className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -108,17 +101,6 @@ export function PaymentPostPurchasePage() {
                                     value={ntEmail}
                                     onChange={e => setNtEmail(e.target.value)}
                                     required
-                                />
-                            </label>
-                            <label className="flex flex-col text-left">
-                                <span className="mb-1 font-semibold">Discord Username</span>
-                                <input
-                                    type="text"
-                                    className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                    placeholder="e.g. Trader"
-                                    value={discordName}
-                                    onChange={e => setDiscordName(e.target.value)}
-                                    // required
                                 />
                             </label>
                             <label className="flex flex-col text-left">
@@ -132,13 +114,13 @@ export function PaymentPostPurchasePage() {
                                 />
                             </label>
                             <label className="flex flex-col text-left">
-                                <span className="mb-1 font-semibold">User-Defined Machine ID (for NinjaTrader)</span>
+                                <span className="mb-1 font-semibold">Discord Username</span>
                                 <input
                                     type="text"
                                     className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                    placeholder="Enter your custom machine ID"
-                                    value={machineId}
-                                    onChange={e => setMachineId(e.target.value)}
+                                    placeholder="e.g. Trader"
+                                    value={discordName}
+                                    onChange={e => setDiscordName(e.target.value)}
                                     // required
                                 />
                             </label>
