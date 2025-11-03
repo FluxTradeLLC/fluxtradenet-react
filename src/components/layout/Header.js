@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import fluxLogo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,13 +12,13 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 export const Header = () => {
-  const [hasSession, setHasSession] = useState(false);
+  // const [hasSession, setHasSession] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const email = localStorage.getItem("userEmail");
-    setHasSession(!!email);
-  }, []);
+  // useEffect(() => {
+  //   const email = localStorage.getItem("userEmail");
+  //   setHasSession(!!email);
+  // }, []);
 
   const handleClick = () => {
     setIsMenuOpen(false);
