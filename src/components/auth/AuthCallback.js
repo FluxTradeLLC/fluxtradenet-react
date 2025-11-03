@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
-import { jwtDecode } from 'jwt-decode';
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
 
 export const AuthCallback = () => {
   const location = useLocation();
@@ -11,33 +11,35 @@ export const AuthCallback = () => {
     const hash = location.hash;
     if (hash) {
       const params = new URLSearchParams(hash.substring(1)); // remove the leading '#'
-      const accessToken = params.get('access_token');
-      const refreshToken = params.get('refresh_token');
-      
+      const accessToken = params.get("access_token");
+      const refreshToken = params.get("refresh_token");
+
       const cookieOptions = {
-        path: '/',
-        sameSite: 'Lax',
-        secure: process.env.NODE_ENV === 'production',
-        ...(process.env.NODE_ENV === 'production' ? { domain: '.fluxtrade.net' } : {})
+        path: "/",
+        sameSite: "Lax",
+        secure: process.env.NODE_ENV === "production",
+        ...(process.env.NODE_ENV === "production"
+          ? { domain: ".fluxtrade.net" }
+          : {}),
       };
 
-      if (process.env.NODE_ENV === 'production') {
-        cookieOptions.domain = '.fluxtrade.net';
+      if (process.env.NODE_ENV === "production") {
+        cookieOptions.domain = ".fluxtrade.net";
       }
 
       if (accessToken) {
-        Cookies.set('token', accessToken, cookieOptions);
+        Cookies.set("token", accessToken, cookieOptions);
         const decodedToken = jwtDecode(accessToken);
         if (decodedToken && decodedToken.email) {
-          localStorage.setItem('userEmail', decodedToken.email);
+          localStorage.setItem("userEmail", decodedToken.email);
         }
       }
       if (refreshToken) {
-        Cookies.set('refresh_token', refreshToken, cookieOptions);
+        Cookies.set("refresh_token", refreshToken, cookieOptions);
       }
 
       // Redirect to a protected route, e.g., account page
-      navigate('/account');
+      navigate("/account");
     }
   }, [location, navigate]);
 
@@ -46,4 +48,4 @@ export const AuthCallback = () => {
       <p>Loading...</p>
     </div>
   );
-}; 
+};

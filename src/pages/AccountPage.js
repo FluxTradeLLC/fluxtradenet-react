@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { SignUp } from '../components/auth/SignUp';
-import { SignIn } from '../components/auth/SignIn';
-import { SignOut } from '../components/auth/SignOut';
-import api from '../api/axios';
+import React, { useState, useEffect } from "react";
+import { SignUp } from "../components/auth/SignUp";
+import { SignIn } from "../components/auth/SignIn";
+import { SignOut } from "../components/auth/SignOut";
+import api from "../api/axios";
 
 export const AccountPage = () => {
-  const [activeTab, setActiveTab] = useState('signin');
+  const [activeTab, setActiveTab] = useState("signin");
   const [hasSession, setHasSession] = useState(false);
   const [userEmail, setUserEmail] = useState(null);
   const [isPaid, setIsPaid] = useState(false);
 
   useEffect(() => {
-    const email = localStorage.getItem('userEmail');
+    const email = localStorage.getItem("userEmail");
     setHasSession(!!email);
     if (email) {
       setUserEmail(email);
@@ -22,7 +22,7 @@ export const AccountPage = () => {
           );
           setIsPaid(data.paid);
         } catch (error) {
-          console.error('Error fetching subscription status:', error);
+          console.error("Error fetching subscription status:", error);
         }
       };
       fetchSubscriptionStatus();
@@ -31,11 +31,11 @@ export const AccountPage = () => {
 
   const handleCustomerPortal = async () => {
     try {
-      const email = localStorage.getItem('userEmail');
-      const { data } = await api.post('/payment/customer-portal', { email });
+      const email = localStorage.getItem("userEmail");
+      const { data } = await api.post("/payment/customer-portal", { email });
       window.location.href = data.url;
     } catch (error) {
-      console.error('Error creating customer portal session:', error);
+      console.error("Error creating customer portal session:", error);
     }
   };
 
@@ -52,8 +52,8 @@ export const AccountPage = () => {
               onClick={handleCustomerPortal}
               className={`font-bold mr-[20px] px-4 py-2 rounded ${
                 isPaid
-                  ? 'bg-[#5865F2] text-white hover:bg-[#4752C4]'
-                  : 'bg-gray-500 text-gray-300 cursor-not-allowed'
+                  ? "bg-[#5865F2] text-white hover:bg-[#4752C4]"
+                  : "bg-gray-500 text-gray-300 cursor-not-allowed"
               }`}
               disabled={!isPaid}
             >
@@ -66,31 +66,31 @@ export const AccountPage = () => {
         <div className="max-w-md mx-auto">
           <div className="flex border-b border-gray-700">
             <button
-              onClick={() => setActiveTab('signin')}
+              onClick={() => setActiveTab("signin")}
               className={`w-1/2 py-4 text-center font-semibold ${
-                activeTab === 'signin'
-                  ? 'text-[#5865F2] border-b-2 border-[#5865F2]'
-                  : 'text-gray-400'
+                activeTab === "signin"
+                  ? "text-[#5865F2] border-b-2 border-[#5865F2]"
+                  : "text-gray-400"
               }`}
             >
               Sign In
             </button>
             <button
-              onClick={() => setActiveTab('signup')}
+              onClick={() => setActiveTab("signup")}
               className={`w-1/2 py-4 text-center font-semibold ${
-                activeTab === 'signup'
-                  ? 'text-[#5865F2] border-b-2 border-[#5865F2]'
-                  : 'text-gray-400'
+                activeTab === "signup"
+                  ? "text-[#5865F2] border-b-2 border-[#5865F2]"
+                  : "text-gray-400"
               }`}
             >
               Sign Up
             </button>
           </div>
           <div className="pt-8">
-            {activeTab === 'signin' ? <SignIn /> : <SignUp />}
+            {activeTab === "signin" ? <SignIn /> : <SignUp />}
           </div>
         </div>
       )}
     </div>
   );
-}; 
+};

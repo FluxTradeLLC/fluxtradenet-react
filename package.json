@@ -30,6 +30,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "prettier": "^3.6.2",
     "tailwindcss": "3"
   },
   "eslintConfig": {
@@ -43,6 +44,8 @@
   "scripts": {
     "build": "react-scripts build",
     "eject": "react-scripts eject",
+    "format": "prettier --write \"src/**/*.{js,jsx,json,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,json,css,md}\"",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },

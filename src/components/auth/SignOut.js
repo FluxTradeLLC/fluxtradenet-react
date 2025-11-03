@@ -1,31 +1,32 @@
-import React, { useState } from 'react';
-import api from '../../api/axios';
-import Cookies from 'js-cookie';
+import React, { useState } from "react";
+import api from "../../api/axios";
+import Cookies from "js-cookie";
 
 export const SignOut = () => {
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleSignOut = async () => {
-    setError('');
+    setError("");
     try {
-      await api.post('/users/logout');
+      await api.post("/users/logout");
 
       // Remove cookies regardless of how they were originally set
-      const domainOptions = process.env.NODE_ENV === 'production'
-        ? { domain: '.fluxtrade.net', path: '/' }
-        : { path: '/' };
-      const hostOnlyOptions = { path: '/' };
+      const domainOptions =
+        process.env.NODE_ENV === "production"
+          ? { domain: ".fluxtrade.net", path: "/" }
+          : { path: "/" };
+      const hostOnlyOptions = { path: "/" };
 
       // Attempt removal for domain cookie (production) and host-only cookie variants
-      Cookies.remove('token', domainOptions);
-      Cookies.remove('refresh_token', domainOptions);
-      Cookies.remove('token', hostOnlyOptions);
-      Cookies.remove('refresh_token', hostOnlyOptions);
-      localStorage.removeItem('userEmail');
+      Cookies.remove("token", domainOptions);
+      Cookies.remove("refresh_token", domainOptions);
+      Cookies.remove("token", hostOnlyOptions);
+      Cookies.remove("refresh_token", hostOnlyOptions);
+      localStorage.removeItem("userEmail");
 
-      window.location.reload()
+      window.location.reload();
     } catch (err) {
-      setError('Logout failed');
+      setError("Logout failed");
     }
   };
 
@@ -40,4 +41,4 @@ export const SignOut = () => {
       </button>
     </div>
   );
-}; 
+};

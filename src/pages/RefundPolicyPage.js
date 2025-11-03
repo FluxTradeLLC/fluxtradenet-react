@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export function RefundPolicyPage() {
   return (
@@ -10,17 +10,21 @@ export function RefundPolicyPage() {
         </p>
         <div className="space-y-4 text-gray-300">
           <p>
-            - Refunds apply solely to your latest successful payment. Earlier payments are not eligible.
+            - Refunds apply solely to your latest successful payment. Earlier
+            payments are not eligible.
           </p>
           <p>
-            - The refund amount is prorated based on the remaining time in your current billing period at the time of request.
+            - The refund amount is prorated based on the remaining time in your
+            current billing period at the time of request.
           </p>
           <p>
-            - To initiate a refund, please contact <a href='mailto:grant@fluxtrade.net' className='underline'>support</a> with your account email and payment details.
+            - To initiate a refund, please contact{" "}
+            <a href="mailto:grant@fluxtrade.net" className="underline">
+              support
+            </a>{" "}
+            with your account email and payment details.
           </p>
-          <p>
-            - Processing times may vary depending on your payment provider.
-          </p>
+          <p>- Processing times may vary depending on your payment provider.</p>
         </div>
       </div>
     </div>
@@ -28,5 +32,3 @@ export function RefundPolicyPage() {
 }
 
 export default RefundPolicyPage;
-
-
