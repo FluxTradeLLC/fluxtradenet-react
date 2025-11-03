@@ -50,14 +50,14 @@ export const AccountPage = () => {
           <div className="mt-12 flex justify-center items-center">
             <button
               onClick={handleCustomerPortal}
-              className={`mr-[20px] px-4 py-2 rounded ${
+              className={`font-bold mr-[20px] px-4 py-2 rounded ${
                 isPaid
-                  ? 'bg-blue-500 text-white hover:bg-blue-600'
+                  ? 'bg-[#5865F2] text-white hover:bg-[#4752C4]'
                   : 'bg-gray-500 text-gray-300 cursor-not-allowed'
               }`}
               disabled={!isPaid}
             >
-              Customer Settings
+              Subscription Settings
             </button>
             <SignOut />
           </div>
@@ -69,7 +69,7 @@ export const AccountPage = () => {
               onClick={() => setActiveTab('signin')}
               className={`w-1/2 py-4 text-center font-semibold ${
                 activeTab === 'signin'
-                  ? 'text-blue-500 border-b-2 border-blue-500'
+                  ? 'text-[#5865F2] border-b-2 border-[#5865F2]'
                   : 'text-gray-400'
               }`}
             >
@@ -79,7 +79,7 @@ export const AccountPage = () => {
               onClick={() => setActiveTab('signup')}
               className={`w-1/2 py-4 text-center font-semibold ${
                 activeTab === 'signup'
-                  ? 'text-blue-500 border-b-2 border-blue-500'
+                  ? 'text-[#5865F2] border-b-2 border-[#5865F2]'
                   : 'text-gray-400'
               }`}
             >
