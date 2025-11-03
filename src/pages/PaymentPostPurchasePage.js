@@ -35,7 +35,7 @@ export function PaymentPostPurchasePage() {
   };
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen flex flex-col items-center p-4 pt-12">
+    <div className="bg-gray-900 text-white min-h-full flex flex-col items-center p-4 pt-12">
       <h1 className="text-4xl font-extrabold mb-4 text-green-400">
         Congrats, your purchase is complete! 🎉
       </h1>

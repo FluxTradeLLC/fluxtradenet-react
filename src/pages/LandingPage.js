@@ -757,7 +757,7 @@ export function LandingPage() {
   ];
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen">
+    <div className="bg-gray-900 text-white min-h-full">
       <section>
         <h2 className="pt-[50px] lg:text-[100px] md:text-[50px] text-[40px] text-center">
           Understand the{" "}

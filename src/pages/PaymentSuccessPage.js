@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export function PaymentSuccessPage() {
   return (
-    <div className="bg-gray-900 text-white min-h-screen">
+    <div className="bg-gray-900 text-white min-h-full">
       <div className="flex flex-col items-center justify-center text-center p-4">
         <h1 className="text-4xl font-bold mb-4 text-green-500">
           Payment Successful!

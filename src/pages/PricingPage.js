@@ -62,7 +62,7 @@ export function PricingPage() {
   const testPriceId = PRICING_IDS[envKey]?.TEST;
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen">
+    <div className="bg-gray-900 text-white min-h-full">
       <div className="text-center mb-12 pt-12">
         <h1 className="text-5xl font-extrabold mb-4">Choose Your Plan</h1>
         <p className="text-lg text-gray-400">

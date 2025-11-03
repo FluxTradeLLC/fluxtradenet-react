@@ -6,7 +6,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="p-8 text-md text-white bg-gray-900">
+    <footer className="p-8 pt-24 text-md text-white bg-gray-900">
       <div className="mb-8">
         <p className="mb-2 font-semibold text-center">Navigation</p>
         <ul className="text-gray-300 flex gap-2 items-center justify-center">

@@ -2,7 +2,7 @@ import React from "react";
 
 export function SupportPage() {
   return (
-    <div className="bg-gray-900 text-white min-h-screen">
+    <div className="bg-gray-900 text-white min-h-full">
       <div className="max-w-3xl mx-auto px-6 py-12">
         <h1 className="text-4xl font-extrabold mb-6">Support</h1>
         <p className="text-gray-300 mb-4">

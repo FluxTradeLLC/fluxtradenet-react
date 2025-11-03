@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import Papa from 'papaparse';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Papa from "papaparse";
 
 export const BacktestPage = ({ file }) => {
   const [data, setData] = useState([]);
   const [headers, setHeaders] = useState([]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [file]);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export const BacktestPage = ({ file }) => {
       const response = await fetch(`/backtests/${file}`);
       const reader = response.body.getReader();
       const result = await reader.read();
-      const decoder = new TextDecoder('utf-8');
+      const decoder = new TextDecoder("utf-8");
       const csv = decoder.decode(result.value);
 
       Papa.parse(csv, {
@@ -31,14 +31,22 @@ export const BacktestPage = ({ file }) => {
   }, [file]);
 
   return (
-    <div className="p-8 sm:px-8 bg-gray-900 text-white min-h-screen">
+    <div className="p-8 sm:px-8 bg-gray-900 text-white min-h-full">
       <div className="py-8">
         <div>
-          <h2 className="text-2xl font-semibold leading-tight">Backtest Results: {file}</h2>
-          <a href={`/backtests/${file}`} download className="text-blue-500 hover:text-blue-800 mr-[20px]">
+          <h2 className="text-2xl font-semibold leading-tight">
+            Backtest Results: {file}
+          </h2>
+          <a
+            href={`/backtests/${file}`}
+            download
+            className="text-blue-500 hover:text-blue-800 mr-[20px]"
+          >
             Download CSV
           </a>
-          <Link to="/" className="text-blue-500 hover:text-blue-800">Back to Home</Link>
+          <Link to="/" className="text-blue-500 hover:text-blue-800">
+            Back to Home
+          </Link>
         </div>
         <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
           <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -59,8 +67,13 @@ export const BacktestPage = ({ file }) => {
                 {data.map((row, i) => (
                   <tr key={i}>
                     {headers.map((header) => (
-                      <td key={header} className="px-5 py-5 border-b border-gray-200 bg-gray-900 text-white text-sm">
-                        <p className="text-white whitespace-no-wrap">{row[header]}</p>
+                      <td
+                        key={header}
+                        className="px-5 py-5 border-b border-gray-200 bg-gray-900 text-white text-sm"
+                      >
+                        <p className="text-white whitespace-no-wrap">
+                          {row[header]}
+                        </p>
                       </td>
                     ))}
                   </tr>
