@@ -97,7 +97,7 @@ export const Header = () => {
                 animation: "soft-gradient-x 3s ease-in-out infinite",
               }}
             >
-              <span>{hasSession ? "Select a Plan" : "Pricing"}</span>
+              <span>Pricing</span>
             </Link>
           </ul>
           <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>

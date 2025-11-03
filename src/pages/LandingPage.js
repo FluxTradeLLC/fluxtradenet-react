@@ -493,8 +493,8 @@ export function LandingPage() {
   const tvFluxLightning = require("../assets/tradingview/strategies/fluxLightning.png");
   const tvFluxPivotStrat = require("../assets/tradingview/strategies/fluxPivotStrat.png");
   const tvFluxSignalStrat = require("../assets/tradingview/strategies/fluxSignalStrat.png");
-  const tvFluxSignalScalper = require("../assets/tradingview/strategies/fluxSignalScalper.png");
-  const tvFluxThunder = require("../assets/tradingview/strategies/fluxThunder.png");
+  // const tvFluxSignalScalper = require("../assets/tradingview/strategies/fluxSignalScalper.png");
+  // const tvFluxThunder = require("../assets/tradingview/strategies/fluxThunder.png");
   const tvFluxTrident = require("../assets/tradingview/strategies/fluxTrident.png");
   const tvIccCoch = require("../assets/tradingview/strategies/icccoch.png");
   const tvIchimoko = require("../assets/tradingview/strategies/ichimiko.png");
@@ -778,16 +778,16 @@ export function LandingPage() {
       <main className="p-8">
         {/* Tabs */}
         <div className="flex justify-center mb-10">
-          <div className="inline-flex rounded-md bg-gray-800 p-1">
+          <div className="inline-flex rounded-lg bg-gray-800 p-1">
             <button
               onClick={() => setActiveTab("NinjaTrader")}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === "NinjaTrader" ? "bg-blue-600 text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "NinjaTrader" ? "bg-blue-600 text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
             >
               NinjaTrader
             </button>
             <button
               onClick={() => setActiveTab("TradingView")}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === "TradingView" ? "bg-blue-600 text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "TradingView" ? "bg-blue-600 text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
             >
               TradingView{" "}
               <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
@@ -846,7 +846,7 @@ export function LandingPage() {
                                 key={`${strategy.name}-${idx}`}
                                 src={imgSrc}
                                 alt={`${strategy.name} ${idx + 1}`}
-                                className="w-full h-auto rounded-md mb-4"
+                                className="w-full h-auto rounded-lg mb-4"
                               />
                             ))}
                         </div>
@@ -897,7 +897,7 @@ export function LandingPage() {
                                 key={`${strategy.name}-${idx}`}
                                 src={imgSrc}
                                 alt={`${strategy.name} ${idx + 1}`}
-                                className="w-full h-auto rounded-md mb-4"
+                                className="w-full h-auto rounded-lg mb-4"
                               />
                             ))}
                         </div>
@@ -947,7 +947,7 @@ export function LandingPage() {
                               key={`${strategy.name}-${idx}`}
                               src={imgSrc}
                               alt={`${strategy.name} ${idx + 1}`}
-                              className="w-full h-auto rounded-md mb-4"
+                              className="w-full h-auto rounded-lg mb-4"
                             />
                           ))}
                       </div>
@@ -986,7 +986,7 @@ export function LandingPage() {
                       <img
                         src={indicator.image}
                         alt={indicator.name}
-                        className="w-full h-auto rounded-md mb-4"
+                        className="w-full h-auto rounded-lg mb-4"
                       />
                     </div>
                   ))}
