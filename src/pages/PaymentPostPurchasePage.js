@@ -27,6 +27,7 @@ export function PaymentPostPurchasePage() {
         tradingViewUsername,
       });
       setSuccess(true);
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     } catch (err) {
       setError("Failed to submit info. Please try again.");
     } finally {
