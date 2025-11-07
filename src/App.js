@@ -9,6 +9,7 @@ import { Header } from './components/layout/Header';
 import { SignIn } from './components/auth/SignIn';
 import { SignUp } from './components/auth/SignUp';
 import { Footer } from './components/layout/Footer';
+import { StickyCTA } from './components/layout/StickyCTA';
 import { RefundPolicyPage } from './pages/RefundPolicyPage';
 import { PaymentPostPurchasePage } from './pages/PaymentPostPurchasePage';
 import { AffiliatesPage } from './pages/AffiliatesPage';
@@ -58,6 +59,7 @@ function App() {
           <Route path="/affiliates" element={<AffiliatesPage />} />
           <Route path="/support" element={<SupportPage />} />
         </Routes>
+        <StickyCTA />
         <Footer/> 
       </div>
     </Router>

@@ -42,6 +42,18 @@ export const Footer = () => {
           </li>
         </ul>
       </div>
+
+      <div className="flex justify-center w-full mt-12">
+        <iframe
+          title="Discord"
+          src="https://discord.com/widget?id=1296225730568388640&theme=dark"
+          width="350"
+          height="500"
+          allowtransparency="true"
+          frameborder="0"
+          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+        ></iframe>
+      </div>
       <p className="mb-4">Disclaimers</p>
       <p className="mb-4">
         Futures and forex trading contains substantial risk and is not for every
@@ -77,17 +89,6 @@ export const Footer = () => {
         or success.{" "}
       </p>
 
-      <div className="flex justify-center w-full mt-12">
-        <iframe
-          title="Discord"
-          src="https://discord.com/widget?id=1296225730568388640&theme=dark"
-          width="350"
-          height="500"
-          allowtransparency="true"
-          frameborder="0"
-          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-        ></iframe>
-      </div>
       <p className="text-center mt-12">
         Copyright &copy; {new Date().getFullYear()}, FluxTrade, LLC. All rights
         reserved.
