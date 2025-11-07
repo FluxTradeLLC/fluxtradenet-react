@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 // import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import api from "../../api/axios";
 
@@ -7,7 +8,30 @@ export const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   // const navigate = useNavigate();
+  
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  const validateEmail = (emailValue) => {
+    if (!emailValue) {
+      setEmailError("");
+      return false;
+    }
+    if (!emailRegex.test(emailValue)) {
+      setEmailError("Please enter a valid email address");
+      return false;
+    }
+    setEmailError("");
+    return true;
+  };
+  
+  const handleEmailChange = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+    validateEmail(newEmail);
+  };
   const cookieOptions = {
     path: "/",
     sameSite: "Lax",
@@ -20,6 +44,11 @@ export const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    
+    if (!validateEmail(email)) {
+      return;
+    }
+    
     try {
       await api.post("/users/register", { email, password });
       localStorage.setItem("userEmail", email);
@@ -56,11 +85,18 @@ export const SignUp = () => {
           <input
             type="email"
             placeholder="Email"
-            className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={`w-full px-4 py-2 bg-gray-700 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${
+              emailError
+                ? "border-red-500 focus:ring-red-500"
+                : "border-gray-600 focus:ring-blue-500"
+            }`}
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleEmailChange}
             required
           />
+          {emailError && (
+            <p className="text-red-500 text-sm mt-1">{emailError}</p>
+          )}
         </div>
         <div className="mb-6">
           <input
@@ -72,9 +108,44 @@ export const SignUp = () => {
             required
           />
         </div>
+        <div className="mb-6">
+          <label className="flex items-start text-sm text-gray-300">
+            <input
+              type="checkbox"
+              checked={acceptedTerms}
+              onChange={(e) => setAcceptedTerms(e.target.checked)}
+              className="mt-1 mr-2 h-4 w-4 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-500"
+            />
+            <span>
+              I agree to the{" "}
+              <Link
+                to="/terms"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.open("/terms", "_blank", "noopener,noreferrer");
+                }}
+                className="text-blue-400 hover:text-blue-300 underline"
+              >
+                Terms and Conditions
+              </Link>{" "}
+              and{" "}
+              <Link
+                to="/policies"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.open("/policies", "_blank", "noopener,noreferrer");
+                }}
+                className="text-blue-400 hover:text-blue-300 underline"
+              >
+                Refund and Cancellation Policies
+              </Link>
+            </span>
+          </label>
+        </div>
         <button
           type="submit"
-          className="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          disabled={!acceptedTerms || !email || !password || !!emailError}
+          className="w-full bg-[#5865F2] hover:bg-[#4752C4] disabled:bg-gray-600 disabled:cursor-not-allowed disabled:hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
         >
           Sign Up
         </button>
@@ -87,7 +158,8 @@ export const SignUp = () => {
       <button
         type="button"
         onClick={handleGoogleSubmit}
-        className="w-full bg-white hover:bg-gray-100 text-gray-900 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm flex items-center justify-center"
+        disabled={!acceptedTerms}
+        className="w-full bg-white hover:bg-gray-100 disabled:bg-gray-600 disabled:cursor-not-allowed disabled:hover:bg-gray-600 disabled:text-gray-400 text-gray-900 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm flex items-center justify-center"
       >
         <svg
           className="w-5 h-5 mr-2"

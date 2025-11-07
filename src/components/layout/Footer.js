@@ -48,6 +48,11 @@ export const Footer = () => {
               Support
             </Link>
           </li>
+          <li onClick={handleClick}>
+            <Link to="/terms" className="hover:underline">
+              Terms and Conditions
+            </Link>
+          </li>
         </ul>
       </div>
 

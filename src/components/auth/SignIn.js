@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 // import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import api from "../../api/axios";
 import Cookies from "js-cookie";
 
@@ -68,9 +69,36 @@ export const SignIn = () => {
             required
           />
         </div>
+        <div className="mb-6">
+          <p className="text-sm text-gray-300 text-center">
+            By using this service, you agree to the{" "}
+            <Link
+              to="/terms"
+              onClick={(e) => {
+                e.preventDefault();
+                window.open("/terms", "_blank", "noopener,noreferrer");
+              }}
+              className="text-blue-400 hover:text-blue-300 underline"
+            >
+              Terms and Conditions
+            </Link>{" "}
+            and{" "}
+            <Link
+              to="/policies"
+              onClick={(e) => {
+                e.preventDefault();
+                window.open("/policies", "_blank", "noopener,noreferrer");
+              }}
+              className="text-blue-400 hover:text-blue-300 underline"
+            >
+              Refund and Cancellation Policies
+            </Link>
+          </p>
+        </div>
         <button
           type="submit"
-          className="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          disabled={!email || !password}
+          className="w-full bg-[#5865F2] hover:bg-[#4752C4] disabled:bg-gray-600 disabled:cursor-not-allowed disabled:hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
         >
           Sign In
         </button>
