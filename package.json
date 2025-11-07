@@ -23,6 +23,7 @@
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",
     "papaparse": "^5.5.3",
+    "posthog-js": "^1.290.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.3",
