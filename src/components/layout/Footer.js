@@ -14,10 +14,10 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="p-8 pt-24 text-md text-white bg-gray-900">
+    <footer className="p-8 pb-20 md:pb-8 pt-24 text-md text-white bg-gray-900">
       <div className="mb-8">
         <p className="mb-2 font-semibold text-center">Navigation</p>
-        <ul className="text-gray-300 flex gap-2 items-center justify-center flex-wrap">
+        <ul className="text-gray-300 flex gap-4 items-center justify-center flex-wrap">
           <li onClick={handleClick}>
             <Link to="/" className="hover:underline">
               Home
@@ -56,7 +56,7 @@ export const Footer = () => {
         </ul>
       </div>
 
-      <div className="mb-8">
+      <div className="mb-8 mt-12">
         <p className="mb-2 font-semibold text-center">Follow Us</p>
         <ul className="flex gap-4 items-center justify-center">
           <li>
@@ -128,7 +128,7 @@ export const Footer = () => {
           sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
         ></iframe>
       </div>
-      <p className="mb-4">Disclaimers</p>
+      <p className="mb-4 mt-24">Disclaimers</p>
       <p className="mb-4">
         Futures and forex trading contains substantial risk and is not for every
         investor. An investor could potentially lose all or more than the
