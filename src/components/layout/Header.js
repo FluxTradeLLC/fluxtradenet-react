@@ -127,7 +127,7 @@ export const Header = () => {
               href="https://discord.gg/fluxtrade"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 text-gray-400 hover:text-gray-300 text-sm py-2 px-3 transition-colors duration-200"
+              className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 text-gray-400 hover:text-gray-300 py-2 px-4 transition-colors duration-200 border border-gray-700 rounded-lg p-2"
               style={{ textDecoration: "none" }}
             >
               <FontAwesomeIcon icon={faDiscord} size="sm" />
@@ -139,7 +139,7 @@ export const Header = () => {
               href="https://www.shoulditradetoday.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 text-gray-400 hover:text-gray-300 text-sm py-2 px-3 transition-colors duration-200"
+              className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 text-gray-400 hover:text-gray-300  py-2 px-4 transition-colors duration-200 border border-gray-700 rounded-lg p-2"
               style={{ textDecoration: "none" }}
             >
               <span>Should I Trade Today?</span>

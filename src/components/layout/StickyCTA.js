@@ -70,7 +70,7 @@ export const StickyCTA = () => {
               onClick={() => setActivePlatform("NinjaTrader")}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 activePlatform === "NinjaTrader"
-                  ? "bg-blue-600 text-white"
+                  ? "bg-[#5865F2] hover:bg-[#4752C4] text-white"
                   : "text-gray-300 hover:text-white hover:bg-gray-700"
               }`}
             >
@@ -80,7 +80,7 @@ export const StickyCTA = () => {
               onClick={() => setActivePlatform("TradingView")}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 activePlatform === "TradingView"
-                  ? "bg-blue-600 text-white"
+                  ? "bg-[#5865F2] hover:bg-[#4752C4] text-white"
                   : "text-gray-300 hover:text-white hover:bg-gray-700"
               }`}
             >
@@ -90,7 +90,7 @@ export const StickyCTA = () => {
               onClick={() => setActivePlatform("Both")}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 activePlatform === "Both"
-                  ? "bg-blue-600 text-white"
+                  ? "bg-[#5865F2] hover:bg-[#4752C4] text-white"
                   : "text-gray-300 hover:text-white hover:bg-gray-700"
               }`}
             >
