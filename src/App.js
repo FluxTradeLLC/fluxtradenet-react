@@ -11,7 +11,7 @@ import { SignIn } from './components/auth/SignIn';
 import { SignUp } from './components/auth/SignUp';
 import { Footer } from './components/layout/Footer';
 import { StickyCTA } from './components/layout/StickyCTA';
-import { RefundPolicyPage } from './pages/RefundPolicyPage';
+import { PolicyPage } from './pages/PolicyPage';
 import { PaymentPostPurchasePage } from './pages/PaymentPostPurchasePage';
 import { AffiliatesPage } from './pages/AffiliatesPage';
 import { SupportPage } from './pages/SupportPage';
@@ -57,7 +57,7 @@ function App() {
           <Route path="/backtests/moon" element={<BacktestPage file="moon.csv" />} />
           <Route path="/backtests/pluto" element={<BacktestPage file="pluto.csv" />} />
           <Route path="/backtests/explorer" element={<BacktestExplorerPage />} />
-          <Route path="/refund-policy" element={<RefundPolicyPage />} />
+          <Route path="/policies" element={<PolicyPage />} />
           <Route path="/affiliates" element={<AffiliatesPage />} />
           <Route path="/support" element={<SupportPage />} />
         </Routes>

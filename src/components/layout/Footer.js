@@ -17,7 +17,7 @@ export const Footer = () => {
     <footer className="p-8 pt-24 text-md text-white bg-gray-900">
       <div className="mb-8">
         <p className="mb-2 font-semibold text-center">Navigation</p>
-        <ul className="text-gray-300 flex gap-2 items-center justify-center">
+        <ul className="text-gray-300 flex gap-2 items-center justify-center flex-wrap">
           <li onClick={handleClick}>
             <Link to="/" className="hover:underline">
               Home
@@ -34,8 +34,8 @@ export const Footer = () => {
             </Link>
           </li>
           <li onClick={handleClick}>
-            <Link to="/refund-policy" className="hover:underline">
-              Refund Policy
+            <Link to="/policies" className="hover:underline">
+              Refund and Cancellation Policies
             </Link>
           </li>
           <li onClick={handleClick}>
