@@ -101,7 +101,11 @@ export const StickyCTA = () => {
           {/* CTA Button */}
           <button
             onClick={handleStartTrial}
-            className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap"
+            className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600 animate-soft-gradient text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:bg-gradient-to-l whitespace-nowrap"
+            style={{
+              backgroundSize: "200% 200%",
+              animation: "soft-gradient-x 3s ease-in-out infinite",
+            }}
           >
             {isAuthenticated ? "Start Free Trial (30 days)" : "Sign Up To Start Free Trial (30 days)"}
           </button>

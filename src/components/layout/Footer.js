@@ -1,4 +1,12 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faYoutube,
+  faTwitch,
+  faInstagram,
+  faFacebook,
+  faTiktok,
+} from "@fortawesome/free-brands-svg-icons";
 
 export const Footer = () => {
   const handleClick = () => {
@@ -39,6 +47,67 @@ export const Footer = () => {
             <Link to="/support" className="hover:underline">
               Support
             </Link>
+          </li>
+        </ul>
+      </div>
+
+      <div className="mb-8">
+        <p className="mb-2 font-semibold text-center">Follow Us</p>
+        <ul className="flex gap-4 items-center justify-center">
+          <li>
+            <a
+              href="https://www.youtube.com/@FluxTradeLLC"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-red-500 transition-colors duration-200"
+              aria-label="YouTube"
+            >
+              <FontAwesomeIcon icon={faYoutube} size="lg" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.twitch.tv/fluxtradellc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-purple-500 transition-colors duration-200"
+              aria-label="Twitch"
+            >
+              <FontAwesomeIcon icon={faTwitch} size="lg" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/fluxtradellc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-pink-500 transition-colors duration-200"
+              aria-label="Instagram"
+            >
+              <FontAwesomeIcon icon={faInstagram} size="lg" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.tiktok.com/@bitlionllc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors duration-200"
+              aria-label="TikTok"
+            >
+              <FontAwesomeIcon icon={faTiktok} size="lg" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.facebook.com/profile.php?id=61583361714523"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-blue-500 transition-colors duration-200"
+              aria-label="Facebook"
+            >
+              <FontAwesomeIcon icon={faFacebook} size="lg" />
+            </a>
           </li>
         </ul>
       </div>

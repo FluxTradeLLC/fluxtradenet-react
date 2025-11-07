@@ -4,11 +4,6 @@ import fluxLogo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDiscord,
-  faYoutube,
-  faTwitch,
-  faInstagram,
-  faFacebook,
-  faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
 
 export const Header = () => {
@@ -110,29 +105,6 @@ export const Header = () => {
             </Link>
           </ul>
           <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
-            <a
-              href="https://discord.gg/fluxtrade"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
-              style={{ textDecoration: "none" }}
-            >
-              <FontAwesomeIcon icon={faDiscord} size="lg" />
-              <span>Free Discord</span>
-            </a>
-          </ul>
-          <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
-            <a
-              href="https://www.shoulditradetoday.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
-              style={{ textDecoration: "none" }}
-            >
-              <span>Should I Trade Today?</span>
-            </a>
-          </ul>
-          <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
             <Link
               to="/account"
               className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
@@ -143,57 +115,25 @@ export const Header = () => {
           </ul>
           <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
             <a
-              href="https://www.youtube.com/@FluxTradeLLC"
+              href="https://discord.gg/fluxtrade"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gray-300 hover:bg-gray-400 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
+              className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 text-gray-400 hover:text-gray-300 text-sm py-2 px-3 transition-colors duration-200"
               style={{ textDecoration: "none" }}
             >
-              <FontAwesomeIcon icon={faYoutube} size="lg" color="red" />
+              <FontAwesomeIcon icon={faDiscord} size="sm" />
+              <span>Free Discord</span>
             </a>
           </ul>
           <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
             <a
-              href="https://www.twitch.tv/fluxtradellc"
+              href="https://www.shoulditradetoday.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gray-300 hover:bg-gray-400 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
+              className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 text-gray-400 hover:text-gray-300 text-sm py-2 px-3 transition-colors duration-200"
               style={{ textDecoration: "none" }}
             >
-              <FontAwesomeIcon icon={faTwitch} size="lg" color="purple" />
-            </a>
-          </ul>
-          <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
-            <a
-              href="https://www.instagram.com/fluxtradellc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gray-300 hover:bg-gray-400 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
-              style={{ textDecoration: "none" }}
-            >
-              <FontAwesomeIcon icon={faInstagram} size="lg" color="black" />
-            </a>
-          </ul>
-          <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
-            <a
-              href="https://www.tiktok.com/@bitlionllc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gray-300 hover:bg-gray-400 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
-              style={{ textDecoration: "none" }}
-            >
-              <FontAwesomeIcon icon={faTiktok} size="lg" color="black" />
-            </a>
-          </ul>
-          <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
-            <a
-              href="https://www.facebook.com/profile.php?id=61583361714523"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gray-300 hover:bg-gray-400 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
-              style={{ textDecoration: "none" }}
-            >
-              <FontAwesomeIcon icon={faFacebook} size="lg" color="blue" />
+              <span>Should I Trade Today?</span>
             </a>
           </ul>
         </nav>
