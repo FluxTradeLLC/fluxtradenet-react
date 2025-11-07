@@ -5,6 +5,7 @@ import { AccountPage } from './pages/AccountPage';
 import { AuthCallback } from './components/auth/AuthCallback';
 import { PaymentSuccessPage } from './pages/PaymentSuccessPage';
 import { BacktestPage } from './pages/BacktestPage';
+import { BacktestExplorerPage } from './pages/BacktestExplorerPage';
 import { Header } from './components/layout/Header';
 import { SignIn } from './components/auth/SignIn';
 import { SignUp } from './components/auth/SignUp';
@@ -55,6 +56,7 @@ function App() {
           <Route path="/backtests/mars" element={<BacktestPage file="mars.csv" />} />
           <Route path="/backtests/moon" element={<BacktestPage file="moon.csv" />} />
           <Route path="/backtests/pluto" element={<BacktestPage file="pluto.csv" />} />
+          <Route path="/backtests/explorer" element={<BacktestExplorerPage />} />
           <Route path="/refund-policy" element={<RefundPolicyPage />} />
           <Route path="/affiliates" element={<AffiliatesPage />} />
           <Route path="/support" element={<SupportPage />} />
