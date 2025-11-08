@@ -5,7 +5,7 @@ export function TermsAndConditionsPage() {
   return (
     <div className="bg-gray-900 text-white min-h-full">
       <div className="max-w-3xl mx-auto px-6 py-12">
-        <h1 className="text-4xl font-extrabold mb-8">Terms and Conditions</h1>
+        <h1 className="text-5xl font-extrabold mb-4 text-center">Terms and Conditions</h1>
         
         <div className="space-y-8 text-gray-300">
           <p className="text-lg">
@@ -72,7 +72,7 @@ export function TermsAndConditionsPage() {
                 We've designed this process to be quick and easy, putting you in control. Once you cancel, your subscription will remain active until the end of your current billing period, and you'll continue to have full access to all features until that time.
               </p>
               <p>
-                <strong>Important:</strong> To ensure your subscription is properly cancelled and to avoid any future charges, please complete the cancellation process through your account dashboard. Our support team cannot cancel subscriptions on your behalf, as this ensures you maintain direct control over your account and billing.
+                <strong>Important:</strong> To ensure your subscription is properly cancelled and to avoid any future charges, please complete the cancellation process through your account dashboard. Our support team can cancel subscriptions on your behalf if you need help. It is your responsibility to cancel your subscription or ensure that it has been cancelled by our team in order to avoid future charges.
               </p>
             </div>
           </section>
@@ -147,8 +147,25 @@ export function TermsAndConditionsPage() {
             </div>
           </section>
 
+          {/* Support Section */}
+          <section>
+            <h2 className="text-3xl font-bold mb-4 text-white">Need Help?</h2>
+            <div className="space-y-4">
+              <p>
+                If you have any questions or need assistance with your account, refunds, or cancellations, our support team is here to help.
+              </p>
+              <p>
+                Visit our{" "}
+                <Link to="/support" className="underline text-blue-400 hover:text-blue-300">
+                  Support page
+                </Link>{" "}
+                to get in touch with us or submit a support request.
+              </p>
+            </div>
+          </section>
+
           <p className="text-sm text-gray-400 mt-8">
-            Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            Last updated: November 7, 2025
           </p>
         </div>
       </div>

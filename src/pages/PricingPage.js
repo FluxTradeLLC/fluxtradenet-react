@@ -64,7 +64,7 @@ export function PricingPage() {
   return (
     <div className="bg-gray-900 text-white min-h-full">
       <div className="text-center mb-12 pt-12">
-        <h1 className="text-5xl font-extrabold mb-4">Choose Your Plan</h1>
+        <h1 className="text-5xl font-extrabold mb-4 text-center">Choose Your Plan</h1>
         <p className="text-lg text-gray-400">
           Unlock the full potential of FluxTrade with our tailored plans. All
           plans offer a 30 day free trial!

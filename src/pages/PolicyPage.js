@@ -5,7 +5,7 @@ export function PolicyPage() {
   return (
     <div className="bg-gray-900 text-white min-h-full">
       <div className="max-w-3xl mx-auto px-6 py-12">
-        <h1 className="text-4xl font-extrabold mb-8">Refund and Cancellation Policies</h1>
+        <h1 className="text-5xl font-extrabold mb-4 text-center">Refund and Cancellation Policies</h1>
         
         {/* Refund Policy Section */}
         <section className="mb-12">
@@ -24,7 +24,7 @@ export function PolicyPage() {
             </p>
             <p>
               - To initiate a refund, please contact{" "}
-              <a href="mailto:grant@fluxtrade.net" className="underline">
+              <a href="mailto:grant@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">
                 support
               </a>{" "}
               with your account email and payment details.
@@ -43,11 +43,17 @@ export function PolicyPage() {
             <ol className="list-decimal list-inside space-y-3 ml-4">
               <li>
                 <Link to="/account" className="underline text-blue-400 hover:text-blue-300">
-                  Log in to Account
+                  Log in to your Account
                 </Link>
               </li>
               <li>
-                Click on the <strong>Subscription Settings</strong> button to access the Stripe customer portal to change credit card details or cancel the subscription.
+                Navigate to the <strong>Subscription Settings</strong> section
+              </li>
+              <li>
+                Click the button to access the Stripe customer portal
+              </li>
+              <li>
+                Follow the prompts to cancel your subscription
               </li>
             </ol>
             <p className="mt-4">
@@ -55,6 +61,27 @@ export function PolicyPage() {
             </p>
           </div>
         </section>
+
+        {/* Support Section */}
+        <section className="mt-12">
+          <h2 className="text-3xl font-bold mb-6">Need Help?</h2>
+          <div className="space-y-4 text-gray-300">
+            <p>
+              If you have any questions or need assistance with your account, refunds, or cancellations, our support team is here to help.
+            </p>
+            <p>
+              Visit our{" "}
+              <Link to="/support" className="underline text-blue-400 hover:text-blue-300">
+                Support page
+              </Link>{" "}
+              to get in touch with us or submit a support request.
+            </p>
+          </div>
+        </section>
+
+        <p className="text-sm text-gray-400 mt-8">
+            Last updated: November 7, 2025
+          </p>
       </div>
     </div>
   );

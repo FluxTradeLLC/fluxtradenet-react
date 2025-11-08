@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import api from "../api/axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
@@ -41,10 +42,10 @@ export function SupportPage() {
   return (
     <div className="bg-gray-900 text-white min-h-full">
       <div className="max-w-3xl mx-auto px-6 py-12">
-        <h1 className="text-4xl font-extrabold mb-6">Support</h1>
+        <h1 className="text-5xl font-extrabold mb-4 text-center">Support</h1>
         <p className="text-gray-300 mb-4">
           For support inquiries, please email{" "}
-          <a href="mailto:hello@fluxtrade.net" className="underline">
+          <a href="mailto:hello@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">
             hello@fluxtrade.net
           </a>
           &nbsp;or send a message with the form below.
@@ -65,6 +66,32 @@ export function SupportPage() {
           </a>
         </p>
         
+        {/* Additional Resources Section */}
+        <div className="mb-8 bg-gray-800 rounded-lg shadow-lg p-6">
+          <h2 className="text-2xl font-bold mb-4 text-white">Additional Resources</h2>
+          <div className="space-y-3 text-gray-300">
+            <p>
+              Before contacting support, you may find answers to common questions in our policies and terms:
+            </p>
+            <ul className="list-disc list-inside space-y-2 ml-4">
+              <li>
+                For information about refunds, cancellations, and subscription management, visit our{" "}
+                <Link to="/policies" className="underline text-blue-400 hover:text-blue-300">
+                  Refund and Cancellation Policies
+                </Link>
+              </li>
+              <li>
+                For terms of service, account responsibilities, and general terms, visit our{" "}
+                <Link to="/terms" className="underline text-blue-400 hover:text-blue-300">
+                  Terms and Conditions
+                </Link>
+              </li>
+            </ul>
+            <p className="mt-4">
+              If you still need assistance after reviewing these resources, please don't hesitate to reach out using the form below or <a href="mailto:hello@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">email us directly</a>.
+            </p>
+          </div>
+        </div>
         
         <div className="mt-8 bg-gray-800 rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-bold text-center mb-6">Send us a Message</h2>

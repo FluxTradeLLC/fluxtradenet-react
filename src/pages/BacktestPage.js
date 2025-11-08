@@ -34,9 +34,9 @@ export const BacktestPage = ({ file }) => {
     <div className="p-8 sm:px-8 bg-gray-900 text-white min-h-full">
       <div className="py-8">
         <div>
-          <h2 className="text-2xl font-semibold leading-tight">
+          <h1 className="text-5xl font-extrabold mb-4 text-center">
             Backtest Results: {file}
-          </h2>
+          </h1>
           <a
             href={`/backtests/${file}`}
             download
