@@ -3,7 +3,10 @@ import { useNavigate } from "react-router-dom";
 import api from "../../api/axios";
 
 export const StickyCTA = () => {
-  const [activePlatform, setActivePlatform] = useState("NinjaTrader");
+  const [activePlatform, setActivePlatform] = useState(() => {
+    const savedPlatform = localStorage.getItem("stickyCTAActivePlatform");
+    return savedPlatform || "NinjaTrader";
+  });
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
 
@@ -13,6 +16,10 @@ export const StickyCTA = () => {
       setIsAuthenticated(true);
     }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("stickyCTAActivePlatform", activePlatform);
+  }, [activePlatform]);
 
   const PRICING_IDS = {
     LOCAL: {

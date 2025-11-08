@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TradingViewChart } from "../components/TradingViewChart";
 
 import kinetickLogo from "../assets/logos/Kinetick_Logo.png";
@@ -81,7 +81,14 @@ import pluto2 from "../assets/strategies/Pluto2.png";
 import "../App.css";
 
 export function LandingPage() {
-  const [activeTab, setActiveTab] = useState("NinjaTrader");
+  const [activeTab, setActiveTab] = useState(() => {
+    const savedTab = localStorage.getItem("landingPageActiveTab");
+    return savedTab || "NinjaTrader";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("landingPageActiveTab", activeTab);
+  }, [activeTab]);
   const indicators = [
     // NEW INDICATORS
     {
@@ -782,13 +789,13 @@ export function LandingPage() {
           <div className="inline-flex rounded-lg bg-gray-800 p-1">
             <button
               onClick={() => setActiveTab("NinjaTrader")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "NinjaTrader" ? "bg-blue-600 text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "NinjaTrader" ? "bg-[#5865F2] hover:bg-[#4752C4] text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
             >
               NinjaTrader
             </button>
             <button
               onClick={() => setActiveTab("TradingView")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "TradingView" ? "bg-blue-600 text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "TradingView" ? "bg-[#5865F2] hover:bg-[#4752C4] text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
             >
               TradingView{" "}
               <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
