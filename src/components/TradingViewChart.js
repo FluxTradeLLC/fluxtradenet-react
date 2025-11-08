@@ -1,8 +1,24 @@
 import { useState, useEffect, useRef } from "react";
 import { createChart, CandlestickSeries, LineSeries } from "lightweight-charts";
+import { calculateFluxPivot } from "../assets/javascriptIndicators/fluxPivot";
 
 // Simplified indicator configurations for lightweight-charts
 const FLUX_INDICATORS = {
+  "FluxPivot": {
+    name: "FluxPivot",
+    type: "fluxPivot",
+    color: "#00FFFF",
+    description: "FluxTrade FluxPivot with stepped MA and flip/add signals",
+    category: "trend",
+    options: {
+      maPeriod: 30,
+      stepPeriod: 1,
+      flipStepTicks: 250,
+      adxMinimum: 20,
+      maLineColor: "#00FFFF",
+      heikinAshiColor: "#808080",
+    },
+  },
   "Moving Average (14)": {
     name: "Moving Average (14)",
     type: "ma",
@@ -47,6 +63,11 @@ const FLUX_INDICATORS = {
 
 // Preset layouts
 const PRESET_LAYOUTS = {
+  "FluxTrade": {
+    name: "FluxTrade",
+    indicators: ["FluxPivot"],
+    description: "FluxTrade's flagship indicator with stepped MA and signals",
+  },
   "Trend Following": {
     name: "Trend Following",
     indicators: ["Moving Average (14)", "Moving Average (50)", "Moving Average (200)"],
@@ -182,12 +203,10 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
   const chartRef = useRef(null);
   const candleSeriesRef = useRef(null);
   const indicatorSeriesRef = useRef({});
-  const [activeIndicators, setActiveIndicators] = useState(
-    PRESET_LAYOUTS["Trend Following"].indicators
-  );
-  const [selectedPreset, setSelectedPreset] = useState("Trend Following");
+  const [activeIndicators, setActiveIndicators] = useState(["FluxPivot"]);
+  const [selectedPreset, setSelectedPreset] = useState("FluxTrade");
   const [isLoading, setIsLoading] = useState(true);
-  const [showIndicators, setShowIndicators] = useState(false);
+  const [showIndicators, setShowIndicators] = useState(true);
   const [chartData, setChartData] = useState([]);
 
   // Fetch chart data
@@ -405,18 +424,31 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
   useEffect(() => {
     if (!chartRef.current || !candleSeriesRef.current || chartData.length === 0) return;
 
+    // Clear markers from candlestick series first (if method exists)
+    if (candleSeriesRef.current && typeof candleSeriesRef.current.setMarkers === 'function') {
+      candleSeriesRef.current.setMarkers([]);
+    }
+
     // Remove all existing indicator series
-    Object.values(indicatorSeriesRef.current).forEach((series) => {
-      if (series) {
-        chartRef.current.removeSeries(series);
+    Object.entries(indicatorSeriesRef.current).forEach(([key, series]) => {
+      // Only remove actual series objects (not signal data stored with _flipSignals/_addSignals suffix)
+      if (chartRef.current && series && typeof series.setData === 'function') {
+        try {
+          chartRef.current.removeSeries(series);
+        } catch (error) {
+          console.warn(`Failed to remove series ${key}:`, error);
+        }
       }
     });
     indicatorSeriesRef.current = {};
 
+    // Collect all markers from indicators (e.g., FluxPivot signals)
+    const allMarkers = [];
+
     // Add active indicators
-    activeIndicators.forEach((indicatorName) => {
+    for (const indicatorName of activeIndicators) {
       const indicator = FLUX_INDICATORS[indicatorName];
-      if (!indicator) return;
+      if (!indicator) continue;
 
       let indicatorData = [];
       
@@ -424,6 +456,105 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
         indicatorData = calculateMA(chartData, indicator.period);
       } else if (indicator.type === "ema") {
         indicatorData = calculateEMA(chartData, indicator.period);
+      } else if (indicator.type === "fluxPivot") {
+        // Calculate FluxPivot indicator
+        const options = indicator.options || {};
+        const result = calculateFluxPivot(chartData, options);
+        
+        // Ensure result and steppedMA exist
+        if (!result || !result.steppedMA || !Array.isArray(result.steppedMA)) {
+          console.warn("FluxPivot calculation returned invalid data");
+          continue;
+        }
+        
+        // Split steppedMA into segments by direction for color coding
+        // We need to track direction changes to create separate series
+        const steppedMAData = result.steppedMA.filter((d) => 
+          d && 
+          typeof d === 'object' &&
+          d.value !== null && 
+          d.value !== undefined && 
+          typeof d.value === 'number' &&
+          isFinite(d.value) &&
+          typeof d.time !== 'undefined' &&
+          typeof d.time === 'number'
+        );
+        
+        if (steppedMAData.length > 0) {
+          // Group data points by direction (long=1, short=-1, flat=0)
+          // We'll create separate series for each direction segment
+          const segments = [];
+          let currentSegment = null;
+          
+          for (let i = 0; i < steppedMAData.length; i++) {
+            const point = steppedMAData[i];
+            // Skip if point is invalid
+            if (!point || point.value === null || point.value === undefined || typeof point.time === 'undefined') {
+              continue;
+            }
+            
+            // Determine direction from color (cyan=long, blue=short, default=flat)
+            let direction = 0;
+            if (point.color === "#00FFFF") direction = 1; // Long
+            else if (point.color === "#0000FF") direction = -1; // Short
+            
+            if (!currentSegment || currentSegment.direction !== direction) {
+              // Start new segment - this creates a step when direction changes
+              if (currentSegment && currentSegment.data.length > 0) {
+                // Add the transition point with old value to previous segment (creates step)
+                const lastPoint = currentSegment.data[currentSegment.data.length - 1];
+                if (lastPoint && 
+                    typeof point.time !== 'undefined' && 
+                    typeof lastPoint.value !== 'undefined' && 
+                    lastPoint.value !== null &&
+                    typeof lastPoint.value === 'number') {
+                  // Add point at transition time with old value
+                  currentSegment.data.push({ 
+                    time: point.time, 
+                    value: lastPoint.value 
+                  });
+                }
+                segments.push(currentSegment);
+              }
+              
+              // Start new segment with current point (new value at transition time - creates visible step)
+              currentSegment = {
+                direction: direction,
+                data: [],
+                color: direction === 1 ? "#00FFFF" : direction === -1 ? "#0000FF" : options.maLineColor || "#00FFFF",
+              };
+            }
+            // Ensure both time and value are valid before pushing
+            if (typeof point.time !== 'undefined' && 
+                typeof point.value !== 'undefined' && 
+                point.value !== null &&
+                typeof point.value === 'number' &&
+                isFinite(point.value)) {
+              currentSegment.data.push({ time: point.time, value: point.value });
+            }
+          }
+          
+          // Add last segment
+          if (currentSegment && currentSegment.data.length > 0) {
+            segments.push(currentSegment);
+          }
+          
+          // Create a series for each segment
+          segments.forEach((segment, idx) => {
+            const series = chartRef.current.addSeries(LineSeries, {
+              color: segment.color,
+              lineWidth: 2,
+              title: idx === 0 ? indicator.name : `${indicator.name} (${segment.direction === 1 ? 'Long' : segment.direction === -1 ? 'Short' : 'Flat'})`,
+            });
+            series.setData(segment.data);
+            indicatorSeriesRef.current[`${indicatorName}_${idx}`] = series;
+          });
+          
+          // Markers removed - no longer displaying Long/Short signals
+        }
+        
+        // Skip the normal indicator rendering for FluxPivot since we handle it above
+        continue;
       }
 
       // Filter out null values
@@ -439,7 +570,12 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
         lineSeries.setData(validData);
         indicatorSeriesRef.current[indicatorName] = lineSeries;
       }
-    });
+    }
+
+    // Set all markers on the candlestick series at once
+    if (candleSeriesRef.current && typeof candleSeriesRef.current.setMarkers === 'function') {
+      candleSeriesRef.current.setMarkers(allMarkers);
+    }
   }, [activeIndicators, chartData]);
 
   const toggleIndicator = (indicatorName) => {
