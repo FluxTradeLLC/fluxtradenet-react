@@ -333,7 +333,7 @@ export const BacktestExplorerPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-4 sm:p-8">
+    <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
           <h1 className="text-5xl font-extrabold mb-4 text-center">Backtest Explorer</h1>

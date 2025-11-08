@@ -759,7 +759,7 @@ export function LandingPage() {
   return (
     <div className="bg-gray-900 text-white min-h-full">
       <section>
-        <h2 className="pt-[50px] lg:text-[100px] md:text-[50px] text-[40px] text-center">
+        <h2 className="pt-[20px] lg:text-[100px] md:text-[50px] text-[40px] text-center">
           Understand the{" "}
           <span className="italic bg-gradient-to-tl from-red-600 via-gray-300 to-green-600 hover:bg-gradient-to-br hover:from-green-500 hover:via-green-200 hover:to-lime-500 text-transparent bg-clip-text bg-300 animate-gradient-pan cursor-default">
             markets

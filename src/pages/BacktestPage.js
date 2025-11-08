@@ -31,8 +31,8 @@ export const BacktestPage = ({ file }) => {
   }, [file]);
 
   return (
-    <div className="p-8 sm:px-8 bg-gray-900 text-white min-h-full">
-      <div className="py-8">
+    <div className="px-8 pt-12 pb-8 bg-gray-900 text-white min-h-full">
+      <div>
         <div>
           <h1 className="text-5xl font-extrabold mb-4 text-center">
             Backtest Results: {file}

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export function PaymentSuccessPage() {
   return (
     <div className="bg-gray-900 text-white min-h-full">
-      <div className="flex flex-col items-center justify-center text-center p-4">
+      <div className="flex flex-col items-center justify-center text-center px-4 pt-12 pb-4">
         <h1 className="text-5xl font-extrabold mb-4 text-center text-green-500">
           Payment Successful!
         </h1>

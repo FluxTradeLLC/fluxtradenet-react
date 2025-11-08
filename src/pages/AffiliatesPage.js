@@ -3,7 +3,7 @@ import React from "react";
 export function AffiliatesPage() {
   return (
     <div className="bg-gray-900 text-white min-h-full">
-      <div className="max-w-5xl mx-auto px-6 py-16">
+      <div className="max-w-5xl mx-auto px-6 pt-12 pb-16">
         <h1 className="text-5xl font-extrabold mb-4 text-center">
           FluxTrade Affiliate Program
         </h1>
