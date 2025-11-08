@@ -42,38 +42,46 @@ export const AccountPage = () => {
 
   return (
     <div className="bg-gray-900 text-white min-h-full pb-40">
-      <h1 className="text-4xl font-bold text-center mb-12">Account</h1>
+      <h1 className="text-4xl font-bold text-center mb-4">Account</h1>
       {hasSession ? (
         <div className="max-w-lg mx-auto text-center">
           {userEmail && (
-            <p className="text-lg mb-4">Logged in as: {userEmail}</p>
+            <p className="text-lg">Logged in as: {userEmail}</p>
           )}
-          <div className="mt-12 flex justify-center items-center">
-            {!isPaid ? (
-              <Link
-                to="/pricing"
-                className="flex w-full mr-[20px] lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600 animate-soft-gradient text-w font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:bg-gradient-to-l"
-                style={{
-                  textDecoration: "none",
-                  backgroundSize: "200% 200%",
-                  animation: "soft-gradient-x 3s ease-in-out infinite",
-                }}
+          <div className="flex justify-center items-center">
+            <div className="mt-4 flex flex-col gap-4 justify-center items-center">
+              {!isPaid ? (
+                <>
+                  <h3 className="text-2xl font-bold mt-8 text-center">Sign up for a plan</h3>
+                  <p>Each plan offers a 30 day free trial!</p>
+                  <Link
+                    to="/pricing"
+                    className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600 animate-soft-gradient text-w font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:bg-gradient-to-l"
+                    style={{
+                      textDecoration: "none",
+                      backgroundSize: "200% 200%",
+                      animation: "soft-gradient-x 3s ease-in-out infinite",
+                    }}
+                  >
+                    <span>Select a Plan</span>
+                  </Link>
+                </>
+              ) : null}
+              <h3 className="text-2xl font-bold mt-8 text-center">Subscription Settings</h3>
+              <p>Log into the Stripe customer portal to manage your subscription, update your payment method, or cancel your subscription.</p>
+              <button
+                onClick={handleCustomerPortal}
+                className={`font-bold px-4 py-2 rounded-lg ${
+                  isPaid
+                    ? "bg-[#5865F2] text-white hover:bg-[#4752C4]"
+                    : "bg-gray-500 text-gray-300 cursor-not-allowed"
+                }`}
               >
-                <span>Select a Plan</span>
-              </Link>
-            ) : null}
-            <button
-              onClick={handleCustomerPortal}
-              className={`font-bold mr-[20px] px-4 py-2 rounded-lg ${
-                isPaid
-                  ? "bg-[#5865F2] text-white hover:bg-[#4752C4]"
-                  : "bg-gray-500 text-gray-300 cursor-not-allowed"
-              }`}
-              disabled={!isPaid}
-            >
-              Subscription Settings
-            </button>
-            <SignOut />
+                Subscription Settings
+              </button>
+              <h3 className="text-2xl font-bold mt-8">Sign Out</h3>
+              <SignOut />
+            </div>
           </div>
         </div>
       ) : (
