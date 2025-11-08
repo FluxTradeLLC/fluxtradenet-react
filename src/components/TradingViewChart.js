@@ -208,11 +208,156 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
   const [isLoading, setIsLoading] = useState(true);
   const [showIndicators, setShowIndicators] = useState(true);
   const [chartData, setChartData] = useState([]);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [hasMoreData, setHasMoreData] = useState(true);
+  const earliestTimestampRef = useRef(null);
+  const dataUrlRef = useRef(dataUrl);
+  const chartInitializedRef = useRef(false);
+  const hasMoreDataRef = useRef(true);
+  const isLoadingMoreRef = useRef(false);
+  const visibleRangeSubscriptionRef = useRef(null);
+  const loadMoreTimeoutRef = useRef(null);
+  const subscriptionTimeoutRef = useRef(null);
+  const chartReadyForSubscriptionRef = useRef(false);
+
+  // Update dataUrlRef when dataUrl changes
+  useEffect(() => {
+    dataUrlRef.current = dataUrl;
+  }, [dataUrl]);
+
+  // Update refs when state changes
+  useEffect(() => {
+    hasMoreDataRef.current = hasMoreData;
+  }, [hasMoreData]);
+
+  useEffect(() => {
+    isLoadingMoreRef.current = isLoadingMore;
+  }, [isLoadingMore]);
+
+  // Function to load more historical data
+  const loadMoreHistoricalData = async (beforeTimestamp) => {
+    if (isLoadingMoreRef.current || !hasMoreDataRef.current) return;
+    
+    setIsLoadingMore(true);
+    isLoadingMoreRef.current = true;
+    try {
+      const url = dataUrlRef.current;
+      
+      if (url && url !== `/data.json` && !url.includes('example.com')) {
+        // Real API endpoint - try to fetch more data
+        // You can customize this URL to include timestamp parameter
+        const moreDataUrl = `${url}?before=${beforeTimestamp}&limit=1000`;
+        try {
+          const response = await fetch(moreDataUrl);
+          if (response.ok) {
+            const data = await response.json();
+            const formattedData = validateAndNormalizeData(data);
+            if (formattedData.length > 0) {
+              setChartData((prev) => {
+                // Merge and deduplicate
+                const combined = [...formattedData, ...prev];
+                const seen = new Set();
+                const unique = [];
+                for (let i = combined.length - 1; i >= 0; i--) {
+                  const item = combined[i];
+                  if (!seen.has(item.time)) {
+                    seen.add(item.time);
+                    unique.unshift(item);
+                  }
+                }
+                return unique.sort((a, b) => a.time - b.time);
+              });
+              
+              // Check if we got less data than requested (no more data available)
+              if (formattedData.length < 1000) {
+                setHasMoreData(false);
+                hasMoreDataRef.current = false;
+              }
+            } else {
+              setHasMoreData(false);
+              hasMoreDataRef.current = false;
+            }
+          } else {
+            // If API doesn't support pagination, generate more sample data
+            const moreSampleData = generateSampleData(symbol, beforeTimestamp, 1000);
+            if (moreSampleData.length > 0) {
+              setChartData((prev) => {
+                const combined = [...moreSampleData, ...prev];
+                const seen = new Set();
+                const unique = [];
+                for (let i = combined.length - 1; i >= 0; i--) {
+                  const item = combined[i];
+                  if (!seen.has(item.time)) {
+                    seen.add(item.time);
+                    unique.unshift(item);
+                  }
+                }
+                return unique.sort((a, b) => a.time - b.time);
+              });
+            } else {
+              setHasMoreData(false);
+              hasMoreDataRef.current = false;
+            }
+          }
+        } catch (error) {
+          // Fallback to generating more sample data
+          const moreSampleData = generateSampleData(symbol, beforeTimestamp, 1000);
+          if (moreSampleData.length > 0) {
+            setChartData((prev) => {
+              const combined = [...moreSampleData, ...prev];
+              const seen = new Set();
+              const unique = [];
+              for (let i = combined.length - 1; i >= 0; i--) {
+                const item = combined[i];
+                if (!seen.has(item.time)) {
+                  seen.add(item.time);
+                  unique.unshift(item);
+                }
+              }
+              return unique.sort((a, b) => a.time - b.time);
+            });
+          } else {
+            setHasMoreData(false);
+            hasMoreDataRef.current = false;
+          }
+        }
+      } else {
+        // Generate more sample data
+        const moreSampleData = generateSampleData(symbol, beforeTimestamp, 1000);
+        if (moreSampleData.length > 0) {
+          setChartData((prev) => {
+            const combined = [...moreSampleData, ...prev];
+            const seen = new Set();
+            const unique = [];
+            for (let i = combined.length - 1; i >= 0; i--) {
+              const item = combined[i];
+              if (!seen.has(item.time)) {
+                seen.add(item.time);
+                unique.unshift(item);
+              }
+            }
+            return unique.sort((a, b) => a.time - b.time);
+          });
+        } else {
+          setHasMoreData(false);
+          hasMoreDataRef.current = false;
+        }
+      }
+    } catch (error) {
+      console.error("Error loading more historical data:", error);
+      setHasMoreData(false);
+      hasMoreDataRef.current = false;
+    } finally {
+      setIsLoadingMore(false);
+      isLoadingMoreRef.current = false;
+    }
+  };
 
   // Fetch chart data
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
+      setHasMoreData(true);
       try {
         // If dataUrl prop is provided, use it; otherwise try default endpoints
         const url = dataUrl || `/data.json` || `https://api.example.com/data/${symbol}`;
@@ -227,6 +372,10 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
             const formattedData = validateAndNormalizeData(data);
             if (formattedData.length > 0) {
               setChartData(formattedData);
+              // Track earliest timestamp
+              if (formattedData.length > 0) {
+                earliestTimestampRef.current = Math.min(...formattedData.map(d => d.time));
+              }
             } else {
               throw new Error("No valid data after validation");
             }
@@ -236,14 +385,20 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
         } catch (error) {
           console.warn("Could not fetch data from URL, generating sample data:", error);
           // Generate sample data for demonstration
-          const sampleData = generateSampleData(symbol);
+          const sampleData = generateSampleData(symbol, null, 2000);
           setChartData(sampleData);
+          if (sampleData.length > 0) {
+            earliestTimestampRef.current = Math.min(...sampleData.map(d => d.time));
+          }
         }
       } catch (error) {
         console.error("Error fetching chart data:", error);
         // Generate sample data as fallback
-        const sampleData = generateSampleData(symbol);
+        const sampleData = generateSampleData(symbol, null, 2000);
         setChartData(sampleData);
+        if (sampleData.length > 0) {
+          earliestTimestampRef.current = Math.min(...sampleData.map(d => d.time));
+        }
       } finally {
         setIsLoading(false);
       }
@@ -253,13 +408,16 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
   }, [symbol, dataUrl]);
 
   // Generate sample candlestick data
-  const generateSampleData = (sym) => {
+  const generateSampleData = (sym, beforeTimestamp = null, count = 2000) => {
     const data = [];
-    const now = Math.floor(Date.now() / 1000);
+    // If beforeTimestamp is provided, generate data before that timestamp
+    // Otherwise, generate data up to now
+    const endTime = beforeTimestamp || Math.floor(Date.now() / 1000);
     let price = 15000; // Starting price
     
-    for (let i = 200; i >= 0; i--) {
-      const time = now - i * 3600; // 1 hour intervals
+    // Generate data going backwards from endTime
+    for (let i = count; i >= 0; i--) {
+      const time = endTime - i * 3600; // 1 hour intervals
       const change = (Math.random() - 0.5) * 100;
       const open = price;
       const close = price + change;
@@ -285,9 +443,15 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
     return data.sort((a, b) => a.time - b.time);
   };
 
-  // Initialize chart
+  // Initialize chart (only create once, data updates happen in separate useEffect)
   useEffect(() => {
-    if (!chartContainerRef.current || chartData.length === 0) return;
+    if (!chartContainerRef.current) return;
+    
+    // Don't create chart if we don't have data yet
+    if (chartData.length === 0) return;
+    
+    // Don't recreate chart if already initialized (unless height changes)
+    if (chartInitializedRef.current && chartRef.current) return;
 
     // Ensure container has dimensions
     const containerWidth = chartContainerRef.current.clientWidth;
@@ -384,8 +548,137 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
         wickDownColor: "#ef5350",
       });
 
-      candleSeries.setData(uniqueData);
       candleSeriesRef.current = candleSeries;
+
+      // Delay setting data to ensure chart is fully initialized and rendered
+      // This prevents errors when the chart tries to calculate visible range internally
+      chartReadyForSubscriptionRef.current = false;
+      requestAnimationFrame(() => {
+        try {
+          if (candleSeriesRef.current && chartRef.current && uniqueData.length > 0) {
+            candleSeriesRef.current.setData(uniqueData);
+            // Mark chart as ready for subscription after successful data set
+            chartReadyForSubscriptionRef.current = true;
+          }
+        } catch (error) {
+          console.error("Error setting initial chart data:", error);
+          // Retry after a short delay if first attempt fails
+          setTimeout(() => {
+            try {
+              if (candleSeriesRef.current && chartRef.current && uniqueData.length > 0) {
+                candleSeriesRef.current.setData(uniqueData);
+                chartReadyForSubscriptionRef.current = true;
+              }
+            } catch (retryError) {
+              console.error("Error setting chart data on retry:", retryError);
+            }
+          }, 100);
+        }
+      });
+
+      // Update earliest timestamp reference
+      if (uniqueData.length > 0) {
+        const earliestTime = Math.min(...uniqueData.map(d => d.time));
+        if (!earliestTimestampRef.current || earliestTime < earliestTimestampRef.current) {
+          earliestTimestampRef.current = earliestTime;
+        }
+      }
+
+      // Listen for visible range changes to load more data when scrolling to the beginning
+      // Wrap handler to catch any errors and prevent them from propagating
+      const handleVisibleRangeChange = (timeRange) => {
+        try {
+          // Guard against null/undefined timeRange and ensure chart is still valid
+          if (!timeRange || !chartRef.current || !hasMoreDataRef.current || isLoadingMoreRef.current) return;
+          
+          // Validate timeRange has required properties
+          if (typeof timeRange.from !== 'number' || typeof timeRange.to !== 'number' || 
+              !isFinite(timeRange.from) || !isFinite(timeRange.to)) {
+            return;
+          }
+          
+          // Clear any pending load
+          if (loadMoreTimeoutRef.current) {
+            clearTimeout(loadMoreTimeoutRef.current);
+            loadMoreTimeoutRef.current = null;
+          }
+          
+          // Debounce the load check
+          loadMoreTimeoutRef.current = setTimeout(() => {
+            try {
+              // Double-check chart is still valid before accessing
+              if (!chartRef.current || !hasMoreDataRef.current || isLoadingMoreRef.current) return;
+              
+              const visibleStart = timeRange.from;
+              const earliestTime = earliestTimestampRef.current;
+              
+              // If we're viewing near the beginning (within 5% of the visible range), load more
+              if (earliestTime && visibleStart && visibleStart <= earliestTime + (timeRange.to - timeRange.from) * 0.05) {
+                // Load more historical data
+                loadMoreHistoricalData(earliestTime);
+              }
+            } catch (error) {
+              console.warn("Error in handleVisibleRangeChange timeout:", error);
+            } finally {
+              loadMoreTimeoutRef.current = null;
+            }
+          }, 300); // 300ms debounce
+        } catch (error) {
+          // Silently catch errors to prevent them from crashing the app
+          // This can happen if the chart is in an invalid state
+          console.warn("Error in handleVisibleRangeChange:", error);
+        }
+      };
+
+      // Subscribe to visible range changes after data is set and chart is fully rendered
+      // Only subscribe when chart is ready (after data is successfully set)
+      const attemptSubscription = () => {
+        if (!chartReadyForSubscriptionRef.current) {
+          // Chart not ready yet, retry after a delay
+          subscriptionTimeoutRef.current = setTimeout(attemptSubscription, 100);
+          return;
+        }
+        
+        try {
+          if (!chartRef.current || !candleSeriesRef.current || uniqueData.length === 0) {
+            return;
+          }
+          
+          const timeScale = chartRef.current.timeScale();
+          if (!timeScale) {
+            return;
+          }
+          
+          // Wrap subscription in try-catch to prevent errors from propagating
+          try {
+            visibleRangeSubscriptionRef.current = timeScale.subscribeVisibleTimeRangeChange(handleVisibleRangeChange);
+          } catch (error) {
+            // If subscription fails, try again after a longer delay
+            console.warn("Initial subscription failed, retrying:", error);
+            subscriptionTimeoutRef.current = setTimeout(() => {
+              if (chartReadyForSubscriptionRef.current && chartRef.current && chartRef.current.timeScale()) {
+                try {
+                  visibleRangeSubscriptionRef.current = chartRef.current.timeScale().subscribeVisibleTimeRangeChange(handleVisibleRangeChange);
+                } catch (retryError) {
+                  console.warn("Retry subscription also failed:", retryError);
+                }
+              }
+            }, 500);
+          }
+        } catch (error) {
+          console.warn("Error subscribing to visible time range changes:", error);
+        }
+      };
+      
+      // Start attempting subscription after data is set
+      // Use double requestAnimationFrame + timeout to ensure chart has fully rendered
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          subscriptionTimeoutRef.current = setTimeout(attemptSubscription, 300);
+        });
+      });
+      
+      chartInitializedRef.current = true;
     } catch (error) {
       console.error("Error creating chart:", error);
       console.error("Container width:", containerWidth);
@@ -413,12 +706,98 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      
+      // Clear subscription timeout if it hasn't fired yet
+      if (subscriptionTimeoutRef.current) {
+        clearTimeout(subscriptionTimeoutRef.current);
+        subscriptionTimeoutRef.current = null;
+      }
+      
+      // Clear any pending timeout
+      if (loadMoreTimeoutRef.current) {
+        clearTimeout(loadMoreTimeoutRef.current);
+        loadMoreTimeoutRef.current = null;
+      }
+      
+      // Unsubscribe from visible range changes
+      if (visibleRangeSubscriptionRef.current) {
+        try {
+          // The subscription method returns an unsubscribe function
+          if (typeof visibleRangeSubscriptionRef.current === 'function') {
+            visibleRangeSubscriptionRef.current();
+          } else if (chartRef.current) {
+            // Fallback: try using unsubscribeVisibleTimeRangeChange if available
+            const timeScale = chartRef.current.timeScale();
+            if (timeScale && typeof timeScale.unsubscribeVisibleTimeRangeChange === 'function') {
+              timeScale.unsubscribeVisibleTimeRangeChange(visibleRangeSubscriptionRef.current);
+            }
+          }
+        } catch (error) {
+          console.warn("Error unsubscribing from visible time range changes:", error);
+        }
+        visibleRangeSubscriptionRef.current = null;
+      }
+      
       if (chartRef.current) {
         chartRef.current.remove();
         chartRef.current = null;
+        chartInitializedRef.current = false;
+        chartReadyForSubscriptionRef.current = false;
       }
     };
-  }, [chartData, height]);
+  }, [height, chartData.length]); // Create chart when height changes or when data first becomes available
+
+  // Update candle series data when chartData changes (without recreating chart)
+  useEffect(() => {
+    if (!chartRef.current || !candleSeriesRef.current || chartData.length === 0) return;
+
+    // Validate and deduplicate data
+    const validData = chartData.filter((item) => {
+      return (
+        item &&
+        typeof item.time === 'number' &&
+        typeof item.open === 'number' &&
+        typeof item.high === 'number' &&
+        typeof item.low === 'number' &&
+        typeof item.close === 'number' &&
+        !isNaN(item.time) &&
+        !isNaN(item.open) &&
+        !isNaN(item.high) &&
+        !isNaN(item.low) &&
+        !isNaN(item.close) &&
+        item.high >= Math.max(item.open, item.close) &&
+        item.low <= Math.min(item.open, item.close)
+      );
+    });
+
+    if (validData.length === 0) return;
+
+    // Remove duplicates
+    const seen = new Set();
+    const uniqueData = [];
+    for (let i = validData.length - 1; i >= 0; i--) {
+      const item = validData[i];
+      if (!seen.has(item.time)) {
+        seen.add(item.time);
+        uniqueData.unshift(item);
+      }
+    }
+
+    // Update candle series data
+    try {
+      candleSeriesRef.current.setData(uniqueData);
+      
+      // Update earliest timestamp reference
+      if (uniqueData.length > 0) {
+        const earliestTime = Math.min(...uniqueData.map(d => d.time));
+        if (!earliestTimestampRef.current || earliestTime < earliestTimestampRef.current) {
+          earliestTimestampRef.current = earliestTime;
+        }
+      }
+    } catch (error) {
+      console.error("Error updating candle series data:", error);
+    }
+  }, [chartData]);
 
   // Update indicators when activeIndicators changes
   useEffect(() => {
@@ -610,7 +989,7 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
       <div className="mb-6">
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-            Live Chart - {symbol}
+            Sample Chart
           </h2>
         </div>
         <p className="text-gray-400">
@@ -711,6 +1090,12 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
               <p className="text-gray-400">Loading chart...</p>
             </div>
+          </div>
+        )}
+        {isLoadingMore && (
+          <div className="absolute top-2 left-2 z-10 bg-blue-600 bg-opacity-90 text-white px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-2">
+            <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+            <span className="text-xs font-medium">Loading more data...</span>
           </div>
         )}
         <div

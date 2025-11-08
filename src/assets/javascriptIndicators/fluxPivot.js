@@ -164,7 +164,7 @@ export function calculateFluxPivot(data, options = {}) {
         const stepSize = Math.abs(steppedMA - steppedMAValue);
         // Log step size for debugging
         if (stepSize > 0) {
-          console.log(`Step detected: ${stepSize.toFixed(2)} points (flipStepTicks: ${flipStepTicks}, mintick: ${mintick.toFixed(4)}, offset: ${offset.toFixed(2)})`);
+        //   console.log(`Step detected: ${stepSize.toFixed(2)} points (flipStepTicks: ${flipStepTicks}, mintick: ${mintick.toFixed(4)}, offset: ${offset.toFixed(2)})`);
         }
       }
       
