@@ -52,6 +52,36 @@ const parseCurrency = (str) => {
   return str.includes("(") ? -num : num;
 };
 
+// Helper function to format number with commas
+const formatNumber = (num) => {
+  if (num === null || num === undefined || isNaN(num)) return "0";
+  return num.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+};
+
+// Currency conversion rates (USD as base)
+const CURRENCY_RATES = {
+  USD: 1,
+  EUR: 0.92,
+  GBP: 0.79,
+  JPY: 149.5,
+  CAD: 1.35,
+  AUD: 1.52,
+  CHF: 0.88,
+  CNY: 7.24,
+};
+
+// Currency symbols
+const CURRENCY_SYMBOLS = {
+  USD: "$",
+  EUR: "€",
+  GBP: "£",
+  JPY: "¥",
+  CAD: "C$",
+  AUD: "A$",
+  CHF: "CHF ",
+  CNY: "¥",
+};
+
 // Helper function to extract session from time string
 const getSession = (timeStr) => {
   if (!timeStr) return "Unknown";
@@ -95,6 +125,7 @@ export const BacktestExplorerPage = () => {
   const [selectedStrategy, setSelectedStrategy] = useState("All");
   const [selectedInstrument, setSelectedInstrument] = useState("All");
   const [selectedSession, setSelectedSession] = useState("All");
+  const [selectedCurrency, setSelectedCurrency] = useState("USD");
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -144,6 +175,14 @@ export const BacktestExplorerPage = () => {
 
     loadAllData();
   }, []);
+
+  // Helper function to convert and format currency
+  const formatCurrency = (usdAmount) => {
+    if (usdAmount === null || usdAmount === undefined || isNaN(usdAmount)) return "0.00";
+    const converted = usdAmount * CURRENCY_RATES[selectedCurrency];
+    const formatted = formatNumber(converted);
+    return `${CURRENCY_SYMBOLS[selectedCurrency]}${formatted}`;
+  };
 
   // Get unique values for filters
   const strategies = useMemo(() => {
@@ -261,11 +300,18 @@ export const BacktestExplorerPage = () => {
     const bins = 20;
     const binSize = range / bins;
 
-    const distribution = Array(bins).fill(0).map((_, i) => ({
-      range: `${(min + i * binSize).toFixed(0)} - ${(min + (i + 1) * binSize).toFixed(0)}`,
-      count: 0,
-      midpoint: min + (i + 0.5) * binSize,
-    }));
+    const distribution = Array(bins).fill(0).map((_, i) => {
+      const binMin = min + i * binSize;
+      const binMax = min + (i + 1) * binSize;
+      const convertedMin = binMin * CURRENCY_RATES[selectedCurrency];
+      const convertedMax = binMax * CURRENCY_RATES[selectedCurrency];
+      const symbol = CURRENCY_SYMBOLS[selectedCurrency];
+      return {
+        range: `${symbol}${formatNumber(convertedMin)} - ${symbol}${formatNumber(convertedMax)}`,
+        count: 0,
+        midpoint: min + (i + 0.5) * binSize,
+      };
+    });
 
     profits.forEach((profit) => {
       const binIndex = Math.min(
@@ -276,7 +322,7 @@ export const BacktestExplorerPage = () => {
     });
 
     return distribution;
-  }, [filteredData]);
+  }, [filteredData, selectedCurrency]);
 
   if (loading) {
     return (
@@ -298,7 +344,7 @@ export const BacktestExplorerPage = () => {
 
         {/* Filters */}
         <div className="bg-gray-800 rounded-lg p-6 mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
               <label className="block text-sm font-medium mb-2">Strategy</label>
               <select
@@ -343,6 +389,21 @@ export const BacktestExplorerPage = () => {
                 ))}
               </select>
             </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2">Currency</label>
+              <select
+                value={selectedCurrency}
+                onChange={(e) => setSelectedCurrency(e.target.value)}
+                className="w-full bg-gray-700 text-white rounded-lg px-4 py-2 border border-gray-600 focus:border-blue-500 focus:outline-none"
+              >
+                {Object.keys(CURRENCY_RATES).map((currency) => (
+                  <option key={currency} value={currency}>
+                    {currency}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
         </div>
 
@@ -350,7 +411,7 @@ export const BacktestExplorerPage = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-6">
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Total Trades</div>
-            <div className="text-2xl font-bold">{stats.totalTrades}</div>
+            <div className="text-2xl font-bold">{stats.totalTrades.toLocaleString()}</div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Win Rate</div>
@@ -359,12 +420,12 @@ export const BacktestExplorerPage = () => {
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Total Profit</div>
             <div className={`text-2xl font-bold ${parseFloat(stats.totalProfit) >= 0 ? "text-green-400" : "text-red-400"}`}>
-              ${stats.totalProfit}
+              {formatCurrency(parseFloat(stats.totalProfit))}
             </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Max Drawdown</div>
-            <div className="text-2xl font-bold text-red-400">${stats.maxDrawdown}</div>
+            <div className="text-2xl font-bold text-red-400">{formatCurrency(parseFloat(stats.maxDrawdown))}</div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Profit Factor</div>
@@ -376,19 +437,19 @@ export const BacktestExplorerPage = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Avg Win</div>
-            <div className="text-xl font-bold text-green-400">${stats.avgWin}</div>
+            <div className="text-xl font-bold text-green-400">{formatCurrency(parseFloat(stats.avgWin))}</div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Avg Loss</div>
-            <div className="text-xl font-bold text-red-400">${stats.avgLoss}</div>
+            <div className="text-xl font-bold text-red-400">{formatCurrency(parseFloat(stats.avgLoss))}</div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Largest Win</div>
-            <div className="text-xl font-bold text-green-400">${stats.largestWin}</div>
+            <div className="text-xl font-bold text-green-400">{formatCurrency(parseFloat(stats.largestWin))}</div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Largest Loss</div>
-            <div className="text-xl font-bold text-red-400">${stats.largestLoss}</div>
+            <div className="text-xl font-bold text-red-400">{formatCurrency(parseFloat(stats.largestLoss))}</div>
           </div>
         </div>
 
@@ -409,10 +470,17 @@ export const BacktestExplorerPage = () => {
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                     <XAxis dataKey="trade" stroke="#9ca3af" />
-                    <YAxis stroke="#9ca3af" />
+                    <YAxis 
+                      stroke="#9ca3af" 
+                      tickFormatter={(value) => {
+                        const converted = value * CURRENCY_RATES[selectedCurrency];
+                        return `${CURRENCY_SYMBOLS[selectedCurrency]}${formatNumber(converted)}`;
+                      }}
+                    />
                     <Tooltip
                       contentStyle={{ backgroundColor: "#1f2937", border: "1px solid #374151", borderRadius: "8px" }}
                       labelStyle={{ color: "#fff" }}
+                      formatter={(value) => formatCurrency(value)}
                     />
                     <Legend />
                     <Area
@@ -421,7 +489,7 @@ export const BacktestExplorerPage = () => {
                       stroke="#3b82f6"
                       fillOpacity={1}
                       fill="url(#colorEquity)"
-                      name="Equity ($)"
+                      name={`Equity (${selectedCurrency})`}
                     />
                   </AreaChart>
                 </ResponsiveContainer>
@@ -440,10 +508,17 @@ export const BacktestExplorerPage = () => {
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                     <XAxis dataKey="trade" stroke="#9ca3af" />
-                    <YAxis stroke="#9ca3af" />
+                    <YAxis 
+                      stroke="#9ca3af" 
+                      tickFormatter={(value) => {
+                        const converted = value * CURRENCY_RATES[selectedCurrency];
+                        return `${CURRENCY_SYMBOLS[selectedCurrency]}${formatNumber(converted)}`;
+                      }}
+                    />
                     <Tooltip
                       contentStyle={{ backgroundColor: "#1f2937", border: "1px solid #374151", borderRadius: "8px" }}
                       labelStyle={{ color: "#fff" }}
+                      formatter={(value) => formatCurrency(value)}
                     />
                     <Legend />
                     <Area
@@ -452,7 +527,7 @@ export const BacktestExplorerPage = () => {
                       stroke="#ef4444"
                       fillOpacity={1}
                       fill="url(#colorDrawdown)"
-                      name="Drawdown ($)"
+                      name={`Drawdown (${selectedCurrency})`}
                     />
                   </AreaChart>
                 </ResponsiveContainer>
@@ -508,10 +583,10 @@ export const BacktestExplorerPage = () => {
                     </td>
                     <td className="py-3 px-4 text-sm">{row.session}</td>
                     <td className={`py-3 px-4 text-sm font-medium ${row.profit >= 0 ? "text-green-400" : "text-red-400"}`}>
-                      ${row.profit.toFixed(2)}
+                      {formatCurrency(row.profit)}
                     </td>
                     <td className={`py-3 px-4 text-sm font-medium ${row.cumProfit >= 0 ? "text-green-400" : "text-red-400"}`}>
-                      ${row.cumProfit.toFixed(2)}
+                      {formatCurrency(row.cumProfit)}
                     </td>
                   </tr>
                 ))}
