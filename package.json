@@ -22,6 +22,7 @@
     "axios": "^1.10.0",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",
+    "lightweight-charts": "^5.0.9",
     "papaparse": "^5.5.3",
     "posthog-js": "^1.290.0",
     "react": "^19.1.0",
@@ -48,6 +49,9 @@
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{js,jsx,json,css,md}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,json,css,md}\"",
+    "pinescript": "node scripts/pinescript-manager.js",
+    "pinescript:list": "node scripts/pinescript-manager.js list",
+    "pinescript:check": "node scripts/pinescript-manager.js check",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },

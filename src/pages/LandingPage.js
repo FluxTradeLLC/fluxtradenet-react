@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { TradingViewChart } from "../components/TradingViewChart";
 
 import kinetickLogo from "../assets/logos/Kinetick_Logo.png";
 import ntLogo from "../assets/logos/nt_ecosystem.png";
@@ -796,6 +797,13 @@ export function LandingPage() {
             </button>
           </div>
         </div>
+
+        {/* TradingView Chart with Indicator Toggles - Show for TradingView tab */}
+        {activeTab === "TradingView" && (
+          <section className="mb-16 max-w-7xl mx-auto">
+            <TradingViewChart symbol="QQQ" height={600} />
+          </section>
+        )}
 
         {(() => {
           const currentStrategies =
