@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { PRICING, PRICING_IDS } from "../constants";
 import api from "../api/axios";
 
 export function PricingPage() {
@@ -28,6 +29,7 @@ export function PricingPage() {
         priceId: priceId,
         subscription: true,
         referral: window.promotekit_referral,
+        billingPeriod,
       });
       // Redirect to Stripe checkout
       window.location.href = response.data.redirect;
@@ -47,89 +49,6 @@ export function PricingPage() {
         );
       }
     }
-  };
-
-  const PRICING_IDS = {
-    LOCAL: {
-      MONTHLY: {
-        INDICATORS_SINGLE_NT: "price_1Rk96ZDHqntRcM5inO0o24TP",
-        INDICATORS_SINGLE_TV: "price_1SCOHuDHqntRcM5igLxXPiS0",
-        INDICATORS_BOTH: "price_1SCOIPDHqntRcM5iITNhbT1z",
-        STRATEGIES_SINGLE_NT: "price_1Rk971DHqntRcM5i5pndgfLL",
-        STRATEGIES_SINGLE_TV: "price_1SROS6DHqntRcM5inP7na4xA",
-        STRATEGIES_BOTH: "price_1SCOIgDHqntRcM5ilbjDXU7y",
-        TEST: "price_1RuGDIDHqntRcM5iboesQtD5",
-      },
-      QUARTERLY: {
-        INDICATORS_SINGLE_NT: "PLACEHOLDER_QUARTERLY_INDICATORS_SINGLE_NT",
-        INDICATORS_SINGLE_TV: "PLACEHOLDER_QUARTERLY_INDICATORS_SINGLE_TV",
-        INDICATORS_BOTH: "PLACEHOLDER_QUARTERLY_INDICATORS_BOTH",
-        STRATEGIES_SINGLE_NT: "PLACEHOLDER_QUARTERLY_STRATEGIES_SINGLE_NT",
-        STRATEGIES_SINGLE_TV: "PLACEHOLDER_QUARTERLY_STRATEGIES_SINGLE_TV",
-        STRATEGIES_BOTH: "PLACEHOLDER_QUARTERLY_STRATEGIES_BOTH",
-        TEST: "PLACEHOLDER_QUARTERLY_TEST",
-      },
-      YEARLY: {
-        INDICATORS_SINGLE_NT: "PLACEHOLDER_YEARLY_INDICATORS_SINGLE_NT",
-        INDICATORS_SINGLE_TV: "PLACEHOLDER_YEARLY_INDICATORS_SINGLE_TV",
-        INDICATORS_BOTH: "PLACEHOLDER_YEARLY_INDICATORS_BOTH",
-        STRATEGIES_SINGLE_NT: "PLACEHOLDER_YEARLY_STRATEGIES_SINGLE_NT",
-        STRATEGIES_SINGLE_TV: "PLACEHOLDER_YEARLY_STRATEGIES_SINGLE_TV",
-        STRATEGIES_BOTH: "PLACEHOLDER_YEARLY_STRATEGIES_BOTH",
-        TEST: "PLACEHOLDER_YEARLY_TEST",
-      },
-    },
-    PRODUCTION: {
-      MONTHLY: {
-        INDICATORS_SINGLE_NT: "price_1RkWkiDHqntRcM5i8UrCeTsw",
-        INDICATORS_SINGLE_TV: "price_1SCOEzDHqntRcM5iSPtrtetG",
-        INDICATORS_BOTH: "price_1SCOG5DHqntRcM5iouL0zesB",
-        STRATEGIES_SINGLE_NT: "price_1RkWkcDHqntRcM5i4MakObtw",
-        STRATEGIES_SINGLE_TV: "price_1SCOFJDHqntRcM5iMcAPakLT",
-        STRATEGIES_BOTH: "price_1SCOGgDHqntRcM5irQtSptbE",
-        TEST: "price_1RuG9KDHqntRcM5iW0OPXS5D",
-      },
-      QUARTERLY: {
-        INDICATORS_SINGLE_NT: "PLACEHOLDER_QUARTERLY_INDICATORS_SINGLE_NT",
-        INDICATORS_SINGLE_TV: "PLACEHOLDER_QUARTERLY_INDICATORS_SINGLE_TV",
-        INDICATORS_BOTH: "PLACEHOLDER_QUARTERLY_INDICATORS_BOTH",
-        STRATEGIES_SINGLE_NT: "PLACEHOLDER_QUARTERLY_STRATEGIES_SINGLE_NT",
-        STRATEGIES_SINGLE_TV: "PLACEHOLDER_QUARTERLY_STRATEGIES_SINGLE_TV",
-        STRATEGIES_BOTH: "PLACEHOLDER_QUARTERLY_STRATEGIES_BOTH",
-        TEST: "PLACEHOLDER_QUARTERLY_TEST",
-      },
-      YEARLY: {
-        INDICATORS_SINGLE_NT: "PLACEHOLDER_YEARLY_INDICATORS_SINGLE_NT",
-        INDICATORS_SINGLE_TV: "PLACEHOLDER_YEARLY_INDICATORS_SINGLE_TV",
-        INDICATORS_BOTH: "PLACEHOLDER_YEARLY_INDICATORS_BOTH",
-        STRATEGIES_SINGLE_NT: "PLACEHOLDER_YEARLY_STRATEGIES_SINGLE_NT",
-        STRATEGIES_SINGLE_TV: "PLACEHOLDER_YEARLY_STRATEGIES_SINGLE_TV",
-        STRATEGIES_BOTH: "PLACEHOLDER_YEARLY_STRATEGIES_BOTH",
-        TEST: "PLACEHOLDER_YEARLY_TEST",
-      },
-    },
-  };
-
-  // Pricing objects for each billing period
-  const PRICING = {
-    MONTHLY: {
-      STRATEGIES_SINGLE: 99,
-      STRATEGIES_BOTH: 119,
-      INDICATORS_SINGLE: 49,
-      INDICATORS_BOTH: 69,
-    },
-    QUARTERLY: {
-      STRATEGIES_SINGLE: 265, // PLACEHOLDER - fill in quarterly price
-      STRATEGIES_BOTH: 320, // PLACEHOLDER - fill in quarterly price
-      INDICATORS_SINGLE: 130, // PLACEHOLDER - fill in quarterly price
-      INDICATORS_BOTH: 185, // PLACEHOLDER - fill in quarterly price
-    },
-    YEARLY: {
-      STRATEGIES_SINGLE: 990, // PLACEHOLDER - fill in yearly price
-      STRATEGIES_BOTH: 1190, // PLACEHOLDER - fill in yearly price
-      INDICATORS_SINGLE: 490, // PLACEHOLDER - fill in yearly price
-      INDICATORS_BOTH: 690, // PLACEHOLDER - fill in yearly price
-    },
   };
 
   const envKey = process.env.REACT_APP_NODE_ENV
@@ -181,9 +100,13 @@ export function PricingPage() {
   // Helper function to format price display
   const formatPriceDisplay = (monthlyPrice, planKey) => {
     if (billingPeriod === "monthly") {
+      // Format monthly price with commas (handles both integers and decimals)
+      const formattedPrice = Number.isInteger(monthlyPrice)
+        ? monthlyPrice.toLocaleString()
+        : monthlyPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       return (
         <>
-          ${monthlyPrice}
+          ${formattedPrice}
           <span className="text-lg font-medium text-gray-400">
             {getBillingPeriodLabel()}
           </span>
@@ -204,10 +127,10 @@ export function PricingPage() {
       <div className="flex flex-col items-center">
         <div className="flex items-center gap-2">
           <span className="text-2xl font-bold text-gray-500 line-through">
-            ${basePrice.toFixed(2)}
+            ${basePrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </span>
           <span className="text-4xl font-extrabold">
-            ${actualPrice.toFixed(2)}
+            ${actualPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </span>
           <span className="text-lg font-medium text-gray-400">
             {getBillingPeriodLabel()}
