@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { PRICING, PRICING_IDS } from "../constants";
 import api from "../api/axios";
 
 export function PricingPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isTestMode, setIsTestMode] = useState(false);
+  const [billingPeriod, setBillingPeriod] = useState("monthly"); // 'monthly', 'quarterly', 'yearly'
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,50 +29,170 @@ export function PricingPage() {
         priceId: priceId,
         subscription: true,
         referral: window.promotekit_referral,
+        billingPeriod,
       });
       // Redirect to Stripe checkout
       window.location.href = response.data.redirect;
     } catch (error) {
       console.error("Error creating checkout session:", error);
-      // Handle error, e.g., show a notification to the user
+      // Check if it's a 401 Unauthorized error
+      if (error.response?.status === 401) {
+        toast.error(
+          "Your session has expired. Please sign in again to continue."
+        );
+        localStorage.removeItem("userEmail");
+        navigate("/account");
+      } else {
+        // Handle other errors, e.g., show a notification to the user
+        toast.error(
+          "An error occurred while creating your checkout session. Please try again."
+        );
+      }
     }
-  };
-
-  const PRICING_IDS = {
-    LOCAL: {
-      STANDARD_SINGLE_NT: "price_1Rk96ZDHqntRcM5inO0o24TP",
-      STANDARD_SINGLE_TV: "price_1SCOHuDHqntRcM5igLxXPiS0",
-      STANDARD_BOTH: "price_1SCOIPDHqntRcM5iITNhbT1z",
-      PRO_SINGLE_NT: "price_1Rk971DHqntRcM5i5pndgfLL",
-      PRO_SINGLE_TV: "price_1SCOIADHqntRcM5ilHuIjjTA",
-      PRO_BOTH: "price_1SCOIgDHqntRcM5ilbjDXU7y",
-      TEST: "price_1RuGDIDHqntRcM5iboesQtD5",
-    },
-    PRODUCTION: {
-      STANDARD_SINGLE_NT: "price_1RkWkiDHqntRcM5i8UrCeTsw",
-      STANDARD_SINGLE_TV: "price_1SCOEzDHqntRcM5iSPtrtetG",
-      STANDARD_BOTH: "price_1SCOG5DHqntRcM5iouL0zesB",
-      PRO_SINGLE_NT: "price_1RkWkcDHqntRcM5i4MakObtw",
-      PRO_SINGLE_TV: "price_1SCOFJDHqntRcM5iMcAPakLT",
-      PRO_BOTH: "price_1SCOGgDHqntRcM5irQtSptbE",
-      TEST: "price_1RuG9KDHqntRcM5iW0OPXS5D",
-    },
   };
 
   const envKey = process.env.REACT_APP_NODE_ENV
     ? process.env.REACT_APP_NODE_ENV.toUpperCase()
     : "LOCAL";
-  const testPriceId = PRICING_IDS[envKey]?.TEST;
+
+  // Helper function to get current pricing IDs based on billing period
+  const getCurrentPricingIds = () => {
+    return PRICING_IDS[envKey]?.[billingPeriod.toUpperCase()] || {};
+  };
+
+  const currentPricingIds = getCurrentPricingIds();
+  const testPriceId = currentPricingIds?.TEST;
+
+  // Helper function to get billing period label
+  const getBillingPeriodLabel = () => {
+    switch (billingPeriod) {
+      case "monthly":
+        return "/mo";
+      case "quarterly":
+        return "/qtr";
+      case "yearly":
+        return "/yr";
+      default:
+        return "/mo";
+    }
+  };
+
+  // Helper function to get price for a plan and billing period
+  const getPriceForPlan = (planKey, monthlyPrice) => {
+    if (billingPeriod === "monthly") {
+      return monthlyPrice;
+    }
+
+    const periodKey = billingPeriod.toUpperCase();
+    const setPrice = PRICING[periodKey]?.[planKey];
+
+    // If price is set in PRICING object (not 0), use it; otherwise calculate
+    if (setPrice && setPrice > 0) {
+      return setPrice;
+    }
+
+    // Calculate discounted price if not set
+    const multiplier = billingPeriod === "quarterly" ? 3 : 12;
+    const discount = billingPeriod === "quarterly" ? 0.1 : 0.17;
+    return monthlyPrice * multiplier * (1 - discount);
+  };
+
+  // Helper function to format price display
+  const formatPriceDisplay = (monthlyPrice, planKey) => {
+    if (billingPeriod === "monthly") {
+      // Format monthly price with commas (handles both integers and decimals)
+      const formattedPrice = Number.isInteger(monthlyPrice)
+        ? monthlyPrice.toLocaleString()
+        : monthlyPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return (
+        <>
+          ${formattedPrice}
+          <span className="text-lg font-medium text-gray-400">
+            {getBillingPeriodLabel()}
+          </span>
+        </>
+      );
+    }
+
+    const multiplier = billingPeriod === "quarterly" ? 3 : 12;
+    const basePrice = monthlyPrice * multiplier;
+
+    // Get the actual price (from PRICING object or calculated)
+    const actualPrice = getPriceForPlan(planKey, monthlyPrice);
+
+    // Calculate actual discount percentage
+    const discountPercent = ((basePrice - actualPrice) / basePrice) * 100;
+
+    return (
+      <div className="flex flex-col items-center">
+        <div className="flex items-center gap-2">
+          <span className="text-2xl font-bold text-gray-500 line-through">
+            ${basePrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </span>
+          <span className="text-4xl font-extrabold">
+            ${actualPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </span>
+          <span className="text-lg font-medium text-gray-400">
+            {getBillingPeriodLabel()}
+          </span>
+        </div>
+        <span className="text-sm font-semibold text-green-400 mt-1">
+          Save {discountPercent.toFixed(0)}%
+        </span>
+      </div>
+    );
+  };
 
   return (
     <div className="bg-gray-900 text-white min-h-full">
       <div className="text-center pt-12 pb-6">
-        <h1 className="text-5xl font-extrabold mb-4 text-center">Choose Your Plan</h1>
+        <h1 className="text-5xl font-extrabold mb-4 text-center">
+          Choose Your Plan
+        </h1>
         <p className="text-lg text-gray-400">
-          Unlock the full potential of FluxTrade with our tailored plans. All
-          plans offer a 30 day free trial!
+          Unlock the full potential of FluxTrade with our tailored plans.{" "}
+          <span className="font-semibold text-indigo-400">
+            Monthly plans include a 30-day free trial!
+          </span>
         </p>
       </div>
+
+      {/* Billing Period Tabs */}
+      <div className="flex justify-center mb-8">
+        <div className="inline-flex bg-gray-800 rounded-lg p-1 border border-gray-700">
+          <button
+            onClick={() => setBillingPeriod("monthly")}
+            className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 ${
+              billingPeriod === "monthly"
+                ? "bg-indigo-600 text-white"
+                : "text-gray-400 hover:text-white"
+            }`}
+          >
+            Monthly
+          </button>
+          <button
+            onClick={() => setBillingPeriod("quarterly")}
+            className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 ${
+              billingPeriod === "quarterly"
+                ? "bg-indigo-600 text-white"
+                : "text-gray-400 hover:text-white"
+            }`}
+          >
+            Quarterly
+          </button>
+          <button
+            onClick={() => setBillingPeriod("yearly")}
+            className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 ${
+              billingPeriod === "yearly"
+                ? "bg-indigo-600 text-white"
+                : "text-gray-400 hover:text-white"
+            }`}
+          >
+            Yearly
+          </button>
+        </div>
+      </div>
+
       <div className="flex flex-col items-center">
         <div className="flex gap-6 mt-8 flex-wrap md:flex-nowrap justify-center w-full">
           {/* Pro - Single (choose platform) */}
@@ -81,7 +204,10 @@ export function PricingPage() {
               Single Platform
             </h3>
             <p className="text-center text-4xl font-extrabold mb-6">
-              $99<span className="text-lg font-medium text-gray-400">/mo</span>
+              {formatPriceDisplay(
+                PRICING.MONTHLY.STRATEGIES_SINGLE,
+                "STRATEGIES_SINGLE"
+              )}
             </p>
             <ul className="space-y-4 text-gray-300 mb-8">
               <li className="flex items-center">
@@ -141,19 +267,23 @@ export function PricingPage() {
                 <div className="grid grid-cols-2 gap-3">
                   <button
                     onClick={() =>
-                      handleCheckout(PRICING_IDS[envKey].PRO_SINGLE_NT)
+                      handleCheckout(currentPricingIds.STRATEGIES_NT_ONLY)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
-                    Start 30‑day free trial on NinjaTrader
+                    {billingPeriod === "monthly"
+                      ? "Start 30‑day free trial on NinjaTrader"
+                      : "Subscribe on NinjaTrader"}
                   </button>
                   <button
                     onClick={() =>
-                      handleCheckout(PRICING_IDS[envKey].PRO_SINGLE_TV)
+                      handleCheckout(currentPricingIds.STRATEGIES_TV_ONLY)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
-                    Start 30‑day free trial on TradingView
+                    {billingPeriod === "monthly"
+                      ? "Start 30‑day free trial on TradingView"
+                      : "Subscribe on TradingView"}
                   </button>
                 </div>
                 <p className="text-center text-sm text-gray-400">
@@ -167,13 +297,17 @@ export function PricingPage() {
                     onClick={() => navigate("/account")}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
-                    Start 30‑day free trial on NinjaTrader
+                    {billingPeriod === "monthly"
+                      ? "Start 30‑day free trial on NinjaTrader"
+                      : "Subscribe on NinjaTrader"}
                   </button>
                   <button
                     onClick={() => navigate("/account")}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
-                    Start 30‑day free trial on TradingView
+                    {billingPeriod === "monthly"
+                      ? "Start 30‑day free trial on TradingView"
+                      : "Subscribe on TradingView"}
                   </button>
                 </div>
                 <p className="text-center text-sm text-gray-400">
@@ -189,93 +323,102 @@ export function PricingPage() {
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-[length:300%_300%] animate-gradient-pan text-white text-sm font-bold px-4 py-1 rounded-full z-10">
                 MOST POPULAR
               </div>
-            <h2 className="text-2xl font-bold text-center mb-1 text-indigo-400">
-              Automated Strategies
-            </h2>
-            <h3 className="text-center text-sm text-gray-400 mb-4">
-              Both Platforms
-            </h3>
-            <p className="text-center text-4xl font-extrabold mb-6">
-              $119<span className="text-lg font-medium text-gray-400">/mo</span>
-            </p>
-            <ul className="space-y-4 text-gray-300 mb-8">
-              <li className="flex items-center">
-                <svg
-                  className="w-6 h-6 text-green-500 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                <span>Includes indicators for both platforms</span>
-              </li>
-              <li className="flex items-center">
-                <svg
-                  className="w-6 h-6 text-green-500 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                <span>NinjaTrader and TradingView</span>
-              </li>
-              <li className="flex items-center">
-                <svg
-                  className="w-6 h-6 text-green-500 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                <span>Access to all automated strategies</span>
-              </li>
-            </ul>
-            {isAuthenticated ? (
-              <div className="space-y-3">
-                <button
-                  onClick={() => handleCheckout(PRICING_IDS[envKey].PRO_BOTH)}
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
-                >
-                  Start 30‑day free trial
-                </button>
-                <p className="text-center text-sm text-gray-400">
-                  No commitment. Cancel anytime.
-                </p>
-              </div>
-            ) : (
-              <div className="space-y-3">
-                <button
-                  onClick={() => navigate("/account")}
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
-                >
-                  Start 30‑day free trial
-                </button>
-                <p className="text-center text-sm text-gray-400">
-                  No commitment. Cancel anytime.
-                </p>
-              </div>
-            )}
+              <h2 className="text-2xl font-bold text-center mb-1 text-indigo-400">
+                Automated Strategies
+              </h2>
+              <h3 className="text-center text-sm text-gray-400 mb-4">
+                Both Platforms
+              </h3>
+              <p className="text-center text-4xl font-extrabold mb-6">
+                {formatPriceDisplay(
+                  PRICING.MONTHLY.STRATEGIES_NT_AND_TV,
+                  "STRATEGIES_NT_AND_TV"
+                )}
+              </p>
+              <ul className="space-y-4 text-gray-300 mb-8">
+                <li className="flex items-center">
+                  <svg
+                    className="w-6 h-6 text-green-500 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span>Includes indicators for both platforms</span>
+                </li>
+                <li className="flex items-center">
+                  <svg
+                    className="w-6 h-6 text-green-500 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span>NinjaTrader and TradingView</span>
+                </li>
+                <li className="flex items-center">
+                  <svg
+                    className="w-6 h-6 text-green-500 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span>Access to all automated strategies</span>
+                </li>
+              </ul>
+              {isAuthenticated ? (
+                <div className="space-y-3">
+                  <button
+                    onClick={() =>
+                      handleCheckout(currentPricingIds.STRATEGIES_NT_AND_TV)
+                    }
+                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
+                  >
+                    {billingPeriod === "monthly"
+                      ? "Start 30‑day free trial"
+                      : "Subscribe Now"}
+                  </button>
+                  <p className="text-center text-sm text-gray-400">
+                    No commitment. Cancel anytime.
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  <button
+                    onClick={() => navigate("/account")}
+                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
+                  >
+                    {billingPeriod === "monthly"
+                      ? "Start 30‑day free trial"
+                      : "Subscribe Now"}
+                  </button>
+                  <p className="text-center text-sm text-gray-400">
+                    No commitment. Cancel anytime.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -288,7 +431,10 @@ export function PricingPage() {
               Single Platform
             </h3>
             <p className="text-center text-4xl font-extrabold mb-6">
-              $49<span className="text-lg font-medium text-gray-400">/mo</span>
+              {formatPriceDisplay(
+                PRICING.MONTHLY.INDICATORS_SINGLE,
+                "INDICATORS_SINGLE"
+              )}
             </p>
             <ul className="space-y-4 text-gray-300 mb-8">
               <li className="flex items-center">
@@ -348,19 +494,23 @@ export function PricingPage() {
                 <div className="grid grid-cols-2 gap-3">
                   <button
                     onClick={() =>
-                      handleCheckout(PRICING_IDS[envKey].STANDARD_SINGLE_NT)
+                      handleCheckout(currentPricingIds.INDICATORS_NT_ONLY)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
-                    Start 30‑day free trial on NinjaTrader
+                    {billingPeriod === "monthly"
+                      ? "Start 30‑day free trial on NinjaTrader"
+                      : "Subscribe on NinjaTrader"}
                   </button>
                   <button
                     onClick={() =>
-                      handleCheckout(PRICING_IDS[envKey].STANDARD_SINGLE_TV)
+                      handleCheckout(currentPricingIds.INDICATORS_TV_ONLY)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
-                    Start 30‑day free trial on TradingView
+                    {billingPeriod === "monthly"
+                      ? "Start 30‑day free trial on TradingView"
+                      : "Subscribe on TradingView"}
                   </button>
                 </div>
                 <p className="text-center text-sm text-gray-400">
@@ -374,13 +524,17 @@ export function PricingPage() {
                     onClick={() => navigate("/account")}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
-                    Start 30‑day free trial on NinjaTrader
+                    {billingPeriod === "monthly"
+                      ? "Start 30‑day free trial on NinjaTrader"
+                      : "Subscribe on NinjaTrader"}
                   </button>
                   <button
                     onClick={() => navigate("/account")}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
-                    Start 30‑day free trial on TradingView
+                    {billingPeriod === "monthly"
+                      ? "Start 30‑day free trial on TradingView"
+                      : "Subscribe on TradingView"}
                   </button>
                 </div>
                 <p className="text-center text-sm text-gray-400">
@@ -397,7 +551,10 @@ export function PricingPage() {
               Both Platforms
             </h3>
             <p className="text-center text-4xl font-extrabold mb-6">
-              $69<span className="text-lg font-medium text-gray-400">/mo</span>
+              {formatPriceDisplay(
+                PRICING.MONTHLY.INDICATORS_NT_AND_TV,
+                "INDICATORS_NT_AND_TV"
+              )}
             </p>
             <ul className="space-y-4 text-gray-300 mb-8">
               <li className="flex items-center">
@@ -456,11 +613,13 @@ export function PricingPage() {
               <div className="space-y-3">
                 <button
                   onClick={() =>
-                    handleCheckout(PRICING_IDS[envKey].STANDARD_BOTH)
+                    handleCheckout(currentPricingIds.INDICATORS_NT_AND_TV)
                   }
                   className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                 >
-                  Start 30‑day free trial
+                  {billingPeriod === "monthly"
+                    ? "Start 30‑day free trial"
+                    : "Subscribe Now"}
                 </button>
                 <p className="text-center text-sm text-gray-400">
                   No commitment. Cancel anytime.
@@ -472,7 +631,9 @@ export function PricingPage() {
                   onClick={() => navigate("/account")}
                   className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                 >
-                  Start 30‑day free trial
+                  {billingPeriod === "monthly"
+                    ? "Start 30‑day free trial"
+                    : "Subscribe Now"}
                 </button>
                 <p className="text-center text-sm text-gray-400">
                   No commitment. Cancel anytime.
