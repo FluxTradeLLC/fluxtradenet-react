@@ -172,23 +172,29 @@ export function PricingPage() {
           </button>
           <button
             onClick={() => setBillingPeriod("quarterly")}
-            className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 ${
+            className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 flex items-center gap-2 ${
               billingPeriod === "quarterly"
                 ? "bg-indigo-600 text-white"
                 : "text-gray-400 hover:text-white"
             }`}
           >
             Quarterly
+            <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
+              Save 10%
+            </span>
           </button>
           <button
             onClick={() => setBillingPeriod("yearly")}
-            className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 ${
+            className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 flex items-center gap-2 ${
               billingPeriod === "yearly"
                 ? "bg-indigo-600 text-white"
                 : "text-gray-400 hover:text-white"
             }`}
           >
             Yearly
+            <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
+              Save 17%
+            </span>
           </button>
         </div>
       </div>
