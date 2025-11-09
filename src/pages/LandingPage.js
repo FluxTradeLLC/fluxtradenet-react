@@ -91,16 +91,16 @@ export function LandingPage() {
   }, [activeTab]);
   const indicators = [
     // NEW INDICATORS
-    {
-      name: "DynamicTrend",
-      image: null,
-      features: [
-        "Dynamic trendline",
-        "Support and resistance",
-        "Signals upon crosses",
-      ],
-      isNew: true,
-    },
+    // {
+    //   name: "DynamicTrend",
+    //   image: null,
+    //   features: [
+    //     "Dynamic trendline",
+    //     "Support and resistance",
+    //     "Signals upon crosses",
+    //   ],
+    //   isNew: true,
+    // },
     {
       name: "FluxTarget",
       image: fluxTarget,
@@ -856,14 +856,17 @@ export function LandingPage() {
                         )}
                         <div className="flex flex-col w-full">
                           {Array.isArray(strategy.images) &&
-                            strategy.images.map((imgSrc, idx) => (
-                              <img
-                                key={`${strategy.name}-${idx}`}
-                                src={imgSrc}
-                                alt={`${strategy.name} ${idx + 1}`}
-                                className="w-full h-auto rounded-lg mb-4"
-                              />
-                            ))}
+                            strategy.images.map((imgSrc, idx) =>
+                              // Comment out second image (idx === 1) for NinjaTrader strategies
+                              idx === 1 ? null : (
+                                <img
+                                  key={`${strategy.name}-${idx}`}
+                                  src={imgSrc}
+                                  alt={`${strategy.name} ${idx + 1}`}
+                                  className="w-full h-auto rounded-lg mb-4"
+                                />
+                              )
+                            )}
                         </div>
                       </div>
                     ))}
@@ -957,14 +960,17 @@ export function LandingPage() {
                       )}
                       <div className="flex flex-col w-full">
                         {Array.isArray(strategy.images) &&
-                          strategy.images.map((imgSrc, idx) => (
-                            <img
-                              key={`${strategy.name}-${idx}`}
-                              src={imgSrc}
-                              alt={`${strategy.name} ${idx + 1}`}
-                              className="w-full h-auto rounded-lg mb-4"
-                            />
-                          ))}
+                          strategy.images.map((imgSrc, idx) =>
+                            // Comment out second image (idx === 1) for NinjaTrader strategies
+                            activeTab === "NinjaTrader" && idx === 1 ? null : (
+                              <img
+                                key={`${strategy.name}-${idx}`}
+                                src={imgSrc}
+                                alt={`${strategy.name} ${idx + 1}`}
+                                className="w-full h-auto rounded-lg mb-4"
+                              />
+                            )
+                          )}
                       </div>
                     </div>
                   ))}
