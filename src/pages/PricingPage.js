@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import api from "../api/axios";
 
 export function PricingPage() {
@@ -32,66 +33,78 @@ export function PricingPage() {
       window.location.href = response.data.redirect;
     } catch (error) {
       console.error("Error creating checkout session:", error);
-      // Handle error, e.g., show a notification to the user
+      // Check if it's a 401 Unauthorized error
+      if (error.response?.status === 401) {
+        toast.error(
+          "Your session has expired. Please sign in again to continue."
+        );
+        localStorage.removeItem("userEmail");
+        navigate("/account");
+      } else {
+        // Handle other errors, e.g., show a notification to the user
+        toast.error(
+          "An error occurred while creating your checkout session. Please try again."
+        );
+      }
     }
   };
 
   const PRICING_IDS = {
     LOCAL: {
       MONTHLY: {
-        STANDARD_SINGLE_NT: "price_1Rk96ZDHqntRcM5inO0o24TP",
-        STANDARD_SINGLE_TV: "price_1SCOHuDHqntRcM5igLxXPiS0",
-        STANDARD_BOTH: "price_1SCOIPDHqntRcM5iITNhbT1z",
-        PRO_SINGLE_NT: "price_1Rk971DHqntRcM5i5pndgfLL",
-        PRO_SINGLE_TV: "price_1SROS6DHqntRcM5inP7na4xA",
-        PRO_BOTH: "price_1SCOIgDHqntRcM5ilbjDXU7y",
+        INDICATORS_SINGLE_NT: "price_1Rk96ZDHqntRcM5inO0o24TP",
+        INDICATORS_SINGLE_TV: "price_1SCOHuDHqntRcM5igLxXPiS0",
+        INDICATORS_BOTH: "price_1SCOIPDHqntRcM5iITNhbT1z",
+        STRATEGIES_SINGLE_NT: "price_1Rk971DHqntRcM5i5pndgfLL",
+        STRATEGIES_SINGLE_TV: "price_1SROS6DHqntRcM5inP7na4xA",
+        STRATEGIES_BOTH: "price_1SCOIgDHqntRcM5ilbjDXU7y",
         TEST: "price_1RuGDIDHqntRcM5iboesQtD5",
       },
       QUARTERLY: {
-        STANDARD_SINGLE_NT: "PLACEHOLDER_QUARTERLY_STANDARD_SINGLE_NT",
-        STANDARD_SINGLE_TV: "PLACEHOLDER_QUARTERLY_STANDARD_SINGLE_TV",
-        STANDARD_BOTH: "PLACEHOLDER_QUARTERLY_STANDARD_BOTH",
-        PRO_SINGLE_NT: "PLACEHOLDER_QUARTERLY_PRO_SINGLE_NT",
-        PRO_SINGLE_TV: "PLACEHOLDER_QUARTERLY_PRO_SINGLE_TV",
-        PRO_BOTH: "PLACEHOLDER_QUARTERLY_PRO_BOTH",
+        INDICATORS_SINGLE_NT: "PLACEHOLDER_QUARTERLY_INDICATORS_SINGLE_NT",
+        INDICATORS_SINGLE_TV: "PLACEHOLDER_QUARTERLY_INDICATORS_SINGLE_TV",
+        INDICATORS_BOTH: "PLACEHOLDER_QUARTERLY_INDICATORS_BOTH",
+        STRATEGIES_SINGLE_NT: "PLACEHOLDER_QUARTERLY_STRATEGIES_SINGLE_NT",
+        STRATEGIES_SINGLE_TV: "PLACEHOLDER_QUARTERLY_STRATEGIES_SINGLE_TV",
+        STRATEGIES_BOTH: "PLACEHOLDER_QUARTERLY_STRATEGIES_BOTH",
         TEST: "PLACEHOLDER_QUARTERLY_TEST",
       },
       YEARLY: {
-        STANDARD_SINGLE_NT: "PLACEHOLDER_YEARLY_STANDARD_SINGLE_NT",
-        STANDARD_SINGLE_TV: "PLACEHOLDER_YEARLY_STANDARD_SINGLE_TV",
-        STANDARD_BOTH: "PLACEHOLDER_YEARLY_STANDARD_BOTH",
-        PRO_SINGLE_NT: "PLACEHOLDER_YEARLY_PRO_SINGLE_NT",
-        PRO_SINGLE_TV: "PLACEHOLDER_YEARLY_PRO_SINGLE_TV",
-        PRO_BOTH: "PLACEHOLDER_YEARLY_PRO_BOTH",
+        INDICATORS_SINGLE_NT: "PLACEHOLDER_YEARLY_INDICATORS_SINGLE_NT",
+        INDICATORS_SINGLE_TV: "PLACEHOLDER_YEARLY_INDICATORS_SINGLE_TV",
+        INDICATORS_BOTH: "PLACEHOLDER_YEARLY_INDICATORS_BOTH",
+        STRATEGIES_SINGLE_NT: "PLACEHOLDER_YEARLY_STRATEGIES_SINGLE_NT",
+        STRATEGIES_SINGLE_TV: "PLACEHOLDER_YEARLY_STRATEGIES_SINGLE_TV",
+        STRATEGIES_BOTH: "PLACEHOLDER_YEARLY_STRATEGIES_BOTH",
         TEST: "PLACEHOLDER_YEARLY_TEST",
       },
     },
     PRODUCTION: {
       MONTHLY: {
-        STANDARD_SINGLE_NT: "price_1RkWkiDHqntRcM5i8UrCeTsw",
-        STANDARD_SINGLE_TV: "price_1SCOEzDHqntRcM5iSPtrtetG",
-        STANDARD_BOTH: "price_1SCOG5DHqntRcM5iouL0zesB",
-        PRO_SINGLE_NT: "price_1RkWkcDHqntRcM5i4MakObtw",
-        PRO_SINGLE_TV: "price_1SCOFJDHqntRcM5iMcAPakLT",
-        PRO_BOTH: "price_1SCOGgDHqntRcM5irQtSptbE",
+        INDICATORS_SINGLE_NT: "price_1RkWkiDHqntRcM5i8UrCeTsw",
+        INDICATORS_SINGLE_TV: "price_1SCOEzDHqntRcM5iSPtrtetG",
+        INDICATORS_BOTH: "price_1SCOG5DHqntRcM5iouL0zesB",
+        STRATEGIES_SINGLE_NT: "price_1RkWkcDHqntRcM5i4MakObtw",
+        STRATEGIES_SINGLE_TV: "price_1SCOFJDHqntRcM5iMcAPakLT",
+        STRATEGIES_BOTH: "price_1SCOGgDHqntRcM5irQtSptbE",
         TEST: "price_1RuG9KDHqntRcM5iW0OPXS5D",
       },
       QUARTERLY: {
-        STANDARD_SINGLE_NT: "PLACEHOLDER_QUARTERLY_STANDARD_SINGLE_NT",
-        STANDARD_SINGLE_TV: "PLACEHOLDER_QUARTERLY_STANDARD_SINGLE_TV",
-        STANDARD_BOTH: "PLACEHOLDER_QUARTERLY_STANDARD_BOTH",
-        PRO_SINGLE_NT: "PLACEHOLDER_QUARTERLY_PRO_SINGLE_NT",
-        PRO_SINGLE_TV: "PLACEHOLDER_QUARTERLY_PRO_SINGLE_TV",
-        PRO_BOTH: "PLACEHOLDER_QUARTERLY_PRO_BOTH",
+        INDICATORS_SINGLE_NT: "PLACEHOLDER_QUARTERLY_INDICATORS_SINGLE_NT",
+        INDICATORS_SINGLE_TV: "PLACEHOLDER_QUARTERLY_INDICATORS_SINGLE_TV",
+        INDICATORS_BOTH: "PLACEHOLDER_QUARTERLY_INDICATORS_BOTH",
+        STRATEGIES_SINGLE_NT: "PLACEHOLDER_QUARTERLY_STRATEGIES_SINGLE_NT",
+        STRATEGIES_SINGLE_TV: "PLACEHOLDER_QUARTERLY_STRATEGIES_SINGLE_TV",
+        STRATEGIES_BOTH: "PLACEHOLDER_QUARTERLY_STRATEGIES_BOTH",
         TEST: "PLACEHOLDER_QUARTERLY_TEST",
       },
       YEARLY: {
-        STANDARD_SINGLE_NT: "PLACEHOLDER_YEARLY_STANDARD_SINGLE_NT",
-        STANDARD_SINGLE_TV: "PLACEHOLDER_YEARLY_STANDARD_SINGLE_TV",
-        STANDARD_BOTH: "PLACEHOLDER_YEARLY_STANDARD_BOTH",
-        PRO_SINGLE_NT: "PLACEHOLDER_YEARLY_PRO_SINGLE_NT",
-        PRO_SINGLE_TV: "PLACEHOLDER_YEARLY_PRO_SINGLE_TV",
-        PRO_BOTH: "PLACEHOLDER_YEARLY_PRO_BOTH",
+        INDICATORS_SINGLE_NT: "PLACEHOLDER_YEARLY_INDICATORS_SINGLE_NT",
+        INDICATORS_SINGLE_TV: "PLACEHOLDER_YEARLY_INDICATORS_SINGLE_TV",
+        INDICATORS_BOTH: "PLACEHOLDER_YEARLY_INDICATORS_BOTH",
+        STRATEGIES_SINGLE_NT: "PLACEHOLDER_YEARLY_STRATEGIES_SINGLE_NT",
+        STRATEGIES_SINGLE_TV: "PLACEHOLDER_YEARLY_STRATEGIES_SINGLE_TV",
+        STRATEGIES_BOTH: "PLACEHOLDER_YEARLY_STRATEGIES_BOTH",
         TEST: "PLACEHOLDER_YEARLY_TEST",
       },
     },
@@ -100,22 +113,22 @@ export function PricingPage() {
   // Pricing objects for each billing period
   const PRICING = {
     MONTHLY: {
-      PRO_SINGLE: 99,
-      PRO_BOTH: 119,
-      STANDARD_SINGLE: 49,
-      STANDARD_BOTH: 69,
+      STRATEGIES_SINGLE: 99,
+      STRATEGIES_BOTH: 119,
+      INDICATORS_SINGLE: 49,
+      INDICATORS_BOTH: 69,
     },
     QUARTERLY: {
-      PRO_SINGLE: 265, // PLACEHOLDER - fill in quarterly price
-      PRO_BOTH: 320, // PLACEHOLDER - fill in quarterly price
-      STANDARD_SINGLE: 130, // PLACEHOLDER - fill in quarterly price
-      STANDARD_BOTH: 185, // PLACEHOLDER - fill in quarterly price
+      STRATEGIES_SINGLE: 265, // PLACEHOLDER - fill in quarterly price
+      STRATEGIES_BOTH: 320, // PLACEHOLDER - fill in quarterly price
+      INDICATORS_SINGLE: 130, // PLACEHOLDER - fill in quarterly price
+      INDICATORS_BOTH: 185, // PLACEHOLDER - fill in quarterly price
     },
     YEARLY: {
-      PRO_SINGLE: 990, // PLACEHOLDER - fill in yearly price
-      PRO_BOTH: 1190, // PLACEHOLDER - fill in yearly price
-      STANDARD_SINGLE: 490, // PLACEHOLDER - fill in yearly price
-      STANDARD_BOTH: 690, // PLACEHOLDER - fill in yearly price
+      STRATEGIES_SINGLE: 990, // PLACEHOLDER - fill in yearly price
+      STRATEGIES_BOTH: 1190, // PLACEHOLDER - fill in yearly price
+      INDICATORS_SINGLE: 490, // PLACEHOLDER - fill in yearly price
+      INDICATORS_BOTH: 690, // PLACEHOLDER - fill in yearly price
     },
   };
 
@@ -268,7 +281,10 @@ export function PricingPage() {
               Single Platform
             </h3>
             <p className="text-center text-4xl font-extrabold mb-6">
-              {formatPriceDisplay(PRICING.MONTHLY.PRO_SINGLE, "PRO_SINGLE")}
+              {formatPriceDisplay(
+                PRICING.MONTHLY.STRATEGIES_SINGLE,
+                "STRATEGIES_SINGLE"
+              )}
             </p>
             <ul className="space-y-4 text-gray-300 mb-8">
               <li className="flex items-center">
@@ -328,7 +344,7 @@ export function PricingPage() {
                 <div className="grid grid-cols-2 gap-3">
                   <button
                     onClick={() =>
-                      handleCheckout(currentPricingIds.PRO_SINGLE_NT)
+                      handleCheckout(currentPricingIds.STRATEGIES_SINGLE_NT)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
@@ -338,7 +354,7 @@ export function PricingPage() {
                   </button>
                   <button
                     onClick={() =>
-                      handleCheckout(currentPricingIds.PRO_SINGLE_TV)
+                      handleCheckout(currentPricingIds.STRATEGIES_SINGLE_TV)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
@@ -391,7 +407,10 @@ export function PricingPage() {
                 Both Platforms
               </h3>
               <p className="text-center text-4xl font-extrabold mb-6">
-                {formatPriceDisplay(PRICING.MONTHLY.PRO_BOTH, "PRO_BOTH")}
+                {formatPriceDisplay(
+                  PRICING.MONTHLY.STRATEGIES_BOTH,
+                  "STRATEGIES_BOTH"
+                )}
               </p>
               <ul className="space-y-4 text-gray-300 mb-8">
                 <li className="flex items-center">
@@ -449,7 +468,9 @@ export function PricingPage() {
               {isAuthenticated ? (
                 <div className="space-y-3">
                   <button
-                    onClick={() => handleCheckout(currentPricingIds.PRO_BOTH)}
+                    onClick={() =>
+                      handleCheckout(currentPricingIds.STRATEGIES_BOTH)
+                    }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                   >
                     {billingPeriod === "monthly"
@@ -488,8 +509,8 @@ export function PricingPage() {
             </h3>
             <p className="text-center text-4xl font-extrabold mb-6">
               {formatPriceDisplay(
-                PRICING.MONTHLY.STANDARD_SINGLE,
-                "STANDARD_SINGLE"
+                PRICING.MONTHLY.INDICATORS_SINGLE,
+                "INDICATORS_SINGLE"
               )}
             </p>
             <ul className="space-y-4 text-gray-300 mb-8">
@@ -550,7 +571,7 @@ export function PricingPage() {
                 <div className="grid grid-cols-2 gap-3">
                   <button
                     onClick={() =>
-                      handleCheckout(currentPricingIds.STANDARD_SINGLE_NT)
+                      handleCheckout(currentPricingIds.INDICATORS_SINGLE_NT)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
@@ -560,7 +581,7 @@ export function PricingPage() {
                   </button>
                   <button
                     onClick={() =>
-                      handleCheckout(currentPricingIds.STANDARD_SINGLE_TV)
+                      handleCheckout(currentPricingIds.INDICATORS_SINGLE_TV)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
@@ -608,8 +629,8 @@ export function PricingPage() {
             </h3>
             <p className="text-center text-4xl font-extrabold mb-6">
               {formatPriceDisplay(
-                PRICING.MONTHLY.STANDARD_BOTH,
-                "STANDARD_BOTH"
+                PRICING.MONTHLY.INDICATORS_BOTH,
+                "INDICATORS_BOTH"
               )}
             </p>
             <ul className="space-y-4 text-gray-300 mb-8">
@@ -669,7 +690,7 @@ export function PricingPage() {
               <div className="space-y-3">
                 <button
                   onClick={() =>
-                    handleCheckout(currentPricingIds.STANDARD_BOTH)
+                    handleCheckout(currentPricingIds.INDICATORS_BOTH)
                   }
                   className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                 >
