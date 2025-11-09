@@ -78,6 +78,11 @@ import moon2 from "../assets/strategies/Moon2.png";
 import pluto1 from "../assets/strategies/Pluto1.png";
 import pluto2 from "../assets/strategies/Pluto2.png";
 
+import previous from "../assets/video/previous.mp4";
+import confluenceVideo from "../assets/video/confluence.mp4";
+import pivotVideo from "../assets/video/pivot.mp4";
+import signalVideo from "../assets/video/signal.mp4";
+
 import "../App.css";
 
 export function LandingPage() {
@@ -86,9 +91,43 @@ export function LandingPage() {
     return savedTab || "NinjaTrader";
   });
 
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
   useEffect(() => {
     localStorage.setItem("landingPageActiveTab", activeTab);
   }, [activeTab]);
+
+  // Video carousel data
+  const videos = [
+    {
+      src: previous,
+      label: "Previous Levels",
+    },
+    {
+      src: confluenceVideo,
+      label: "FluxConfluence",
+    },
+    {
+      src: pivotVideo,
+      label: "FluxPivot",
+    },
+    {
+      src: signalVideo,
+      label: "FluxSignal",
+    },
+  ];
+
+  const nextVideo = () => {
+    setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+  };
+
+  const prevVideo = () => {
+    setCurrentVideoIndex((prev) => (prev - 1 + videos.length) % videos.length);
+  };
+
+  const goToVideo = (index) => {
+    setCurrentVideoIndex(index);
+  };
   const indicators = [
     // NEW INDICATORS
     // {
@@ -766,21 +805,122 @@ export function LandingPage() {
 
   return (
     <div className="bg-gray-900 text-white min-h-full">
-      <section>
-        <h2 className="pt-[20px] lg:text-[100px] md:text-[50px] text-[40px] text-center">
-          Understand the{" "}
-          <span className="italic bg-gradient-to-tl from-red-600 via-gray-300 to-green-600 hover:bg-gradient-to-br hover:from-green-500 hover:via-green-200 hover:to-lime-500 text-transparent bg-clip-text bg-300 animate-gradient-pan cursor-default">
-            markets
-          </span>
-          .
-        </h2>
-        <h2 className="lg:text-[100px] md:text-[50px] text-[40px] text-center">
-          Gain an{" "}
-          <span className="italic bg-gradient-to-tl from-green-500 via-yellow-500 to-purple-800 hover:bg-gradient-to-br hover:from-purple-400 hover:via-indigo-400 hover:to-blue-400 text-transparent bg-clip-text bg-300 animate-gradient-pan cursor-default">
-            edge
-          </span>
-          .
-        </h2>
+      {/* Hero Section with Video Above the Fold */}
+      <section className="relative w-full max-w-7xl mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+          {/* Left side: Headline and CTA */}
+          <div className="flex-1 text-center lg:text-left">
+            <h1 className="pt-[20px] lg:text-[100px] md:text-[50px] text-[40px] font-bold mb-4">
+              Understand the{" "}
+              <span className="italic bg-gradient-to-tl from-red-600 via-gray-300 to-green-600 hover:bg-gradient-to-br hover:from-green-500 hover:via-green-200 hover:to-lime-500 text-transparent bg-clip-text bg-300 animate-gradient-pan cursor-default">
+                markets
+              </span>
+              .
+            </h1>
+            <h2 className="lg:text-[100px] md:text-[50px] text-[40px] font-bold mb-6">
+              Gain an{" "}
+              <span className="italic bg-gradient-to-tl from-green-500 via-yellow-500 to-purple-800 hover:bg-gradient-to-br hover:from-purple-400 hover:via-indigo-400 hover:to-blue-400 text-transparent bg-clip-text bg-300 animate-gradient-pan cursor-default">
+                edge
+              </span>
+              .
+            </h2>
+            <Link
+              to="/pricing"
+              className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              See it trade in 60s
+            </Link>
+          </div>
+
+          {/* Right side: Video Carousel */}
+          <div className="w-auto flex flex-col items-center h-[600px]">
+            <div className="relative rounded-lg overflow-hidden shadow-lg mb-4">
+              {/* Video Player */}
+              <video
+                key={currentVideoIndex}
+                className="w-[300px] h-[600px]"
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls={false}
+                aria-label={`${videos[currentVideoIndex].label} demonstration video`}
+              >
+                <source src={videos[currentVideoIndex].src} type="video/mp4" />
+                <track
+                  kind="captions"
+                  srcLang="en"
+                  label="English captions"
+                  default
+                />
+                Your browser does not support the video tag.
+              </video>
+
+              {/* Navigation Buttons */}
+              <button
+                onClick={prevVideo}
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-200 z-10"
+                aria-label="Previous video"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+              <button
+                onClick={nextVideo}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-200 z-10"
+                aria-label="Next video"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {/* Video Label */}
+            <div className="text-center mb-3">
+              <h3 className="text-xl font-semibold text-white">
+                {videos[currentVideoIndex].label}
+              </h3>
+            </div>
+
+            {/* Dot Indicators */}
+            <div className="flex gap-2 justify-center">
+              {videos.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToVideo(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                    index === currentVideoIndex
+                      ? "bg-blue-500 w-8"
+                      : "bg-gray-600 hover:bg-gray-500"
+                  }`}
+                  aria-label={`Go to ${videos[index].label}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       <main className="p-8">

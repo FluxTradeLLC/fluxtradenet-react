@@ -19,7 +19,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="bg-gray-900 text-white p-4 sm:p-6 md:p-8 fixed top-0 left-0 right-0 border-b border-gray-700">
+    <header className="bg-gray-900 text-white p-4 sm:p-6 md:p-8 z-50 fixed top-0 left-0 right-0 border-b border-gray-700">
       <div className="lg:flex lg:items-center lg:justify-between">
         <Link
           to="/"
