@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import fluxLogo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faDiscord,
-} from "@fortawesome/free-brands-svg-icons";
+import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 export const Header = () => {
   // const [hasSession, setHasSession] = useState(false);
@@ -21,7 +19,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="bg-gray-900 text-white p-4 sm:p-6 md:p-8">
+    <header className="bg-gray-900 text-white p-4 sm:p-6 md:p-8 fixed top-0 left-0 right-0 border-b border-gray-700">
       <div className="lg:flex lg:items-center lg:justify-between">
         <Link
           to="/"
@@ -35,7 +33,7 @@ export const Header = () => {
         </Link>
         <button
           aria-label="Toggle navigation menu"
-          className="lg:hidden absolute right-6 top-6 ml-auto mt-2 p-2 rounded-lg border border-gray-700 hover:bg-gray-800"
+          className="xl:hidden absolute right-6 top-6 ml-auto mt-2 p-2 rounded-lg border border-gray-700 hover:bg-gray-800"
           onClick={() => setIsMenuOpen((prev) => !prev)}
         >
           {isMenuOpen ? (
@@ -71,7 +69,7 @@ export const Header = () => {
           )}
         </button>
         <nav
-          className={`${isMenuOpen ? "flex" : "hidden"} lg:flex lg:flex-1 w-full flex-col lg:flex-row gap-2 md:flex-wrap justify-center lg:justify-end items-center space-y-2 md:space-y-0 lg:space-y-0 lg:gap-4 p-6 rounded-lg`}
+          className={`${isMenuOpen ? "flex" : "hidden"} xl:flex lg:flex-1 w-full flex-col lg:flex-row gap-2 md:flex-wrap justify-center lg:justify-end items-center space-y-2 md:space-y-0 lg:space-y-0 lg:gap-4 p-6 rounded-lg`}
         >
           <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
             <Link

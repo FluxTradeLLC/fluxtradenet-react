@@ -22,7 +22,8 @@ function App() {
     <Router>
       <div className="App">
         <Header/>
-        <Routes>
+        <div className="pt-[150px] md:pt-[200px]">
+          <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/success" element={<PaymentSuccessPage />} />
@@ -62,7 +63,8 @@ function App() {
           <Route path="/affiliates" element={<AffiliatesPage />} />
           <Route path="/support" element={<SupportPage />} />
           <Route path="/terms" element={<TermsAndConditionsPage />} />
-        </Routes>
+          </Routes>
+        </div>
         <StickyCTA />
         <Footer/> 
       </div>
