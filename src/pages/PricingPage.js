@@ -267,7 +267,7 @@ export function PricingPage() {
                 <div className="grid grid-cols-2 gap-3">
                   <button
                     onClick={() =>
-                      handleCheckout(currentPricingIds.STRATEGIES_SINGLE_NT)
+                      handleCheckout(currentPricingIds.STRATEGIES_NT_ONLY)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
@@ -277,7 +277,7 @@ export function PricingPage() {
                   </button>
                   <button
                     onClick={() =>
-                      handleCheckout(currentPricingIds.STRATEGIES_SINGLE_TV)
+                      handleCheckout(currentPricingIds.STRATEGIES_TV_ONLY)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
@@ -331,8 +331,8 @@ export function PricingPage() {
               </h3>
               <p className="text-center text-4xl font-extrabold mb-6">
                 {formatPriceDisplay(
-                  PRICING.MONTHLY.STRATEGIES_BOTH,
-                  "STRATEGIES_BOTH"
+                  PRICING.MONTHLY.STRATEGIES_NT_AND_TV,
+                  "STRATEGIES_NT_AND_TV"
                 )}
               </p>
               <ul className="space-y-4 text-gray-300 mb-8">
@@ -392,7 +392,7 @@ export function PricingPage() {
                 <div className="space-y-3">
                   <button
                     onClick={() =>
-                      handleCheckout(currentPricingIds.STRATEGIES_BOTH)
+                      handleCheckout(currentPricingIds.STRATEGIES_NT_AND_TV)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                   >
@@ -494,7 +494,7 @@ export function PricingPage() {
                 <div className="grid grid-cols-2 gap-3">
                   <button
                     onClick={() =>
-                      handleCheckout(currentPricingIds.INDICATORS_SINGLE_NT)
+                      handleCheckout(currentPricingIds.INDICATORS_NT_ONLY)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
@@ -504,7 +504,7 @@ export function PricingPage() {
                   </button>
                   <button
                     onClick={() =>
-                      handleCheckout(currentPricingIds.INDICATORS_SINGLE_TV)
+                      handleCheckout(currentPricingIds.INDICATORS_TV_ONLY)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
@@ -552,8 +552,8 @@ export function PricingPage() {
             </h3>
             <p className="text-center text-4xl font-extrabold mb-6">
               {formatPriceDisplay(
-                PRICING.MONTHLY.INDICATORS_BOTH,
-                "INDICATORS_BOTH"
+                PRICING.MONTHLY.INDICATORS_NT_AND_TV,
+                "INDICATORS_NT_AND_TV"
               )}
             </p>
             <ul className="space-y-4 text-gray-300 mb-8">
@@ -613,7 +613,7 @@ export function PricingPage() {
               <div className="space-y-3">
                 <button
                   onClick={() =>
-                    handleCheckout(currentPricingIds.INDICATORS_BOTH)
+                    handleCheckout(currentPricingIds.INDICATORS_NT_AND_TV)
                   }
                   className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                 >

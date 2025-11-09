@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/axios";
+import { PRICING_IDS } from "../../constants";
 
 export const StickyCTA = () => {
   const [activePlatform, setActivePlatform] = useState(() => {
@@ -21,19 +22,6 @@ export const StickyCTA = () => {
     localStorage.setItem("stickyCTAActivePlatform", activePlatform);
   }, [activePlatform]);
 
-  const PRICING_IDS = {
-    LOCAL: {
-      PRO_SINGLE_NT: "price_1Rk971DHqntRcM5i5pndgfLL",
-      PRO_SINGLE_TV: "price_1SCOIADHqntRcM5ilHuIjjTA",
-      PRO_BOTH: "price_1SCOIgDHqntRcM5ilbjDXU7y",
-    },
-    PRODUCTION: {
-      PRO_SINGLE_NT: "price_1RkWkcDHqntRcM5i4MakObtw",
-      PRO_SINGLE_TV: "price_1SCOFJDHqntRcM5iMcAPakLT",
-      PRO_BOTH: "price_1SCOGgDHqntRcM5irQtSptbE",
-    },
-  };
-
   const envKey = process.env.REACT_APP_NODE_ENV
     ? process.env.REACT_APP_NODE_ENV.toUpperCase()
     : "LOCAL";
@@ -47,11 +35,11 @@ export const StickyCTA = () => {
 
     let priceId;
     if (activePlatform === "NinjaTrader") {
-      priceId = PRICING_IDS[envKey].PRO_SINGLE_NT;
+      priceId = PRICING_IDS[envKey].MONTHLY.STRATEGIES_NT_ONLY;
     } else if (activePlatform === "TradingView") {
-      priceId = PRICING_IDS[envKey].PRO_SINGLE_TV;
+      priceId = PRICING_IDS[envKey].MONTHLY.STRATEGIES_TV_ONLY;
     } else {
-      priceId = PRICING_IDS[envKey].PRO_BOTH;
+      priceId = PRICING_IDS[envKey].MONTHLY.STRATEGIES_NT_AND_TV;
     }
 
     try {
@@ -59,6 +47,7 @@ export const StickyCTA = () => {
         priceId: priceId,
         subscription: true,
         referral: window.promotekit_referral,
+        billingPeriod: "monthly",
       });
       // Redirect to Stripe checkout
       window.location.href = response.data.redirect;
@@ -114,11 +103,12 @@ export const StickyCTA = () => {
               animation: "soft-gradient-x 3s ease-in-out infinite",
             }}
           >
-            {isAuthenticated ? "Start Free Trial (30 days)" : "Sign Up To Start Free Trial (30 days)"}
+            {isAuthenticated
+              ? "Start Free Trial (30 days)"
+              : "Sign Up To Start Free Trial (30 days)"}
           </button>
         </div>
       </div>
     </div>
   );
 };
-
