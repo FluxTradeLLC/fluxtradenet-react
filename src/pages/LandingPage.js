@@ -912,7 +912,7 @@ export function LandingPage() {
                   onClick={() => goToVideo(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-200 ${
                     index === currentVideoIndex
-                      ? "bg-blue-500 w-8"
+                      ? "bg-[#5865F2] w-8"
                       : "bg-gray-600 hover:bg-gray-500"
                   }`}
                   aria-label={`Go to ${videos[index].label}`}
@@ -989,7 +989,7 @@ export function LandingPage() {
                         {strategy?.backtestUrl && (
                           <Link
                             to={strategy.backtestUrl}
-                            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
+                            className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
                           >
                             View Backtest
                           </Link>
@@ -1043,7 +1043,7 @@ export function LandingPage() {
                         {strategy?.backtestUrl && (
                           <Link
                             to={strategy.backtestUrl}
-                            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
+                            className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
                           >
                             View Backtest
                           </Link>
@@ -1093,7 +1093,7 @@ export function LandingPage() {
                       {strategy?.backtestUrl && (
                         <Link
                           to={strategy.backtestUrl}
-                          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
+                          className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
                         >
                           View Backtest
                         </Link>
