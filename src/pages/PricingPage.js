@@ -160,10 +160,17 @@ export function PricingPage() {
       </div>
 
       {/* Billing Period Tabs */}
-      <div className="flex justify-center mb-8">
+      <div
+        className="flex justify-center mb-8"
+        role="tablist"
+        aria-label="Billing period selection"
+      >
         <div className="inline-flex bg-gray-800 rounded-lg p-1 border border-gray-700">
           <button
             onClick={() => setBillingPeriod("monthly")}
+            role="tab"
+            aria-selected={billingPeriod === "monthly"}
+            aria-controls="monthly-pricing"
             className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 ${
               billingPeriod === "monthly"
                 ? "bg-indigo-600 text-white"
@@ -174,6 +181,9 @@ export function PricingPage() {
           </button>
           <button
             onClick={() => setBillingPeriod("quarterly")}
+            role="tab"
+            aria-selected={billingPeriod === "quarterly"}
+            aria-controls="quarterly-pricing"
             className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 flex items-center gap-2 ${
               billingPeriod === "quarterly"
                 ? "bg-indigo-600 text-white"
@@ -183,12 +193,16 @@ export function PricingPage() {
             Quarterly
             <span
               className={`bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+              aria-label="Save 10 percent"
             >
               Save 10%
             </span>
           </button>
           <button
             onClick={() => setBillingPeriod("yearly")}
+            role="tab"
+            aria-selected={billingPeriod === "yearly"}
+            aria-controls="yearly-pricing"
             className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 flex items-center gap-2 ${
               billingPeriod === "yearly"
                 ? "bg-indigo-600 text-white"
@@ -198,6 +212,7 @@ export function PricingPage() {
             Yearly
             <span
               className={`bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+              aria-label="Save 17 percent"
             >
               Save 17%
             </span>
@@ -282,6 +297,11 @@ export function PricingPage() {
                       handleCheckout(currentPricingIds.STRATEGIES_NT_ONLY)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
+                    aria-label={
+                      billingPeriod === "monthly"
+                        ? "Start 30 day free trial on NinjaTrader"
+                        : "Subscribe on NinjaTrader"
+                    }
                   >
                     {billingPeriod === "monthly"
                       ? "Start 30‑day free trial on NinjaTrader"
@@ -292,6 +312,11 @@ export function PricingPage() {
                       handleCheckout(currentPricingIds.STRATEGIES_TV_ONLY)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
+                    aria-label={
+                      billingPeriod === "monthly"
+                        ? "Start 30 day free trial on TradingView"
+                        : "Subscribe on TradingView"
+                    }
                   >
                     {billingPeriod === "monthly"
                       ? "Start 30‑day free trial on TradingView"
@@ -411,6 +436,11 @@ export function PricingPage() {
                       handleCheckout(currentPricingIds.STRATEGIES_NT_AND_TV)
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
+                    aria-label={
+                      billingPeriod === "monthly"
+                        ? "Start 30 day free trial for both platforms"
+                        : "Subscribe now for both platforms"
+                    }
                   >
                     {billingPeriod === "monthly"
                       ? "Start 30‑day free trial"

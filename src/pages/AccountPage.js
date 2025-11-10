@@ -73,11 +73,14 @@ export const AccountPage = () => {
               <p>Log into the Stripe customer portal to manage your subscription, update your payment method, or cancel your subscription.</p>
               <button
                 onClick={handleCustomerPortal}
+                disabled={!isPaid}
                 className={`font-bold px-4 py-2 rounded-lg ${
                   isPaid
                     ? "bg-[#5865F2] text-white hover:bg-[#4752C4]"
                     : "bg-gray-500 text-gray-300 cursor-not-allowed"
                 }`}
+                aria-label="Manage subscription settings in Stripe customer portal"
+                aria-disabled={!isPaid}
               >
                 Subscription Settings
               </button>
@@ -88,9 +91,12 @@ export const AccountPage = () => {
         </div>
       ) : (
         <div className="max-w-md mx-auto">
-          <div className="flex border-b border-gray-700">
+          <div className="flex border-b border-gray-700" role="tablist" aria-label="Account authentication">
             <button
               onClick={() => setActiveTab("signin")}
+              role="tab"
+              aria-selected={activeTab === "signin"}
+              aria-controls="signin-panel"
               className={`w-1/2 py-4 text-center font-semibold ${
                 activeTab === "signin"
                   ? "text-[#5865F2] border-b-2 border-[#5865F2]"
@@ -101,6 +107,9 @@ export const AccountPage = () => {
             </button>
             <button
               onClick={() => setActiveTab("signup")}
+              role="tab"
+              aria-selected={activeTab === "signup"}
+              aria-controls="signup-panel"
               className={`w-1/2 py-4 text-center font-semibold ${
                 activeTab === "signup"
                   ? "text-[#5865F2] border-b-2 border-[#5865F2]"
@@ -110,7 +119,7 @@ export const AccountPage = () => {
               Sign Up
             </button>
           </div>
-          <div className="pt-8">
+          <div className="pt-8" role="tabpanel" id={activeTab === "signin" ? "signin-panel" : "signup-panel"}>
             {activeTab === "signin" ? <SignIn /> : <SignUp />}
           </div>
         </div>

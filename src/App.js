@@ -46,7 +46,7 @@ function App() {
           }}
         />
         <Header/>
-        <div className="pt-[150px] md:pt-[200px]">
+        <main id="main-content" className="pt-[150px] md:pt-[200px]">
           <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/pricing" element={<PricingPage />} />
@@ -88,7 +88,7 @@ function App() {
           <Route path="/support" element={<SupportPage />} />
           <Route path="/terms" element={<TermsAndConditionsPage />} />
           </Routes>
-        </div>
+        </main>
         <StickyCTA />
         <Footer/> 
       </div>

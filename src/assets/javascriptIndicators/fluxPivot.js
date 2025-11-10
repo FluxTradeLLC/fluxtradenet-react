@@ -1,9 +1,9 @@
 /**
  * FluxPivot Indicator - JavaScript port from PineScript
- * 
+ *
  * This indicator calculates a stepped moving average based on Heikin-Ashi candles
  * and generates Flip and Add signals for long/short positions.
- * 
+ *
  * @param {Array} data - Array of candlestick data objects with {time, open, high, low, close}
  * @param {Object} options - Configuration options
  * @param {number} options.maPeriod - MA Period (default: 30)
@@ -18,17 +18,17 @@
 export function calculateFluxPivot(data, options = {}) {
   // Default parameters
   const maPeriod = options.maPeriod || 30;
-  const stepPeriod = options.stepPeriod || 1;
+  // const _stepPeriod = options.stepPeriod || 1; // Reserved for future use
   const flipStepTicks = options.flipStepTicks || 250;
-  const adxMinimum = options.adxMinimum || 20;
+  // const _adxMinimum = options.adxMinimum || 20; // Reserved for future use
   const maLineColor = options.maLineColor || "#00FFFF";
-  const heikinAshiColor = options.heikinAshiColor || "#808080";
+  // const _heikinAshiColor = options.heikinAshiColor || "#808080"; // Reserved for future use
 
   // Auto-detect minimum tick size from data if not provided
   let mintick = options.mintick || 0.1;
   if (!mintick && data.length > 0) {
     // Try to detect tick size by finding the smallest price difference
-    const prices = data.flatMap(d => [d.open, d.high, d.low, d.close]);
+    const prices = data.flatMap((d) => [d.open, d.high, d.low, d.close]);
     const sortedPrices = [...new Set(prices)].sort((a, b) => a - b);
     let minDiff = Infinity;
     for (let i = 1; i < Math.min(sortedPrices.length, 100); i++) {
@@ -95,20 +95,29 @@ export function calculateFluxPivot(data, options = {}) {
     // This allows us to detect direction changes and step accordingly
     let flipSignal = 0;
     let addSignal = 0;
-    
+
     // Use previous steppedMA value for flip detection
-    const prevSteppedMA = steppedMAValue !== null ? steppedMAValue : (ma !== null ? ma : null);
+    const prevSteppedMA =
+      steppedMAValue !== null ? steppedMAValue : ma !== null ? ma : null;
 
     if (ma !== null && prevSteppedMA !== null) {
       // Flip Long: close > steppedMA and no long entry yet and not already long
-      if (bar.close > prevSteppedMA && longEntryPrice === 0.0 && currentDirection !== 1) {
+      if (
+        bar.close > prevSteppedMA &&
+        longEntryPrice === 0.0 &&
+        currentDirection !== 1
+      ) {
         flipSignal = 1;
         longEntryPrice = bar.close;
         shortEntryPrice = 0.0;
         currentDirection = 1;
       }
       // Flip Short: close < steppedMA and no short entry yet and not already short
-      else if (bar.close < prevSteppedMA && shortEntryPrice === 0.0 && currentDirection !== -1) {
+      else if (
+        bar.close < prevSteppedMA &&
+        shortEntryPrice === 0.0 &&
+        currentDirection !== -1
+      ) {
         flipSignal = -1;
         shortEntryPrice = bar.close;
         longEntryPrice = 0.0;
@@ -145,7 +154,7 @@ export function calculateFluxPivot(data, options = {}) {
     let steppedMA = null;
     if (ma !== null) {
       const offset = flipStepTicks * mintick;
-      
+
       // Calculate steppedMA based on current direction - this tracks the MA continuously
       if (currentDirection === 1) {
         // Long: MA offset below
@@ -157,17 +166,17 @@ export function calculateFluxPivot(data, options = {}) {
         // Flat/neutral: no offset
         steppedMA = ma;
       }
-      
+
       // When direction changes, the step is created naturally by the offset switching sides
       // The step size is approximately 2 * offset (from ma - offset to ma + offset)
       if (flipSignal !== 0 && steppedMAValue !== null) {
         const stepSize = Math.abs(steppedMA - steppedMAValue);
         // Log step size for debugging
         if (stepSize > 0) {
-        //   console.log(`Step detected: ${stepSize.toFixed(2)} points (flipStepTicks: ${flipStepTicks}, mintick: ${mintick.toFixed(4)}, offset: ${offset.toFixed(2)})`);
+          //   console.log(`Step detected: ${stepSize.toFixed(2)} points (flipStepTicks: ${flipStepTicks}, mintick: ${mintick.toFixed(4)}, offset: ${offset.toFixed(2)})`);
         }
       }
-      
+
       steppedMAValue = steppedMA; // Track for next iteration
     }
 
@@ -175,19 +184,30 @@ export function calculateFluxPivot(data, options = {}) {
     steppedMAData.push({
       time: bar.time,
       value: steppedMA !== null && steppedMA !== undefined ? steppedMA : null,
-      color: currentDirection === 1 ? "#00FFFF" : currentDirection === -1 ? "#0000FF" : maLineColor,
+      color:
+        currentDirection === 1
+          ? "#00FFFF"
+          : currentDirection === -1
+            ? "#0000FF"
+            : maLineColor,
     });
 
     flipSignals.push({
       time: bar.time,
-      value: (flipSignal !== 0 && steppedMA !== null && steppedMA !== undefined) ? steppedMA : null,
+      value:
+        flipSignal !== 0 && steppedMA !== null && steppedMA !== undefined
+          ? steppedMA
+          : null,
       signal: flipSignal,
       color: flipSignal > 0 ? "#00FFFF" : flipSignal < 0 ? "#0000FF" : null,
     });
 
     addSignals.push({
       time: bar.time,
-      value: (addSignal !== 0 && steppedMA !== null && steppedMA !== undefined) ? steppedMA : null,
+      value:
+        addSignal !== 0 && steppedMA !== null && steppedMA !== undefined
+          ? steppedMA
+          : null,
       signal: addSignal,
       color: addSignal > 0 ? "#00FFFF" : addSignal < 0 ? "#0000FF" : null,
     });
@@ -211,7 +231,8 @@ export function getFluxPivotConfig() {
   return {
     name: "FluxPivot",
     type: "fluxPivot",
-    description: "FluxTrade FluxPivot indicator with stepped MA and flip/add signals",
+    description:
+      "FluxTrade FluxPivot indicator with stepped MA and flip/add signals",
     category: "trend",
     defaultOptions: {
       maPeriod: 30,
@@ -223,4 +244,3 @@ export function getFluxPivotConfig() {
     },
   };
 }
-

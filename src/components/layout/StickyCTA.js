@@ -63,9 +63,11 @@ export const StickyCTA = () => {
       <div className="max-w-7xl mx-auto px-4 py-3 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* Platform Toggle */}
-          <div className="inline-flex rounded-lg bg-gray-800 p-1 flex-wrap justify-center">
+          <div className="inline-flex rounded-lg bg-gray-800 p-1 flex-wrap justify-center" role="tablist" aria-label="Platform selection">
             <button
               onClick={() => setActivePlatform("NinjaTrader")}
+              role="tab"
+              aria-selected={activePlatform === "NinjaTrader"}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 activePlatform === "NinjaTrader"
                   ? "bg-[#5865F2] hover:bg-[#4752C4] text-white"
@@ -76,6 +78,8 @@ export const StickyCTA = () => {
             </button>
             <button
               onClick={() => setActivePlatform("TradingView")}
+              role="tab"
+              aria-selected={activePlatform === "TradingView"}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 activePlatform === "TradingView"
                   ? "bg-[#5865F2] hover:bg-[#4752C4] text-white"
@@ -86,6 +90,8 @@ export const StickyCTA = () => {
             </button>
             <button
               onClick={() => setActivePlatform("Both")}
+              role="tab"
+              aria-selected={activePlatform === "Both"}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 activePlatform === "Both"
                   ? "bg-[#5865F2] hover:bg-[#4752C4] text-white"
@@ -104,6 +110,9 @@ export const StickyCTA = () => {
               backgroundSize: "200% 200%",
               animation: prefersReducedMotion ? "none" : "soft-gradient-x 3s ease-in-out infinite",
             }}
+            aria-label={isAuthenticated
+              ? `Start free 30 day trial for ${activePlatform}`
+              : `Sign up to start free 30 day trial for ${activePlatform}`}
           >
             {isAuthenticated
               ? "Start Free Trial (30 days)"

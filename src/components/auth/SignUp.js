@@ -79,10 +79,12 @@ export const SignUp = () => {
       <h2 className="text-2xl font-bold text-center text-white mb-8">
         Sign Up
       </h2>
-      {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-      <form onSubmit={handleSubmit}>
+      {error && <p className="text-red-500 text-center mb-4" role="alert" aria-live="polite">{error}</p>}
+      <form onSubmit={handleSubmit} aria-label="Sign up form">
         <div className="mb-4">
+          <label htmlFor="signup-email" className="sr-only">Email</label>
           <input
+            id="signup-email"
             type="email"
             placeholder="Email"
             className={`w-full px-4 py-2 bg-gray-700 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${
@@ -93,19 +95,25 @@ export const SignUp = () => {
             value={email}
             onChange={handleEmailChange}
             required
+            aria-required="true"
+            aria-invalid={!!emailError}
+            aria-describedby={emailError ? "signup-email-error" : undefined}
           />
           {emailError && (
-            <p className="text-red-500 text-sm mt-1">{emailError}</p>
+            <p id="signup-email-error" className="text-red-500 text-sm mt-1" role="alert">{emailError}</p>
           )}
         </div>
         <div className="mb-6">
+          <label htmlFor="signup-password" className="sr-only">Password</label>
           <input
+            id="signup-password"
             type="password"
             placeholder="Password"
             className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            aria-required="true"
           />
         </div>
         <div className="mb-6">
@@ -115,8 +123,10 @@ export const SignUp = () => {
               checked={acceptedTerms}
               onChange={(e) => setAcceptedTerms(e.target.checked)}
               className="mt-1 mr-2 h-4 w-4 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-500"
+              aria-required="true"
+              aria-describedby="terms-description"
             />
-            <span>
+            <span id="terms-description">
               I agree to the{" "}
               <Link
                 to="/terms"
@@ -125,6 +135,7 @@ export const SignUp = () => {
                   window.open("/terms", "_blank", "noopener,noreferrer");
                 }}
                 className="text-blue-400 hover:text-blue-300 underline"
+                aria-label="Terms and Conditions (opens in new tab)"
               >
                 Terms and Conditions
               </Link>{" "}
@@ -136,6 +147,7 @@ export const SignUp = () => {
                   window.open("/policies", "_blank", "noopener,noreferrer");
                 }}
                 className="text-blue-400 hover:text-blue-300 underline"
+                aria-label="Refund and Cancellation Policies (opens in new tab)"
               >
                 Refund and Cancellation Policies
               </Link>
@@ -146,11 +158,12 @@ export const SignUp = () => {
           type="submit"
           disabled={!acceptedTerms || !email || !password || !!emailError}
           className="w-full bg-[#5865F2] hover:bg-[#4752C4] disabled:bg-gray-600 disabled:cursor-not-allowed disabled:hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          aria-label="Create your account"
         >
           Sign Up
         </button>
       </form>
-      <div className="relative flex py-5 items-center">
+      <div className="relative flex py-5 items-center" role="separator" aria-label="Or">
         <div className="flex-grow border-t border-gray-600"></div>
         <span className="flex-shrink mx-4 text-gray-400">OR</span>
         <div className="flex-grow border-t border-gray-600"></div>
@@ -160,11 +173,13 @@ export const SignUp = () => {
         onClick={handleGoogleSubmit}
         disabled={!acceptedTerms}
         className="w-full bg-white hover:bg-gray-100 disabled:bg-gray-600 disabled:cursor-not-allowed disabled:hover:bg-gray-600 disabled:text-gray-400 text-gray-900 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm flex items-center justify-center"
+        aria-label="Continue with Google"
       >
         <svg
           className="w-5 h-5 mr-2"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 48 48"
+          aria-hidden="true"
         >
           <path
             fill="#FFC107"

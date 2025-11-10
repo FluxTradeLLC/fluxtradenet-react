@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Papa from "papaparse";
 import {
-  LineChart,
-  Line,
   AreaChart,
   Area,
   BarChart,
@@ -55,7 +53,10 @@ const parseCurrency = (str) => {
 // Helper function to format number with commas
 const formatNumber = (num) => {
   if (num === null || num === undefined || isNaN(num)) return "0";
-  return num.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return num.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 };
 
 // Currency conversion rates (USD as base)
@@ -89,14 +90,14 @@ const getSession = (timeStr) => {
     // Extract hour from formats like "9:33:00 AM" or "9:33:00"
     const timeMatch = timeStr.match(/(\d{1,2}):\d{2}/);
     if (!timeMatch) return "Unknown";
-    
+
     let hour = parseInt(timeMatch[1]);
     const isPM = timeStr.toUpperCase().includes("PM");
-    
+
     // Convert to 24-hour format
     if (isPM && hour !== 12) hour += 12;
     if (!isPM && hour === 12) hour = 0;
-    
+
     if (hour >= 9 && hour < 12) return "Morning";
     if (hour >= 12 && hour < 16) return "Afternoon";
     if (hour >= 16 && hour < 20) return "Evening";
@@ -152,8 +153,12 @@ export const BacktestExplorerPage = () => {
                     ...row,
                     strategy: file.replace(".csv", ""),
                     profit: parseCurrency(row.Profit || row["Profit"]),
-                    cumProfit: parseCurrency(row["Cum. net profit"] || row["Cum net profit"]),
-                    entryTime: parseDate(row["Entry time"] || row["Entry Time"]),
+                    cumProfit: parseCurrency(
+                      row["Cum. net profit"] || row["Cum net profit"]
+                    ),
+                    entryTime: parseDate(
+                      row["Entry time"] || row["Entry Time"]
+                    ),
                     session: getSession(row["Entry time"] || row["Entry Time"]),
                     instrument: row.Instrument || row["Instrument"],
                   }));
@@ -178,7 +183,8 @@ export const BacktestExplorerPage = () => {
 
   // Helper function to convert and format currency
   const formatCurrency = (usdAmount) => {
-    if (usdAmount === null || usdAmount === undefined || isNaN(usdAmount)) return "0.00";
+    if (usdAmount === null || usdAmount === undefined || isNaN(usdAmount))
+      return "0.00";
     const converted = usdAmount * CURRENCY_RATES[selectedCurrency];
     const formatted = formatNumber(converted);
     return `${CURRENCY_SYMBOLS[selectedCurrency]}${formatted}`;
@@ -191,21 +197,28 @@ export const BacktestExplorerPage = () => {
   }, [allData]);
 
   const instruments = useMemo(() => {
-    const unique = [...new Set(allData.map((d) => d.instrument).filter(Boolean))].sort();
+    const unique = [
+      ...new Set(allData.map((d) => d.instrument).filter(Boolean)),
+    ].sort();
     return ["All", ...unique];
   }, [allData]);
 
   const sessions = useMemo(() => {
-    const unique = [...new Set(allData.map((d) => d.session).filter(Boolean))].sort();
+    const unique = [
+      ...new Set(allData.map((d) => d.session).filter(Boolean)),
+    ].sort();
     return ["All", ...unique];
   }, [allData]);
 
   // Filter data based on selections
   const filteredData = useMemo(() => {
     return allData.filter((row) => {
-      if (selectedStrategy !== "All" && row.strategy !== selectedStrategy) return false;
-      if (selectedInstrument !== "All" && row.instrument !== selectedInstrument) return false;
-      if (selectedSession !== "All" && row.session !== selectedSession) return false;
+      if (selectedStrategy !== "All" && row.strategy !== selectedStrategy)
+        return false;
+      if (selectedInstrument !== "All" && row.instrument !== selectedInstrument)
+        return false;
+      if (selectedSession !== "All" && row.session !== selectedSession)
+        return false;
       return true;
     });
   }, [allData, selectedStrategy, selectedInstrument, selectedSession]);
@@ -229,7 +242,7 @@ export const BacktestExplorerPage = () => {
       } else {
         runningProfit += row.profit;
       }
-      
+
       peak = Math.max(peak, runningProfit);
       const drawdown = peak - runningProfit;
 
@@ -270,9 +283,12 @@ export const BacktestExplorerPage = () => {
     const totalWins = winningTrades.reduce((sum, p) => sum + p, 0);
     const totalLosses = Math.abs(losingTrades.reduce((sum, p) => sum + p, 0));
 
-    const equityCurve = equityCurveData.map((d) => d.equity);
-    const peak = Math.max(...equityCurve, 0);
-    const maxDrawdown = equityCurveData.reduce((max, d) => Math.max(max, d.drawdown), 0);
+    // const equityCurve = equityCurveData.map((d) => d.equity);
+    // const _peak = Math.max(...equityCurve, 0); // Reserved for future use
+    const maxDrawdown = equityCurveData.reduce(
+      (max, d) => Math.max(max, d.drawdown),
+      0
+    );
 
     return {
       totalTrades: filteredData.length,
@@ -280,12 +296,21 @@ export const BacktestExplorerPage = () => {
       losingTrades: losingTrades.length,
       winRate: ((winningTrades.length / filteredData.length) * 100).toFixed(2),
       totalProfit: totalProfit.toFixed(2),
-      avgWin: winningTrades.length > 0 ? (totalWins / winningTrades.length).toFixed(2) : 0,
-      avgLoss: losingTrades.length > 0 ? (totalLosses / losingTrades.length).toFixed(2) : 0,
+      avgWin:
+        winningTrades.length > 0
+          ? (totalWins / winningTrades.length).toFixed(2)
+          : 0,
+      avgLoss:
+        losingTrades.length > 0
+          ? (totalLosses / losingTrades.length).toFixed(2)
+          : 0,
       maxDrawdown: maxDrawdown.toFixed(2),
-      profitFactor: totalLosses > 0 ? (totalWins / totalLosses).toFixed(2) : "N/A",
-      largestWin: winningTrades.length > 0 ? Math.max(...winningTrades).toFixed(2) : 0,
-      largestLoss: losingTrades.length > 0 ? Math.min(...losingTrades).toFixed(2) : 0,
+      profitFactor:
+        totalLosses > 0 ? (totalWins / totalLosses).toFixed(2) : "N/A",
+      largestWin:
+        winningTrades.length > 0 ? Math.max(...winningTrades).toFixed(2) : 0,
+      largestLoss:
+        losingTrades.length > 0 ? Math.min(...losingTrades).toFixed(2) : 0,
     };
   }, [filteredData, equityCurveData]);
 
@@ -300,24 +325,23 @@ export const BacktestExplorerPage = () => {
     const bins = 20;
     const binSize = range / bins;
 
-    const distribution = Array(bins).fill(0).map((_, i) => {
-      const binMin = min + i * binSize;
-      const binMax = min + (i + 1) * binSize;
-      const convertedMin = binMin * CURRENCY_RATES[selectedCurrency];
-      const convertedMax = binMax * CURRENCY_RATES[selectedCurrency];
-      const symbol = CURRENCY_SYMBOLS[selectedCurrency];
-      return {
-        range: `${symbol}${formatNumber(convertedMin)} - ${symbol}${formatNumber(convertedMax)}`,
-        count: 0,
-        midpoint: min + (i + 0.5) * binSize,
-      };
-    });
+    const distribution = Array(bins)
+      .fill(0)
+      .map((_, i) => {
+        const binMin = min + i * binSize;
+        const binMax = min + (i + 1) * binSize;
+        const convertedMin = binMin * CURRENCY_RATES[selectedCurrency];
+        const convertedMax = binMax * CURRENCY_RATES[selectedCurrency];
+        const symbol = CURRENCY_SYMBOLS[selectedCurrency];
+        return {
+          range: `${symbol}${formatNumber(convertedMin)} - ${symbol}${formatNumber(convertedMax)}`,
+          count: 0,
+          midpoint: min + (i + 0.5) * binSize,
+        };
+      });
 
     profits.forEach((profit) => {
-      const binIndex = Math.min(
-        Math.floor((profit - min) / binSize),
-        bins - 1
-      );
+      const binIndex = Math.min(Math.floor((profit - min) / binSize), bins - 1);
       if (binIndex >= 0) distribution[binIndex].count++;
     });
 
@@ -336,9 +360,12 @@ export const BacktestExplorerPage = () => {
     <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-5xl font-extrabold mb-4 text-center">Backtest Explorer</h1>
+          <h1 className="text-5xl font-extrabold mb-4 text-center">
+            Backtest Explorer
+          </h1>
           <p className="text-gray-400">
-            Interactive analysis of backtest results. Filter by strategy, instrument, and session.
+            Interactive analysis of backtest results. Filter by strategy,
+            instrument, and session.
           </p>
         </div>
 
@@ -361,7 +388,9 @@ export const BacktestExplorerPage = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Instrument</label>
+              <label className="block text-sm font-medium mb-2">
+                Instrument
+              </label>
               <select
                 value={selectedInstrument}
                 onChange={(e) => setSelectedInstrument(e.target.value)}
@@ -411,21 +440,29 @@ export const BacktestExplorerPage = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-6">
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Total Trades</div>
-            <div className="text-2xl font-bold">{stats.totalTrades.toLocaleString()}</div>
+            <div className="text-2xl font-bold">
+              {stats.totalTrades.toLocaleString()}
+            </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Win Rate</div>
-            <div className="text-2xl font-bold text-green-400">{stats.winRate}%</div>
+            <div className="text-2xl font-bold text-green-400">
+              {stats.winRate}%
+            </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Total Profit</div>
-            <div className={`text-2xl font-bold ${parseFloat(stats.totalProfit) >= 0 ? "text-green-400" : "text-red-400"}`}>
+            <div
+              className={`text-2xl font-bold ${parseFloat(stats.totalProfit) >= 0 ? "text-green-400" : "text-red-400"}`}
+            >
               {formatCurrency(parseFloat(stats.totalProfit))}
             </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Max Drawdown</div>
-            <div className="text-2xl font-bold text-red-400">{formatCurrency(parseFloat(stats.maxDrawdown))}</div>
+            <div className="text-2xl font-bold text-red-400">
+              {formatCurrency(parseFloat(stats.maxDrawdown))}
+            </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Profit Factor</div>
@@ -437,19 +474,27 @@ export const BacktestExplorerPage = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Avg Win</div>
-            <div className="text-xl font-bold text-green-400">{formatCurrency(parseFloat(stats.avgWin))}</div>
+            <div className="text-xl font-bold text-green-400">
+              {formatCurrency(parseFloat(stats.avgWin))}
+            </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Avg Loss</div>
-            <div className="text-xl font-bold text-red-400">{formatCurrency(parseFloat(stats.avgLoss))}</div>
+            <div className="text-xl font-bold text-red-400">
+              {formatCurrency(parseFloat(stats.avgLoss))}
+            </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Largest Win</div>
-            <div className="text-xl font-bold text-green-400">{formatCurrency(parseFloat(stats.largestWin))}</div>
+            <div className="text-xl font-bold text-green-400">
+              {formatCurrency(parseFloat(stats.largestWin))}
+            </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400">Largest Loss</div>
-            <div className="text-xl font-bold text-red-400">{formatCurrency(parseFloat(stats.largestLoss))}</div>
+            <div className="text-xl font-bold text-red-400">
+              {formatCurrency(parseFloat(stats.largestLoss))}
+            </div>
           </div>
         </div>
 
@@ -463,22 +508,41 @@ export const BacktestExplorerPage = () => {
                 <ResponsiveContainer width="100%" height={300}>
                   <AreaChart data={equityCurveData}>
                     <defs>
-                      <linearGradient id="colorEquity" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8} />
-                        <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                      <linearGradient
+                        id="colorEquity"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                      >
+                        <stop
+                          offset="5%"
+                          stopColor="#3b82f6"
+                          stopOpacity={0.8}
+                        />
+                        <stop
+                          offset="95%"
+                          stopColor="#3b82f6"
+                          stopOpacity={0}
+                        />
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                     <XAxis dataKey="trade" stroke="#9ca3af" />
-                    <YAxis 
-                      stroke="#9ca3af" 
+                    <YAxis
+                      stroke="#9ca3af"
                       tickFormatter={(value) => {
-                        const converted = value * CURRENCY_RATES[selectedCurrency];
+                        const converted =
+                          value * CURRENCY_RATES[selectedCurrency];
                         return `${CURRENCY_SYMBOLS[selectedCurrency]}${formatNumber(converted)}`;
                       }}
                     />
                     <Tooltip
-                      contentStyle={{ backgroundColor: "#1f2937", border: "1px solid #374151", borderRadius: "8px" }}
+                      contentStyle={{
+                        backgroundColor: "#1f2937",
+                        border: "1px solid #374151",
+                        borderRadius: "8px",
+                      }}
                       labelStyle={{ color: "#fff" }}
                       formatter={(value) => formatCurrency(value)}
                     />
@@ -501,22 +565,41 @@ export const BacktestExplorerPage = () => {
                 <ResponsiveContainer width="100%" height={300}>
                   <AreaChart data={equityCurveData}>
                     <defs>
-                      <linearGradient id="colorDrawdown" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#ef4444" stopOpacity={0.8} />
-                        <stop offset="95%" stopColor="#ef4444" stopOpacity={0} />
+                      <linearGradient
+                        id="colorDrawdown"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                      >
+                        <stop
+                          offset="5%"
+                          stopColor="#ef4444"
+                          stopOpacity={0.8}
+                        />
+                        <stop
+                          offset="95%"
+                          stopColor="#ef4444"
+                          stopOpacity={0}
+                        />
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                     <XAxis dataKey="trade" stroke="#9ca3af" />
-                    <YAxis 
-                      stroke="#9ca3af" 
+                    <YAxis
+                      stroke="#9ca3af"
                       tickFormatter={(value) => {
-                        const converted = value * CURRENCY_RATES[selectedCurrency];
+                        const converted =
+                          value * CURRENCY_RATES[selectedCurrency];
                         return `${CURRENCY_SYMBOLS[selectedCurrency]}${formatNumber(converted)}`;
                       }}
                     />
                     <Tooltip
-                      contentStyle={{ backgroundColor: "#1f2937", border: "1px solid #374151", borderRadius: "8px" }}
+                      contentStyle={{
+                        backgroundColor: "#1f2937",
+                        border: "1px solid #374151",
+                        borderRadius: "8px",
+                      }}
                       labelStyle={{ color: "#fff" }}
                       formatter={(value) => formatCurrency(value)}
                     />
@@ -537,14 +620,26 @@ export const BacktestExplorerPage = () => {
             {/* Profit Distribution */}
             {profitDistribution.length > 0 && (
               <div className="bg-gray-800 rounded-lg p-6 mb-6">
-                <h2 className="text-xl font-semibold mb-4">Profit Distribution</h2>
+                <h2 className="text-xl font-semibold mb-4">
+                  Profit Distribution
+                </h2>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={profitDistribution}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-                    <XAxis dataKey="range" stroke="#9ca3af" angle={-45} textAnchor="end" height={100} />
+                    <XAxis
+                      dataKey="range"
+                      stroke="#9ca3af"
+                      angle={-45}
+                      textAnchor="end"
+                      height={100}
+                    />
                     <YAxis stroke="#9ca3af" />
                     <Tooltip
-                      contentStyle={{ backgroundColor: "#1f2937", border: "1px solid #374151", borderRadius: "8px" }}
+                      contentStyle={{
+                        backgroundColor: "#1f2937",
+                        border: "1px solid #374151",
+                        borderRadius: "8px",
+                      }}
                       labelStyle={{ color: "#fff" }}
                     />
                     <Legend />
@@ -563,29 +658,54 @@ export const BacktestExplorerPage = () => {
             <table className="min-w-full">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Trade #</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Strategy</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Instrument</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Entry Time</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Session</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Profit</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Cum. Profit</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
+                    Trade #
+                  </th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
+                    Strategy
+                  </th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
+                    Instrument
+                  </th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
+                    Entry Time
+                  </th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
+                    Session
+                  </th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
+                    Profit
+                  </th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
+                    Cum. Profit
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {filteredData.slice(0, 100).map((row, index) => (
-                  <tr key={index} className="border-b border-gray-700 hover:bg-gray-700">
-                    <td className="py-3 px-4 text-sm">{row["Trade number"] || index + 1}</td>
+                  <tr
+                    key={index}
+                    className="border-b border-gray-700 hover:bg-gray-700"
+                  >
+                    <td className="py-3 px-4 text-sm">
+                      {row["Trade number"] || index + 1}
+                    </td>
                     <td className="py-3 px-4 text-sm">{row.strategy}</td>
                     <td className="py-3 px-4 text-sm">{row.instrument}</td>
                     <td className="py-3 px-4 text-sm">
-                      {row.entryTime ? row.entryTime.toLocaleDateString() : row["Entry time"]}
+                      {row.entryTime
+                        ? row.entryTime.toLocaleDateString()
+                        : row["Entry time"]}
                     </td>
                     <td className="py-3 px-4 text-sm">{row.session}</td>
-                    <td className={`py-3 px-4 text-sm font-medium ${row.profit >= 0 ? "text-green-400" : "text-red-400"}`}>
+                    <td
+                      className={`py-3 px-4 text-sm font-medium ${row.profit >= 0 ? "text-green-400" : "text-red-400"}`}
+                    >
                       {formatCurrency(row.profit)}
                     </td>
-                    <td className={`py-3 px-4 text-sm font-medium ${row.cumProfit >= 0 ? "text-green-400" : "text-red-400"}`}>
+                    <td
+                      className={`py-3 px-4 text-sm font-medium ${row.cumProfit >= 0 ? "text-green-400" : "text-red-400"}`}
+                    >
                       {formatCurrency(row.cumProfit)}
                     </td>
                   </tr>
@@ -603,4 +723,3 @@ export const BacktestExplorerPage = () => {
     </div>
   );
 };
-

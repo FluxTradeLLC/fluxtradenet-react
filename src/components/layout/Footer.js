@@ -14,8 +14,8 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="p-8 pb-20 md:pb-8 pt-24 text-md text-white bg-gray-900">
-      <div className="mb-8">
+    <footer className="p-8 pb-20 md:pb-8 pt-24 text-md text-white bg-gray-900" role="contentinfo">
+      <nav className="mb-8" aria-label="Footer navigation">
         <p className="mb-2 font-semibold text-center">Navigation</p>
         <ul className="text-gray-300 flex gap-4 items-center justify-center flex-wrap">
           <li onClick={handleClick}>
@@ -54,7 +54,7 @@ export const Footer = () => {
             </Link>
           </li>
         </ul>
-      </div>
+      </nav>
 
       <div className="mb-8 mt-12">
         <p className="mb-2 font-semibold text-center">Follow Us</p>
@@ -65,9 +65,9 @@ export const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-red-500 transition-colors duration-200"
-              aria-label="YouTube"
+              aria-label="Follow us on YouTube (opens in new tab)"
             >
-              <FontAwesomeIcon icon={faYoutube} size="lg" />
+              <FontAwesomeIcon icon={faYoutube} size="lg" aria-hidden="true" />
             </a>
           </li>
           <li>
@@ -76,9 +76,9 @@ export const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-purple-500 transition-colors duration-200"
-              aria-label="Twitch"
+              aria-label="Follow us on Twitch (opens in new tab)"
             >
-              <FontAwesomeIcon icon={faTwitch} size="lg" />
+              <FontAwesomeIcon icon={faTwitch} size="lg" aria-hidden="true" />
             </a>
           </li>
           <li>
@@ -87,9 +87,9 @@ export const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-pink-500 transition-colors duration-200"
-              aria-label="Instagram"
+              aria-label="Follow us on Instagram (opens in new tab)"
             >
-              <FontAwesomeIcon icon={faInstagram} size="lg" />
+              <FontAwesomeIcon icon={faInstagram} size="lg" aria-hidden="true" />
             </a>
           </li>
           <li>
@@ -98,9 +98,9 @@ export const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors duration-200"
-              aria-label="TikTok"
+              aria-label="Follow us on TikTok (opens in new tab)"
             >
-              <FontAwesomeIcon icon={faTiktok} size="lg" />
+              <FontAwesomeIcon icon={faTiktok} size="lg" aria-hidden="true" />
             </a>
           </li>
           <li>
@@ -109,9 +109,9 @@ export const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-blue-500 transition-colors duration-200"
-              aria-label="Facebook"
+              aria-label="Follow us on Facebook (opens in new tab)"
             >
-              <FontAwesomeIcon icon={faFacebook} size="lg" />
+              <FontAwesomeIcon icon={faFacebook} size="lg" aria-hidden="true" />
             </a>
           </li>
         </ul>

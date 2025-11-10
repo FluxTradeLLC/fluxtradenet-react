@@ -745,6 +745,7 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
         chartReadyForSubscriptionRef.current = false;
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [height, chartData.length]); // Create chart when height changes or when data first becomes available
 
   // Update candle series data when chartData changes (without recreating chart)
@@ -1011,7 +1012,6 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
         </div>
         <div className="flex flex-wrap gap-2">
           {Object.keys(PRESET_LAYOUTS).map((presetName) => {
-            const preset = PRESET_LAYOUTS[presetName];
             const isActive = selectedPreset === presetName;
             return (
               <button

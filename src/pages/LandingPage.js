@@ -903,7 +903,10 @@ export function LandingPage() {
   return (
     <div className="bg-gray-900 text-white min-h-full">
       {/* Hero Section with Video Above the Fold */}
-      <section className="relative w-full max-w-7xl mx-auto px-4">
+      <section
+        className="relative w-full max-w-7xl mx-auto px-4"
+        aria-label="Hero section"
+      >
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Left side: Headline and CTA */}
           <div className="flex-1 text-center lg:text-left">
@@ -911,6 +914,7 @@ export function LandingPage() {
               Understand the{" "}
               <span
                 className={`italic bg-gradient-to-tl from-red-600 via-gray-300 to-green-600 hover:bg-gradient-to-br hover:from-green-500 hover:via-green-200 hover:to-lime-500 text-transparent bg-clip-text bg-300 ${prefersReducedMotion ? "" : "animate-gradient-pan"} cursor-default`}
+                aria-label="markets"
               >
                 markets
               </span>
@@ -920,6 +924,7 @@ export function LandingPage() {
               Gain an{" "}
               <span
                 className={`italic bg-gradient-to-tl from-green-500 via-yellow-500 to-purple-800 hover:bg-gradient-to-br hover:from-purple-400 hover:via-indigo-400 hover:to-blue-400 text-transparent bg-clip-text bg-300 ${prefersReducedMotion ? "" : "animate-gradient-pan"} cursor-default`}
+                aria-label="edge"
               >
                 edge
               </span>
@@ -928,13 +933,17 @@ export function LandingPage() {
             <Link
               to="/pricing"
               className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+              aria-label="See it trade in 60 seconds - Go to pricing page"
             >
               See it trade in 60s
             </Link>
           </div>
 
           {/* Right side: Video Carousel */}
-          <div className="w-auto flex flex-col items-center h-[600px]">
+          <div
+            className="w-auto flex flex-col items-center h-[600px]"
+            aria-label="Video carousel"
+          >
             <div
               className="relative rounded-lg overflow-hidden shadow-lg mb-4"
               onMouseEnter={() => setIsVideoHovered(true)}
@@ -952,6 +961,7 @@ export function LandingPage() {
                 onLoadedData={handleVideoLoaded}
                 onClick={togglePause}
                 aria-label={`${videos[currentVideoIndex].label} demonstration video`}
+                aria-describedby="video-description"
               >
                 <source src={videos[currentVideoIndex].src} type="video/mp4" />
                 <track
@@ -962,6 +972,10 @@ export function LandingPage() {
                 />
                 Your browser does not support the video tag.
               </video>
+              <div id="video-description" className="sr-only">
+                {videos[currentVideoIndex].label} demonstration video. Click to
+                play or pause.
+              </div>
 
               {/* Centered Pause/Play Button - Visible on hover or when paused */}
               {(isVideoHovered || isPaused) && (
@@ -1095,23 +1109,33 @@ export function LandingPage() {
 
             {/* Video Label */}
             <div className="text-center mb-3">
-              <h3 className="text-xl font-semibold text-white">
+              <h3
+                className="text-xl font-semibold text-white"
+                id="current-video-label"
+              >
                 {videos[currentVideoIndex].label}
               </h3>
             </div>
 
             {/* Dot Indicators */}
-            <div className="flex gap-2 justify-center">
+            <div
+              className="flex gap-2 justify-center"
+              role="tablist"
+              aria-label="Video carousel navigation"
+            >
               {videos.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToVideo(index)}
+                  role="tab"
+                  aria-selected={index === currentVideoIndex}
+                  aria-controls={`video-${index}`}
                   className={`w-3 h-3 rounded-full transition-all duration-200 ${
                     index === currentVideoIndex
                       ? "bg-[#5865F2] w-8"
                       : "bg-gray-600 hover:bg-gray-500"
                   }`}
-                  aria-label={`Go to ${videos[index].label}`}
+                  aria-label={`Go to ${videos[index].label} video`}
                 />
               ))}
             </div>
@@ -1121,21 +1145,34 @@ export function LandingPage() {
 
       <main className="p-8">
         {/* Tabs */}
-        <div className="flex justify-center mb-10">
+        <div
+          className="flex justify-center mb-10"
+          role="tablist"
+          aria-label="Platform selection"
+        >
           <div className="inline-flex rounded-lg bg-gray-800 p-1">
             <button
               onClick={() => setActiveTab("NinjaTrader")}
+              role="tab"
+              id="ninjatrader-tab"
+              aria-selected={activeTab === "NinjaTrader"}
+              aria-controls="ninjatrader-content"
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "NinjaTrader" ? "bg-[#5865F2] hover:bg-[#4752C4] text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
             >
               NinjaTrader
             </button>
             <button
               onClick={() => setActiveTab("TradingView")}
+              role="tab"
+              id="tradingview-tab"
+              aria-selected={activeTab === "TradingView"}
+              aria-controls="tradingview-content"
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "TradingView" ? "bg-[#5865F2] hover:bg-[#4752C4] text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
             >
               TradingView{" "}
               <span
                 className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                aria-label="New"
               >
                 NEW!
               </span>
@@ -1145,7 +1182,12 @@ export function LandingPage() {
 
         {/* TradingView Chart with Indicator Toggles - Show for TradingView tab */}
         {activeTab === "TradingView" && (
-          <section className="mb-16 max-w-7xl mx-auto">
+          <section
+            className="mb-16 max-w-7xl mx-auto"
+            id="tradingview-content"
+            role="tabpanel"
+            aria-labelledby="tradingview-tab"
+          >
             <TradingViewChart symbol="QQQ" height={600} />
           </section>
         )}
@@ -1158,10 +1200,17 @@ export function LandingPage() {
           return (
             <>
               {activeTab === "NinjaTrader" && (
-                <section id="prop-focused-strategies" className="mb-12">
+                <section
+                  id="ninjatrader-content"
+                  className="mb-12"
+                  role="tabpanel"
+                  aria-labelledby="ninjatrader-tab"
+                >
                   <button
                     onClick={() => toggleSection("propFocused")}
                     className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
+                    aria-expanded={openSection === "propFocused"}
+                    aria-controls="prop-focused-content"
                   >
                     <div className="text-center">
                       <h2 className="text-3xl font-bold mb-2">
@@ -1178,6 +1227,7 @@ export function LandingPage() {
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
+                      aria-hidden="true"
                     >
                       <path
                         strokeLinecap="round"
@@ -1188,7 +1238,10 @@ export function LandingPage() {
                     </svg>
                   </button>
                   {openSection === "propFocused" && (
-                    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div
+                      id="prop-focused-content"
+                      className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
+                    >
                       {propFocusedStrategies.map((strategy) => (
                         <div
                           key={strategy.name}
@@ -1199,6 +1252,7 @@ export function LandingPage() {
                             {strategy.isNew && (
                               <span
                                 className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                                aria-label="New"
                               >
                                 NEW!
                               </span>
@@ -1213,6 +1267,7 @@ export function LandingPage() {
                             <Link
                               to={strategy.backtestUrl}
                               className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
+                              aria-label={`View backtest results for ${strategy.name}`}
                             >
                               View Backtest
                             </Link>
@@ -1225,7 +1280,7 @@ export function LandingPage() {
                                   <img
                                     key={`${strategy.name}-${idx}`}
                                     src={imgSrc}
-                                    alt={`${strategy.name} ${idx + 1}`}
+                                    alt={`Screenshot of ${strategy.name} strategy interface showing trading indicators and signals`}
                                     className="w-full h-auto rounded-lg mb-4"
                                   />
                                 )
@@ -1242,6 +1297,8 @@ export function LandingPage() {
                   <button
                     onClick={() => toggleSection("propFocused")}
                     className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
+                    aria-expanded={openSection === "propFocused"}
+                    aria-controls="tv-prop-focused-content"
                   >
                     <div className="text-center">
                       <h2 className="text-3xl font-bold mb-2">
@@ -1258,6 +1315,7 @@ export function LandingPage() {
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
+                      aria-hidden="true"
                     >
                       <path
                         strokeLinecap="round"
@@ -1268,7 +1326,10 @@ export function LandingPage() {
                     </svg>
                   </button>
                   {openSection === "propFocused" && (
-                    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div
+                      id="tv-prop-focused-content"
+                      className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
+                    >
                       {tvPropFocusedStrategies.map((strategy) => (
                         <div
                           key={strategy.name}
@@ -1279,6 +1340,7 @@ export function LandingPage() {
                             {strategy.isNew && (
                               <span
                                 className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                                aria-label="New"
                               >
                                 NEW!
                               </span>
@@ -1293,6 +1355,7 @@ export function LandingPage() {
                             <Link
                               to={strategy.backtestUrl}
                               className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
+                              aria-label={`View backtest results for ${strategy.name}`}
                             >
                               View Backtest
                             </Link>
@@ -1303,7 +1366,7 @@ export function LandingPage() {
                                 <img
                                   key={`${strategy.name}-${idx}`}
                                   src={imgSrc}
-                                  alt={`${strategy.name} ${idx + 1}`}
+                                  alt={`Screenshot of ${strategy.name} strategy interface showing trading indicators and signals`}
                                   className="w-full h-auto rounded-lg mb-4"
                                 />
                               ))}
@@ -1318,6 +1381,8 @@ export function LandingPage() {
                 <button
                   onClick={() => toggleSection("strategies")}
                   className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
+                  aria-expanded={openSection === "strategies"}
+                  aria-controls="strategies-content"
                 >
                   <div className="text-center">
                     <h2 className="text-3xl font-bold mb-2">
@@ -1334,6 +1399,7 @@ export function LandingPage() {
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -1344,7 +1410,10 @@ export function LandingPage() {
                   </svg>
                 </button>
                 {openSection === "strategies" && (
-                  <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
+                  <div
+                    id="strategies-content"
+                    className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
+                  >
                     {currentStrategies.map((strategy) => (
                       <div
                         key={strategy.name}
@@ -1353,7 +1422,10 @@ export function LandingPage() {
                         <h3 className="text-xl font-semibold mb-2 flex items-center">
                           {strategy.name}
                           {strategy.isNew && (
-                            <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
+                            <span
+                              className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                              aria-label="New"
+                            >
                               NEW!
                             </span>
                           )}
@@ -1367,6 +1439,7 @@ export function LandingPage() {
                           <Link
                             to={strategy.backtestUrl}
                             className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
+                            aria-label={`View backtest results for ${strategy.name}`}
                           >
                             View Backtest
                           </Link>
@@ -1380,7 +1453,7 @@ export function LandingPage() {
                                 <img
                                   key={`${strategy.name}-${idx}`}
                                   src={imgSrc}
-                                  alt={`${strategy.name} ${idx + 1}`}
+                                  alt={`Screenshot of ${strategy.name} strategy interface showing trading indicators and signals`}
                                   className="w-full h-auto rounded-lg mb-4"
                                 />
                               )
@@ -1396,6 +1469,8 @@ export function LandingPage() {
                 <button
                   onClick={() => toggleSection("indicators")}
                   className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
+                  aria-expanded={openSection === "indicators"}
+                  aria-controls="indicators-content"
                 >
                   <div className="text-center">
                     <h2 className="text-3xl font-bold mb-2">Our Indicators</h2>
@@ -1411,6 +1486,7 @@ export function LandingPage() {
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -1421,7 +1497,10 @@ export function LandingPage() {
                   </svg>
                 </button>
                 {openSection === "indicators" && (
-                  <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div
+                    id="indicators-content"
+                    className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8"
+                  >
                     {currentIndicators.map((indicator) => (
                       <div
                         key={indicator.name}
@@ -1430,7 +1509,10 @@ export function LandingPage() {
                         <h3 className="text-xl font-semibold mb-2 flex items-center">
                           {indicator.name}
                           {indicator.isNew && (
-                            <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
+                            <span
+                              className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                              aria-label="New"
+                            >
                               NEW!
                             </span>
                           )}
@@ -1442,7 +1524,7 @@ export function LandingPage() {
                         </ul>
                         <img
                           src={indicator.image}
-                          alt={indicator.name}
+                          alt={`Screenshot of ${indicator.name} indicator showing trading signals and market analysis`}
                           className="w-full h-auto rounded-lg mb-4"
                         />
                       </div>
@@ -1455,6 +1537,8 @@ export function LandingPage() {
                 <button
                   onClick={() => toggleSection("wins")}
                   className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
+                  aria-expanded={openSection === "wins"}
+                  aria-controls="wins-content"
                 >
                   <div className="text-center">
                     <h2 className="text-3xl font-bold mb-2">Wins</h2>
@@ -1469,6 +1553,7 @@ export function LandingPage() {
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -1479,20 +1564,23 @@ export function LandingPage() {
                   </svg>
                 </button>
                 {openSection === "wins" && (
-                  <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8">
+                  <div
+                    id="wins-content"
+                    className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8"
+                  >
                     <img
                       src={win1}
-                      alt="Win 1"
+                      alt="Screenshot showing successful trading results from a Discord community member using FluxTrade tools"
                       className="w-full h-auto rounded-lg"
                     />
                     <img
                       src={win2}
-                      alt="Win 2"
+                      alt="Screenshot showing successful trading results from a Discord community member using FluxTrade tools"
                       className="w-full h-auto rounded-lg"
                     />
                     <img
                       src={win3}
-                      alt="Win 3"
+                      alt="Screenshot showing successful trading results from a Discord community member using FluxTrade tools"
                       className="w-full h-auto rounded-lg"
                     />
                   </div>
@@ -1505,13 +1593,19 @@ export function LandingPage() {
         <section
           id="partners"
           className="my-12 mt-24 bg-[#0c111b] p-6 rounded-xl flex flex-col items-center justify-center"
+          aria-label="Partners and affiliates"
         >
           <h2 className="text-3xl font-bold text-center mb-4 text-white">
             Official NinjaTrader Ecosystem Vendor
           </h2>
           <div className="flex flex-col flex-wrap justify-center items-center space-x-8 text-white bg-[#0c111b] p-6 rounded-lg">
             <div className="flex flex-col lg:flex-row flex-wrap justify-center items-center lg:space-x-8">
-              <a href="http://account.ninjatrader.com/register?introducingPartner=FluxTrade">
+              <a
+                href="http://account.ninjatrader.com/register?introducingPartner=FluxTrade"
+                aria-label="Register for NinjaTrader (opens in new tab)"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src={ntLogo}
                   width={300}
@@ -1522,6 +1616,9 @@ export function LandingPage() {
               <a
                 href="http://kinetick.com/NinjaTrader"
                 className="bg-white rounded-md p-1 mt-8 lg:mt-0"
+                aria-label="Visit Kinetick (opens in new tab)"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <img
                   src={kinetickLogo}
@@ -1531,7 +1628,12 @@ export function LandingPage() {
               </a>
             </div>
             <div className="flex flex-col md:flex-row flex-wrap justify-center items-center md:space-x-8 mt-6">
-              <a href="https://ninjatraderus.pxf.io/APNodJ">
+              <a
+                href="https://ninjatraderus.pxf.io/APNodJ"
+                aria-label="Upgrade NinjaTrader (affiliate link, opens in new tab)"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src={ntUpgrade}
                   width={300}
@@ -1543,6 +1645,9 @@ export function LandingPage() {
                 <a
                   href="https://ninjatraderus.pxf.io/APNodJ"
                   className="text-blue-500 underline"
+                  aria-label="Sign up for NinjaTrader (affiliate link, opens in new tab)"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Sign up
                 </a>{" "}

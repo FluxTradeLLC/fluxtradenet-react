@@ -47,26 +47,32 @@ export const SignIn = () => {
       <h2 className="text-2xl font-bold text-center text-white mb-8">
         Sign In
       </h2>
-      {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-      <form onSubmit={handleEmailSubmit}>
+      {error && <p className="text-red-500 text-center mb-4" role="alert" aria-live="polite">{error}</p>}
+      <form onSubmit={handleEmailSubmit} aria-label="Sign in form">
         <div className="mb-4">
+          <label htmlFor="signin-email" className="sr-only">Email</label>
           <input
+            id="signin-email"
             type="email"
             placeholder="Email"
             className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            aria-required="true"
           />
         </div>
         <div className="mb-6">
+          <label htmlFor="signin-password" className="sr-only">Password</label>
           <input
+            id="signin-password"
             type="password"
             placeholder="Password"
             className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            aria-required="true"
           />
         </div>
         <div className="mb-6">
@@ -99,11 +105,12 @@ export const SignIn = () => {
           type="submit"
           disabled={!email || !password}
           className="w-full bg-[#5865F2] hover:bg-[#4752C4] disabled:bg-gray-600 disabled:cursor-not-allowed disabled:hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          aria-label="Sign in to your account"
         >
           Sign In
         </button>
       </form>
-      <div className="relative flex py-5 items-center">
+      <div className="relative flex py-5 items-center" role="separator" aria-label="Or">
         <div className="flex-grow border-t border-gray-600"></div>
         <span className="flex-shrink mx-4 text-gray-400">OR</span>
         <div className="flex-grow border-t border-gray-600"></div>
@@ -111,11 +118,13 @@ export const SignIn = () => {
       <button
         onClick={handleGoogleSubmit}
         className="w-full bg-white hover:bg-gray-100 text-gray-900 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm flex items-center justify-center"
+        aria-label="Sign in with Google"
       >
         <svg
           className="w-5 h-5 mr-2"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 48 48"
+          aria-hidden="true"
         >
           <path
             fill="#FFC107"
