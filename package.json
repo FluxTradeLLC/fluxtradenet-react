@@ -52,8 +52,8 @@
     "format": "prettier --write \"src/**/*.{js,jsx,json,css,md}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,json,css,md}\"",
     "pinescript": "node scripts/pinescript-manager.js",
-    "pinescript:list": "node scripts/pinescript-manager.js list",
     "pinescript:check": "node scripts/pinescript-manager.js check",
+    "pinescript:list": "node scripts/pinescript-manager.js list",
     "start": "craco start",
     "test": "craco test"
   },

@@ -221,8 +221,8 @@ export function PricingPage() {
       </div>
 
       <div className="flex flex-col items-center">
-        <div className="flex gap-6 mt-8 flex-wrap md:flex-nowrap justify-center w-full">
-          {/* Pro - Single (choose platform) */}
+        <div className="flex gap-6 mt-2 flex-wrap md:flex-nowrap justify-center w-full">
+          {/* Strategies - Single (choose platform) */}
           <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border-2 border-indigo-500 transform hover:scale-105 transition-transform duration-300 relative overflow-visible">
             <div className="absolute top-2 right-2 z-10">
               <span className="inline-block px-2.5 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-semibold border border-yellow-500/30 whitespace-nowrap">
@@ -359,7 +359,7 @@ export function PricingPage() {
             )}
           </div>
 
-          {/* Pro - Both */}
+          {/* Strategies - Both */}
           <div
             className={`w-full max-w-sm relative p-[4px] rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-[length:300%_300%] ${prefersReducedMotion ? "" : "animate-gradient-pan"} transform hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(139,92,246,0.5)]`}
           >
@@ -485,7 +485,7 @@ export function PricingPage() {
           </div>
         </div>
 
-        {/* Standard - Single (choose platform) */}
+        {/* Indicators - Single (choose platform) */}
         <div className="flex gap-6 mt-8 flex-wrap md:flex-nowrap justify-center w-full">
           <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-gray-700 transform hover:scale-105 transition-transform duration-300 relative">
             <h2 className="text-2xl font-bold text-center mb-1">Indicators</h2>
@@ -606,7 +606,7 @@ export function PricingPage() {
             )}
           </div>
 
-          {/* Standard - Both */}
+          {/* Indicators - Both */}
           <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-gray-700 transform hover:scale-105 transition-transform duration-300 relative overflow-visible">
             <div className="absolute top-2 right-2 z-10">
               <span className="inline-block px-2.5 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs font-semibold border border-indigo-500/30 whitespace-nowrap">

@@ -17,6 +17,7 @@ import { PaymentPostPurchasePage } from './pages/PaymentPostPurchasePage';
 import { AffiliatesPage } from './pages/AffiliatesPage';
 import { SupportPage } from './pages/SupportPage';
 import { TermsAndConditionsPage } from './pages/TermsAndConditionsPage';
+import { StreamingPage } from './pages/StreamingPage';
 
 function App() {
   return (
@@ -87,6 +88,7 @@ function App() {
           <Route path="/affiliates" element={<AffiliatesPage />} />
           <Route path="/support" element={<SupportPage />} />
           <Route path="/terms" element={<TermsAndConditionsPage />} />
+          <Route path="/stream" element={<StreamingPage />} />
           </Routes>
         </main>
         <StickyCTA />

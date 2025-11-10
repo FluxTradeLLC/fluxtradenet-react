@@ -22,7 +22,10 @@ export const Header = () => {
   };
 
   return (
-    <header className="bg-gray-900 text-white p-4 sm:p-6 md:p-8 z-50 fixed top-0 left-0 right-0 border-b border-gray-700" role="banner">
+    <header
+      className="bg-gray-900 text-white p-4 sm:p-6 md:p-8 z-50 fixed top-0 left-0 right-0 border-b border-gray-700"
+      role="banner"
+    >
       <div className="lg:flex lg:items-center lg:justify-between">
         <Link
           to="/"
@@ -36,7 +39,9 @@ export const Header = () => {
           </h1>
         </Link>
         <button
-          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={
+            isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
           aria-expanded={isMenuOpen}
           aria-controls="main-navigation"
           className="xl:hidden absolute right-6 top-6 ml-auto mt-2 p-2 rounded-lg border border-gray-700 hover:bg-gray-800"
@@ -100,9 +105,13 @@ export const Header = () => {
                 style={{
                   textDecoration: "none",
                   backgroundSize: "200% 200%",
-                  animation: prefersReducedMotion ? "none" : "soft-gradient-x 3s ease-in-out infinite",
+                  animation: prefersReducedMotion
+                    ? "none"
+                    : "soft-gradient-x 3s ease-in-out infinite",
                 }}
-                aria-current={location.pathname === "/pricing" ? "page" : undefined}
+                aria-current={
+                  location.pathname === "/pricing" ? "page" : undefined
+                }
               >
                 <span>Pricing</span>
               </Link>
@@ -114,7 +123,11 @@ export const Header = () => {
                 to="/backtests/explorer"
                 className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/backtests/explorer" ? "border-white" : "border-transparent"}`}
                 style={{ textDecoration: "none" }}
-                aria-current={location.pathname === "/backtests/explorer" ? "page" : undefined}
+                aria-current={
+                  location.pathname === "/backtests/explorer"
+                    ? "page"
+                    : undefined
+                }
               >
                 <span>Backtest Explorer</span>
               </Link>
@@ -126,7 +139,9 @@ export const Header = () => {
                 to="/affiliates"
                 className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/affiliates" ? "border-white" : "border-transparent"}`}
                 style={{ textDecoration: "none" }}
-                aria-current={location.pathname === "/affiliates" ? "page" : undefined}
+                aria-current={
+                  location.pathname === "/affiliates" ? "page" : undefined
+                }
               >
                 <span>Affiliates</span>
               </Link>
@@ -138,7 +153,9 @@ export const Header = () => {
                 to="/account"
                 className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/account" ? "border-white" : "border-transparent"}`}
                 style={{ textDecoration: "none" }}
-                aria-current={location.pathname === "/account" ? "page" : undefined}
+                aria-current={
+                  location.pathname === "/account" ? "page" : undefined
+                }
               >
                 <span>Account</span>
               </Link>
@@ -150,9 +167,25 @@ export const Header = () => {
                 to="/support"
                 className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/support" ? "border-white" : "border-transparent"}`}
                 style={{ textDecoration: "none" }}
-                aria-current={location.pathname === "/support" ? "page" : undefined}
+                aria-current={
+                  location.pathname === "/support" ? "page" : undefined
+                }
               >
                 <span>Support</span>
+              </Link>
+            </li>
+          </ul>
+          <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
+            <li>
+              <Link
+                to="/stream"
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#9146FF] hover:bg-[#772CE8] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/stream" ? "border-white" : "border-transparent"}`}
+                style={{ textDecoration: "none" }}
+                aria-current={
+                  location.pathname === "/stream" ? "page" : undefined
+                }
+              >
+                <span>Live Stream</span>
               </Link>
             </li>
           </ul>
@@ -166,7 +199,11 @@ export const Header = () => {
                 style={{ textDecoration: "none" }}
                 aria-label="Join FluxTrade Discord community (opens in new tab)"
               >
-                <FontAwesomeIcon icon={faDiscord} size="sm" aria-hidden="true" />
+                <FontAwesomeIcon
+                  icon={faDiscord}
+                  size="sm"
+                  aria-hidden="true"
+                />
                 <span>Free Discord</span>
               </a>
             </li>
