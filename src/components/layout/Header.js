@@ -84,7 +84,7 @@ export const Header = () => {
             <li>
               <Link
                 to="/"
-                className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/" ? "border-white" : "border-transparent"}`}
                 style={{ textDecoration: "none" }}
                 aria-current={location.pathname === "/" ? "page" : undefined}
               >
@@ -96,7 +96,7 @@ export const Header = () => {
             <li>
               <Link
                 to="/pricing"
-                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600 ${prefersReducedMotion ? "" : "animate-soft-gradient"} text-w font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:bg-gradient-to-l`}
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600 ${prefersReducedMotion ? "" : "animate-soft-gradient"} text-w font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:bg-gradient-to-l border-2 ${location.pathname === "/pricing" ? "border-white" : "border-transparent"}`}
                 style={{
                   textDecoration: "none",
                   backgroundSize: "200% 200%",
@@ -112,7 +112,7 @@ export const Header = () => {
             <li>
               <Link
                 to="/backtests/explorer"
-                className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/backtests/explorer" ? "border-white" : "border-transparent"}`}
                 style={{ textDecoration: "none" }}
                 aria-current={location.pathname === "/backtests/explorer" ? "page" : undefined}
               >
@@ -124,7 +124,7 @@ export const Header = () => {
             <li>
               <Link
                 to="/affiliates"
-                className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/affiliates" ? "border-white" : "border-transparent"}`}
                 style={{ textDecoration: "none" }}
                 aria-current={location.pathname === "/affiliates" ? "page" : undefined}
               >
@@ -136,7 +136,7 @@ export const Header = () => {
             <li>
               <Link
                 to="/account"
-                className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/account" ? "border-white" : "border-transparent"}`}
                 style={{ textDecoration: "none" }}
                 aria-current={location.pathname === "/account" ? "page" : undefined}
               >
@@ -148,7 +148,7 @@ export const Header = () => {
             <li>
               <Link
                 to="/support"
-                className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md"
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/support" ? "border-white" : "border-transparent"}`}
                 style={{ textDecoration: "none" }}
                 aria-current={location.pathname === "/support" ? "page" : undefined}
               >
