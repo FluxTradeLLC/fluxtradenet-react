@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { TradingViewChart } from "../components/TradingViewChart";
 import { useReducedMotion } from "../hooks/useReducedMotion";
 import { SEO } from "../components/SEO";
+import Papa from "papaparse";
 
 import kinetickLogo from "../assets/logos/Kinetick_Logo.png";
 import ntLogo from "../assets/logos/nt_ecosystem.png";
@@ -92,6 +93,112 @@ import win3 from "../assets/images/win3.png";
 
 import "../App.css";
 
+// Helper function to parse currency string like "$880.00" or "($500.00)" to number
+const parseCurrency = (str) => {
+  if (!str || str === "") return 0;
+  const cleaned = str.replace(/[$,()]/g, "");
+  const num = parseFloat(cleaned);
+  return str.includes("(") ? -num : num;
+};
+
+// Map backtest URL to CSV filename
+const getCsvFilename = (backtestUrl) => {
+  if (!backtestUrl) return null;
+  const urlParts = backtestUrl.split("/");
+  const strategyName = urlParts[urlParts.length - 1];
+
+  // Map URL slugs to CSV filenames
+  const urlToCsvMap = {
+    orms: "orms.csv",
+    "liquidity-sweep": "liquiditySweep.csv",
+    "slow-and-steady": "slowAndSteady.csv",
+    "super-momentum": "superMomentum.csv",
+    "donchian-turtle": "donchianTurtle.csv",
+    "ichimoko-strat": "ichimokoStrat.csv",
+    "keltner-strat": "keltnerStrat.csv",
+    "future-prediction-server": "futurePredictionServer.csv",
+    "quad-confluence": "quadConfluence.csv",
+    "holy-grail": "holyGrail.csv",
+    "elliot-wave": "elliotWave.csv",
+    "icc-choch": "ICCChoCh.csv",
+    "low-volatility": "lowVolatility.csv",
+    "project-gamma": "projectGamma.csv",
+    "trend-catcher": "trendCatcher.csv",
+    orb: "orb.csv",
+    "cointegrated-pairs": "cointegratedPairs.csv",
+    "riley-sr": "rileySR.csv",
+    "flux-lightning": "fluxLightning.csv",
+    "flux-pivot-strat": "fluxPivotStrat.csv",
+    "flux-signal-strat": "fluxSignalStrat.csv",
+    "flux-trident": "fluxTrident.csv",
+    centauri: "centauri.csv",
+    mars: "mars.csv",
+    moon: "moon.csv",
+    pluto: "pluto.csv",
+  };
+
+  return urlToCsvMap[strategyName] || null;
+};
+
+// Get strategy name for explorer query param (CSV filename without .csv extension)
+const getStrategyNameForExplorer = (backtestUrl) => {
+  const csvFilename = getCsvFilename(backtestUrl);
+  if (!csvFilename) return null;
+  return csvFilename.replace(".csv", "");
+};
+
+// Calculate metrics from CSV data
+const calculateMetrics = (csvData) => {
+  if (!csvData || csvData.length === 0) return null;
+
+  const profits = csvData
+    .map((row) => parseCurrency(row.Profit || row["Profit"]))
+    .filter((p) => !isNaN(p));
+
+  if (profits.length === 0) return null;
+
+  const winningTrades = profits.filter((p) => p > 0);
+  const losingTrades = profits.filter((p) => p < 0);
+  const winRate = ((winningTrades.length / profits.length) * 100).toFixed(1);
+
+  // Calculate profit factor
+  const totalWins = winningTrades.reduce((sum, p) => sum + p, 0);
+  const totalLosses = Math.abs(losingTrades.reduce((sum, p) => sum + p, 0));
+  const profitFactor =
+    totalLosses > 0 ? (totalWins / totalLosses).toFixed(2) : "N/A";
+
+  // Calculate cumulative profit for drawdown
+  let runningProfit = 0;
+  let peak = 0;
+  let maxDrawdown = 0;
+
+  profits.forEach((profit) => {
+    runningProfit += profit;
+    peak = Math.max(peak, runningProfit);
+    const drawdown = peak - runningProfit;
+    maxDrawdown = Math.max(maxDrawdown, drawdown);
+  });
+
+  // Calculate max drawdown as percentage of peak equity
+  const maxDrawdownPercent =
+    peak > 0 ? ((maxDrawdown / peak) * 100).toFixed(1) : "0.0";
+
+  // Calculate Sharpe ratio (simplified - annualized Sharpe)
+  const avgReturn = profits.reduce((sum, p) => sum + p, 0) / profits.length;
+  const variance =
+    profits.reduce((sum, p) => sum + Math.pow(p - avgReturn, 2), 0) /
+    profits.length;
+  const stdDev = Math.sqrt(variance);
+  const sharpe = stdDev > 0 ? (avgReturn / stdDev).toFixed(1) : "0.0";
+
+  return {
+    winRate: `${winRate}%`,
+    maxDrawdown: `${maxDrawdownPercent}%`,
+    sharpe: sharpe,
+    profitFactor: profitFactor,
+  };
+};
+
 export function LandingPage() {
   const prefersReducedMotion = useReducedMotion();
   const [activeTab, setActiveTab] = useState(() => {
@@ -111,6 +218,7 @@ export function LandingPage() {
   const [visiblePropStrategies, setVisiblePropStrategies] = useState(6);
   const [visibleIndicators, setVisibleIndicators] = useState(8);
   const [imageLoadedStates, setImageLoadedStates] = useState({});
+  const [strategyMetrics, setStrategyMetrics] = useState({});
   const elapsedTimeRef = useRef(0);
   const videoRef = useRef(null);
   const prevReducedMotionRef = useRef(prefersReducedMotion);
@@ -1121,6 +1229,71 @@ export function LandingPage() {
     },
   ];
 
+  // Load metrics for all strategies
+  /* eslint-disable react-hooks/exhaustive-deps */
+  useEffect(() => {
+    const loadMetrics = async () => {
+      const allStrategies = [
+        ...strategies,
+        ...propFocusedStrategies,
+        ...tradingViewStrategies,
+        ...tvPropFocusedStrategies,
+      ];
+
+      const metricsPromises = allStrategies
+        .filter((strategy) => strategy.backtestUrl)
+        .map(async (strategy) => {
+          const csvFile = getCsvFilename(strategy.backtestUrl);
+          if (!csvFile)
+            return { strategy: strategy.backtestUrl, metrics: null };
+
+          try {
+            const response = await fetch(`/backtests/${csvFile}`);
+            const reader = response.body.getReader();
+            const result = await reader.read();
+            const decoder = new TextDecoder("utf-8");
+            const csv = decoder.decode(result.value);
+
+            return new Promise((resolve) => {
+              Papa.parse(csv, {
+                header: true,
+                complete: (results) => {
+                  const data = results.data.filter(
+                    (row) => row["Trade number"] && row["Entry time"]
+                  );
+                  const metrics = calculateMetrics(data);
+                  resolve({
+                    strategy: strategy.backtestUrl,
+                    metrics: metrics,
+                  });
+                },
+                error: () => {
+                  resolve({
+                    strategy: strategy.backtestUrl,
+                    metrics: null,
+                  });
+                },
+              });
+            });
+          } catch (error) {
+            console.error(`Error loading metrics for ${csvFile}:`, error);
+            return { strategy: strategy.backtestUrl, metrics: null };
+          }
+        });
+
+      const results = await Promise.all(metricsPromises);
+      const metricsMap = {};
+      results.forEach(({ strategy, metrics }) => {
+        if (strategy && metrics) {
+          metricsMap[strategy] = metrics;
+        }
+      });
+      setStrategyMetrics(metricsMap);
+    };
+
+    loadMetrics();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <div className="bg-gray-900 text-white min-h-full">
       <SEO
@@ -1142,7 +1315,7 @@ export function LandingPage() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Left side: Headline and CTA */}
           <div className="flex-1 text-center lg:text-left">
-            <h1 className="pt-[20px] lg:text-[100px] md:text-[50px] text-[40px] font-bold mb-4">
+            <h1 className="pt-[20px] lg:text-[80px] md:text-[50px] text-[40px] font-bold mb-4">
               Understand the{" "}
               <span
                 className={`italic bg-gradient-to-tl from-red-600 via-gray-300 to-green-600 hover:bg-gradient-to-br hover:from-green-500 hover:via-green-200 hover:to-lime-500 text-transparent bg-clip-text bg-300 ${prefersReducedMotion ? "" : "animate-gradient-pan"} cursor-default`}
@@ -1152,7 +1325,7 @@ export function LandingPage() {
               </span>
               .
             </h1>
-            <h2 className="lg:text-[100px] md:text-[50px] text-[40px] font-bold mb-6">
+            <h2 className="lg:text-[80px] md:text-[50px] text-[40px] font-bold mb-6">
               Gain an{" "}
               <span
                 className={`italic bg-gradient-to-tl from-green-500 via-yellow-500 to-purple-800 hover:bg-gradient-to-br hover:from-purple-400 hover:via-indigo-400 hover:to-blue-400 text-transparent bg-clip-text bg-300 ${prefersReducedMotion ? "" : "animate-gradient-pan"} cursor-default`}
@@ -1162,6 +1335,10 @@ export function LandingPage() {
               </span>
               .
             </h2>
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 font-medium">
+              Prop‑firm friendly systems built for consistency, <br />
+              risk management, and discipline.
+            </p>
             <Link
               to="/pricing"
               className={`inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg relative overflow-hidden ${prefersReducedMotion ? "" : "animate-pulse-glow"}`}
@@ -1541,13 +1718,41 @@ export function LandingPage() {
                                   ))}
                                 </ul>
                                 {strategy?.backtestUrl && (
-                                  <Link
-                                    to={strategy.backtestUrl}
-                                    className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
-                                    aria-label={`View backtest results for ${strategy.name}`}
-                                  >
-                                    View Backtest
-                                  </Link>
+                                  <div className="mb-4">
+                                    <div className="flex gap-2 flex-wrap">
+                                      <Link
+                                        to={strategy.backtestUrl}
+                                        className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded transition-colors duration-300 inline-block"
+                                        aria-label={`View backtest results for ${strategy.name}`}
+                                      >
+                                        View Backtest
+                                      </Link>
+                                      <Link
+                                        to={`/backtests/explorer?strategy=${getStrategyNameForExplorer(strategy.backtestUrl)}`}
+                                        className="bg-[#10b981] hover:bg-[#059669] text-white font-bold py-2 px-4 rounded transition-colors duration-300 inline-block"
+                                        aria-label={`Explore backtest results for ${strategy.name}`}
+                                      >
+                                        Explore Backtest
+                                      </Link>
+                                    </div>
+                                    {strategy?.backtestUrl &&
+                                      strategyMetrics[strategy.backtestUrl] && (
+                                        <div className="mt-2 text-xs text-gray-400 text-center">
+                                          <span>
+                                            Win rate{" "}
+                                            {
+                                              strategyMetrics[
+                                                strategy.backtestUrl
+                                              ].winRate
+                                            }{" "}
+                                            | Profit Factor{" "}
+                                            {strategyMetrics[
+                                              strategy.backtestUrl
+                                            ].profitFactor || "N/A"}
+                                          </span>
+                                        </div>
+                                      )}
+                                  </div>
                                 )}
                                 <div className="flex flex-col w-full relative">
                                   {Array.isArray(strategy.images) &&
@@ -1705,13 +1910,41 @@ export function LandingPage() {
                                   ))}
                                 </ul>
                                 {strategy?.backtestUrl && (
-                                  <Link
-                                    to={strategy.backtestUrl}
-                                    className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
-                                    aria-label={`View backtest results for ${strategy.name}`}
-                                  >
-                                    View Backtest
-                                  </Link>
+                                  <div className="mb-4">
+                                    <div className="flex gap-2 flex-wrap">
+                                      <Link
+                                        to={strategy.backtestUrl}
+                                        className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded transition-colors duration-300 inline-block"
+                                        aria-label={`View backtest results for ${strategy.name}`}
+                                      >
+                                        View Backtest
+                                      </Link>
+                                      <Link
+                                        to={`/backtests/explorer?strategy=${getStrategyNameForExplorer(strategy.backtestUrl)}`}
+                                        className="bg-[#10b981] hover:bg-[#059669] text-white font-bold py-2 px-4 rounded transition-colors duration-300 inline-block"
+                                        aria-label={`Explore backtest results for ${strategy.name}`}
+                                      >
+                                        Explore Backtest
+                                      </Link>
+                                    </div>
+                                    {strategy?.backtestUrl &&
+                                      strategyMetrics[strategy.backtestUrl] && (
+                                        <div className="mt-2 text-xs text-gray-400 text-center">
+                                          <span>
+                                            Win rate{" "}
+                                            {
+                                              strategyMetrics[
+                                                strategy.backtestUrl
+                                              ].winRate
+                                            }{" "}
+                                            | Profit Factor{" "}
+                                            {strategyMetrics[
+                                              strategy.backtestUrl
+                                            ].profitFactor || "N/A"}
+                                          </span>
+                                        </div>
+                                      )}
+                                  </div>
                                 )}
                                 <div className="flex flex-col w-full relative">
                                   {Array.isArray(strategy.images) &&
@@ -1867,13 +2100,40 @@ export function LandingPage() {
                                 ))}
                               </ul>
                               {strategy?.backtestUrl && (
-                                <Link
-                                  to={strategy.backtestUrl}
-                                  className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
-                                  aria-label={`View backtest results for ${strategy.name}`}
-                                >
-                                  View Backtest
-                                </Link>
+                                <div className="mb-4">
+                                  <div className="flex gap-2 flex-wrap">
+                                    <Link
+                                      to={strategy.backtestUrl}
+                                      className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+                                      aria-label={`View backtest results for ${strategy.name}`}
+                                    >
+                                      View Backtest
+                                    </Link>
+                                    <Link
+                                      to={`/backtests/explorer?strategy=${getStrategyNameForExplorer(strategy.backtestUrl)}`}
+                                      className="bg-[#10b981] hover:bg-[#059669] text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+                                      aria-label={`Explore backtest results for ${strategy.name}`}
+                                    >
+                                      Explore Backtest
+                                    </Link>
+                                  </div>
+                                  {strategyMetrics[strategy.backtestUrl] && (
+                                    <div className="mt-2 text-xs text-gray-400 text-center">
+                                      <span>
+                                        Win rate{" "}
+                                        {
+                                          strategyMetrics[strategy.backtestUrl]
+                                            .winRate
+                                        }{" "}
+                                        | Profit Factor{" "}
+                                        {
+                                          strategyMetrics[strategy.backtestUrl]
+                                            .profitFactor
+                                        }
+                                      </span>
+                                    </div>
+                                  )}
+                                </div>
                               )}
                               <div className="flex flex-col w-full relative">
                                 {Array.isArray(strategy.images) &&
