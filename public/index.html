@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -9,13 +9,47 @@
       name="description"
       content="FluxTrade builds advanced trading software and subscription-based tools for traders and institutions. Reliable, robust, and innovative solutions for the markets."
     />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fluxtrade.net/" />
+    <meta property="og:title" content="FluxTrade - Trading System" />
+    <meta
+      property="og:description"
+      content="FluxTrade builds advanced trading software and subscription-based tools for traders and institutions. Reliable, robust, and innovative solutions for the markets."
+    />
+    <meta property="og:image" content="https://fluxtrade.net/logo512.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="FluxTrade" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://fluxtrade.net/" />
+    <meta name="twitter:title" content="FluxTrade - Trading System" />
+    <meta
+      name="twitter:description"
+      content="FluxTrade builds advanced trading software and subscription-based tools for traders and institutions. Reliable, robust, and innovative solutions for the markets."
+    />
+    <meta name="twitter:image" content="https://fluxtrade.net/logo512.png" />
+
+    <!-- LinkedIn -->
+    <meta property="linkedin:owner" content="FluxTrade" />
+
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-5CKQXSKB');</script>
-      <!-- End Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5CKQXSKB");
+    </script>
+    <!-- End Google Tag Manager -->
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -34,26 +68,45 @@
     <title>FluxTrade - Trading System</title>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F1YCJ2ZW8P"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-F1YCJ2ZW8P"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-F1YCJ2ZW8P');
+      gtag("config", "G-F1YCJ2ZW8P");
     </script>
 
     <!-- Affiliate -->
-    <script async src="https://cdn.promotekit.com/promotekit.js" data-promotekit="07522f2f-5af1-43da-8b47-26b4450dc0a3"></script>
+    <script
+      async
+      src="https://cdn.promotekit.com/promotekit.js"
+      data-promotekit="07522f2f-5af1-43da-8b47-26b4450dc0a3"
+    ></script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CKQXSKB"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-      <!-- End Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5CKQXSKB"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <!-- Skip to main content link for screen readers -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-b">Skip to main content</a>
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-b"
+      >Skip to main content</a
+    >
     <div id="root"></div>
     <!--
       This HTML file is a template.
