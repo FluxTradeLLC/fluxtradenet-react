@@ -6,11 +6,45 @@ import api from "../api/axios";
 import { useReducedMotion } from "../hooks/useReducedMotion";
 import { SEO } from "../components/SEO";
 
+// Currency conversion rates (USD as base)
+const CURRENCY_RATES = {
+  USD: 1,
+  EUR: 0.92,
+  GBP: 0.79,
+  JPY: 149.5,
+  CAD: 1.35,
+  AUD: 1.52,
+  CHF: 0.88,
+  CNY: 7.24,
+};
+
+// Currency symbols
+const CURRENCY_SYMBOLS = {
+  USD: "$",
+  EUR: "€",
+  GBP: "£",
+  JPY: "¥",
+  CAD: "C$",
+  AUD: "A$",
+  CHF: "CHF ",
+  CNY: "¥",
+};
+
+// Helper function to format number with commas
+const formatNumber = (num) => {
+  if (num === null || num === undefined || isNaN(num)) return "0";
+  return num.toLocaleString("en-US", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
+};
+
 export function PricingPage() {
   const prefersReducedMotion = useReducedMotion();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isTestMode, setIsTestMode] = useState(false);
   const [billingPeriod, setBillingPeriod] = useState("monthly"); // 'monthly', 'quarterly', 'yearly'
+  const [selectedCurrency, setSelectedCurrency] = useState("USD");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -100,15 +134,37 @@ export function PricingPage() {
     return monthlyPrice * multiplier * (1 - discount);
   };
 
+  // Helper function to convert and format currency
+  const formatCurrency = (usdAmount, showUsdInParentheses = false) => {
+    if (usdAmount === null || usdAmount === undefined || isNaN(usdAmount))
+      return "0";
+    const converted = usdAmount * CURRENCY_RATES[selectedCurrency];
+    const rounded = Math.round(converted);
+    const formatted = formatNumber(rounded);
+    const symbol = CURRENCY_SYMBOLS[selectedCurrency];
+
+    if (showUsdInParentheses && selectedCurrency !== "USD") {
+      const usdFormatted = formatNumber(Math.round(usdAmount));
+      return (
+        <>
+          {symbol}
+          {formatted}
+          <span className="text-sm text-gray-400 ml-1">(${usdFormatted})</span>
+        </>
+      );
+    }
+
+    return `${symbol}${formatted}`;
+  };
+
   // Helper function to format price display
   const formatPriceDisplay = (monthlyPrice, planKey) => {
     if (billingPeriod === "monthly") {
       // Round to whole dollars and format with commas
       const roundedPrice = Math.round(monthlyPrice);
-      const formattedPrice = roundedPrice.toLocaleString();
       return (
         <>
-          ${formattedPrice}
+          {formatCurrency(roundedPrice, true)}
           <span className="text-lg font-medium text-gray-400">
             {getBillingPeriodLabel()}
           </span>
@@ -133,10 +189,10 @@ export function PricingPage() {
       <div className="flex flex-col items-center">
         <div className="flex items-center gap-2">
           <span className="text-2xl font-bold text-gray-500 line-through">
-            ${roundedBasePrice.toLocaleString()}
+            {formatCurrency(roundedBasePrice)}
           </span>
           <span className="text-4xl font-extrabold">
-            ${roundedActualPrice.toLocaleString()}
+            {formatCurrency(roundedActualPrice, true)}
           </span>
           <span className="text-lg font-medium text-gray-400">
             {getBillingPeriodLabel()}
@@ -243,64 +299,84 @@ export function PricingPage() {
         </p>
       </div>
 
-      {/* Billing Period Tabs */}
-      <div
-        className="flex justify-center mb-8"
-        role="tablist"
-        aria-label="Billing period selection"
-      >
-        <div className="inline-flex bg-gray-800 rounded-lg p-1 border border-gray-700">
-          <button
-            onClick={() => setBillingPeriod("monthly")}
-            role="tab"
-            aria-selected={billingPeriod === "monthly"}
-            aria-controls="monthly-pricing"
-            className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 ${
-              billingPeriod === "monthly"
-                ? "bg-indigo-600 text-white"
-                : "text-gray-400 hover:text-white"
-            }`}
-          >
-            Monthly
-          </button>
-          <button
-            onClick={() => setBillingPeriod("quarterly")}
-            role="tab"
-            aria-selected={billingPeriod === "quarterly"}
-            aria-controls="quarterly-pricing"
-            className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 flex items-center gap-2 ${
-              billingPeriod === "quarterly"
-                ? "bg-indigo-600 text-white"
-                : "text-gray-400 hover:text-white"
-            }`}
-          >
-            Quarterly
-            <span
-              className={`bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-              aria-label="Save 10 percent"
+      {/* Billing Period Tabs and Currency Selector */}
+      <div className="flex justify-center items-center gap-4 mb-8 flex-wrap">
+        <div
+          className="flex"
+          role="tablist"
+          aria-label="Billing period selection"
+        >
+          <div className="inline-flex bg-gray-800 rounded-lg p-1 border border-gray-700">
+            <button
+              onClick={() => setBillingPeriod("monthly")}
+              role="tab"
+              aria-selected={billingPeriod === "monthly"}
+              aria-controls="monthly-pricing"
+              className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 ${
+                billingPeriod === "monthly"
+                  ? "bg-indigo-600 text-white"
+                  : "text-gray-400 hover:text-white"
+              }`}
             >
-              Save 10%
-            </span>
-          </button>
-          <button
-            onClick={() => setBillingPeriod("yearly")}
-            role="tab"
-            aria-selected={billingPeriod === "yearly"}
-            aria-controls="yearly-pricing"
-            className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 flex items-center gap-2 ${
-              billingPeriod === "yearly"
-                ? "bg-indigo-600 text-white"
-                : "text-gray-400 hover:text-white"
-            }`}
-          >
-            Yearly
-            <span
-              className={`bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-              aria-label="Save 17 percent"
+              Monthly
+            </button>
+            <button
+              onClick={() => setBillingPeriod("quarterly")}
+              role="tab"
+              aria-selected={billingPeriod === "quarterly"}
+              aria-controls="quarterly-pricing"
+              className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 flex items-center gap-2 ${
+                billingPeriod === "quarterly"
+                  ? "bg-indigo-600 text-white"
+                  : "text-gray-400 hover:text-white"
+              }`}
             >
-              Save 17%
-            </span>
-          </button>
+              Quarterly
+              <span
+                className={`bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                aria-label="Save 10 percent"
+              >
+                Save 10%
+              </span>
+            </button>
+            <button
+              onClick={() => setBillingPeriod("yearly")}
+              role="tab"
+              aria-selected={billingPeriod === "yearly"}
+              aria-controls="yearly-pricing"
+              className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 flex items-center gap-2 ${
+                billingPeriod === "yearly"
+                  ? "bg-indigo-600 text-white"
+                  : "text-gray-400 hover:text-white"
+              }`}
+            >
+              Yearly
+              <span
+                className={`bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                aria-label="Save 17 percent"
+              >
+                Save 17%
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* Currency Selector */}
+        <div className="rounded-lg p-4">
+          {/* <label className="block text-sm font-medium mb-2 text-center">
+            Currency
+          </label> */}
+          <select
+            value={selectedCurrency}
+            onChange={(e) => setSelectedCurrency(e.target.value)}
+            className="bg-gray-700 text-white rounded-lg px-4 py-2 border border-gray-600 focus:border-blue-500 focus:outline-none"
+          >
+            {Object.keys(CURRENCY_RATES).map((currency) => (
+              <option key={currency} value={currency}>
+                {currency}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 
