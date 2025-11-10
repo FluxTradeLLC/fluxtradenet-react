@@ -7,3 +7,5 @@ If using animations, respect the "reduce animation" setting using useReducedMoti
 Everything should use accessibility features. Do not use unnecessary ones like "list" for "ul" or "listitem" for "li".
 
 All errors and warnings should be cleaned up.
+
+Everything should be made responsive using Tailwind.

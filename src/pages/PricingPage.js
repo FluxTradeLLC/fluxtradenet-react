@@ -223,8 +223,13 @@ export function PricingPage() {
       <div className="flex flex-col items-center">
         <div className="flex gap-6 mt-8 flex-wrap md:flex-nowrap justify-center w-full">
           {/* Pro - Single (choose platform) */}
-          <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border-2 border-indigo-500 transform hover:scale-105 transition-transform duration-300">
-            <h2 className="text-2xl font-bold text-center mb-1 text-indigo-400">
+          <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border-2 border-indigo-500 transform hover:scale-105 transition-transform duration-300 relative overflow-visible">
+            <div className="absolute top-2 right-2 z-10">
+              <span className="inline-block px-2.5 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-semibold border border-yellow-500/30 whitespace-nowrap">
+                Automated Strategies
+              </span>
+            </div>
+            <h2 className="text-2xl font-bold text-center mb-1 text-indigo-400 pt-1 mt-6">
               Automated Strategies
             </h2>
             <h3 className="text-center text-sm text-gray-400 mb-4">
@@ -356,13 +361,24 @@ export function PricingPage() {
 
           {/* Pro - Both */}
           <div
-            className={`w-full max-w-sm relative p-[4px] rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 via-pink-500 to-indigo-500 bg-[length:300%_300%] ${prefersReducedMotion ? "" : "animate-gradient-pan"} transform hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(139,92,246,0.5)]`}
+            className={`w-full max-w-sm relative p-[4px] rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-[length:300%_300%] ${prefersReducedMotion ? "" : "animate-gradient-pan"} transform hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(139,92,246,0.5)]`}
           >
-            <div className="bg-gray-800 rounded-lg p-6 h-full relative">
+            <div className="bg-gray-800 rounded-lg p-6 h-full relative overflow-visible">
               <div
                 className={`absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-[length:300%_300%] ${prefersReducedMotion ? "" : "animate-gradient-pan"} text-white text-sm font-bold px-4 py-1 rounded-full z-10`}
               >
                 MOST POPULAR
+              </div>
+              <div className="flex flex-wrap justify-center gap-2 mt-2 mb-4">
+                <span className="inline-block px-2.5 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-semibold border border-yellow-500/30 whitespace-nowrap">
+                  Automated Strategies
+                </span>
+                <span className="inline-block px-2.5 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs font-semibold border border-indigo-500/30 whitespace-nowrap">
+                  Both Platforms
+                </span>
+                <span className="inline-block px-2.5 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs font-semibold border border-purple-500/30 whitespace-nowrap">
+                  Priority Updates
+                </span>
               </div>
               <h2 className="text-2xl font-bold text-center mb-1 text-indigo-400">
                 Automated Strategies
@@ -471,7 +487,7 @@ export function PricingPage() {
 
         {/* Standard - Single (choose platform) */}
         <div className="flex gap-6 mt-8 flex-wrap md:flex-nowrap justify-center w-full">
-          <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-gray-700 transform hover:scale-105 transition-transform duration-300">
+          <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-gray-700 transform hover:scale-105 transition-transform duration-300 relative">
             <h2 className="text-2xl font-bold text-center mb-1">Indicators</h2>
             <h3 className="text-center text-sm text-gray-400 mb-4">
               Single Platform
@@ -591,8 +607,15 @@ export function PricingPage() {
           </div>
 
           {/* Standard - Both */}
-          <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-gray-700 transform hover:scale-105 transition-transform duration-300">
-            <h2 className="text-2xl font-bold text-center mb-1">Indicators</h2>
+          <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-gray-700 transform hover:scale-105 transition-transform duration-300 relative overflow-visible">
+            <div className="absolute top-2 right-2 z-10">
+              <span className="inline-block px-2.5 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs font-semibold border border-indigo-500/30 whitespace-nowrap">
+                Both Platforms
+              </span>
+            </div>
+            <h2 className="text-2xl font-bold text-center mb-1 pt-1 mt-4">
+              Indicators
+            </h2>
             <h3 className="text-center text-sm text-gray-400 mb-4">
               Both Platforms
             </h3>
@@ -734,6 +757,361 @@ export function PricingPage() {
           )}
         </div>
       ) : null}
+      {/* Features Comparison Table */}
+      <div className="max-w-6xl mx-auto px-4 mt-12 mb-8">
+        <h2 className="text-3xl font-bold text-center mb-8">
+          Compare Plans & Features
+        </h2>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse bg-gray-800 rounded-lg overflow-hidden">
+            <thead>
+              <tr className="bg-gray-700">
+                <th className="text-left p-4 font-semibold">Features</th>
+                <th className="text-center p-4 font-semibold">
+                  Indicators
+                  <br />
+                  <span className="text-sm font-normal text-gray-400">
+                    Single Platform
+                  </span>
+                </th>
+                <th className="text-center p-4 font-semibold">
+                  Indicators
+                  <br />
+                  <span className="text-sm font-normal text-gray-400">
+                    Both Platforms
+                  </span>
+                </th>
+                <th className="text-center p-4 font-semibold border-l-2 border-indigo-500">
+                  Automated Strategies
+                  <br />
+                  <span className="text-sm font-normal text-gray-400">
+                    Single Platform
+                  </span>
+                </th>
+                <th className="text-center p-4 font-semibold bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 border-l-2 border-indigo-500">
+                  Automated Strategies
+                  <br />
+                  <span className="text-sm font-normal text-gray-400">
+                    Both Platforms
+                  </span>
+                  <br />
+                  <span className="text-xs font-bold text-indigo-400 mt-1 block">
+                    MOST POPULAR
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-gray-700">
+                <td className="p-4 font-medium">Access to all indicators</td>
+                <td className="text-center p-4">
+                  <svg
+                    className="w-6 h-6 text-green-500 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </td>
+                <td className="text-center p-4">
+                  <svg
+                    className="w-6 h-6 text-green-500 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </td>
+                <td className="text-center p-4 border-l-2 border-indigo-500">
+                  <svg
+                    className="w-6 h-6 text-green-500 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </td>
+                <td className="text-center p-4 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border-l-2 border-indigo-500">
+                  <svg
+                    className="w-6 h-6 text-green-500 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr className="border-b border-gray-700">
+                <td className="p-4 font-medium">Platform access</td>
+                <td className="text-center p-4 text-gray-400">Single</td>
+                <td className="text-center p-4">
+                  <span className="inline-block px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-sm font-semibold">
+                    Both Platforms
+                  </span>
+                </td>
+                <td className="text-center p-4 text-gray-400 border-l-2 border-indigo-500">
+                  Single
+                </td>
+                <td className="text-center p-4 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border-l-2 border-indigo-500">
+                  <span className="inline-block px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-sm font-semibold">
+                    Both Platforms
+                  </span>
+                </td>
+              </tr>
+              <tr className="border-b border-gray-700">
+                <td className="p-4 font-medium">
+                  Access to automated strategies
+                </td>
+                <td className="text-center p-4">
+                  <svg
+                    className="w-6 h-6 text-gray-600 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </td>
+                <td className="text-center p-4">
+                  <svg
+                    className="w-6 h-6 text-gray-600 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </td>
+                <td className="text-center p-4 border-l-2 border-indigo-500">
+                  <span className="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-semibold">
+                    Automated Strategies
+                  </span>
+                </td>
+                <td className="text-center p-4 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border-l-2 border-indigo-500">
+                  <span className="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-semibold">
+                    Automated Strategies
+                  </span>
+                </td>
+              </tr>
+              <tr className="border-b border-gray-700">
+                <td className="p-4 font-medium">24/7 customer support</td>
+                <td className="text-center p-4">
+                  <svg
+                    className="w-6 h-6 text-green-500 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </td>
+                <td className="text-center p-4">
+                  <svg
+                    className="w-6 h-6 text-green-500 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </td>
+                <td className="text-center p-4 border-l-2 border-indigo-500">
+                  <svg
+                    className="w-6 h-6 text-green-500 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </td>
+                <td className="text-center p-4 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border-l-2 border-indigo-500">
+                  <svg
+                    className="w-6 h-6 text-green-500 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr className="border-b border-gray-700">
+                <td className="p-4 font-medium">
+                  Direct access to new features
+                </td>
+                <td className="text-center p-4">
+                  <svg
+                    className="w-6 h-6 text-green-500 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </td>
+                <td className="text-center p-4">
+                  <svg
+                    className="w-6 h-6 text-green-500 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </td>
+                <td className="text-center p-4 border-l-2 border-indigo-500">
+                  <svg
+                    className="w-6 h-6 text-green-500 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </td>
+                <td className="text-center p-4 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border-l-2 border-indigo-500">
+                  <svg
+                    className="w-6 h-6 text-green-500 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td className="p-4 font-medium">Priority updates</td>
+                <td className="text-center p-4">
+                  <svg
+                    className="w-6 h-6 text-gray-600 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </td>
+                <td className="text-center p-4">
+                  <svg
+                    className="w-6 h-6 text-gray-600 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </td>
+                <td className="text-center p-4 border-l-2 border-indigo-500">
+                  <svg
+                    className="w-6 h-6 text-gray-600 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </td>
+                <td className="text-center p-4 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border-l-2 border-indigo-500">
+                  <span className="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm font-semibold">
+                    Priority Updates
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }
