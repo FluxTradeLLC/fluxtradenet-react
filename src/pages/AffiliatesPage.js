@@ -98,11 +98,11 @@ export function AffiliatesPage() {
               including our logo and videos on our YouTube channel
               <a
                 className="text-indigo-400 hover:text-indigo-300 ml-1"
-                href="https://www.youtube.com/@FluxTrade_LLC"
+                href="https://www.youtube.com/@FluxTradeLLC"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                @FluxTrade_LLC
+                @FluxTradeLLC
               </a>
               . We've also created a folder of{" "}
               <a
