@@ -47,10 +47,20 @@ export const SignIn = () => {
       <h2 className="text-2xl font-bold text-center text-white mb-8">
         Sign In
       </h2>
-      {error && <p className="text-red-500 text-center mb-4" role="alert" aria-live="polite">{error}</p>}
+      {error && (
+        <p
+          className="text-red-500 text-center mb-4"
+          role="alert"
+          aria-live="polite"
+        >
+          {error}
+        </p>
+      )}
       <form onSubmit={handleEmailSubmit} aria-label="Sign in form">
         <div className="mb-4">
-          <label htmlFor="signin-email" className="sr-only">Email</label>
+          <label htmlFor="signin-email" className="sr-only">
+            Email
+          </label>
           <input
             id="signin-email"
             type="email"
@@ -63,7 +73,9 @@ export const SignIn = () => {
           />
         </div>
         <div className="mb-6">
-          <label htmlFor="signin-password" className="sr-only">Password</label>
+          <label htmlFor="signin-password" className="sr-only">
+            Password
+          </label>
           <input
             id="signin-password"
             type="password"
@@ -110,7 +122,11 @@ export const SignIn = () => {
           Sign In
         </button>
       </form>
-      <div className="relative flex py-5 items-center" role="separator" aria-label="Or">
+      <div
+        className="relative flex py-5 items-center"
+        role="separator"
+        aria-label="Or"
+      >
         <div className="flex-grow border-t border-gray-600"></div>
         <span className="flex-shrink mx-4 text-gray-400">OR</span>
         <div className="flex-grow border-t border-gray-600"></div>
