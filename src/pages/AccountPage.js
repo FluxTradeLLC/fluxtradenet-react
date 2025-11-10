@@ -4,8 +4,10 @@ import { SignIn } from "../components/auth/SignIn";
 import { SignOut } from "../components/auth/SignOut";
 import { Link } from "react-router-dom";
 import api from "../api/axios";
+import { useReducedMotion } from "../hooks/useReducedMotion";
 
 export const AccountPage = () => {
+  const prefersReducedMotion = useReducedMotion();
   const [activeTab, setActiveTab] = useState("signin");
   const [hasSession, setHasSession] = useState(false);
   const [userEmail, setUserEmail] = useState(null);
@@ -56,11 +58,11 @@ export const AccountPage = () => {
                   <p>Each plan offers a 30 day free trial!</p>
                   <Link
                     to="/pricing"
-                    className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600 animate-soft-gradient text-w font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:bg-gradient-to-l"
+                    className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600 ${prefersReducedMotion ? "" : "animate-soft-gradient"} text-w font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:bg-gradient-to-l`}
                     style={{
                       textDecoration: "none",
                       backgroundSize: "200% 200%",
-                      animation: "soft-gradient-x 3s ease-in-out infinite",
+                      animation: prefersReducedMotion ? "none" : "soft-gradient-x 3s ease-in-out infinite",
                     }}
                   >
                     <span>Select a Plan</span>

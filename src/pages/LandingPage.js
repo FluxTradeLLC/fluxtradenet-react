@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { TradingViewChart } from "../components/TradingViewChart";
+import { useReducedMotion } from "../hooks/useReducedMotion";
 
 import kinetickLogo from "../assets/logos/Kinetick_Logo.png";
 import ntLogo from "../assets/logos/nt_ecosystem.png";
@@ -91,6 +92,7 @@ import win3 from "../assets/images/win3.png";
 import "../App.css";
 
 export function LandingPage() {
+  const prefersReducedMotion = useReducedMotion();
   const [activeTab, setActiveTab] = useState(() => {
     const savedTab = localStorage.getItem("landingPageActiveTab");
     return savedTab || "NinjaTrader";
@@ -98,15 +100,26 @@ export function LandingPage() {
 
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [openSection, setOpenSection] = useState("propFocused"); // First section open by default
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPaused, setIsPaused] = useState(prefersReducedMotion); // Start paused if reduced motion
   const [progress, setProgress] = useState(0);
   const [isVideoHovered, setIsVideoHovered] = useState(false);
   const elapsedTimeRef = useRef(0);
   const videoRef = useRef(null);
+  const prevReducedMotionRef = useRef(prefersReducedMotion);
 
   useEffect(() => {
     localStorage.setItem("landingPageActiveTab", activeTab);
   }, [activeTab]);
+
+  // Sync pause state when reduced motion preference is enabled
+  // This ensures video pauses if user enables reduced motion while video is playing
+  useEffect(() => {
+    // Only pause if reduced motion was just enabled (changed from false to true)
+    if (prefersReducedMotion && !prevReducedMotionRef.current && !isPaused) {
+      setIsPaused(true);
+    }
+    prevReducedMotionRef.current = prefersReducedMotion;
+  }, [prefersReducedMotion, isPaused]);
 
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? null : section);
@@ -155,14 +168,14 @@ export function LandingPage() {
   useEffect(() => {
     elapsedTimeRef.current = 0;
     setProgress(0);
-    // Auto-play video when it changes (unless paused)
-    if (videoRef.current && !isPaused) {
+    // Auto-play video when it changes (unless paused or reduced motion is enabled)
+    if (videoRef.current && !isPaused && !prefersReducedMotion) {
       videoRef.current.play().catch((error) => {
         // Ignore autoplay errors
         console.log("Autoplay prevented:", error);
       });
     }
-  }, [currentVideoIndex, isPaused]);
+  }, [currentVideoIndex, isPaused, prefersReducedMotion]);
 
   // Control video playback based on pause state
   useEffect(() => {
@@ -170,6 +183,7 @@ export function LandingPage() {
       if (isPaused) {
         videoRef.current.pause();
       } else {
+        // Only play if reduced motion is not enabled, or if user manually unpaused
         videoRef.current.play().catch((error) => {
           // Ignore autoplay errors
           console.log("Autoplay prevented:", error);
@@ -178,9 +192,9 @@ export function LandingPage() {
     }
   }, [isPaused]);
 
-  // Handle video loaded and play if not paused
+  // Handle video loaded and play if not paused and reduced motion is not enabled
   const handleVideoLoaded = () => {
-    if (videoRef.current && !isPaused) {
+    if (videoRef.current && !isPaused && !prefersReducedMotion) {
       videoRef.current.play().catch((error) => {
         // Ignore autoplay errors
         console.log("Autoplay prevented:", error);
@@ -190,7 +204,7 @@ export function LandingPage() {
 
   // Auto-advance carousel on timer with progress tracking
   useEffect(() => {
-    if (isPaused) {
+    if (isPaused || prefersReducedMotion) {
       return;
     }
 
@@ -209,7 +223,7 @@ export function LandingPage() {
     }, updateInterval);
 
     return () => clearInterval(progressInterval);
-  }, [currentVideoIndex, isPaused, videos.length]); // Reset timer when video changes or pause state changes
+  }, [currentVideoIndex, isPaused, prefersReducedMotion, videos.length]); // Reset timer when video changes or pause state changes
 
   const indicators = [
     // NEW INDICATORS
@@ -895,14 +909,18 @@ export function LandingPage() {
           <div className="flex-1 text-center lg:text-left">
             <h1 className="pt-[20px] lg:text-[100px] md:text-[50px] text-[40px] font-bold mb-4">
               Understand the{" "}
-              <span className="italic bg-gradient-to-tl from-red-600 via-gray-300 to-green-600 hover:bg-gradient-to-br hover:from-green-500 hover:via-green-200 hover:to-lime-500 text-transparent bg-clip-text bg-300 animate-gradient-pan cursor-default">
+              <span
+                className={`italic bg-gradient-to-tl from-red-600 via-gray-300 to-green-600 hover:bg-gradient-to-br hover:from-green-500 hover:via-green-200 hover:to-lime-500 text-transparent bg-clip-text bg-300 ${prefersReducedMotion ? "" : "animate-gradient-pan"} cursor-default`}
+              >
                 markets
               </span>
               .
             </h1>
             <h2 className="lg:text-[100px] md:text-[50px] text-[40px] font-bold mb-6">
               Gain an{" "}
-              <span className="italic bg-gradient-to-tl from-green-500 via-yellow-500 to-purple-800 hover:bg-gradient-to-br hover:from-purple-400 hover:via-indigo-400 hover:to-blue-400 text-transparent bg-clip-text bg-300 animate-gradient-pan cursor-default">
+              <span
+                className={`italic bg-gradient-to-tl from-green-500 via-yellow-500 to-purple-800 hover:bg-gradient-to-br hover:from-purple-400 hover:via-indigo-400 hover:to-blue-400 text-transparent bg-clip-text bg-300 ${prefersReducedMotion ? "" : "animate-gradient-pan"} cursor-default`}
+              >
                 edge
               </span>
               .
@@ -1116,7 +1134,9 @@ export function LandingPage() {
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "TradingView" ? "bg-[#5865F2] hover:bg-[#4752C4] text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
             >
               TradingView{" "}
-              <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
+              <span
+                className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+              >
                 NEW!
               </span>
             </button>
@@ -1177,7 +1197,9 @@ export function LandingPage() {
                           <h3 className="text-xl font-semibold mb-2 flex items-center">
                             {strategy.name}
                             {strategy.isNew && (
-                              <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
+                              <span
+                                className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                              >
                                 NEW!
                               </span>
                             )}
@@ -1255,7 +1277,9 @@ export function LandingPage() {
                           <h3 className="text-xl font-semibold mb-2 flex items-center">
                             {strategy.name}
                             {strategy.isNew && (
-                              <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
+                              <span
+                                className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                              >
                                 NEW!
                               </span>
                             )}

@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import fluxLogo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
+import { useReducedMotion } from "../../hooks/useReducedMotion";
 
 export const Header = () => {
+  const prefersReducedMotion = useReducedMotion();
   // const [hasSession, setHasSession] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -83,11 +85,11 @@ export const Header = () => {
           <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
             <Link
               to="/pricing"
-              className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600 animate-soft-gradient text-w font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:bg-gradient-to-l"
+              className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600 ${prefersReducedMotion ? "" : "animate-soft-gradient"} text-w font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:bg-gradient-to-l`}
               style={{
                 textDecoration: "none",
                 backgroundSize: "200% 200%",
-                animation: "soft-gradient-x 3s ease-in-out infinite",
+                animation: prefersReducedMotion ? "none" : "soft-gradient-x 3s ease-in-out infinite",
               }}
             >
               <span>Pricing</span>

@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { PRICING, PRICING_IDS } from "../constants";
 import api from "../api/axios";
+import { useReducedMotion } from "../hooks/useReducedMotion";
 
 export function PricingPage() {
+  const prefersReducedMotion = useReducedMotion();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isTestMode, setIsTestMode] = useState(false);
   const [billingPeriod, setBillingPeriod] = useState("monthly"); // 'monthly', 'quarterly', 'yearly'
@@ -179,7 +181,9 @@ export function PricingPage() {
             }`}
           >
             Quarterly
-            <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
+            <span
+              className={`bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+            >
               Save 10%
             </span>
           </button>
@@ -192,7 +196,9 @@ export function PricingPage() {
             }`}
           >
             Yearly
-            <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
+            <span
+              className={`bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+            >
               Save 17%
             </span>
           </button>
@@ -324,9 +330,13 @@ export function PricingPage() {
           </div>
 
           {/* Pro - Both */}
-          <div className="w-full max-w-sm relative p-[4px] rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 via-pink-500 to-indigo-500 bg-[length:300%_300%] animate-gradient-pan transform hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(139,92,246,0.5)]">
+          <div
+            className={`w-full max-w-sm relative p-[4px] rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 via-pink-500 to-indigo-500 bg-[length:300%_300%] ${prefersReducedMotion ? "" : "animate-gradient-pan"} transform hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(139,92,246,0.5)]`}
+          >
             <div className="bg-gray-800 rounded-lg p-6 h-full relative">
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-[length:300%_300%] animate-gradient-pan text-white text-sm font-bold px-4 py-1 rounded-full z-10">
+              <div
+                className={`absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-[length:300%_300%] ${prefersReducedMotion ? "" : "animate-gradient-pan"} text-white text-sm font-bold px-4 py-1 rounded-full z-10`}
+              >
                 MOST POPULAR
               </div>
               <h2 className="text-2xl font-bold text-center mb-1 text-indigo-400">

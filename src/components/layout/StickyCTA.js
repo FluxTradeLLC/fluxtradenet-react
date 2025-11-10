@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/axios";
 import { PRICING_IDS } from "../../constants";
+import { useReducedMotion } from "../../hooks/useReducedMotion";
 
 export const StickyCTA = () => {
+  const prefersReducedMotion = useReducedMotion();
   const [activePlatform, setActivePlatform] = useState(() => {
     const savedPlatform = localStorage.getItem("stickyCTAActivePlatform");
     return savedPlatform || "NinjaTrader";
@@ -97,10 +99,10 @@ export const StickyCTA = () => {
           {/* CTA Button */}
           <button
             onClick={handleStartTrial}
-            className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600 animate-soft-gradient text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:bg-gradient-to-l whitespace-nowrap"
+            className={`w-full sm:w-auto bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600 ${prefersReducedMotion ? "" : "animate-soft-gradient"} text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:bg-gradient-to-l whitespace-nowrap`}
             style={{
               backgroundSize: "200% 200%",
-              animation: "soft-gradient-x 3s ease-in-out infinite",
+              animation: prefersReducedMotion ? "none" : "soft-gradient-x 3s ease-in-out infinite",
             }}
           >
             {isAuthenticated
