@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { TradingViewChart } from "../components/TradingViewChart";
 
 import kinetickLogo from "../assets/logos/Kinetick_Logo.png";
@@ -98,6 +98,11 @@ export function LandingPage() {
 
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [openSection, setOpenSection] = useState("propFocused"); // First section open by default
+  const [isPaused, setIsPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [isVideoHovered, setIsVideoHovered] = useState(false);
+  const elapsedTimeRef = useRef(0);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     localStorage.setItem("landingPageActiveTab", activeTab);
@@ -129,15 +134,83 @@ export function LandingPage() {
 
   const nextVideo = () => {
     setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+    setProgress(0); // Reset progress when manually changing video
   };
 
   const prevVideo = () => {
     setCurrentVideoIndex((prev) => (prev - 1 + videos.length) % videos.length);
+    setProgress(0); // Reset progress when manually changing video
   };
 
   const goToVideo = (index) => {
     setCurrentVideoIndex(index);
+    setProgress(0); // Reset progress when manually changing video
   };
+
+  const togglePause = () => {
+    setIsPaused((prev) => !prev);
+  };
+
+  // Reset elapsed time and progress when video changes
+  useEffect(() => {
+    elapsedTimeRef.current = 0;
+    setProgress(0);
+    // Auto-play video when it changes (unless paused)
+    if (videoRef.current && !isPaused) {
+      videoRef.current.play().catch((error) => {
+        // Ignore autoplay errors
+        console.log("Autoplay prevented:", error);
+      });
+    }
+  }, [currentVideoIndex, isPaused]);
+
+  // Control video playback based on pause state
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isPaused) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play().catch((error) => {
+          // Ignore autoplay errors
+          console.log("Autoplay prevented:", error);
+        });
+      }
+    }
+  }, [isPaused]);
+
+  // Handle video loaded and play if not paused
+  const handleVideoLoaded = () => {
+    if (videoRef.current && !isPaused) {
+      videoRef.current.play().catch((error) => {
+        // Ignore autoplay errors
+        console.log("Autoplay prevented:", error);
+      });
+    }
+  };
+
+  // Auto-advance carousel on timer with progress tracking
+  useEffect(() => {
+    if (isPaused) {
+      return;
+    }
+
+    const duration = 20000; // 20 seconds
+    const updateInterval = 50; // Update progress every 50ms for smooth animation
+
+    const progressInterval = setInterval(() => {
+      elapsedTimeRef.current += updateInterval;
+      const newProgress = (elapsedTimeRef.current / duration) * 100;
+      setProgress(newProgress);
+
+      if (elapsedTimeRef.current >= duration) {
+        setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+        elapsedTimeRef.current = 0;
+      }
+    }, updateInterval);
+
+    return () => clearInterval(progressInterval);
+  }, [currentVideoIndex, isPaused, videos.length]); // Reset timer when video changes or pause state changes
+
   const indicators = [
     // NEW INDICATORS
     // {
@@ -844,16 +917,22 @@ export function LandingPage() {
 
           {/* Right side: Video Carousel */}
           <div className="w-auto flex flex-col items-center h-[600px]">
-            <div className="relative rounded-lg overflow-hidden shadow-lg mb-4">
+            <div
+              className="relative rounded-lg overflow-hidden shadow-lg mb-4"
+              onMouseEnter={() => setIsVideoHovered(true)}
+              onMouseLeave={() => setIsVideoHovered(false)}
+            >
               {/* Video Player */}
               <video
+                ref={videoRef}
                 key={currentVideoIndex}
-                className="w-[300px] h-[600px]"
-                autoPlay
+                className="w-[300px] h-[600px] cursor-pointer"
                 loop
                 muted
                 playsInline
                 controls={false}
+                onLoadedData={handleVideoLoaded}
+                onClick={togglePause}
                 aria-label={`${videos[currentVideoIndex].label} demonstration video`}
               >
                 <source src={videos[currentVideoIndex].src} type="video/mp4" />
@@ -865,6 +944,36 @@ export function LandingPage() {
                 />
                 Your browser does not support the video tag.
               </video>
+
+              {/* Centered Pause/Play Button - Visible on hover or when paused */}
+              {(isVideoHovered || isPaused) && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    togglePause();
+                  }}
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white rounded-full p-4 transition-all duration-200 z-20 shadow-lg"
+                  aria-label={isPaused ? "Play carousel" : "Pause carousel"}
+                >
+                  {isPaused ? (
+                    <svg
+                      className="w-8 h-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  ) : (
+                    <svg
+                      className="w-8 h-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                    </svg>
+                  )}
+                </button>
+              )}
 
               {/* Navigation Buttons */}
               <button
@@ -905,6 +1014,65 @@ export function LandingPage() {
                   />
                 </svg>
               </button>
+
+              {/* Pause/Play Button with Circular Progress */}
+              <div className="absolute bottom-4 right-4 z-10">
+                <button
+                  onClick={togglePause}
+                  className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-all duration-200 relative w-12 h-12 flex items-center justify-center"
+                  aria-label={isPaused ? "Play carousel" : "Pause carousel"}
+                >
+                  {/* Circular Progress Indicator */}
+                  <svg
+                    className="absolute inset-0 w-full h-full transform -rotate-90"
+                    width="48"
+                    height="48"
+                  >
+                    {/* Background circle */}
+                    <circle
+                      cx="24"
+                      cy="24"
+                      r="20"
+                      fill="none"
+                      stroke="rgba(255, 255, 255, 0.2)"
+                      strokeWidth="3"
+                    />
+                    {/* Progress circle */}
+                    <circle
+                      cx="24"
+                      cy="24"
+                      r="20"
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeDasharray={`${2 * Math.PI * 20}`}
+                      strokeDashoffset={`${2 * Math.PI * 20 * (1 - progress / 100)}`}
+                      className="transition-all duration-50"
+                    />
+                  </svg>
+                  {/* Play/Pause Icon */}
+                  <span className="relative z-10">
+                    {isPaused ? (
+                      <svg
+                        className="w-5 h-5"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    ) : (
+                      <svg
+                        className="w-5 h-5"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                      </svg>
+                    )}
+                  </span>
+                </button>
+              </div>
             </div>
 
             {/* Video Label */}
