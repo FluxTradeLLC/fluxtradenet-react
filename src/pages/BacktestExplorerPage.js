@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import Papa from "papaparse";
+import { SEO } from "../components/SEO";
 import {
   AreaChart,
   Area,
@@ -385,6 +386,12 @@ export const BacktestExplorerPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
+      <SEO
+        title="Backtest Explorer - Strategy Performance Analysis"
+        description="Explore comprehensive backtest results for FluxTrade strategies. Analyze performance metrics, profit distributions, and strategy comparisons across different instruments and market conditions."
+        keywords="backtest results, trading strategy performance, strategy analysis, trading metrics, backtest explorer, strategy comparison"
+        canonical="/backtests/explorer"
+      />
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
           <h1 className="text-5xl font-extrabold mb-4 text-center">

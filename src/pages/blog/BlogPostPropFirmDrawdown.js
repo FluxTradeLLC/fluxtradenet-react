@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { SEO } from "../../components/SEO";
 
 export const BlogPostPropFirmDrawdown = () => {
   useEffect(() => {
@@ -8,6 +9,17 @@ export const BlogPostPropFirmDrawdown = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
+      <SEO
+        title="The Prop Firm Drawdown Trap"
+        description="Prop firms set drawdown limits that seem generous on paper but are actually designed to catch you off guard. Understand how daily drawdowns, trailing drawdowns, and hidden rules can end your challenge prematurely."
+        keywords="prop firm drawdown, trailing drawdown, daily drawdown, prop firm rules, drawdown limits, prop firm challenges"
+        canonical="/blog/prop-firm-drawdown-trap"
+        ogType="article"
+        article={{
+          datePublished: "2024-01-01",
+          dateModified: "2024-01-01"
+        }}
+      />
       <div className="max-w-4xl mx-auto">
         <Link
           to="/blog"

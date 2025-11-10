@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { SEO } from "../../components/SEO";
 
 export const BlogPostORB = () => {
   useEffect(() => {
@@ -8,6 +9,17 @@ export const BlogPostORB = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
+      <SEO
+        title="ORB Strategy: Trading the Opening Range Breakout"
+        description="The Opening Range Breakout (ORB) strategy capitalizes on the first hour's volatility. This article explains how to identify high-probability breakouts and manage risk when trading the market open."
+        keywords="ORB strategy, opening range breakout, trading strategy, market open trading, volatility trading, breakout trading"
+        canonical="/blog/orb-strategy"
+        ogType="article"
+        article={{
+          datePublished: "2024-01-01",
+          dateModified: "2024-01-01"
+        }}
+      />
       <div className="max-w-4xl mx-auto">
         <Link
           to="/blog"

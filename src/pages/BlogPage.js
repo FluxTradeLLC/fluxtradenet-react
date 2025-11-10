@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { SEO } from "../components/SEO";
 
 export const BlogPage = () => {
   useEffect(() => {
@@ -75,6 +76,12 @@ export const BlogPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
+      <SEO
+        title="Trading Strategy Blog & Educational Content"
+        description="Learn trading strategies, understand prop firm challenges, and discover proven backtested approaches. Educational content covering Flux Trident, Flux Signal, Flux Pivot, and more trading strategies."
+        keywords="trading blog, trading strategies, prop firm trading, trading education, backtested strategies, trading tips, flux trident, flux signal, flux pivot"
+        canonical="/blog"
+      />
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12 text-center">

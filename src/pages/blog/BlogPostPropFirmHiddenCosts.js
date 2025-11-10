@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { SEO } from "../../components/SEO";
 
 export const BlogPostPropFirmHiddenCosts = () => {
   useEffect(() => {
@@ -8,6 +9,17 @@ export const BlogPostPropFirmHiddenCosts = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
+      <SEO
+        title="The Hidden Costs of Prop Firm Challenges"
+        description="Many traders don't realize the true cost of prop firm challenges until it's too late. From hidden fees to unrealistic profit targets, learn about the common pitfalls that can derail your funded account journey."
+        keywords="prop firm challenges, prop firm fees, funded trading, prop firm hidden costs, trading challenges, prop firm pitfalls"
+        canonical="/blog/prop-firm-hidden-costs"
+        ogType="article"
+        article={{
+          datePublished: "2024-01-01",
+          dateModified: "2024-01-01"
+        }}
+      />
       <div className="max-w-4xl mx-auto">
         <Link
           to="/blog"

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { SEO } from "../../components/SEO";
 
 export const BlogPostFluxSignal = () => {
   useEffect(() => {
@@ -8,6 +9,17 @@ export const BlogPostFluxSignal = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
+      <SEO
+        title="Flux Signal Strategy - Early Trend Reversal Detection"
+        description="The Flux Signal strategy uses proprietary indicators to identify early trend reversals and continuation patterns. Learn the core concepts and entry criteria that make this strategy effective."
+        keywords="flux signal, trading strategy, trend reversal, continuation patterns, trading signals, automated trading, technical analysis"
+        canonical="/blog/flux-signal-strategy"
+        ogType="article"
+        article={{
+          datePublished: "2024-01-01",
+          dateModified: "2024-01-01"
+        }}
+      />
       <div className="max-w-4xl mx-auto">
         <Link
           to="/blog"

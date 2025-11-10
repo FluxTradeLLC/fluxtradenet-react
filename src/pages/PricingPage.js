@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { PRICING, PRICING_IDS } from "../constants";
 import api from "../api/axios";
 import { useReducedMotion } from "../hooks/useReducedMotion";
+import { SEO } from "../components/SEO";
 
 export function PricingPage() {
   const prefersReducedMotion = useReducedMotion();
@@ -147,6 +148,12 @@ export function PricingPage() {
 
   return (
     <div className="bg-gray-900 text-white min-h-full">
+      <SEO
+        title="Pricing - Trading Software Subscriptions"
+        description="Choose the perfect FluxTrade subscription plan for your trading needs. Access automated strategies, indicators, and professional trading tools for NinjaTrader and TradingView. Flexible monthly, quarterly, and yearly plans available."
+        keywords="trading software pricing, ninjatrader subscription, tradingview strategies pricing, automated trading subscription, prop firm trading tools pricing"
+        canonical="/pricing"
+      />
       <div className="text-center pt-12 pb-6">
         <h1 className="text-5xl font-extrabold mb-4 text-center">
           Choose Your Plan

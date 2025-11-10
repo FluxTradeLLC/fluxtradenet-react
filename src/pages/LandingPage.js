@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { TradingViewChart } from "../components/TradingViewChart";
 import { useReducedMotion } from "../hooks/useReducedMotion";
+import { SEO } from "../components/SEO";
 
 import kinetickLogo from "../assets/logos/Kinetick_Logo.png";
 import ntLogo from "../assets/logos/nt_ecosystem.png";
@@ -1092,6 +1093,17 @@ export function LandingPage() {
 
   return (
     <div className="bg-gray-900 text-white min-h-full">
+      <SEO
+        title="Advanced Trading Software & Strategies"
+        description="FluxTrade provides advanced trading software, automated strategies, and indicators for NinjaTrader and TradingView. Backtested strategies, prop firm focused tools, and professional-grade trading solutions."
+        keywords="trading software, automated trading strategies, NinjaTrader indicators, TradingView strategies, prop firm trading, backtested strategies, trading algorithms, flux trident, flux signal, flux pivot"
+        canonical="/"
+        geo={{
+          region: "US",
+          placename: "United States",
+          position: "39.8283,-98.5795",
+        }}
+      />
       {/* Hero Section with Video Above the Fold */}
       <section
         className="relative w-full max-w-7xl mx-auto px-4"

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { SEO } from "../../components/SEO";
 
 export const BlogPostCointegratedPairs = () => {
   useEffect(() => {
@@ -8,6 +9,17 @@ export const BlogPostCointegratedPairs = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
+      <SEO
+        title="Cointegrated Pairs Trading Explained"
+        description="Pairs trading isn't just for institutions. Learn how cointegrated pairs trading works, why it's less risky than directional trading, and how to identify profitable pair opportunities in futures markets."
+        keywords="pairs trading, cointegrated pairs, statistical arbitrage, pairs trading strategy, market neutral trading, futures trading"
+        canonical="/blog/cointegrated-pairs-trading"
+        ogType="article"
+        article={{
+          datePublished: "2024-01-01",
+          dateModified: "2024-01-01"
+        }}
+      />
       <div className="max-w-4xl mx-auto">
         <Link
           to="/blog"

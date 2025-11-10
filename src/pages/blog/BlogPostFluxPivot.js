@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { SEO } from "../../components/SEO";
 
 export const BlogPostFluxPivot = () => {
   useEffect(() => {
@@ -8,6 +9,17 @@ export const BlogPostFluxPivot = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
+      <SEO
+        title="Flux Pivot Strategy - Trading Support and Resistance Levels"
+        description="Master the art of trading key pivot levels with Flux Pivot. This strategy focuses on identifying and trading off significant support and resistance zones, combining price action with volume analysis."
+        keywords="flux pivot, trading strategy, support and resistance, pivot points, price action trading, volume analysis, trading levels"
+        canonical="/blog/flux-pivot-strategy"
+        ogType="article"
+        article={{
+          datePublished: "2024-01-01",
+          dateModified: "2024-01-01",
+        }}
+      />
       <div className="max-w-4xl mx-auto">
         <Link
           to="/blog"

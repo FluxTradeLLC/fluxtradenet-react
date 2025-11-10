@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { SEO } from "../../components/SEO";
 
 export const BlogPostPropFirmFailure = () => {
   useEffect(() => {
@@ -8,6 +9,17 @@ export const BlogPostPropFirmFailure = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
+      <SEO
+        title="Why Most Prop Firm Traders Fail (And How to Avoid It)"
+        description="Over 90% of prop firm traders fail their challenges. Discover the psychological traps, risk management mistakes, and strategy flaws that lead to failure—and how proven backtested strategies can give you an edge."
+        keywords="prop firm failure, prop firm traders, trading challenges, prop firm success, trading psychology, risk management"
+        canonical="/blog/prop-firm-failure"
+        ogType="article"
+        article={{
+          datePublished: "2024-01-01",
+          dateModified: "2024-01-01"
+        }}
+      />
       <div className="max-w-4xl mx-auto">
         <Link
           to="/blog"

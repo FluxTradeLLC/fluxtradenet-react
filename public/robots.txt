@@ -1,3 +1,27 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Disallow private/auth pages
+Disallow: /account
+Disallow: /signin
+Disallow: /signup
+Disallow: /auth/
+Disallow: /success
+Disallow: /payment/success
+
+# Allow important pages
+Allow: /
+Allow: /pricing
+Allow: /blog
+Allow: /backtests/
+Allow: /support
+Allow: /affiliates
+Allow: /stream
+
+# Sitemap
+Sitemap: https://fluxtrade.net/sitemap.xml
+
+# Crawl-delay (optional, adjust as needed)
+Crawl-delay: 1
+

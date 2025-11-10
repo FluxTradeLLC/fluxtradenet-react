@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { SEO } from "../../components/SEO";
 
 export const BlogPostFluxTrident = () => {
   useEffect(() => {
@@ -8,6 +9,17 @@ export const BlogPostFluxTrident = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
+      <SEO
+        title="Flux Trident Strategy - Multi-Timeframe Confluence Trading"
+        description="Flux Trident is a multi-timeframe confluence strategy that combines trend analysis with momentum indicators. Learn how this systematic approach identifies high-probability entries across various market conditions."
+        keywords="flux trident, trading strategy, multi-timeframe analysis, confluence trading, trend following, momentum indicators, automated trading"
+        canonical="/blog/flux-trident-strategy"
+        ogType="article"
+        article={{
+          datePublished: "2024-01-01",
+          dateModified: "2024-01-01"
+        }}
+      />
       <div className="max-w-4xl mx-auto">
         <Link
           to="/blog"
