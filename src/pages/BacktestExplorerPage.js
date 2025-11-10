@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import Papa from "papaparse";
 import {
   AreaChart,
@@ -120,7 +121,21 @@ const parseDate = (timeStr) => {
   }
 };
 
+// Helper function to convert strategy name to title case
+// Handles camelCase, snake_case, and other formats
+const toTitleCase = (str) => {
+  if (!str || str === "All") return str;
+  // Insert space before capital letters (for camelCase)
+  const withSpaces = str.replace(/([a-z])([A-Z])/g, "$1 $2");
+  // Split by spaces, underscores, or hyphens and capitalize each word
+  return withSpaces
+    .split(/[\s_-]+/)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+};
+
 export const BacktestExplorerPage = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [allData, setAllData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedStrategy, setSelectedStrategy] = useState("All");
@@ -131,6 +146,18 @@ export const BacktestExplorerPage = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
+
+  // Read strategy from query params and set it once data is loaded
+  useEffect(() => {
+    const strategyParam = searchParams.get("strategy");
+    if (strategyParam && allData.length > 0) {
+      // Check if the strategy exists in the available strategies
+      const strategies = [...new Set(allData.map((d) => d.strategy))];
+      if (strategies.includes(strategyParam)) {
+        setSelectedStrategy(strategyParam);
+      }
+    }
+  }, [searchParams, allData]);
 
   useEffect(() => {
     const loadAllData = async () => {
@@ -381,7 +408,7 @@ export const BacktestExplorerPage = () => {
               >
                 {strategies.map((strategy) => (
                   <option key={strategy} value={strategy}>
-                    {strategy}
+                    {toTitleCase(strategy)}
                   </option>
                 ))}
               </select>
@@ -690,7 +717,9 @@ export const BacktestExplorerPage = () => {
                     <td className="py-3 px-4 text-sm">
                       {row["Trade number"] || index + 1}
                     </td>
-                    <td className="py-3 px-4 text-sm">{row.strategy}</td>
+                    <td className="py-3 px-4 text-sm">
+                      {toTitleCase(row.strategy)}
+                    </td>
                     <td className="py-3 px-4 text-sm">{row.instrument}</td>
                     <td className="py-3 px-4 text-sm">
                       {row.entryTime

@@ -18,6 +18,15 @@ import { AffiliatesPage } from './pages/AffiliatesPage';
 import { SupportPage } from './pages/SupportPage';
 import { TermsAndConditionsPage } from './pages/TermsAndConditionsPage';
 import { StreamingPage } from './pages/StreamingPage';
+import { BlogPage } from './pages/BlogPage';
+import { BlogPostFluxTrident } from './pages/blog/BlogPostFluxTrident';
+import { BlogPostFluxSignal } from './pages/blog/BlogPostFluxSignal';
+import { BlogPostFluxPivot } from './pages/blog/BlogPostFluxPivot';
+import { BlogPostPropFirmHiddenCosts } from './pages/blog/BlogPostPropFirmHiddenCosts';
+import { BlogPostPropFirmFailure } from './pages/blog/BlogPostPropFirmFailure';
+import { BlogPostCointegratedPairs } from './pages/blog/BlogPostCointegratedPairs';
+import { BlogPostPropFirmDrawdown } from './pages/blog/BlogPostPropFirmDrawdown';
+import { BlogPostORB } from './pages/blog/BlogPostORB';
 
 function App() {
   return (
@@ -89,6 +98,15 @@ function App() {
           <Route path="/support" element={<SupportPage />} />
           <Route path="/terms" element={<TermsAndConditionsPage />} />
           <Route path="/stream" element={<StreamingPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/flux-trident-strategy" element={<BlogPostFluxTrident />} />
+          <Route path="/blog/flux-signal-strategy" element={<BlogPostFluxSignal />} />
+          <Route path="/blog/flux-pivot-strategy" element={<BlogPostFluxPivot />} />
+          <Route path="/blog/prop-firm-hidden-costs" element={<BlogPostPropFirmHiddenCosts />} />
+          <Route path="/blog/prop-firm-failure" element={<BlogPostPropFirmFailure />} />
+          <Route path="/blog/cointegrated-pairs-trading" element={<BlogPostCointegratedPairs />} />
+          <Route path="/blog/prop-firm-drawdown-trap" element={<BlogPostPropFirmDrawdown />} />
+          <Route path="/blog/orb-strategy" element={<BlogPostORB />} />
           </Routes>
         </main>
         <StickyCTA />

@@ -136,6 +136,20 @@ export const Header = () => {
           <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
             <li>
               <Link
+                to="/blog"
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/blog" ? "border-white" : "border-transparent"}`}
+                style={{ textDecoration: "none" }}
+                aria-current={
+                  location.pathname === "/blog" ? "page" : undefined
+                }
+              >
+                <span>Blog</span>
+              </Link>
+            </li>
+          </ul>
+          <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
+            <li>
+              <Link
                 to="/affiliates"
                 className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/affiliates" ? "border-white" : "border-transparent"}`}
                 style={{ textDecoration: "none" }}
