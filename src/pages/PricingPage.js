@@ -103,10 +103,9 @@ export function PricingPage() {
   // Helper function to format price display
   const formatPriceDisplay = (monthlyPrice, planKey) => {
     if (billingPeriod === "monthly") {
-      // Format monthly price with commas (handles both integers and decimals)
-      const formattedPrice = Number.isInteger(monthlyPrice)
-        ? monthlyPrice.toLocaleString()
-        : monthlyPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      // Round to whole dollars and format with commas
+      const roundedPrice = Math.round(monthlyPrice);
+      const formattedPrice = roundedPrice.toLocaleString();
       return (
         <>
           ${formattedPrice}
@@ -123,6 +122,10 @@ export function PricingPage() {
     // Get the actual price (from PRICING object or calculated)
     const actualPrice = getPriceForPlan(planKey, monthlyPrice);
 
+    // Round to whole dollars
+    const roundedBasePrice = Math.round(basePrice);
+    const roundedActualPrice = Math.round(actualPrice);
+
     // Calculate actual discount percentage
     const discountPercent = ((basePrice - actualPrice) / basePrice) * 100;
 
@@ -130,10 +133,10 @@ export function PricingPage() {
       <div className="flex flex-col items-center">
         <div className="flex items-center gap-2">
           <span className="text-2xl font-bold text-gray-500 line-through">
-            ${basePrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            ${roundedBasePrice.toLocaleString()}
           </span>
           <span className="text-4xl font-extrabold">
-            ${actualPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            ${roundedActualPrice.toLocaleString()}
           </span>
           <span className="text-lg font-medium text-gray-400">
             {getBillingPeriodLabel()}
@@ -146,6 +149,78 @@ export function PricingPage() {
     );
   };
 
+  // Generate product schemas for GEO optimization
+  const getProductSchemas = () => {
+    return [
+      {
+        name: "Automated Strategies - Single Platform",
+        description:
+          "Access to all automated trading strategies for NinjaTrader or TradingView. Includes indicators for chosen platform.",
+        price: getPriceForPlan(
+          "STRATEGIES_SINGLE",
+          PRICING.MONTHLY.STRATEGIES_SINGLE
+        ),
+        currency: "USD",
+        category: "Trading Software Subscription",
+        platform: "NinjaTrader or TradingView",
+        priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+          .toISOString()
+          .split("T")[0],
+      },
+      {
+        name: "Automated Strategies - Both Platforms",
+        description:
+          "Access to all automated trading strategies for both NinjaTrader and TradingView. Includes indicators for both platforms with priority updates.",
+        price: getPriceForPlan(
+          "STRATEGIES_NT_AND_TV",
+          PRICING.MONTHLY.STRATEGIES_NT_AND_TV
+        ),
+        currency: "USD",
+        category: "Trading Software Subscription",
+        platform: "NinjaTrader and TradingView",
+        priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+          .toISOString()
+          .split("T")[0],
+      },
+      {
+        name: "Trading Indicators - Single Platform",
+        description:
+          "Access to all trading indicators for NinjaTrader or TradingView. Professional-grade technical analysis tools.",
+        price: getPriceForPlan(
+          "INDICATORS_SINGLE",
+          PRICING.MONTHLY.INDICATORS_SINGLE
+        ),
+        currency: "USD",
+        category: "Trading Software Subscription",
+        platform: "NinjaTrader or TradingView",
+        priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+          .toISOString()
+          .split("T")[0],
+      },
+      {
+        name: "Trading Indicators - Both Platforms",
+        description:
+          "Access to all trading indicators for both NinjaTrader and TradingView. Complete indicator suite for both platforms.",
+        price: getPriceForPlan(
+          "INDICATORS_NT_AND_TV",
+          PRICING.MONTHLY.INDICATORS_NT_AND_TV
+        ),
+        currency: "USD",
+        category: "Trading Software Subscription",
+        platform: "NinjaTrader and TradingView",
+        priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+          .toISOString()
+          .split("T")[0],
+      },
+    ];
+  };
+
+  // Breadcrumbs for GEO optimization
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Pricing", url: "/pricing" },
+  ];
+
   return (
     <div className="bg-gray-900 text-white min-h-full">
       <SEO
@@ -153,6 +228,8 @@ export function PricingPage() {
         description="Choose the perfect FluxTrade subscription plan for your trading needs. Access automated strategies, indicators, and professional trading tools for NinjaTrader and TradingView. Flexible monthly, quarterly, and yearly plans available."
         keywords="trading software pricing, ninjatrader subscription, tradingview strategies pricing, automated trading subscription, prop firm trading tools pricing"
         canonical="/pricing"
+        products={getProductSchemas()}
+        breadcrumbs={breadcrumbs}
       />
       <div className="text-center pt-12 pb-6">
         <h1 className="text-5xl font-extrabold mb-4 text-center">

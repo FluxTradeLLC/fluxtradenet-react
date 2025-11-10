@@ -151,7 +151,9 @@ export function PaymentPostPurchasePage() {
                 />
               </label>
               <label className="flex flex-col text-left">
-                <span className="mb-1 font-semibold">TradingView Username</span>
+                <span className="mb-1 font-semibold">
+                  TradingView Username (this is not an email)
+                </span>
                 <input
                   type="text"
                   className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -161,7 +163,9 @@ export function PaymentPostPurchasePage() {
                 />
               </label>
               <label className="flex flex-col text-left">
-                <span className="mb-1 font-semibold">Discord Username</span>
+                <span className="mb-1 font-semibold">
+                  Discord Username (this is not an email)
+                </span>
                 <input
                   type="text"
                   className="p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"

@@ -1301,11 +1301,6 @@ export function LandingPage() {
         description="FluxTrade provides advanced trading software, automated strategies, and indicators for NinjaTrader and TradingView. Backtested strategies, prop firm focused tools, and professional-grade trading solutions."
         keywords="trading software, automated trading strategies, NinjaTrader indicators, TradingView strategies, prop firm trading, backtested strategies, trading algorithms, flux trident, flux signal, flux pivot"
         canonical="/"
-        geo={{
-          region: "US",
-          placename: "United States",
-          position: "39.8283,-98.5795",
-        }}
       />
       {/* Hero Section with Video Above the Fold */}
       <section
