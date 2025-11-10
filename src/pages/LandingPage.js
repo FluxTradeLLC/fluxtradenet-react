@@ -83,6 +83,11 @@ import confluenceVideo from "../assets/video/confluence.mp4";
 import pivotVideo from "../assets/video/pivot.mp4";
 import signalVideo from "../assets/video/signal.mp4";
 
+// Win images
+import win1 from "../assets/images/win1.png";
+import win2 from "../assets/images/win2.png";
+import win3 from "../assets/images/win3.png";
+
 import "../App.css";
 
 export function LandingPage() {
@@ -92,10 +97,15 @@ export function LandingPage() {
   });
 
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [openSection, setOpenSection] = useState("propFocused"); // First section open by default
 
   useEffect(() => {
     localStorage.setItem("landingPageActiveTab", activeTab);
   }, [activeTab]);
+
+  const toggleSection = (section) => {
+    setOpenSection(openSection === section ? null : section);
+  };
 
   // Video carousel data
   const videos = [
@@ -961,14 +971,189 @@ export function LandingPage() {
             <>
               {activeTab === "NinjaTrader" && (
                 <section id="prop-focused-strategies" className="mb-12">
-                  <h2 className="text-3xl font-bold text-center mb-2">
-                    Prop Firm Focused Strategies
-                  </h2>
-                  <h3 className="text-2xl text-center mb-8">
-                    Built for prop firm rules and consistency
-                  </h3>
+                  <button
+                    onClick={() => toggleSection("propFocused")}
+                    className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
+                  >
+                    <div className="text-center">
+                      <h2 className="text-3xl font-bold mb-2">
+                        Prop Firm Focused Strategies
+                      </h2>
+                      <h3 className="text-2xl">
+                        Built for prop firm rules and consistency
+                      </h3>
+                    </div>
+                    <svg
+                      className={`w-6 h-6 transition-transform flex-shrink-0 ${
+                        openSection === "propFocused" ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                  {openSection === "propFocused" && (
+                    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
+                      {propFocusedStrategies.map((strategy) => (
+                        <div
+                          key={strategy.name}
+                          className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
+                        >
+                          <h3 className="text-xl font-semibold mb-2 flex items-center">
+                            {strategy.name}
+                            {strategy.isNew && (
+                              <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
+                                NEW!
+                              </span>
+                            )}
+                          </h3>
+                          <ul className="list-disc list-inside mb-4">
+                            {strategy?.features?.map((feature) => (
+                              <li key={feature}>{feature}</li>
+                            ))}
+                          </ul>
+                          {strategy?.backtestUrl && (
+                            <Link
+                              to={strategy.backtestUrl}
+                              className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
+                            >
+                              View Backtest
+                            </Link>
+                          )}
+                          <div className="flex flex-col w-full">
+                            {Array.isArray(strategy.images) &&
+                              strategy.images.map((imgSrc, idx) =>
+                                // Comment out second image (idx === 1) for NinjaTrader strategies
+                                idx === 1 ? null : (
+                                  <img
+                                    key={`${strategy.name}-${idx}`}
+                                    src={imgSrc}
+                                    alt={`${strategy.name} ${idx + 1}`}
+                                    className="w-full h-auto rounded-lg mb-4"
+                                  />
+                                )
+                              )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </section>
+              )}
+              {activeTab === "TradingView" && (
+                <section id="tv-prop-focused-strategies" className="mb-12">
+                  <button
+                    onClick={() => toggleSection("propFocused")}
+                    className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
+                  >
+                    <div className="text-center">
+                      <h2 className="text-3xl font-bold mb-2">
+                        Prop Firm Focused Strategies
+                      </h2>
+                      <h3 className="text-2xl">
+                        Built for prop firm rules and consistency
+                      </h3>
+                    </div>
+                    <svg
+                      className={`w-6 h-6 transition-transform flex-shrink-0 ${
+                        openSection === "propFocused" ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                  {openSection === "propFocused" && (
+                    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
+                      {tvPropFocusedStrategies.map((strategy) => (
+                        <div
+                          key={strategy.name}
+                          className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
+                        >
+                          <h3 className="text-xl font-semibold mb-2 flex items-center">
+                            {strategy.name}
+                            {strategy.isNew && (
+                              <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
+                                NEW!
+                              </span>
+                            )}
+                          </h3>
+                          <ul className="list-disc list-inside mb-4">
+                            {strategy?.features?.map((feature) => (
+                              <li key={feature}>{feature}</li>
+                            ))}
+                          </ul>
+                          {strategy?.backtestUrl && (
+                            <Link
+                              to={strategy.backtestUrl}
+                              className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
+                            >
+                              View Backtest
+                            </Link>
+                          )}
+                          <div className="flex flex-col w-full">
+                            {Array.isArray(strategy.images) &&
+                              strategy.images.map((imgSrc, idx) => (
+                                <img
+                                  key={`${strategy.name}-${idx}`}
+                                  src={imgSrc}
+                                  alt={`${strategy.name} ${idx + 1}`}
+                                  className="w-full h-auto rounded-lg mb-4"
+                                />
+                              ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </section>
+              )}
+              <section id="strategies" className="">
+                <button
+                  onClick={() => toggleSection("strategies")}
+                  className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
+                >
+                  <div className="text-center">
+                    <h2 className="text-3xl font-bold mb-2">
+                      Our Automated Strategies
+                    </h2>
+                    <h3 className="text-2xl">
+                      Highly customizable with automated entries and exits
+                    </h3>
+                  </div>
+                  <svg
+                    className={`w-6 h-6 transition-transform flex-shrink-0 ${
+                      openSection === "strategies" ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                {openSection === "strategies" && (
                   <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
-                    {propFocusedStrategies.map((strategy) => (
+                    {currentStrategies.map((strategy) => (
                       <div
                         key={strategy.name}
                         className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
@@ -998,6 +1183,7 @@ export function LandingPage() {
                           {Array.isArray(strategy.images) &&
                             strategy.images.map((imgSrc, idx) =>
                               // Comment out second image (idx === 1) for NinjaTrader strategies
+                              activeTab === "NinjaTrader" &&
                               idx === 1 ? null : (
                                 <img
                                   key={`${strategy.name}-${idx}`}
@@ -1011,170 +1197,148 @@ export function LandingPage() {
                       </div>
                     ))}
                   </div>
-                </section>
-              )}
-              {activeTab === "TradingView" && (
-                <section id="tv-prop-focused-strategies" className="mb-12">
-                  <h2 className="text-3xl font-bold text-center mb-2">
-                    Prop Firm Focused Strategies
-                  </h2>
-                  <h3 className="text-2xl text-center mb-8">
-                    Built for prop firm rules and consistency
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
-                    {tvPropFocusedStrategies.map((strategy) => (
+                )}
+              </section>
+
+              <section id="indicators" className="my-12 mt-16">
+                <button
+                  onClick={() => toggleSection("indicators")}
+                  className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
+                >
+                  <div className="text-center">
+                    <h2 className="text-3xl font-bold mb-2">Our Indicators</h2>
+                    <h3 className="text-2xl">
+                      Learn how to trade manually with a plan and strategy built
+                      with indicators
+                    </h3>
+                  </div>
+                  <svg
+                    className={`w-6 h-6 transition-transform flex-shrink-0 ${
+                      openSection === "indicators" ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                {openSection === "indicators" && (
+                  <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
+                    {currentIndicators.map((indicator) => (
                       <div
-                        key={strategy.name}
-                        className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
+                        key={indicator.name}
+                        className="bg-gray-800 rounded-lg p-4 flex flex-col items-center relative"
                       >
                         <h3 className="text-xl font-semibold mb-2 flex items-center">
-                          {strategy.name}
-                          {strategy.isNew && (
+                          {indicator.name}
+                          {indicator.isNew && (
                             <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
                               NEW!
                             </span>
                           )}
                         </h3>
                         <ul className="list-disc list-inside mb-4">
-                          {strategy?.features?.map((feature) => (
+                          {indicator?.features?.map((feature) => (
                             <li key={feature}>{feature}</li>
                           ))}
                         </ul>
-                        {strategy?.backtestUrl && (
-                          <Link
-                            to={strategy.backtestUrl}
-                            className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
-                          >
-                            View Backtest
-                          </Link>
-                        )}
-                        <div className="flex flex-col w-full">
-                          {Array.isArray(strategy.images) &&
-                            strategy.images.map((imgSrc, idx) => (
-                              <img
-                                key={`${strategy.name}-${idx}`}
-                                src={imgSrc}
-                                alt={`${strategy.name} ${idx + 1}`}
-                                className="w-full h-auto rounded-lg mb-4"
-                              />
-                            ))}
-                        </div>
+                        <img
+                          src={indicator.image}
+                          alt={indicator.name}
+                          className="w-full h-auto rounded-lg mb-4"
+                        />
                       </div>
                     ))}
                   </div>
-                </section>
-              )}
-              <section id="strategies" className="">
-                <h2 className="text-3xl font-bold text-center mb-2">
-                  Our Automated Strategies
-                </h2>
-                <h3 className="text-2xl text-center mb-8">
-                  Highly customizable with automated entries and exits
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
-                  {currentStrategies.map((strategy) => (
-                    <div
-                      key={strategy.name}
-                      className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
-                    >
-                      <h3 className="text-xl font-semibold mb-2 flex items-center">
-                        {strategy.name}
-                        {strategy.isNew && (
-                          <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
-                            NEW!
-                          </span>
-                        )}
-                      </h3>
-                      <ul className="list-disc list-inside mb-4">
-                        {strategy?.features?.map((feature) => (
-                          <li key={feature}>{feature}</li>
-                        ))}
-                      </ul>
-                      {strategy?.backtestUrl && (
-                        <Link
-                          to={strategy.backtestUrl}
-                          className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
-                        >
-                          View Backtest
-                        </Link>
-                      )}
-                      <div className="flex flex-col w-full">
-                        {Array.isArray(strategy.images) &&
-                          strategy.images.map((imgSrc, idx) =>
-                            // Comment out second image (idx === 1) for NinjaTrader strategies
-                            activeTab === "NinjaTrader" && idx === 1 ? null : (
-                              <img
-                                key={`${strategy.name}-${idx}`}
-                                src={imgSrc}
-                                alt={`${strategy.name} ${idx + 1}`}
-                                className="w-full h-auto rounded-lg mb-4"
-                              />
-                            )
-                          )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                )}
               </section>
 
-              <section id="indicators" className="my-12 mt-16">
-                <h2 className="text-3xl font-bold text-center mb-2">
-                  Our Indicators
-                </h2>
-                <h3 className="text-2xl text-center mb-8">
-                  Learn how to trade manually with a plan and strategy built
-                  with indicators
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
-                  {currentIndicators.map((indicator) => (
-                    <div
-                      key={indicator.name}
-                      className="bg-gray-800 rounded-lg p-4 flex flex-col items-center relative"
-                    >
-                      <h3 className="text-xl font-semibold mb-2 flex items-center">
-                        {indicator.name}
-                        {indicator.isNew && (
-                          <span className="ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
-                            NEW!
-                          </span>
-                        )}
-                      </h3>
-                      <ul className="list-disc list-inside mb-4">
-                        {indicator?.features?.map((feature) => (
-                          <li key={feature}>{feature}</li>
-                        ))}
-                      </ul>
-                      <img
-                        src={indicator.image}
-                        alt={indicator.name}
-                        className="w-full h-auto rounded-lg mb-4"
-                      />
-                    </div>
-                  ))}
-                </div>
+              <section id="wins" className="my-12 mt-16">
+                <button
+                  onClick={() => toggleSection("wins")}
+                  className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
+                >
+                  <div className="text-center">
+                    <h2 className="text-3xl font-bold mb-2">Wins</h2>
+                    <h3 className="text-2xl">
+                      Wins using the tools from members in the Discord
+                    </h3>
+                  </div>
+                  <svg
+                    className={`w-6 h-6 transition-transform flex-shrink-0 ${
+                      openSection === "wins" ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                {openSection === "wins" && (
+                  <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8">
+                    <img
+                      src={win1}
+                      alt="Win 1"
+                      className="w-full h-auto rounded-lg"
+                    />
+                    <img
+                      src={win2}
+                      alt="Win 2"
+                      className="w-full h-auto rounded-lg"
+                    />
+                    <img
+                      src={win3}
+                      alt="Win 3"
+                      className="w-full h-auto rounded-lg"
+                    />
+                  </div>
+                )}
               </section>
             </>
           );
         })()}
 
-        <section id="partners" className="my-12 mt-24">
-          <h2 className="text-3xl font-bold text-center mb-8">
+        <section
+          id="partners"
+          className="my-12 mt-24 bg-[#0c111b] p-6 rounded-xl flex flex-col items-center justify-center"
+        >
+          <h2 className="text-3xl font-bold text-center mb-4 text-white">
             Official NinjaTrader Ecosystem Vendor
           </h2>
-          <div className="flex flex-col justify-center items-center space-x-8 bg-white p-6 rounded-lg">
-            <div className="flex justify-center items-center space-x-8">
+          <div className="flex flex-col flex-wrap justify-center items-center space-x-8 text-white bg-[#0c111b] p-6 rounded-lg">
+            <div className="flex flex-col lg:flex-row flex-wrap justify-center items-center lg:space-x-8">
               <a href="http://account.ninjatrader.com/register?introducingPartner=FluxTrade">
-                <img src={ntLogo} width={300} alt="NinjaTrader Logo" />
+                <img
+                  src={ntLogo}
+                  width={300}
+                  alt="NinjaTrader Logo"
+                  className="bg-white rounded-md p-2"
+                />
               </a>
-              <a href="http://kinetick.com/NinjaTrader">
+              <a
+                href="http://kinetick.com/NinjaTrader"
+                className="bg-white rounded-md p-1 mt-8 lg:mt-0"
+              >
                 <img
                   src={kinetickLogo}
                   alt="Kinetick Logo"
-                  className="h-16 ml-[20px]"
+                  className="h-16 lg:ml-[20px]"
                 />
               </a>
             </div>
-            <div className="flex justify-center items-center space-x-8 mt-6">
+            <div className="flex flex-col md:flex-row flex-wrap justify-center items-center md:space-x-8 mt-6">
               <a href="https://ninjatraderus.pxf.io/APNodJ">
                 <img
                   src={ntUpgrade}
@@ -1182,7 +1346,7 @@ export function LandingPage() {
                   alt="NinjaTrader Upgrade Logo"
                 />
               </a>
-              <p className="text-black w-[300px] ml-[20px]">
+              <p className="text-white w-[300px] lg:ml-[20px] mt-8 md:mt-0">
                 (Affiliate link*){" "}
                 <a
                   href="https://ninjatraderus.pxf.io/APNodJ"
