@@ -410,7 +410,17 @@ export const BacktestExplorerPage = () => {
               <label className="block text-sm font-medium mb-2">Strategy</label>
               <select
                 value={selectedStrategy}
-                onChange={(e) => setSelectedStrategy(e.target.value)}
+                onChange={(e) => {
+                  const newStrategy = e.target.value;
+                  setSelectedStrategy(newStrategy);
+                  const newParams = new URLSearchParams(searchParams);
+                  if (newStrategy === "All") {
+                    newParams.delete("strategy");
+                  } else {
+                    newParams.set("strategy", newStrategy);
+                  }
+                  setSearchParams(newParams);
+                }}
                 className="w-full bg-gray-700 text-white rounded-lg px-4 py-2 border border-gray-600 focus:border-blue-500 focus:outline-none"
               >
                 {strategies.map((strategy) => (

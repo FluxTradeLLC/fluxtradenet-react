@@ -106,6 +106,11 @@ export function LandingPage() {
   const [isVideoHovered, setIsVideoHovered] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [selectedIndicatorFilters, setSelectedIndicatorFilters] = useState([]);
+  // Lazy loading state - track visible items for each section
+  const [visibleStrategies, setVisibleStrategies] = useState(8);
+  const [visiblePropStrategies, setVisiblePropStrategies] = useState(6);
+  const [visibleIndicators, setVisibleIndicators] = useState(8);
+  const [imageLoadedStates, setImageLoadedStates] = useState({});
   const elapsedTimeRef = useRef(0);
   const videoRef = useRef(null);
   const prevReducedMotionRef = useRef(prefersReducedMotion);
@@ -277,6 +282,31 @@ export function LandingPage() {
       const indicatorCategories = indicator.categories || [];
       return indicatorCategories.includes(filter);
     }).length;
+  };
+
+  // Lazy loading helpers
+  const loadMoreStrategies = () => {
+    setVisibleStrategies((prev) => prev + 8);
+  };
+
+  const loadMorePropStrategies = () => {
+    setVisiblePropStrategies((prev) => prev + 6);
+  };
+
+  const loadMoreIndicators = () => {
+    setVisibleIndicators((prev) => prev + 8);
+  };
+
+  // Reset visible counts when filters change
+  useEffect(() => {
+    setVisibleStrategies(8);
+    setVisiblePropStrategies(6);
+    setVisibleIndicators(8);
+  }, [selectedFilters, selectedIndicatorFilters, activeTab]);
+
+  // Handle image load for LQIP
+  const handleImageLoad = (imageId) => {
+    setImageLoadedStates((prev) => ({ ...prev, [imageId]: true }));
   };
 
   // Reset elapsed time and progress when video changes
@@ -1486,55 +1516,89 @@ export function LandingPage() {
                         id="prop-focused-content"
                         className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
                       >
-                        {filterStrategies(propFocusedStrategies).map(
-                          (strategy) => (
-                            <div
-                              key={strategy.name}
-                              className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
-                            >
-                              <h3 className="text-xl font-semibold mb-2 flex items-center">
-                                {strategy.name}
-                                {strategy.isNew && (
-                                  <span
-                                    className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                                    aria-label="New"
-                                  >
-                                    NEW!
-                                  </span>
-                                )}
-                              </h3>
-                              <ul className="list-disc list-inside mb-4">
-                                {strategy?.features?.map((feature) => (
-                                  <li key={feature}>{feature}</li>
-                                ))}
-                              </ul>
-                              {strategy?.backtestUrl && (
-                                <Link
-                                  to={strategy.backtestUrl}
-                                  className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
-                                  aria-label={`View backtest results for ${strategy.name}`}
-                                >
-                                  View Backtest
-                                </Link>
-                              )}
-                              <div className="flex flex-col w-full">
-                                {Array.isArray(strategy.images) &&
-                                  strategy.images.map((imgSrc, idx) =>
-                                    // Comment out second image (idx === 1) for NinjaTrader strategies
-                                    idx === 1 ? null : (
-                                      <img
-                                        key={`${strategy.name}-${idx}`}
-                                        src={imgSrc}
-                                        alt={`Screenshot of ${strategy.name} strategy interface showing trading indicators and signals`}
-                                        className="w-full h-auto rounded-lg mb-4"
-                                      />
-                                    )
+                        {filterStrategies(propFocusedStrategies)
+                          .slice(0, visiblePropStrategies)
+                          .map((strategy) => {
+                            return (
+                              <div
+                                key={strategy.name}
+                                className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
+                              >
+                                <h3 className="text-xl font-semibold mb-2 flex items-center">
+                                  {strategy.name}
+                                  {strategy.isNew && (
+                                    <span
+                                      className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                                      aria-label="New"
+                                    >
+                                      NEW!
+                                    </span>
                                   )}
+                                </h3>
+                                <ul className="list-disc list-inside mb-4">
+                                  {strategy?.features?.map((feature) => (
+                                    <li key={feature}>{feature}</li>
+                                  ))}
+                                </ul>
+                                {strategy?.backtestUrl && (
+                                  <Link
+                                    to={strategy.backtestUrl}
+                                    className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
+                                    aria-label={`View backtest results for ${strategy.name}`}
+                                  >
+                                    View Backtest
+                                  </Link>
+                                )}
+                                <div className="flex flex-col w-full relative">
+                                  {Array.isArray(strategy.images) &&
+                                    strategy.images.map((imgSrc, idx) => {
+                                      // Comment out second image (idx === 1) for NinjaTrader strategies
+                                      if (idx === 1) return null;
+                                      const imageId = `prop-${strategy.name}-${idx}`;
+                                      const isImageLoaded =
+                                        imageLoadedStates[imageId];
+                                      return (
+                                        <div
+                                          key={`${strategy.name}-${idx}`}
+                                          className="relative w-full"
+                                        >
+                                          {/* LQIP placeholder */}
+                                          {!isImageLoaded && (
+                                            <div className="absolute inset-0 bg-gray-700 rounded-lg mb-4 animate-pulse" />
+                                          )}
+                                          <img
+                                            src={imgSrc}
+                                            alt={`Screenshot of ${strategy.name} strategy interface showing trading indicators and signals`}
+                                            className={`w-full h-auto rounded-lg mb-4 transition-opacity duration-300 ${
+                                              isImageLoaded
+                                                ? "opacity-100"
+                                                : "opacity-0"
+                                            }`}
+                                            loading="lazy"
+                                            onLoad={() =>
+                                              handleImageLoad(imageId)
+                                            }
+                                          />
+                                        </div>
+                                      );
+                                    })}
+                                </div>
                               </div>
-                            </div>
-                          )
-                        )}
+                            );
+                          })}
                       </div>
+                      {filterStrategies(propFocusedStrategies).length >
+                        visiblePropStrategies && (
+                        <div className="flex justify-center mt-6">
+                          <button
+                            onClick={loadMorePropStrategies}
+                            className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300"
+                            aria-label="Load more prop-focused strategies"
+                          >
+                            Load More Strategies
+                          </button>
+                        </div>
+                      )}
                     </>
                   )}
                 </section>
@@ -1616,52 +1680,87 @@ export function LandingPage() {
                         id="tv-prop-focused-content"
                         className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
                       >
-                        {filterStrategies(tvPropFocusedStrategies).map(
-                          (strategy) => (
-                            <div
-                              key={strategy.name}
-                              className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
-                            >
-                              <h3 className="text-xl font-semibold mb-2 flex items-center">
-                                {strategy.name}
-                                {strategy.isNew && (
-                                  <span
-                                    className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                                    aria-label="New"
-                                  >
-                                    NEW!
-                                  </span>
-                                )}
-                              </h3>
-                              <ul className="list-disc list-inside mb-4">
-                                {strategy?.features?.map((feature) => (
-                                  <li key={feature}>{feature}</li>
-                                ))}
-                              </ul>
-                              {strategy?.backtestUrl && (
-                                <Link
-                                  to={strategy.backtestUrl}
-                                  className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
-                                  aria-label={`View backtest results for ${strategy.name}`}
-                                >
-                                  View Backtest
-                                </Link>
-                              )}
-                              <div className="flex flex-col w-full">
-                                {Array.isArray(strategy.images) &&
-                                  strategy.images.map((imgSrc, idx) => (
-                                    <img
-                                      key={`${strategy.name}-${idx}`}
-                                      src={imgSrc}
-                                      alt={`Screenshot of ${strategy.name} strategy interface showing trading indicators and signals`}
-                                      className="w-full h-auto rounded-lg mb-4"
-                                    />
+                        {filterStrategies(tvPropFocusedStrategies)
+                          .slice(0, visiblePropStrategies)
+                          .map((strategy) => {
+                            return (
+                              <div
+                                key={strategy.name}
+                                className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
+                              >
+                                <h3 className="text-xl font-semibold mb-2 flex items-center">
+                                  {strategy.name}
+                                  {strategy.isNew && (
+                                    <span
+                                      className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                                      aria-label="New"
+                                    >
+                                      NEW!
+                                    </span>
+                                  )}
+                                </h3>
+                                <ul className="list-disc list-inside mb-4">
+                                  {strategy?.features?.map((feature) => (
+                                    <li key={feature}>{feature}</li>
                                   ))}
+                                </ul>
+                                {strategy?.backtestUrl && (
+                                  <Link
+                                    to={strategy.backtestUrl}
+                                    className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
+                                    aria-label={`View backtest results for ${strategy.name}`}
+                                  >
+                                    View Backtest
+                                  </Link>
+                                )}
+                                <div className="flex flex-col w-full relative">
+                                  {Array.isArray(strategy.images) &&
+                                    strategy.images.map((imgSrc, idx) => {
+                                      const imageId = `tv-prop-${strategy.name}-${idx}`;
+                                      const isImgLoaded =
+                                        imageLoadedStates[imageId];
+                                      return (
+                                        <div
+                                          key={`${strategy.name}-${idx}`}
+                                          className="relative w-full"
+                                        >
+                                          {/* LQIP placeholder */}
+                                          {!isImgLoaded && (
+                                            <div className="absolute inset-0 bg-gray-700 rounded-lg mb-4 animate-pulse" />
+                                          )}
+                                          <img
+                                            src={imgSrc}
+                                            alt={`Screenshot of ${strategy.name} strategy interface showing trading indicators and signals`}
+                                            className={`w-full h-auto rounded-lg mb-4 transition-opacity duration-300 ${
+                                              isImgLoaded
+                                                ? "opacity-100"
+                                                : "opacity-0"
+                                            }`}
+                                            loading="lazy"
+                                            onLoad={() =>
+                                              handleImageLoad(imageId)
+                                            }
+                                          />
+                                        </div>
+                                      );
+                                    })}
+                                </div>
                               </div>
-                            </div>
-                          )
-                        )}
+                            );
+                          })}
                       </div>
+                      {filterStrategies(tvPropFocusedStrategies).length >
+                        visiblePropStrategies && (
+                        <div className="flex justify-center mt-6">
+                          <button
+                            onClick={loadMorePropStrategies}
+                            className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300"
+                            aria-label="Load more prop-focused strategies"
+                          >
+                            Load More Strategies
+                          </button>
+                        </div>
+                      )}
                     </>
                   )}
                 </section>
@@ -1742,54 +1841,94 @@ export function LandingPage() {
                       id="strategies-content"
                       className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
                     >
-                      {filterStrategies(currentStrategies).map((strategy) => (
-                        <div
-                          key={strategy.name}
-                          className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
-                        >
-                          <h3 className="text-xl font-semibold mb-2 flex items-center">
-                            {strategy.name}
-                            {strategy.isNew && (
-                              <span
-                                className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                                aria-label="New"
-                              >
-                                NEW!
-                              </span>
-                            )}
-                          </h3>
-                          <ul className="list-disc list-inside mb-4">
-                            {strategy?.features?.map((feature) => (
-                              <li key={feature}>{feature}</li>
-                            ))}
-                          </ul>
-                          {strategy?.backtestUrl && (
-                            <Link
-                              to={strategy.backtestUrl}
-                              className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
-                              aria-label={`View backtest results for ${strategy.name}`}
+                      {filterStrategies(currentStrategies)
+                        .slice(0, visibleStrategies)
+                        .map((strategy) => {
+                          const imageId = `strategy-${strategy.name}`;
+                          return (
+                            <div
+                              key={strategy.name}
+                              className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
                             >
-                              View Backtest
-                            </Link>
-                          )}
-                          <div className="flex flex-col w-full">
-                            {Array.isArray(strategy.images) &&
-                              strategy.images.map((imgSrc, idx) =>
-                                // Comment out second image (idx === 1) for NinjaTrader strategies
-                                activeTab === "NinjaTrader" &&
-                                idx === 1 ? null : (
-                                  <img
-                                    key={`${strategy.name}-${idx}`}
-                                    src={imgSrc}
-                                    alt={`Screenshot of ${strategy.name} strategy interface showing trading indicators and signals`}
-                                    className="w-full h-auto rounded-lg mb-4"
-                                  />
-                                )
+                              <h3 className="text-xl font-semibold mb-2 flex items-center">
+                                {strategy.name}
+                                {strategy.isNew && (
+                                  <span
+                                    className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                                    aria-label="New"
+                                  >
+                                    NEW!
+                                  </span>
+                                )}
+                              </h3>
+                              <ul className="list-disc list-inside mb-4">
+                                {strategy?.features?.map((feature) => (
+                                  <li key={feature}>{feature}</li>
+                                ))}
+                              </ul>
+                              {strategy?.backtestUrl && (
+                                <Link
+                                  to={strategy.backtestUrl}
+                                  className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
+                                  aria-label={`View backtest results for ${strategy.name}`}
+                                >
+                                  View Backtest
+                                </Link>
                               )}
-                          </div>
-                        </div>
-                      ))}
+                              <div className="flex flex-col w-full relative">
+                                {Array.isArray(strategy.images) &&
+                                  strategy.images.map((imgSrc, idx) => {
+                                    // Comment out second image (idx === 1) for NinjaTrader strategies
+                                    if (
+                                      activeTab === "NinjaTrader" &&
+                                      idx === 1
+                                    )
+                                      return null;
+                                    const uniqueImageId = `${imageId}-${idx}`;
+                                    const isImgLoaded =
+                                      imageLoadedStates[uniqueImageId];
+                                    return (
+                                      <div
+                                        key={`${strategy.name}-${idx}`}
+                                        className="relative w-full"
+                                      >
+                                        {/* LQIP placeholder */}
+                                        {!isImgLoaded && (
+                                          <div className="absolute inset-0 bg-gray-700 rounded-lg mb-4 animate-pulse" />
+                                        )}
+                                        <img
+                                          src={imgSrc}
+                                          alt={`Screenshot of ${strategy.name} strategy interface showing trading indicators and signals`}
+                                          className={`w-full h-auto rounded-lg mb-4 transition-opacity duration-300 ${
+                                            isImgLoaded
+                                              ? "opacity-100"
+                                              : "opacity-0"
+                                          }`}
+                                          loading="lazy"
+                                          onLoad={() =>
+                                            handleImageLoad(uniqueImageId)
+                                          }
+                                        />
+                                      </div>
+                                    );
+                                  })}
+                              </div>
+                            </div>
+                          );
+                        })}
                     </div>
+                    {filterStrategies(currentStrategies).length >
+                      visibleStrategies && (
+                      <div className="flex justify-center mt-6">
+                        <button
+                          onClick={loadMoreStrategies}
+                          className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300"
+                          aria-label="Load more strategies"
+                        >
+                          Load More Strategies
+                        </button>
+                      </div>
+                    )}
                   </>
                 )}
               </section>
@@ -1871,35 +2010,63 @@ export function LandingPage() {
                       id="indicators-content"
                       className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8"
                     >
-                      {filterIndicators(currentIndicators).map((indicator) => (
-                        <div
-                          key={indicator.name}
-                          className="bg-gray-800 rounded-lg p-4 flex flex-col items-center relative"
-                        >
-                          <h3 className="text-xl font-semibold mb-2 flex items-center">
-                            {indicator.name}
-                            {indicator.isNew && (
-                              <span
-                                className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                                aria-label="New"
-                              >
-                                NEW!
-                              </span>
-                            )}
-                          </h3>
-                          <ul className="list-disc list-inside mb-4">
-                            {indicator?.features?.map((feature) => (
-                              <li key={feature}>{feature}</li>
-                            ))}
-                          </ul>
-                          <img
-                            src={indicator.image}
-                            alt={`Screenshot of ${indicator.name} indicator showing trading signals and market analysis`}
-                            className="w-full h-auto rounded-lg mb-4"
-                          />
-                        </div>
-                      ))}
+                      {filterIndicators(currentIndicators)
+                        .slice(0, visibleIndicators)
+                        .map((indicator) => {
+                          const imageId = `indicator-${indicator.name}`;
+                          const isImageLoaded = imageLoadedStates[imageId];
+                          return (
+                            <div
+                              key={indicator.name}
+                              className="bg-gray-800 rounded-lg p-4 flex flex-col items-center relative"
+                            >
+                              <h3 className="text-xl font-semibold mb-2 flex items-center">
+                                {indicator.name}
+                                {indicator.isNew && (
+                                  <span
+                                    className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                                    aria-label="New"
+                                  >
+                                    NEW!
+                                  </span>
+                                )}
+                              </h3>
+                              <ul className="list-disc list-inside mb-4">
+                                {indicator?.features?.map((feature) => (
+                                  <li key={feature}>{feature}</li>
+                                ))}
+                              </ul>
+                              <div className="relative w-full">
+                                {/* LQIP placeholder */}
+                                {!isImageLoaded && (
+                                  <div className="absolute inset-0 bg-gray-700 rounded-lg mb-4 animate-pulse" />
+                                )}
+                                <img
+                                  src={indicator.image}
+                                  alt={`Screenshot of ${indicator.name} indicator showing trading signals and market analysis`}
+                                  className={`w-full h-auto rounded-lg mb-4 transition-opacity duration-300 ${
+                                    isImageLoaded ? "opacity-100" : "opacity-0"
+                                  }`}
+                                  loading="lazy"
+                                  onLoad={() => handleImageLoad(imageId)}
+                                />
+                              </div>
+                            </div>
+                          );
+                        })}
                     </div>
+                    {filterIndicators(currentIndicators).length >
+                      visibleIndicators && (
+                      <div className="flex justify-center mt-6">
+                        <button
+                          onClick={loadMoreIndicators}
+                          className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300"
+                          aria-label="Load more indicators"
+                        >
+                          Load More Indicators
+                        </button>
+                      </div>
+                    )}
                   </>
                 )}
               </section>
