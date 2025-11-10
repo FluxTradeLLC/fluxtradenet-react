@@ -103,6 +103,8 @@ export function LandingPage() {
   const [isPaused, setIsPaused] = useState(prefersReducedMotion); // Start paused if reduced motion
   const [progress, setProgress] = useState(0);
   const [isVideoHovered, setIsVideoHovered] = useState(false);
+  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [selectedIndicatorFilters, setSelectedIndicatorFilters] = useState([]);
   const elapsedTimeRef = useRef(0);
   const videoRef = useRef(null);
   const prevReducedMotionRef = useRef(prefersReducedMotion);
@@ -122,7 +124,41 @@ export function LandingPage() {
   }, [prefersReducedMotion, isPaused]);
 
   const toggleSection = (section) => {
+    const isOpening = openSection !== section;
     setOpenSection(openSection === section ? null : section);
+
+    // Scroll to section title when opening
+    if (isOpening) {
+      // Use setTimeout to ensure DOM has updated before scrolling
+      setTimeout(() => {
+        let elementId;
+        if (section === "propFocused") {
+          elementId =
+            activeTab === "NinjaTrader"
+              ? "prop-focused-title"
+              : "tv-prop-focused-title";
+        } else {
+          elementId = `${section}-title`;
+        }
+
+        const element = document.getElementById(elementId);
+        if (element) {
+          // Get header height to account for fixed header
+          const header = document.querySelector("header");
+          const headerHeight = header ? header.offsetHeight + 50 : 150;
+
+          // Calculate scroll position with offset
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition =
+            elementPosition + window.pageYOffset - headerHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100); // Small delay to allow React to render the content
+    }
   };
 
   // Video carousel data
@@ -162,6 +198,84 @@ export function LandingPage() {
 
   const togglePause = () => {
     setIsPaused((prev) => !prev);
+  };
+
+  // Filter chips configuration
+  const filterOptions = [
+    "Trend",
+    "Mean Reversion",
+    "Scalping",
+    "Conservative",
+    "Prop-firm-safe",
+  ];
+
+  // Indicator filter chips configuration
+  const indicatorFilterOptions = [
+    "Trend",
+    "Momentum",
+    "Volatility",
+    "Levels",
+    "Signals",
+  ];
+
+  // Toggle filter selection
+  const toggleFilter = (filter) => {
+    setSelectedFilters((prev) =>
+      prev.includes(filter)
+        ? prev.filter((f) => f !== filter)
+        : [...prev, filter]
+    );
+  };
+
+  // Toggle indicator filter selection
+  const toggleIndicatorFilter = (filter) => {
+    setSelectedIndicatorFilters((prev) =>
+      prev.includes(filter)
+        ? prev.filter((f) => f !== filter)
+        : [...prev, filter]
+    );
+  };
+
+  // Filter strategies based on selected filters
+  const filterStrategies = (strategyList) => {
+    if (selectedFilters.length === 0) {
+      return strategyList;
+    }
+    return strategyList.filter((strategy) => {
+      const strategyCategories = strategy.categories || [];
+      return selectedFilters.some((filter) =>
+        strategyCategories.includes(filter)
+      );
+    });
+  };
+
+  // Filter indicators based on selected filters
+  const filterIndicators = (indicatorList) => {
+    if (selectedIndicatorFilters.length === 0) {
+      return indicatorList;
+    }
+    return indicatorList.filter((indicator) => {
+      const indicatorCategories = indicator.categories || [];
+      return selectedIndicatorFilters.some((filter) =>
+        indicatorCategories.includes(filter)
+      );
+    });
+  };
+
+  // Count strategies matching a specific filter
+  const countStrategiesForFilter = (filter, strategyList) => {
+    return strategyList.filter((strategy) => {
+      const strategyCategories = strategy.categories || [];
+      return strategyCategories.includes(filter);
+    }).length;
+  };
+
+  // Count indicators matching a specific filter
+  const countIndicatorsForFilter = (filter, indicatorList) => {
+    return indicatorList.filter((indicator) => {
+      const indicatorCategories = indicator.categories || [];
+      return indicatorCategories.includes(filter);
+    }).length;
   };
 
   // Reset elapsed time and progress when video changes
@@ -246,6 +360,7 @@ export function LandingPage() {
         "Great for exits",
       ],
       isNew: true,
+      categories: ["Levels", "Trend"],
     },
     {
       name: "Market Phase",
@@ -256,6 +371,7 @@ export function LandingPage() {
         "Easy to interpret",
       ],
       isNew: true,
+      categories: ["Trend", "Volatility"],
     },
     {
       name: "TTM Squeeze",
@@ -266,6 +382,7 @@ export function LandingPage() {
         "Visual histogram",
       ],
       isNew: true,
+      categories: ["Momentum", "Volatility"],
     },
     {
       name: "Volatility Cycle",
@@ -276,6 +393,7 @@ export function LandingPage() {
         "Pairs well with other indicators",
       ],
       isNew: true,
+      categories: ["Volatility"],
     },
 
     {
@@ -286,6 +404,7 @@ export function LandingPage() {
         "Get multiple confluences",
         "Buy and sell signals",
       ],
+      categories: ["Trend", "Signals"],
     },
     {
       name: "FluxPivot",
@@ -295,6 +414,7 @@ export function LandingPage() {
         "Add into existing positions",
         "Smart pivot detection",
       ],
+      categories: ["Trend", "Signals"],
     },
     {
       name: "FluxSignal",
@@ -304,6 +424,7 @@ export function LandingPage() {
         "Buy and sell signals",
         "Catch new trends as they start",
       ],
+      categories: ["Trend", "Signals"],
     },
     {
       name: "Market Regime",
@@ -313,6 +434,7 @@ export function LandingPage() {
         "High and low volatility",
         "Sideways or trending",
       ],
+      categories: ["Volatility", "Trend"],
     },
     {
       name: "Parabolic RSI",
@@ -322,6 +444,7 @@ export function LandingPage() {
         "Paired with Ultimate Entry Indicator",
         "Overbought and oversold areas",
       ],
+      categories: ["Momentum", "Signals"],
     },
     {
       name: "Previous Levels",
@@ -331,6 +454,7 @@ export function LandingPage() {
         "Trade reversals and breakouts",
         "Yesterday, premarket, and opening range",
       ],
+      categories: ["Levels"],
     },
   ];
 
@@ -345,6 +469,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/orms",
       isNew: true,
+      categories: ["Scalping"],
     },
     {
       name: "Liquidity Sweep",
@@ -356,6 +481,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/liquidity-sweep",
       isNew: true,
+      categories: ["Scalping"],
     },
     {
       name: "Slow and Steady",
@@ -367,6 +493,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/slow-and-steady",
       isNew: true,
+      categories: ["Conservative"],
     },
     {
       name: "Super Momentum",
@@ -378,6 +505,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/super-momentum",
       isNew: true,
+      categories: ["Trend"],
     },
     {
       name: "Donchian Turtle",
@@ -389,6 +517,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/donchian-turtle",
       isNew: true,
+      categories: ["Trend"],
     },
     {
       name: "IchimokoStrat",
@@ -400,6 +529,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/ichimoko-strat",
       isNew: true,
+      categories: ["Trend"],
     },
     {
       name: "KeltnerStrat",
@@ -411,6 +541,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/keltner-strat",
       isNew: true,
+      categories: ["Mean Reversion", "Trend"],
     },
     {
       name: "Future Prediction Server",
@@ -422,6 +553,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/future-prediction-server",
       isNew: true,
+      categories: ["Trend"],
     },
     {
       name: "Quad Confluence",
@@ -433,6 +565,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/quad-confluence",
       isNew: true,
+      categories: ["Trend"],
     },
     {
       name: "Holy Grail Adaptive",
@@ -444,6 +577,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/holy-grail",
       isNew: true,
+      categories: ["Trend"],
     },
     {
       name: "ElliotWave",
@@ -455,6 +589,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/elliot-wave",
       isNew: true,
+      categories: ["Trend"],
     },
     {
       name: "ICC ChoCh",
@@ -465,6 +600,7 @@ export function LandingPage() {
         "Trend continuation and reversal logic",
       ],
       backtestUrl: "/backtests/icc-choch",
+      categories: ["Trend"],
     },
     {
       name: "Low Volatility",
@@ -475,6 +611,7 @@ export function LandingPage() {
         "Captures squeeze expansions",
       ],
       backtestUrl: "/backtests/low-volatility",
+      categories: ["Mean Reversion"],
     },
     {
       name: "Project Gamma",
@@ -485,6 +622,7 @@ export function LandingPage() {
         "Great on indices and futures",
       ],
       backtestUrl: "/backtests/project-gamma",
+      categories: ["Trend"],
     },
     {
       name: "TrendCatcher",
@@ -495,6 +633,7 @@ export function LandingPage() {
         "Multi-timeframe confirmation",
       ],
       backtestUrl: "/backtests/trend-catcher",
+      categories: ["Trend"],
     },
     {
       name: "ORB (Opening Range Break)",
@@ -506,6 +645,7 @@ export function LandingPage() {
         "Great for volatility and momentum",
       ],
       backtestUrl: "/backtests/orb",
+      categories: ["Trend", "Scalping"],
     },
     {
       name: "CointegratedPairs",
@@ -516,6 +656,7 @@ export function LandingPage() {
         "Dynamic Z-Score entries and exits",
       ],
       backtestUrl: "/backtests/cointegrated-pairs",
+      categories: ["Mean Reversion"],
     },
     {
       name: "RileySR",
@@ -526,6 +667,7 @@ export function LandingPage() {
         "Volume and RSI confirmation",
       ],
       backtestUrl: "/backtests/riley-sr",
+      categories: ["Trend"],
     },
     {
       name: "FluxLightning",
@@ -536,6 +678,7 @@ export function LandingPage() {
         "Long and short signals",
       ],
       backtestUrl: "/backtests/flux-lightning",
+      categories: ["Trend"],
     },
     {
       name: "FluxPivot Strategy",
@@ -546,6 +689,7 @@ export function LandingPage() {
         "Works great with FluxPivot indicator",
       ],
       backtestUrl: "/backtests/flux-pivot-strat",
+      categories: ["Trend"],
     },
     {
       name: "FluxSignal Strategy",
@@ -556,6 +700,7 @@ export function LandingPage() {
         "Simple to use",
       ],
       backtestUrl: "/backtests/flux-signal-strat",
+      categories: ["Trend"],
     },
     {
       name: "FluxTrident",
@@ -566,6 +711,7 @@ export function LandingPage() {
         "Identifies strong trend continuations",
       ],
       backtestUrl: "/backtests/flux-trident",
+      categories: ["Trend", "Scalping"],
     },
   ];
 
@@ -581,6 +727,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/centauri",
       isNew: true,
+      categories: ["Prop-firm-safe"],
     },
     {
       name: "Mars",
@@ -592,6 +739,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/mars",
       isNew: true,
+      categories: ["Prop-firm-safe", "Trend"],
     },
     {
       name: "Moon",
@@ -603,6 +751,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/moon",
       isNew: true,
+      categories: ["Prop-firm-safe", "Trend"],
     },
     {
       name: "Pluto",
@@ -614,6 +763,7 @@ export function LandingPage() {
       ],
       backtestUrl: "/backtests/pluto",
       isNew: true,
+      categories: ["Prop-firm-safe"],
     },
   ];
 
@@ -671,6 +821,8 @@ export function LandingPage() {
         ?.features,
       backtestUrl: propFocusedStrategies.find((s) => s.name === "Centauri")
         ?.backtestUrl,
+      categories: propFocusedStrategies.find((s) => s.name === "Centauri")
+        ?.categories,
       isNew: true,
     },
     {
@@ -679,6 +831,8 @@ export function LandingPage() {
       features: propFocusedStrategies.find((s) => s.name === "Mars")?.features,
       backtestUrl: propFocusedStrategies.find((s) => s.name === "Mars")
         ?.backtestUrl,
+      categories: propFocusedStrategies.find((s) => s.name === "Mars")
+        ?.categories,
       isNew: true,
     },
     {
@@ -687,6 +841,8 @@ export function LandingPage() {
       features: propFocusedStrategies.find((s) => s.name === "Moon")?.features,
       backtestUrl: propFocusedStrategies.find((s) => s.name === "Moon")
         ?.backtestUrl,
+      categories: propFocusedStrategies.find((s) => s.name === "Moon")
+        ?.categories,
       isNew: true,
     },
     {
@@ -695,6 +851,8 @@ export function LandingPage() {
       features: propFocusedStrategies.find((s) => s.name === "Pluto")?.features,
       backtestUrl: propFocusedStrategies.find((s) => s.name === "Pluto")
         ?.backtestUrl,
+      categories: propFocusedStrategies.find((s) => s.name === "Pluto")
+        ?.categories,
       isNew: true,
     },
   ];
@@ -703,67 +861,82 @@ export function LandingPage() {
     {
       name: "Dynamic Trend",
       image: tvDynamicTrend,
-      features: getIndicatorByName("DynamicTrend")?.features,
+      features: [
+        "Dynamic trendline",
+        "Support and resistance",
+        "Signals upon crosses",
+      ],
+      categories: ["Trend", "Levels", "Signals"],
       isNew: true,
     },
     {
       name: "FluxConfluence",
       image: tvFluxConfluence,
       features: getIndicatorByName("FluxConfluence")?.features,
+      categories: getIndicatorByName("FluxConfluence")?.categories,
       isNew: true,
     },
     {
       name: "FluxPivot",
       image: tvFluxPivot,
       features: getIndicatorByName("FluxPivot")?.features,
+      categories: getIndicatorByName("FluxPivot")?.categories,
       isNew: true,
     },
     {
       name: "FluxSignal",
       image: tvFluxSignal,
       features: getIndicatorByName("FluxSignal")?.features,
+      categories: getIndicatorByName("FluxSignal")?.categories,
       isNew: true,
     },
     {
       name: "Parabolic RSI",
       image: tvParabolicRSI,
       features: getIndicatorByName("Parabolic RSI")?.features,
+      categories: getIndicatorByName("Parabolic RSI")?.categories,
       isNew: true,
     },
     {
       name: "TTM Squeeze",
       image: tvTtmSqueeze,
       features: getIndicatorByName("TTM Squeeze")?.features,
+      categories: getIndicatorByName("TTM Squeeze")?.categories,
       isNew: true,
     },
     {
       name: "Volatility Cycle",
       image: tvVolatilityCycle,
       features: getIndicatorByName("Volatility Cycle")?.features,
+      categories: getIndicatorByName("Volatility Cycle")?.categories,
       isNew: true,
     },
     {
       name: "FluxTarget",
       image: tvFluxTarget,
       features: getIndicatorByName("FluxTarget")?.features,
+      categories: getIndicatorByName("FluxTarget")?.categories,
       isNew: true,
     },
     {
       name: "Market Phase",
       image: tvMarketPhase,
       features: getIndicatorByName("Market Phase")?.features,
+      categories: getIndicatorByName("Market Phase")?.categories,
       isNew: true,
     },
     {
       name: "Market Regime",
       image: tvMarketRegime,
       features: getIndicatorByName("Market Regime")?.features,
+      categories: getIndicatorByName("Market Regime")?.categories,
       isNew: true,
     },
     {
       name: "Previous Levels",
       image: tvPreviousLevels,
       features: getIndicatorByName("Previous Levels")?.features,
+      categories: getIndicatorByName("Previous Levels")?.categories,
       isNew: true,
     },
   ];
@@ -774,6 +947,7 @@ export function LandingPage() {
       images: [tvOrms],
       features: getStrategyByName("ORMS")?.features,
       backtestUrl: getStrategyByName("ORMS")?.backtestUrl,
+      categories: getStrategyByName("ORMS")?.categories,
       isNew: true,
     },
     {
@@ -781,6 +955,7 @@ export function LandingPage() {
       images: [tvDonchian],
       features: getStrategyByName("Donchian Turtle")?.features,
       backtestUrl: getStrategyByName("Donchian Turtle")?.backtestUrl,
+      categories: getStrategyByName("Donchian Turtle")?.categories,
       isNew: true,
     },
     {
@@ -788,6 +963,7 @@ export function LandingPage() {
       images: [tvFluxLightning],
       features: getStrategyByName("FluxLightning")?.features,
       backtestUrl: getStrategyByName("FluxLightning")?.backtestUrl,
+      categories: getStrategyByName("FluxLightning")?.categories,
       isNew: true,
     },
     {
@@ -795,6 +971,7 @@ export function LandingPage() {
       images: [tvFluxPivotStrat],
       features: getStrategyByName("FluxPivot Strategy")?.features,
       backtestUrl: getStrategyByName("FluxPivot Strategy")?.backtestUrl,
+      categories: getStrategyByName("FluxPivot Strategy")?.categories,
       isNew: true,
     },
     {
@@ -802,6 +979,7 @@ export function LandingPage() {
       images: [tvFluxSignalStrat],
       features: getStrategyByName("FluxSignal Strategy")?.features,
       backtestUrl: getStrategyByName("FluxSignal Strategy")?.backtestUrl,
+      categories: getStrategyByName("FluxSignal Strategy")?.categories,
       isNew: true,
     },
     // {
@@ -819,6 +997,7 @@ export function LandingPage() {
       images: [tvFluxTrident],
       features: getStrategyByName("FluxTrident")?.features,
       backtestUrl: getStrategyByName("FluxTrident")?.backtestUrl,
+      categories: getStrategyByName("FluxTrident")?.categories,
       isNew: true,
     },
     {
@@ -826,6 +1005,7 @@ export function LandingPage() {
       images: [tvIccCoch],
       features: getStrategyByName("ICC ChoCh")?.features,
       backtestUrl: getStrategyByName("ICC ChoCh")?.backtestUrl,
+      categories: getStrategyByName("ICC ChoCh")?.categories,
       isNew: true,
     },
     {
@@ -833,6 +1013,7 @@ export function LandingPage() {
       images: [tvIchimoko],
       features: getStrategyByName("IchimokoStrat")?.features,
       backtestUrl: getStrategyByName("IchimokoStrat")?.backtestUrl,
+      categories: getStrategyByName("IchimokoStrat")?.categories,
       isNew: true,
     },
     {
@@ -840,6 +1021,7 @@ export function LandingPage() {
       images: [tvKeltnerStrat],
       features: getStrategyByName("KeltnerStrat")?.features,
       backtestUrl: getStrategyByName("KeltnerStrat")?.backtestUrl,
+      categories: getStrategyByName("KeltnerStrat")?.categories,
       isNew: true,
     },
     {
@@ -847,6 +1029,7 @@ export function LandingPage() {
       images: [tvLowVolatility],
       features: getStrategyByName("Low Volatility")?.features,
       backtestUrl: getStrategyByName("Low Volatility")?.backtestUrl,
+      categories: getStrategyByName("Low Volatility")?.categories,
       isNew: true,
     },
     {
@@ -854,6 +1037,7 @@ export function LandingPage() {
       images: [tvOrb],
       features: getStrategyByName("ORB (Opening Range Break)")?.features,
       backtestUrl: getStrategyByName("ORB (Opening Range Break)")?.backtestUrl,
+      categories: getStrategyByName("ORB (Opening Range Break)")?.categories,
       isNew: true,
     },
     {
@@ -861,6 +1045,7 @@ export function LandingPage() {
       images: [tvProjectGamma],
       features: getStrategyByName("Project Gamma")?.features,
       backtestUrl: getStrategyByName("Project Gamma")?.backtestUrl,
+      categories: getStrategyByName("Project Gamma")?.categories,
       isNew: true,
     },
     {
@@ -868,6 +1053,7 @@ export function LandingPage() {
       images: [tvRileySR],
       features: getStrategyByName("RileySR")?.features,
       backtestUrl: getStrategyByName("RileySR")?.backtestUrl,
+      categories: getStrategyByName("RileySR")?.categories,
       isNew: true,
     },
     {
@@ -875,6 +1061,7 @@ export function LandingPage() {
       images: [tvSlowAndSteady],
       features: getStrategyByName("Slow and Steady")?.features,
       backtestUrl: getStrategyByName("Slow and Steady")?.backtestUrl,
+      categories: getStrategyByName("Slow and Steady")?.categories,
       isNew: true,
     },
     {
@@ -882,6 +1069,7 @@ export function LandingPage() {
       images: [tvSuperMomentum],
       features: getStrategyByName("Super Momentum")?.features,
       backtestUrl: getStrategyByName("Super Momentum")?.backtestUrl,
+      categories: getStrategyByName("Super Momentum")?.categories,
       isNew: true,
     },
     {
@@ -889,6 +1077,7 @@ export function LandingPage() {
       images: [liquiditySweep],
       features: getStrategyByName("Liquidity Sweep")?.features,
       backtestUrl: getStrategyByName("Liquidity Sweep")?.backtestUrl,
+      categories: getStrategyByName("Liquidity Sweep")?.categories,
       isNew: true,
     },
     {
@@ -896,6 +1085,7 @@ export function LandingPage() {
       images: [tvTrendCatcher],
       features: getStrategyByName("TrendCatcher")?.features,
       backtestUrl: getStrategyByName("TrendCatcher")?.backtestUrl,
+      categories: getStrategyByName("TrendCatcher")?.categories,
       isNew: true,
     },
   ];
@@ -932,10 +1122,13 @@ export function LandingPage() {
             </h2>
             <Link
               to="/pricing"
-              className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className={`inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg relative overflow-hidden ${prefersReducedMotion ? "" : "animate-pulse-glow"}`}
               aria-label="See it trade in 60 seconds - Go to pricing page"
             >
-              See it trade in 60s
+              <span className="relative z-10">See it trade in 60s</span>
+              {!prefersReducedMotion && (
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer bg-[length:200%_100%]"></span>
+              )}
             </Link>
           </div>
 
@@ -1207,6 +1400,7 @@ export function LandingPage() {
                   aria-labelledby="ninjatrader-tab"
                 >
                   <button
+                    id="prop-focused-title"
                     onClick={() => toggleSection("propFocused")}
                     className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
                     aria-expanded={openSection === "propFocused"}
@@ -1238,11 +1432,305 @@ export function LandingPage() {
                     </svg>
                   </button>
                   {openSection === "propFocused" && (
+                    <>
+                      {/* Filter Chips */}
+                      <div className="flex flex-wrap gap-2 justify-center mb-6">
+                        {filterOptions.map((filter) => {
+                          const count = countStrategiesForFilter(
+                            filter,
+                            propFocusedStrategies
+                          );
+                          if (count === 0) return null;
+                          return (
+                            <button
+                              key={filter}
+                              onClick={() => toggleFilter(filter)}
+                              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                                selectedFilters.includes(filter)
+                                  ? "bg-[#5865F2] text-white shadow-lg scale-105"
+                                  : "bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white"
+                              }`}
+                              aria-pressed={selectedFilters.includes(filter)}
+                              aria-label={`Filter by ${filter}`}
+                            >
+                              {filter} ({count})
+                            </button>
+                          );
+                        })}
+                        <button
+                          onClick={() => setSelectedFilters([])}
+                          disabled={selectedFilters.length === 0}
+                          className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                            selectedFilters.length > 0
+                              ? "bg-gray-600 text-gray-300 hover:bg-gray-500 hover:text-white"
+                              : "bg-gray-700 text-gray-500 cursor-not-allowed opacity-50"
+                          }`}
+                          aria-label="Clear all filters"
+                        >
+                          Clear Filters
+                        </button>
+                      </div>
+                      <div
+                        id="prop-focused-content"
+                        className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
+                      >
+                        {filterStrategies(propFocusedStrategies).map(
+                          (strategy) => (
+                            <div
+                              key={strategy.name}
+                              className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
+                            >
+                              <h3 className="text-xl font-semibold mb-2 flex items-center">
+                                {strategy.name}
+                                {strategy.isNew && (
+                                  <span
+                                    className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                                    aria-label="New"
+                                  >
+                                    NEW!
+                                  </span>
+                                )}
+                              </h3>
+                              <ul className="list-disc list-inside mb-4">
+                                {strategy?.features?.map((feature) => (
+                                  <li key={feature}>{feature}</li>
+                                ))}
+                              </ul>
+                              {strategy?.backtestUrl && (
+                                <Link
+                                  to={strategy.backtestUrl}
+                                  className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
+                                  aria-label={`View backtest results for ${strategy.name}`}
+                                >
+                                  View Backtest
+                                </Link>
+                              )}
+                              <div className="flex flex-col w-full">
+                                {Array.isArray(strategy.images) &&
+                                  strategy.images.map((imgSrc, idx) =>
+                                    // Comment out second image (idx === 1) for NinjaTrader strategies
+                                    idx === 1 ? null : (
+                                      <img
+                                        key={`${strategy.name}-${idx}`}
+                                        src={imgSrc}
+                                        alt={`Screenshot of ${strategy.name} strategy interface showing trading indicators and signals`}
+                                        className="w-full h-auto rounded-lg mb-4"
+                                      />
+                                    )
+                                  )}
+                              </div>
+                            </div>
+                          )
+                        )}
+                      </div>
+                    </>
+                  )}
+                </section>
+              )}
+              {activeTab === "TradingView" && (
+                <section id="tv-prop-focused-strategies" className="mb-12">
+                  <button
+                    id="tv-prop-focused-title"
+                    onClick={() => toggleSection("propFocused")}
+                    className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
+                    aria-expanded={openSection === "propFocused"}
+                    aria-controls="tv-prop-focused-content"
+                  >
+                    <div className="text-center">
+                      <h2 className="text-3xl font-bold mb-2">
+                        Prop Firm Focused Strategies
+                      </h2>
+                      <h3 className="text-2xl">
+                        Built for prop firm rules and consistency
+                      </h3>
+                    </div>
+                    <svg
+                      className={`w-6 h-6 transition-transform flex-shrink-0 ${
+                        openSection === "propFocused" ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                  {openSection === "propFocused" && (
+                    <>
+                      {/* Filter Chips */}
+                      <div className="flex flex-wrap gap-2 justify-center mb-6">
+                        {filterOptions.map((filter) => {
+                          const count = countStrategiesForFilter(
+                            filter,
+                            tvPropFocusedStrategies
+                          );
+                          if (count === 0) return null;
+                          return (
+                            <button
+                              key={filter}
+                              onClick={() => toggleFilter(filter)}
+                              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                                selectedFilters.includes(filter)
+                                  ? "bg-[#5865F2] text-white shadow-lg scale-105"
+                                  : "bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white"
+                              }`}
+                              aria-pressed={selectedFilters.includes(filter)}
+                              aria-label={`Filter by ${filter}`}
+                            >
+                              {filter} ({count})
+                            </button>
+                          );
+                        })}
+                        <button
+                          onClick={() => setSelectedFilters([])}
+                          disabled={selectedFilters.length === 0}
+                          className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                            selectedFilters.length > 0
+                              ? "bg-gray-600 text-gray-300 hover:bg-gray-500 hover:text-white"
+                              : "bg-gray-700 text-gray-500 cursor-not-allowed opacity-50"
+                          }`}
+                          aria-label="Clear all filters"
+                        >
+                          Clear Filters
+                        </button>
+                      </div>
+                      <div
+                        id="tv-prop-focused-content"
+                        className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
+                      >
+                        {filterStrategies(tvPropFocusedStrategies).map(
+                          (strategy) => (
+                            <div
+                              key={strategy.name}
+                              className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
+                            >
+                              <h3 className="text-xl font-semibold mb-2 flex items-center">
+                                {strategy.name}
+                                {strategy.isNew && (
+                                  <span
+                                    className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                                    aria-label="New"
+                                  >
+                                    NEW!
+                                  </span>
+                                )}
+                              </h3>
+                              <ul className="list-disc list-inside mb-4">
+                                {strategy?.features?.map((feature) => (
+                                  <li key={feature}>{feature}</li>
+                                ))}
+                              </ul>
+                              {strategy?.backtestUrl && (
+                                <Link
+                                  to={strategy.backtestUrl}
+                                  className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
+                                  aria-label={`View backtest results for ${strategy.name}`}
+                                >
+                                  View Backtest
+                                </Link>
+                              )}
+                              <div className="flex flex-col w-full">
+                                {Array.isArray(strategy.images) &&
+                                  strategy.images.map((imgSrc, idx) => (
+                                    <img
+                                      key={`${strategy.name}-${idx}`}
+                                      src={imgSrc}
+                                      alt={`Screenshot of ${strategy.name} strategy interface showing trading indicators and signals`}
+                                      className="w-full h-auto rounded-lg mb-4"
+                                    />
+                                  ))}
+                              </div>
+                            </div>
+                          )
+                        )}
+                      </div>
+                    </>
+                  )}
+                </section>
+              )}
+              <section id="strategies" className="">
+                <button
+                  id="strategies-title"
+                  onClick={() => toggleSection("strategies")}
+                  className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
+                  aria-expanded={openSection === "strategies"}
+                  aria-controls="strategies-content"
+                >
+                  <div className="text-center">
+                    <h2 className="text-3xl font-bold mb-2">
+                      Our Automated Strategies
+                    </h2>
+                    <h3 className="text-2xl">
+                      Highly customizable with automated entries and exits
+                    </h3>
+                  </div>
+                  <svg
+                    className={`w-6 h-6 transition-transform flex-shrink-0 ${
+                      openSection === "strategies" ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                {openSection === "strategies" && (
+                  <>
+                    {/* Filter Chips */}
+                    <div className="flex flex-wrap gap-2 justify-center mb-6">
+                      {filterOptions.map((filter) => {
+                        const count = countStrategiesForFilter(
+                          filter,
+                          currentStrategies
+                        );
+                        if (count === 0) return null;
+                        return (
+                          <button
+                            key={filter}
+                            onClick={() => toggleFilter(filter)}
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                              selectedFilters.includes(filter)
+                                ? "bg-[#5865F2] text-white shadow-lg scale-105"
+                                : "bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white"
+                            }`}
+                            aria-pressed={selectedFilters.includes(filter)}
+                            aria-label={`Filter by ${filter}`}
+                          >
+                            {filter} ({count})
+                          </button>
+                        );
+                      })}
+                      <button
+                        onClick={() => setSelectedFilters([])}
+                        disabled={selectedFilters.length === 0}
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                          selectedFilters.length > 0
+                            ? "bg-gray-600 text-gray-300 hover:bg-gray-500 hover:text-white"
+                            : "bg-gray-700 text-gray-500 cursor-not-allowed opacity-50"
+                        }`}
+                        aria-label="Clear all filters"
+                      >
+                        Clear Filters
+                      </button>
+                    </div>
                     <div
-                      id="prop-focused-content"
+                      id="strategies-content"
                       className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
                     >
-                      {propFocusedStrategies.map((strategy) => (
+                      {filterStrategies(currentStrategies).map((strategy) => (
                         <div
                           key={strategy.name}
                           className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
@@ -1276,6 +1764,7 @@ export function LandingPage() {
                             {Array.isArray(strategy.images) &&
                               strategy.images.map((imgSrc, idx) =>
                                 // Comment out second image (idx === 1) for NinjaTrader strategies
+                                activeTab === "NinjaTrader" &&
                                 idx === 1 ? null : (
                                   <img
                                     key={`${strategy.name}-${idx}`}
@@ -1289,184 +1778,13 @@ export function LandingPage() {
                         </div>
                       ))}
                     </div>
-                  )}
-                </section>
-              )}
-              {activeTab === "TradingView" && (
-                <section id="tv-prop-focused-strategies" className="mb-12">
-                  <button
-                    onClick={() => toggleSection("propFocused")}
-                    className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
-                    aria-expanded={openSection === "propFocused"}
-                    aria-controls="tv-prop-focused-content"
-                  >
-                    <div className="text-center">
-                      <h2 className="text-3xl font-bold mb-2">
-                        Prop Firm Focused Strategies
-                      </h2>
-                      <h3 className="text-2xl">
-                        Built for prop firm rules and consistency
-                      </h3>
-                    </div>
-                    <svg
-                      className={`w-6 h-6 transition-transform flex-shrink-0 ${
-                        openSection === "propFocused" ? "rotate-180" : ""
-                      }`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </button>
-                  {openSection === "propFocused" && (
-                    <div
-                      id="tv-prop-focused-content"
-                      className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
-                    >
-                      {tvPropFocusedStrategies.map((strategy) => (
-                        <div
-                          key={strategy.name}
-                          className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
-                        >
-                          <h3 className="text-xl font-semibold mb-2 flex items-center">
-                            {strategy.name}
-                            {strategy.isNew && (
-                              <span
-                                className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                                aria-label="New"
-                              >
-                                NEW!
-                              </span>
-                            )}
-                          </h3>
-                          <ul className="list-disc list-inside mb-4">
-                            {strategy?.features?.map((feature) => (
-                              <li key={feature}>{feature}</li>
-                            ))}
-                          </ul>
-                          {strategy?.backtestUrl && (
-                            <Link
-                              to={strategy.backtestUrl}
-                              className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
-                              aria-label={`View backtest results for ${strategy.name}`}
-                            >
-                              View Backtest
-                            </Link>
-                          )}
-                          <div className="flex flex-col w-full">
-                            {Array.isArray(strategy.images) &&
-                              strategy.images.map((imgSrc, idx) => (
-                                <img
-                                  key={`${strategy.name}-${idx}`}
-                                  src={imgSrc}
-                                  alt={`Screenshot of ${strategy.name} strategy interface showing trading indicators and signals`}
-                                  className="w-full h-auto rounded-lg mb-4"
-                                />
-                              ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </section>
-              )}
-              <section id="strategies" className="">
-                <button
-                  onClick={() => toggleSection("strategies")}
-                  className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
-                  aria-expanded={openSection === "strategies"}
-                  aria-controls="strategies-content"
-                >
-                  <div className="text-center">
-                    <h2 className="text-3xl font-bold mb-2">
-                      Our Automated Strategies
-                    </h2>
-                    <h3 className="text-2xl">
-                      Highly customizable with automated entries and exits
-                    </h3>
-                  </div>
-                  <svg
-                    className={`w-6 h-6 transition-transform flex-shrink-0 ${
-                      openSection === "strategies" ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                {openSection === "strategies" && (
-                  <div
-                    id="strategies-content"
-                    className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
-                  >
-                    {currentStrategies.map((strategy) => (
-                      <div
-                        key={strategy.name}
-                        className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
-                      >
-                        <h3 className="text-xl font-semibold mb-2 flex items-center">
-                          {strategy.name}
-                          {strategy.isNew && (
-                            <span
-                              className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                              aria-label="New"
-                            >
-                              NEW!
-                            </span>
-                          )}
-                        </h3>
-                        <ul className="list-disc list-inside mb-4">
-                          {strategy?.features?.map((feature) => (
-                            <li key={feature}>{feature}</li>
-                          ))}
-                        </ul>
-                        {strategy?.backtestUrl && (
-                          <Link
-                            to={strategy.backtestUrl}
-                            className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded mb-4 transition-colors duration-300"
-                            aria-label={`View backtest results for ${strategy.name}`}
-                          >
-                            View Backtest
-                          </Link>
-                        )}
-                        <div className="flex flex-col w-full">
-                          {Array.isArray(strategy.images) &&
-                            strategy.images.map((imgSrc, idx) =>
-                              // Comment out second image (idx === 1) for NinjaTrader strategies
-                              activeTab === "NinjaTrader" &&
-                              idx === 1 ? null : (
-                                <img
-                                  key={`${strategy.name}-${idx}`}
-                                  src={imgSrc}
-                                  alt={`Screenshot of ${strategy.name} strategy interface showing trading indicators and signals`}
-                                  className="w-full h-auto rounded-lg mb-4"
-                                />
-                              )
-                            )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  </>
                 )}
               </section>
 
               <section id="indicators" className="my-12 mt-16">
                 <button
+                  id="indicators-title"
                   onClick={() => toggleSection("indicators")}
                   className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
                   aria-expanded={openSection === "indicators"}
@@ -1497,44 +1815,86 @@ export function LandingPage() {
                   </svg>
                 </button>
                 {openSection === "indicators" && (
-                  <div
-                    id="indicators-content"
-                    className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8"
-                  >
-                    {currentIndicators.map((indicator) => (
-                      <div
-                        key={indicator.name}
-                        className="bg-gray-800 rounded-lg p-4 flex flex-col items-center relative"
+                  <>
+                    {/* Filter Chips */}
+                    <div className="flex flex-wrap gap-2 justify-center mb-6">
+                      {indicatorFilterOptions.map((filter) => {
+                        const count = countIndicatorsForFilter(
+                          filter,
+                          currentIndicators
+                        );
+                        if (count === 0) return null;
+                        return (
+                          <button
+                            key={filter}
+                            onClick={() => toggleIndicatorFilter(filter)}
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                              selectedIndicatorFilters.includes(filter)
+                                ? "bg-[#5865F2] text-white shadow-lg scale-105"
+                                : "bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white"
+                            }`}
+                            aria-pressed={selectedIndicatorFilters.includes(
+                              filter
+                            )}
+                            aria-label={`Filter by ${filter}`}
+                          >
+                            {filter} ({count})
+                          </button>
+                        );
+                      })}
+                      <button
+                        onClick={() => setSelectedIndicatorFilters([])}
+                        disabled={selectedIndicatorFilters.length === 0}
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                          selectedIndicatorFilters.length > 0
+                            ? "bg-gray-600 text-gray-300 hover:bg-gray-500 hover:text-white"
+                            : "bg-gray-700 text-gray-500 cursor-not-allowed opacity-50"
+                        }`}
+                        aria-label="Clear all filters"
                       >
-                        <h3 className="text-xl font-semibold mb-2 flex items-center">
-                          {indicator.name}
-                          {indicator.isNew && (
-                            <span
-                              className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                              aria-label="New"
-                            >
-                              NEW!
-                            </span>
-                          )}
-                        </h3>
-                        <ul className="list-disc list-inside mb-4">
-                          {indicator?.features?.map((feature) => (
-                            <li key={feature}>{feature}</li>
-                          ))}
-                        </ul>
-                        <img
-                          src={indicator.image}
-                          alt={`Screenshot of ${indicator.name} indicator showing trading signals and market analysis`}
-                          className="w-full h-auto rounded-lg mb-4"
-                        />
-                      </div>
-                    ))}
-                  </div>
+                        Clear Filters
+                      </button>
+                    </div>
+                    <div
+                      id="indicators-content"
+                      className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8"
+                    >
+                      {filterIndicators(currentIndicators).map((indicator) => (
+                        <div
+                          key={indicator.name}
+                          className="bg-gray-800 rounded-lg p-4 flex flex-col items-center relative"
+                        >
+                          <h3 className="text-xl font-semibold mb-2 flex items-center">
+                            {indicator.name}
+                            {indicator.isNew && (
+                              <span
+                                className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
+                                aria-label="New"
+                              >
+                                NEW!
+                              </span>
+                            )}
+                          </h3>
+                          <ul className="list-disc list-inside mb-4">
+                            {indicator?.features?.map((feature) => (
+                              <li key={feature}>{feature}</li>
+                            ))}
+                          </ul>
+                          <img
+                            src={indicator.image}
+                            alt={`Screenshot of ${indicator.name} indicator showing trading signals and market analysis`}
+                            className="w-full h-auto rounded-lg mb-4"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </>
                 )}
               </section>
 
               <section id="wins" className="my-12 mt-16">
                 <button
+                  id="wins-title"
                   onClick={() => toggleSection("wins")}
                   className="w-full flex items-center justify-center gap-4 mb-4 hover:opacity-80 transition-opacity"
                   aria-expanded={openSection === "wins"}
