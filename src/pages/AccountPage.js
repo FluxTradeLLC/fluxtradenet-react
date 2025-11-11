@@ -47,14 +47,14 @@ export const AccountPage = () => {
       <h1 className="text-5xl font-extrabold mb-4 text-center">Account</h1>
       {hasSession ? (
         <div className="max-w-lg mx-auto text-center">
-          {userEmail && (
-            <p className="text-lg">Logged in as: {userEmail}</p>
-          )}
+          {userEmail && <p className="text-lg">Logged in as: {userEmail}</p>}
           <div className="flex justify-center items-center">
             <div className="mt-4 flex flex-col gap-4 justify-center items-center">
               {!isPaid ? (
                 <>
-                  <h3 className="text-2xl font-bold mt-8 text-center">Sign up for a plan</h3>
+                  <h3 className="text-2xl font-bold mt-8 text-center">
+                    Sign up for a plan
+                  </h3>
                   <p>Each plan offers a 30 day free trial!</p>
                   <Link
                     to="/pricing"
@@ -62,25 +62,32 @@ export const AccountPage = () => {
                     style={{
                       textDecoration: "none",
                       backgroundSize: "200% 200%",
-                      animation: prefersReducedMotion ? "none" : "soft-gradient-x 3s ease-in-out infinite",
+                      animation: prefersReducedMotion
+                        ? "none"
+                        : "soft-gradient-x 3s ease-in-out infinite",
                     }}
                   >
                     <span>Select a Plan</span>
                   </Link>
                 </>
               ) : null}
-              <h3 className="text-2xl font-bold mt-8 text-center">Subscription Settings</h3>
-              <p>Log into the Stripe customer portal to manage your subscription, update your payment method, or cancel your subscription.</p>
+              <h3 className="text-2xl font-bold mt-8 text-center">
+                Subscription Settings
+              </h3>
+              <p>
+                Log into the Stripe customer portal to manage your subscription,
+                update your payment method, or cancel your subscription.
+              </p>
               <button
                 onClick={handleCustomerPortal}
-                disabled={!isPaid}
+                // disabled={!isPaid}
                 className={`font-bold px-4 py-2 rounded-lg ${
                   isPaid
                     ? "bg-[#5865F2] text-white hover:bg-[#4752C4]"
                     : "bg-gray-500 text-gray-300 cursor-not-allowed"
                 }`}
                 aria-label="Manage subscription settings in Stripe customer portal"
-                aria-disabled={!isPaid}
+                // aria-disabled={!isPaid}
               >
                 Subscription Settings
               </button>
@@ -91,7 +98,11 @@ export const AccountPage = () => {
         </div>
       ) : (
         <div className="max-w-md mx-auto">
-          <div className="flex border-b border-gray-700" role="tablist" aria-label="Account authentication">
+          <div
+            className="flex border-b border-gray-700"
+            role="tablist"
+            aria-label="Account authentication"
+          >
             <button
               onClick={() => setActiveTab("signin")}
               role="tab"
@@ -119,7 +130,11 @@ export const AccountPage = () => {
               Sign Up
             </button>
           </div>
-          <div className="pt-8" role="tabpanel" id={activeTab === "signin" ? "signin-panel" : "signup-panel"}>
+          <div
+            className="pt-8"
+            role="tabpanel"
+            id={activeTab === "signin" ? "signin-panel" : "signup-panel"}
+          >
             {activeTab === "signin" ? <SignIn /> : <SignUp />}
           </div>
         </div>
