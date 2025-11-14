@@ -69,8 +69,8 @@ export function PaymentPostPurchasePage() {
             </p>
             <p className="mt-6">
               Access to TradingView scripts is fully automated, but takes around
-              30 minutes. Access to NinjaTrader licenses is a manual process,
-              and will occur during the day in the US Eastern timezone.
+              30 minutes. Access to NinjaTrader licenses is also fully
+              automated, and only takes a few minutes.
             </p>
             <p className="mt-6">
               Join the{" "}
