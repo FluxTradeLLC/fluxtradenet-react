@@ -147,7 +147,6 @@ export function PaymentPostPurchasePage() {
                   placeholder="your@email.com"
                   value={ntEmail}
                   onChange={(e) => setNtEmail(e.target.value)}
-                  required
                 />
               </label>
               <label className="flex flex-col text-left">
