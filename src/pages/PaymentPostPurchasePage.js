@@ -68,9 +68,10 @@ export function PaymentPostPurchasePage() {
               on how to download and install the Add-ons. 🚀
             </p>
             <p className="mt-6">
-              Access to TradingView scripts is fully automated, but takes around
-              30 minutes. Access to NinjaTrader licenses is also fully
-              automated, and only takes a few minutes.
+              Access to TradingView scripts is semi automated, takes around 30
+              minutes, and will be started during the next business day in US
+              Eastern. Access to NinjaTrader licenses is fully automated, and
+              only takes a few minutes.
             </p>
             <p className="mt-6">
               Join the{" "}
