@@ -16,7 +16,9 @@ import {
 } from "recharts";
 
 const BACKTEST_FILES = [
+  "averageBounce.csv",
   "centauri.csv",
+  "chatGpt.csv",
   "cointegratedPairs.csv",
   "donchianTurtle.csv",
   "elliotWave.csv",
@@ -32,6 +34,7 @@ const BACKTEST_FILES = [
   "liquiditySweep.csv",
   "lowVolatility.csv",
   "mars.csv",
+  "megaBands.csv",
   "moon.csv",
   "orb.csv",
   "orms.csv",
@@ -40,6 +43,7 @@ const BACKTEST_FILES = [
   "quadConfluence.csv",
   "rileySR.csv",
   "slowAndSteady.csv",
+  "stopHunter.csv",
   "superMomentum.csv",
   "trendCatcher.csv",
 ];

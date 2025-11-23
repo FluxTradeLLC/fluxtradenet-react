@@ -1,0 +1,8 @@
+Trade number,Instrument,Account,Strategy,Market pos.,Qty,Entry price,Exit price,Entry time,Exit time,Entry name,Exit name,Profit,Cum. net profit,Commission,Clearing Fee,Exchange Fee,IP Fee,NFA Fee,MAE,MFE,ETD,Bars,
+1,MNQ DEC25,Backtest,FluxTrade_ChatGPT,Short,20,25028.00,25023.00,10/22/2025 11:31:00 AM,10/22/2025 11:31:00 AM,Sell short,Profit target,$165.20,$165.20,$34.80,$0.00,$0.00,$0.00,$0.00,$0.00,$200.00,$34.80,1,
+2,MNQ DEC25,Backtest,FluxTrade_ChatGPT,Short,20,25100.75,25088.75,10/22/2025 12:01:00 PM,10/22/2025 12:02:00 PM,Sell short,Buy to cover,$445.20,$610.40,$34.80,$0.00,$0.00,$0.00,$0.00,$380.00,$570.00,$124.80,2,
+3,MNQ DEC25,Backtest,FluxTrade_ChatGPT,Short,20,26253.50,26240.00,10/29/2025 11:31:00 AM,10/29/2025 11:34:00 AM,Sell short,Profit target,$505.20,$1115.60,$34.80,$0.00,$0.00,$0.00,$0.00,$240.00,$540.00,$34.80,4,
+4,MNQ DEC25,Backtest,FluxTrade_ChatGPT,Short,20,25673.75,25646.00,11/6/2025 9:31:00 AM,11/6/2025 9:31:00 AM,Sell short,Profit target,$1075.20,$2190.80,$34.80,$0.00,$0.00,$0.00,$0.00,$0.00,$1110.00,$34.80,1,
+5,MNQ DEC25,Backtest,FluxTrade_ChatGPT,Short,20,25382.00,25368.00,11/13/2025 10:01:00 AM,11/13/2025 10:03:00 AM,Sell short,Buy to cover,$525.20,$2716.00,$34.80,$0.00,$0.00,$0.00,$0.00,$1270.00,$860.00,$334.80,3,
+6,MNQ DEC25,Backtest,FluxTrade_ChatGPT,Short,20,24997.75,24968.50,11/17/2025 9:31:00 AM,11/17/2025 9:32:00 AM,Sell short,Buy to cover,$1135.20,$3851.20,$34.80,$0.00,$0.00,$0.00,$0.00,$80.00,$1700.00,$564.80,2,
+7,MNQ DEC25,Backtest,FluxTrade_ChatGPT,Short,20,24553.75,24560.00,11/20/2025 12:01:00 PM,11/20/2025 12:01:00 PM,Sell short,Stop loss,($284.80),$3566.40,$34.80,$0.00,$0.00,$0.00,$0.00,$250.00,$0.00,$284.80,1,

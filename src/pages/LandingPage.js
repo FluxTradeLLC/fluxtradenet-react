@@ -19,6 +19,7 @@ import fluxTarget from "../assets/indicators/FluxTarget.PNG";
 import marketPhase from "../assets/indicators/MarketPhase.PNG";
 import ttmSqueeze from "../assets/indicators/TTM Squeeze.PNG";
 import volatilityCycle from "../assets/indicators/VolatilityCycle.PNG";
+import highLowBands from "../assets/indicators/HighLowBands.png";
 
 import fluxLightning1 from "../assets/strategies/FluxLightning1.PNG";
 import fluxLightning2 from "../assets/strategies/FluxLightning2.PNG";
@@ -70,6 +71,16 @@ import slowAndSteady1 from "../assets/strategies/SlowAndSteady1.PNG";
 import slowAndSteady2 from "../assets/strategies/SlowAndSteady2.PNG";
 import superMomentum1 from "../assets/strategies/SuperMomentum1.PNG";
 import superMomentum2 from "../assets/strategies/SuperMomentum2.PNG";
+
+// New strategy assets (AverageBounce, MegaBands, StopHunter, ChatGPT)
+import averageBounce1 from "../assets/strategies/AverageBounce1.png";
+import averageBounce2 from "../assets/strategies/AverageBounce2.png";
+import megaBands1 from "../assets/strategies/MegaBands1.png";
+import megaBands2 from "../assets/strategies/MegaBands2.png";
+import stopHunter1 from "../assets/strategies/StopHunter1.png";
+import stopHunter2 from "../assets/strategies/StopHunter2.png";
+import chatGpt1 from "../assets/strategies/ChatGPT1.png";
+import chatGpt2 from "../assets/strategies/ChatGPT2.png";
 
 // Prop Focused strategies assets
 import centauri1 from "../assets/strategies/Centauri1.png";
@@ -135,6 +146,10 @@ const getCsvFilename = (backtestUrl) => {
     mars: "mars.csv",
     moon: "moon.csv",
     pluto: "pluto.csv",
+    "average-bounce": "averageBounce.csv",
+    "mega-bands": "megaBands.csv",
+    "stop-hunter": "stopHunter.csv",
+    "chat-gpt": "chatGpt.csv",
   };
 
   return urlToCsvMap[strategyName] || null;
@@ -479,17 +494,17 @@ export function LandingPage() {
   }, [currentVideoIndex, isPaused, prefersReducedMotion, videos.length]); // Reset timer when video changes or pause state changes
 
   const indicators = [
-    // NEW INDICATORS
-    // {
-    //   name: "DynamicTrend",
-    //   image: null,
-    //   features: [
-    //     "Dynamic trendline",
-    //     "Support and resistance",
-    //     "Signals upon crosses",
-    //   ],
-    //   isNew: true,
-    // },
+    {
+      name: "HighLowBands",
+      image: highLowBands,
+      features: [
+        "High and low band detection",
+        "Dynamic support and resistance levels",
+        "Great for breakout and reversal trades",
+      ],
+      categories: ["Levels", "Trend"],
+      isNew: true,
+    },
     {
       name: "FluxTarget",
       image: fluxTarget,
@@ -498,7 +513,6 @@ export function LandingPage() {
         "Adaptive to volatility",
         "Great for exits",
       ],
-      isNew: true,
       categories: ["Levels", "Trend"],
     },
     {
@@ -509,7 +523,6 @@ export function LandingPage() {
         "Trend and range highlighting",
         "Easy to interpret",
       ],
-      isNew: true,
       categories: ["Trend", "Volatility"],
     },
     {
@@ -520,7 +533,6 @@ export function LandingPage() {
         "Great for breakout trades",
         "Visual histogram",
       ],
-      isNew: true,
       categories: ["Momentum", "Volatility"],
     },
     {
@@ -531,7 +543,6 @@ export function LandingPage() {
         "Spot expansion and contraction",
         "Pairs well with other indicators",
       ],
-      isNew: true,
       categories: ["Volatility"],
     },
 
@@ -599,6 +610,54 @@ export function LandingPage() {
 
   const strategies = [
     {
+      name: "AverageBounce",
+      images: [averageBounce1, averageBounce2],
+      features: [
+        "Mean reversion strategy",
+        "Bounces off key average levels",
+        "Automated entries and exits",
+      ],
+      backtestUrl: "/backtests/average-bounce",
+      isNew: true,
+      categories: ["Mean Reversion"],
+    },
+    {
+      name: "MegaBands",
+      images: [megaBands1, megaBands2],
+      features: [
+        "Dynamic band-based strategy",
+        "Volatility-adaptive entries",
+        "Trend following with bands",
+      ],
+      backtestUrl: "/backtests/mega-bands",
+      isNew: true,
+      categories: ["Trend", "Volatility"],
+    },
+    {
+      name: "StopHunter",
+      images: [stopHunter1, stopHunter2],
+      features: [
+        "Targets stop-loss levels",
+        "Liquidity sweep detection",
+        "Automated entry signals",
+      ],
+      backtestUrl: "/backtests/stop-hunter",
+      isNew: true,
+      categories: ["Scalping", "Trend"],
+    },
+    {
+      name: "ChatGPT",
+      images: [chatGpt1, chatGpt2],
+      features: [
+        "AI-powered strategy signals",
+        "Machine learning based entries",
+        "Adaptive to market conditions",
+      ],
+      backtestUrl: "/backtests/chat-gpt",
+      isNew: true,
+      categories: ["Trend"],
+    },
+    {
       name: "ORMS",
       images: [ORMS1, ORMS2],
       features: [
@@ -607,7 +666,6 @@ export function LandingPage() {
         "Tight risk with quick targets",
       ],
       backtestUrl: "/backtests/orms",
-      isNew: true,
       categories: ["Scalping"],
     },
     {
@@ -619,7 +677,6 @@ export function LandingPage() {
         "Risk-managed entries",
       ],
       backtestUrl: "/backtests/liquidity-sweep",
-      isNew: true,
       categories: ["Scalping"],
     },
     {
@@ -631,7 +688,6 @@ export function LandingPage() {
         "Ideal for conservative growth",
       ],
       backtestUrl: "/backtests/slow-and-steady",
-      isNew: true,
       categories: ["Conservative"],
     },
     {
@@ -643,7 +699,6 @@ export function LandingPage() {
         "Great in strong trend days",
       ],
       backtestUrl: "/backtests/super-momentum",
-      isNew: true,
       categories: ["Trend"],
     },
     {
@@ -655,7 +710,6 @@ export function LandingPage() {
         "ATR-based stops and position sizing",
       ],
       backtestUrl: "/backtests/donchian-turtle",
-      isNew: true,
       categories: ["Trend"],
     },
     {
@@ -667,7 +721,6 @@ export function LandingPage() {
         "Works across market regimes",
       ],
       backtestUrl: "/backtests/ichimoko-strat",
-      isNew: true,
       categories: ["Trend"],
     },
     {
@@ -679,7 +732,6 @@ export function LandingPage() {
         "Pairs well with momentum filters",
       ],
       backtestUrl: "/backtests/keltner-strat",
-      isNew: true,
       categories: ["Mean Reversion", "Trend"],
     },
     {
@@ -691,7 +743,6 @@ export function LandingPage() {
         "Reinforcement learning algorithm",
       ],
       backtestUrl: "/backtests/future-prediction-server",
-      isNew: true,
       categories: ["Trend"],
     },
     {
@@ -703,7 +754,6 @@ export function LandingPage() {
         "Dynamic targets and stops",
       ],
       backtestUrl: "/backtests/quad-confluence",
-      isNew: true,
       categories: ["Trend"],
     },
     {
@@ -715,7 +765,6 @@ export function LandingPage() {
         "Targets and risk controls",
       ],
       backtestUrl: "/backtests/holy-grail",
-      isNew: true,
       categories: ["Trend"],
     },
     {
@@ -727,7 +776,6 @@ export function LandingPage() {
         "Risk targets aligned with structure",
       ],
       backtestUrl: "/backtests/elliot-wave",
-      isNew: true,
       categories: ["Trend"],
     },
     {
@@ -919,6 +967,7 @@ export function LandingPage() {
   const tvMarketPhase = require("../assets/tradingview/indicators/marketPhase.png");
   const tvMarketRegime = require("../assets/tradingview/indicators/marketRegime.png");
   const tvPreviousLevels = require("../assets/tradingview/indicators/prevLevels.png");
+  const tvHighLowBands = require("../assets/tradingview/indicators/highLowBands.png");
 
   // Strategies
   const tvDonchian = require("../assets/tradingview/strategies/donchian.png");
@@ -940,6 +989,9 @@ export function LandingPage() {
   const tvSuperMomentum = require("../assets/tradingview/strategies/superMomentum.png");
   const tvTrendCatcher = require("../assets/tradingview/strategies/trendCatcher.png");
   const liquiditySweep = require("../assets/tradingview/strategies/liquiditySweep.png");
+  const tvAverageBounce = require("../assets/tradingview/strategies/averageBounce.png");
+  const tvMegaBands = require("../assets/tradingview/strategies/megaBands.png");
+  const tvStopHunter = require("../assets/tradingview/strategies/stopHunter.png");
 
   // Helper getters to reuse features/backtest info where possible
   const getIndicatorByName = (name) => indicators.find((i) => i.name === name);
@@ -998,6 +1050,13 @@ export function LandingPage() {
 
   const tradingViewIndicators = [
     {
+      name: "HighLowBands",
+      image: tvHighLowBands,
+      features: getIndicatorByName("HighLowBands")?.features,
+      categories: getIndicatorByName("HighLowBands")?.categories,
+      isNew: true,
+    },
+    {
       name: "Dynamic Trend",
       image: tvDynamicTrend,
       features: [
@@ -1006,88 +1065,100 @@ export function LandingPage() {
         "Signals upon crosses",
       ],
       categories: ["Trend", "Levels", "Signals"],
-      isNew: true,
     },
     {
       name: "FluxConfluence",
       image: tvFluxConfluence,
       features: getIndicatorByName("FluxConfluence")?.features,
       categories: getIndicatorByName("FluxConfluence")?.categories,
-      isNew: true,
     },
     {
       name: "FluxPivot",
       image: tvFluxPivot,
       features: getIndicatorByName("FluxPivot")?.features,
       categories: getIndicatorByName("FluxPivot")?.categories,
-      isNew: true,
     },
     {
       name: "FluxSignal",
       image: tvFluxSignal,
       features: getIndicatorByName("FluxSignal")?.features,
       categories: getIndicatorByName("FluxSignal")?.categories,
-      isNew: true,
     },
     {
       name: "Parabolic RSI",
       image: tvParabolicRSI,
       features: getIndicatorByName("Parabolic RSI")?.features,
       categories: getIndicatorByName("Parabolic RSI")?.categories,
-      isNew: true,
     },
     {
       name: "TTM Squeeze",
       image: tvTtmSqueeze,
       features: getIndicatorByName("TTM Squeeze")?.features,
       categories: getIndicatorByName("TTM Squeeze")?.categories,
-      isNew: true,
     },
     {
       name: "Volatility Cycle",
       image: tvVolatilityCycle,
       features: getIndicatorByName("Volatility Cycle")?.features,
       categories: getIndicatorByName("Volatility Cycle")?.categories,
-      isNew: true,
     },
     {
       name: "FluxTarget",
       image: tvFluxTarget,
       features: getIndicatorByName("FluxTarget")?.features,
       categories: getIndicatorByName("FluxTarget")?.categories,
-      isNew: true,
     },
     {
       name: "Market Phase",
       image: tvMarketPhase,
       features: getIndicatorByName("Market Phase")?.features,
       categories: getIndicatorByName("Market Phase")?.categories,
-      isNew: true,
     },
     {
       name: "Market Regime",
       image: tvMarketRegime,
       features: getIndicatorByName("Market Regime")?.features,
       categories: getIndicatorByName("Market Regime")?.categories,
-      isNew: true,
     },
     {
       name: "Previous Levels",
       image: tvPreviousLevels,
       features: getIndicatorByName("Previous Levels")?.features,
       categories: getIndicatorByName("Previous Levels")?.categories,
-      isNew: true,
     },
   ];
 
   const tradingViewStrategies = [
+    {
+      name: "AverageBounce",
+      images: [tvAverageBounce],
+      features: getStrategyByName("AverageBounce")?.features,
+      backtestUrl: getStrategyByName("AverageBounce")?.backtestUrl,
+      categories: getStrategyByName("AverageBounce")?.categories,
+      isNew: true,
+    },
+    {
+      name: "MegaBands",
+      images: [tvMegaBands],
+      features: getStrategyByName("MegaBands")?.features,
+      backtestUrl: getStrategyByName("MegaBands")?.backtestUrl,
+      categories: getStrategyByName("MegaBands")?.categories,
+      isNew: true,
+    },
+    {
+      name: "StopHunter",
+      images: [tvStopHunter],
+      features: getStrategyByName("StopHunter")?.features,
+      backtestUrl: getStrategyByName("StopHunter")?.backtestUrl,
+      categories: getStrategyByName("StopHunter")?.categories,
+      isNew: true,
+    },
     {
       name: "ORMS",
       images: [tvOrms],
       features: getStrategyByName("ORMS")?.features,
       backtestUrl: getStrategyByName("ORMS")?.backtestUrl,
       categories: getStrategyByName("ORMS")?.categories,
-      isNew: true,
     },
     {
       name: "Donchian Turtle",
@@ -1095,7 +1166,6 @@ export function LandingPage() {
       features: getStrategyByName("Donchian Turtle")?.features,
       backtestUrl: getStrategyByName("Donchian Turtle")?.backtestUrl,
       categories: getStrategyByName("Donchian Turtle")?.categories,
-      isNew: true,
     },
     {
       name: "FluxLightning",
@@ -1103,7 +1173,6 @@ export function LandingPage() {
       features: getStrategyByName("FluxLightning")?.features,
       backtestUrl: getStrategyByName("FluxLightning")?.backtestUrl,
       categories: getStrategyByName("FluxLightning")?.categories,
-      isNew: true,
     },
     {
       name: "FluxPivot Strategy",
@@ -1111,7 +1180,6 @@ export function LandingPage() {
       features: getStrategyByName("FluxPivot Strategy")?.features,
       backtestUrl: getStrategyByName("FluxPivot Strategy")?.backtestUrl,
       categories: getStrategyByName("FluxPivot Strategy")?.categories,
-      isNew: true,
     },
     {
       name: "FluxSignal Strategy",
@@ -1119,7 +1187,6 @@ export function LandingPage() {
       features: getStrategyByName("FluxSignal Strategy")?.features,
       backtestUrl: getStrategyByName("FluxSignal Strategy")?.backtestUrl,
       categories: getStrategyByName("FluxSignal Strategy")?.categories,
-      isNew: true,
     },
     // {
     //   name: 'FluxSignal Scalper',
@@ -1137,7 +1204,6 @@ export function LandingPage() {
       features: getStrategyByName("FluxTrident")?.features,
       backtestUrl: getStrategyByName("FluxTrident")?.backtestUrl,
       categories: getStrategyByName("FluxTrident")?.categories,
-      isNew: true,
     },
     {
       name: "ICC ChoCh",
@@ -1145,7 +1211,6 @@ export function LandingPage() {
       features: getStrategyByName("ICC ChoCh")?.features,
       backtestUrl: getStrategyByName("ICC ChoCh")?.backtestUrl,
       categories: getStrategyByName("ICC ChoCh")?.categories,
-      isNew: true,
     },
     {
       name: "IchimokoStrat",
@@ -1153,7 +1218,6 @@ export function LandingPage() {
       features: getStrategyByName("IchimokoStrat")?.features,
       backtestUrl: getStrategyByName("IchimokoStrat")?.backtestUrl,
       categories: getStrategyByName("IchimokoStrat")?.categories,
-      isNew: true,
     },
     {
       name: "KeltnerStrat",
@@ -1161,7 +1225,6 @@ export function LandingPage() {
       features: getStrategyByName("KeltnerStrat")?.features,
       backtestUrl: getStrategyByName("KeltnerStrat")?.backtestUrl,
       categories: getStrategyByName("KeltnerStrat")?.categories,
-      isNew: true,
     },
     {
       name: "Low Volatility",
@@ -1169,7 +1232,6 @@ export function LandingPage() {
       features: getStrategyByName("Low Volatility")?.features,
       backtestUrl: getStrategyByName("Low Volatility")?.backtestUrl,
       categories: getStrategyByName("Low Volatility")?.categories,
-      isNew: true,
     },
     {
       name: "ORB (Opening Range Break)",
@@ -1177,7 +1239,6 @@ export function LandingPage() {
       features: getStrategyByName("ORB (Opening Range Break)")?.features,
       backtestUrl: getStrategyByName("ORB (Opening Range Break)")?.backtestUrl,
       categories: getStrategyByName("ORB (Opening Range Break)")?.categories,
-      isNew: true,
     },
     {
       name: "Project Gamma",
@@ -1185,7 +1246,6 @@ export function LandingPage() {
       features: getStrategyByName("Project Gamma")?.features,
       backtestUrl: getStrategyByName("Project Gamma")?.backtestUrl,
       categories: getStrategyByName("Project Gamma")?.categories,
-      isNew: true,
     },
     {
       name: "RileySR",
@@ -1193,7 +1253,6 @@ export function LandingPage() {
       features: getStrategyByName("RileySR")?.features,
       backtestUrl: getStrategyByName("RileySR")?.backtestUrl,
       categories: getStrategyByName("RileySR")?.categories,
-      isNew: true,
     },
     {
       name: "Slow and Steady",
@@ -1201,7 +1260,6 @@ export function LandingPage() {
       features: getStrategyByName("Slow and Steady")?.features,
       backtestUrl: getStrategyByName("Slow and Steady")?.backtestUrl,
       categories: getStrategyByName("Slow and Steady")?.categories,
-      isNew: true,
     },
     {
       name: "Super Momentum",
@@ -1209,7 +1267,6 @@ export function LandingPage() {
       features: getStrategyByName("Super Momentum")?.features,
       backtestUrl: getStrategyByName("Super Momentum")?.backtestUrl,
       categories: getStrategyByName("Super Momentum")?.categories,
-      isNew: true,
     },
     {
       name: "Liquidity Sweep",
@@ -1217,7 +1274,6 @@ export function LandingPage() {
       features: getStrategyByName("Liquidity Sweep")?.features,
       backtestUrl: getStrategyByName("Liquidity Sweep")?.backtestUrl,
       categories: getStrategyByName("Liquidity Sweep")?.categories,
-      isNew: true,
     },
     {
       name: "TrendCatcher",
@@ -1225,7 +1281,6 @@ export function LandingPage() {
       features: getStrategyByName("TrendCatcher")?.features,
       backtestUrl: getStrategyByName("TrendCatcher")?.backtestUrl,
       categories: getStrategyByName("TrendCatcher")?.categories,
-      isNew: true,
     },
   ];
 
