@@ -14,7 +14,10 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="p-8 pb-20 md:pb-8 pt-24 text-md text-white bg-gray-900" role="contentinfo">
+    <footer
+      className="p-8 pb-20 md:pb-8 pt-24 text-md text-white bg-gray-900"
+      role="contentinfo"
+    >
       <nav className="mb-8" aria-label="Footer navigation">
         <p className="mb-2 font-semibold text-center">Navigation</p>
         <ul className="text-gray-300 flex gap-4 items-center justify-center flex-wrap">
@@ -89,7 +92,11 @@ export const Footer = () => {
               className="text-gray-400 hover:text-pink-500 transition-colors duration-200"
               aria-label="Follow us on Instagram (opens in new tab)"
             >
-              <FontAwesomeIcon icon={faInstagram} size="lg" aria-hidden="true" />
+              <FontAwesomeIcon
+                icon={faInstagram}
+                size="lg"
+                aria-hidden="true"
+              />
             </a>
           </li>
           <li>
@@ -128,7 +135,26 @@ export const Footer = () => {
           sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
         ></iframe>
       </div>
-      <p className="mb-4 mt-24">Disclaimers</p>
+
+      <div
+        className="trustpilot-widget mt-12"
+        data-locale="en-US"
+        data-template-id="56278e9abfbbba0bdcd568bc"
+        data-businessunit-id="6924855d34e60d463bf9b72e"
+        data-style-height="52px"
+        data-style-width="100%"
+        data-token="5f2573ff-2f13-4237-8899-9684c8df975a"
+      >
+        <a
+          href="https://www.trustpilot.com/review/fluxtrade.net"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Trustpilot
+        </a>
+      </div>
+
+      <p className="mb-4 mt-12">Disclaimers</p>
       <p className="mb-4">
         Futures and forex trading contains substantial risk and is not for every
         investor. An investor could potentially lose all or more than the
