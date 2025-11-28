@@ -22,8 +22,8 @@ export function TermsAndConditionsPage() {
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>
                   Refund requests must be submitted by contacting our support team at{" "}
-                  <a href="mailto:hello@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">
-                    hello@fluxtrade.net
+                  <a href="mailto:grant@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">
+                    grant@fluxtrade.net
                   </a>
                 </li>
                 <li>
@@ -140,8 +140,8 @@ export function TermsAndConditionsPage() {
             <div className="space-y-4">
               <p>
                 If you have any questions about these Terms and Conditions, please contact us at{" "}
-                <a href="mailto:hello@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">
-                  hello@fluxtrade.net
+                <a href="mailto:grant@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">
+                  grant@fluxtrade.net
                 </a>
               </p>
             </div>

@@ -45,8 +45,8 @@ export function SupportPage() {
         <h1 className="text-5xl font-extrabold mb-4 text-center">Support</h1>
         <p className="text-gray-300 mb-4">
           For support inquiries, please email{" "}
-          <a href="mailto:hello@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">
-            hello@fluxtrade.net
+          <a href="mailto:grant@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">
+            grant@fluxtrade.net
           </a>
           &nbsp;or send a message with the form below.
         </p>
@@ -88,7 +88,7 @@ export function SupportPage() {
               </li>
             </ul>
             <p className="mt-4">
-              If you still need assistance after reviewing these resources, please don't hesitate to reach out using the form below or <a href="mailto:hello@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">email us directly</a>.
+              If you still need assistance after reviewing these resources, please don't hesitate to reach out using the form below or <a href="mailto:grant@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">email us directly</a>.
             </p>
           </div>
         </div>

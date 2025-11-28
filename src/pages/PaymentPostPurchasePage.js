@@ -99,8 +99,8 @@ export function PaymentPostPurchasePage() {
             </p>
             <p className="mt-4">
               Need help? Email us at{" "}
-              <a href="mailto:hello@fluxtrade.net" className="text-blue-400">
-                hello@fluxtrade.net
+              <a href="mailto:grant@fluxtrade.net" className="text-blue-400">
+                grant@fluxtrade.net
               </a>
               .
             </p>
