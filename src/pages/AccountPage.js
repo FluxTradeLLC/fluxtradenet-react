@@ -81,11 +81,7 @@ export const AccountPage = () => {
               <button
                 onClick={handleCustomerPortal}
                 // disabled={!isPaid}
-                className={`font-bold px-4 py-2 rounded-lg ${
-                  isPaid
-                    ? "bg-[#5865F2] text-white hover:bg-[#4752C4]"
-                    : "bg-gray-500 text-gray-300 cursor-not-allowed"
-                }`}
+                className={`font-bold px-4 py-2 rounded-lg bg-[#5865F2] text-white hover:bg-[#4752C4]`}
                 aria-label="Manage subscription settings in Stripe customer portal"
                 // aria-disabled={!isPaid}
               >
