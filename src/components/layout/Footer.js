@@ -136,7 +136,7 @@ export const Footer = () => {
         ></iframe>
       </div>
 
-      <div
+      {/* <div
         className="trustpilot-widget mt-12"
         data-locale="en-US"
         data-template-id="56278e9abfbbba0bdcd568bc"
@@ -152,7 +152,7 @@ export const Footer = () => {
         >
           Trustpilot
         </a>
-      </div>
+      </div> */}
 
       <p className="mb-4 mt-12">Disclaimers</p>
       <p className="mb-4">
