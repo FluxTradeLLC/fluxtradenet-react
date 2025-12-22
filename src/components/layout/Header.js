@@ -251,7 +251,7 @@ export const Header = () => {
                 href="https://discord.gg/UTcxDRQ26U"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 text-gray-400 hover:text-gray-300 py-2 px-4 transition-colors duration-200 border border-gray-700 rounded-lg p-2"
+                className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 text-gray-400 hover:text-gray-300 font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 border-gray-700"
                 style={{ textDecoration: "none" }}
                 aria-label="Join FluxTrade Discord community (opens in new tab)"
               >

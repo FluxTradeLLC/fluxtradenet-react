@@ -31,6 +31,18 @@ const CURRENCY_SYMBOLS = {
   CNY: "¥",
 };
 
+// Currency flags
+const CURRENCY_FLAGS = {
+  USD: "🇺🇸",
+  EUR: "🇪🇺",
+  GBP: "🇬🇧",
+  JPY: "🇯🇵",
+  CAD: "🇨🇦",
+  AUD: "🇦🇺",
+  CHF: "🇨🇭",
+  CNY: "🇨🇳",
+};
+
 // Helper function to format number with commas
 const formatNumber = (num) => {
   if (num === null || num === undefined || isNaN(num)) return "0";
@@ -384,7 +396,7 @@ export function PricingPage() {
           >
             {Object.keys(CURRENCY_RATES).map((currency) => (
               <option key={currency} value={currency}>
-                {currency}
+                {CURRENCY_FLAGS[currency]} {currency}
               </option>
             ))}
           </select>

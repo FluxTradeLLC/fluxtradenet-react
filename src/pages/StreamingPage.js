@@ -29,7 +29,9 @@ export function StreamingPage() {
         </div>
 
         <div className="mt-12">
-          <p className="mb-4 font-semibold text-center text-xl">{t("streaming.followUs")}</p>
+          <p className="mb-4 font-semibold text-center text-xl">
+            {t("streaming.followUs")}
+          </p>
           <ul className="flex gap-6 items-center justify-center flex-wrap">
             <li>
               <a
