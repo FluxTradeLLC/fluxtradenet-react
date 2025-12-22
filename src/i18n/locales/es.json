@@ -1,0 +1,27 @@
+{
+  "header": {
+    "home": "Inicio",
+    "pricing": "Precios",
+    "backtestExplorer": "Explorador de Backtests",
+    "blog": "Blog",
+    "affiliates": "Afiliados",
+    "account": "Cuenta",
+    "support": "Soporte",
+    "liveStream": "Transmisión en Vivo",
+    "freeDiscord": "Discord Gratis"
+  },
+  "language": {
+    "select": "Seleccionar Idioma",
+    "english": "Inglés",
+    "spanish": "Español",
+    "french": "Francés",
+    "german": "Alemán",
+    "chinese": "Chino",
+    "japanese": "Japonés",
+    "portuguese": "Portugués",
+    "italian": "Italiano",
+    "russian": "Ruso",
+    "korean": "Coreano"
+  }
+}
+

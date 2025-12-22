@@ -1,0 +1,27 @@
+{
+  "header": {
+    "home": "홈",
+    "pricing": "가격",
+    "backtestExplorer": "백테스트 탐색기",
+    "blog": "블로그",
+    "affiliates": "제휴사",
+    "account": "계정",
+    "support": "지원",
+    "liveStream": "라이브 스트림",
+    "freeDiscord": "무료 Discord"
+  },
+  "language": {
+    "select": "언어 선택",
+    "english": "영어",
+    "spanish": "스페인어",
+    "french": "프랑스어",
+    "german": "독일어",
+    "chinese": "중국어",
+    "japanese": "일본어",
+    "portuguese": "포르투갈어",
+    "italian": "이탈리아어",
+    "russian": "러시아어",
+    "korean": "한국어"
+  }
+}
+

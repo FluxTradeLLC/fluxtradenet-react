@@ -1,0 +1,27 @@
+{
+  "header": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "backtestExplorer": "Backtest Explorer",
+    "blog": "Blog",
+    "affiliates": "Affiliates",
+    "account": "Account",
+    "support": "Support",
+    "liveStream": "Live Stream",
+    "freeDiscord": "Free Discord"
+  },
+  "language": {
+    "select": "Select Language",
+    "english": "English",
+    "spanish": "Spanish",
+    "french": "French",
+    "german": "German",
+    "chinese": "Chinese",
+    "japanese": "Japanese",
+    "portuguese": "Portuguese",
+    "italian": "Italian",
+    "russian": "Russian",
+    "korean": "Korean"
+  }
+}
+

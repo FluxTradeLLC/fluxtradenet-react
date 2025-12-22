@@ -1,0 +1,27 @@
+{
+  "header": {
+    "home": "首页",
+    "pricing": "定价",
+    "backtestExplorer": "回测浏览器",
+    "blog": "博客",
+    "affiliates": "联盟",
+    "account": "账户",
+    "support": "支持",
+    "liveStream": "直播",
+    "freeDiscord": "免费 Discord"
+  },
+  "language": {
+    "select": "选择语言",
+    "english": "英语",
+    "spanish": "西班牙语",
+    "french": "法语",
+    "german": "德语",
+    "chinese": "中文",
+    "japanese": "日语",
+    "portuguese": "葡萄牙语",
+    "italian": "意大利语",
+    "russian": "俄语",
+    "korean": "韩语"
+  }
+}
+

@@ -1,0 +1,27 @@
+{
+  "header": {
+    "home": "ホーム",
+    "pricing": "価格",
+    "backtestExplorer": "バックテストエクスプローラー",
+    "blog": "ブログ",
+    "affiliates": "アフィリエイト",
+    "account": "アカウント",
+    "support": "サポート",
+    "liveStream": "ライブストリーム",
+    "freeDiscord": "無料Discord"
+  },
+  "language": {
+    "select": "言語を選択",
+    "english": "英語",
+    "spanish": "スペイン語",
+    "french": "フランス語",
+    "german": "ドイツ語",
+    "chinese": "中国語",
+    "japanese": "日本語",
+    "portuguese": "ポルトガル語",
+    "italian": "イタリア語",
+    "russian": "ロシア語",
+    "korean": "韓国語"
+  }
+}
+

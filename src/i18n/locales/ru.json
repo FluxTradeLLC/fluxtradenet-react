@@ -1,0 +1,27 @@
+{
+  "header": {
+    "home": "Главная",
+    "pricing": "Цены",
+    "backtestExplorer": "Исследователь Бэктестов",
+    "blog": "Блог",
+    "affiliates": "Партнеры",
+    "account": "Аккаунт",
+    "support": "Поддержка",
+    "liveStream": "Прямой Эфир",
+    "freeDiscord": "Бесплатный Discord"
+  },
+  "language": {
+    "select": "Выбрать Язык",
+    "english": "Английский",
+    "spanish": "Испанский",
+    "french": "Французский",
+    "german": "Немецкий",
+    "chinese": "Китайский",
+    "japanese": "Японский",
+    "portuguese": "Португальский",
+    "italian": "Итальянский",
+    "russian": "Русский",
+    "korean": "Корейский"
+  }
+}
+
