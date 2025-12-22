@@ -2146,10 +2146,10 @@ export function LandingPage() {
                 >
                   <div className="text-center">
                     <h2 className="text-3xl font-bold mb-2">
-                      Our Automated Strategies
+                      {t("landing.ourAutomatedStrategies")}
                     </h2>
                     <h3 className="text-2xl">
-                      Highly customizable with automated entries and exits
+                      {t("landing.strategiesSubtitle")}
                     </h3>
                   </div>
                   <svg
@@ -2583,16 +2583,15 @@ export function LandingPage() {
                 <a
                   href="https://ninjatraderus.pxf.io/APNodJ"
                   className="text-blue-500 underline"
-                  aria-label="Sign up for NinjaTrader (affiliate link, opens in new tab)"
+                  aria-label={t("landing.signUpAriaLabel")}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Sign up
+                  {t("landing.signUp")}
                 </a>{" "}
-                for NinjaTrader, the best desktop trading platform, to start
-                backtesting FluxTrade strategies today. <br />
+                {t("landing.ninjaTraderDescription")} <br />
                 <br />
-                *NinjaTrader is compensating FluxTrade for this endorsement.
+                {t("landing.ninjaTraderEndorsement")}
               </p>
             </div>
           </div>

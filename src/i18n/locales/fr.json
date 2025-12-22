@@ -120,7 +120,7 @@
     "support": "Support"
   },
   "landing": {
-    "affiliateLink": "(Lien d'affilié*)",
+    "affiliateLink": "(Lien d'affiliation*)",
     "clearFilters": "Effacer les Filtres",
     "demonstrationVideo": "Vidéo de démonstration {{label}}. Cliquez pour lire ou mettre en pause.",
     "edge": "avantage",
@@ -235,7 +235,10 @@
     "new": "NOUVEAU!",
     "nextVideo": "Vidéo suivante",
     "ninjaTrader": "NinjaTrader",
+    "ninjaTraderDescription": "pour NinjaTrader, la meilleure plateforme de trading de bureau, pour commencer à faire du backtesting des stratégies FluxTrade aujourd'hui.",
+    "ninjaTraderEndorsement": "*NinjaTrader compense FluxTrade pour cet aval.",
     "officialVendor": "Vendeur Officiel de l'Écosystème NinjaTrader",
+    "ourAutomatedStrategies": "Nos Stratégies Automatisées",
     "ourIndicators": "Nos Indicateurs",
     "pauseCarousel": "Mettre en pause le carrousel",
     "playCarousel": "Lire le carrousel",
@@ -278,6 +281,8 @@
       }
     },
     "seeItTrade": "Voyez-le trader en 60s",
+    "signUp": "S'inscrire",
+    "signUpAriaLabel": "S'inscrire à NinjaTrader (lien d'affiliation, s'ouvre dans un nouvel onglet)",
     "strategies": {
       "averageBounce": {
         "features": [
@@ -489,6 +494,7 @@
         "name": "TrendCatcher"
       }
     },
+    "strategiesSubtitle": "Hautement personnalisables avec entrées et sorties automatisées",
     "subtitle": "Systèmes conviviaux pour entreprises prop construits pour la cohérence, la gestion des risques et la discipline.",
     "tradingView": "TradingView",
     "understandMarkets": "Comprenez les",
