@@ -43,6 +43,7 @@ export function PricingPage() {
   const prefersReducedMotion = useReducedMotion();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isTestMode, setIsTestMode] = useState(false);
+  const [hasExistingSubscription, setHasExistingSubscription] = useState(false);
   const [billingPeriod, setBillingPeriod] = useState("monthly"); // 'monthly', 'quarterly', 'yearly'
   const [selectedCurrency, setSelectedCurrency] = useState("USD");
   const navigate = useNavigate();
@@ -51,6 +52,20 @@ export function PricingPage() {
     const email = localStorage.getItem("userEmail");
     if (email) {
       setIsAuthenticated(true);
+      // Check if user has an existing subscription
+      const checkSubscriptionExists = async () => {
+        try {
+          const response = await api.get(`/payment/subscription-exists`, {
+            params: { email },
+          });
+          setHasExistingSubscription(response.data.exists === true);
+        } catch (error) {
+          console.error("Error checking subscription existence:", error);
+          // Default to false if there's an error
+          setHasExistingSubscription(false);
+        }
+      };
+      checkSubscriptionExists();
     }
     try {
       const testModeValue = localStorage.getItem("TEST_MODE");
@@ -293,9 +308,11 @@ export function PricingPage() {
         </h1>
         <p className="text-lg text-gray-400">
           Unlock the full potential of FluxTrade with our tailored plans.{" "}
-          <span className="font-semibold text-indigo-400">
-            Monthly plans include a 30-day free trial!
-          </span>
+          {!hasExistingSubscription && (
+            <span className="font-semibold text-indigo-400">
+              Monthly plans include a 30-day free trial!
+            </span>
+          )}
         </p>
       </div>
 
@@ -463,12 +480,12 @@ export function PricingPage() {
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                     aria-label={
-                      billingPeriod === "monthly"
+                      billingPeriod === "monthly" && !hasExistingSubscription
                         ? "Start 30 day free trial on NinjaTrader"
                         : "Subscribe on NinjaTrader"
                     }
                   >
-                    {billingPeriod === "monthly"
+                    {billingPeriod === "monthly" && !hasExistingSubscription
                       ? "Start 30‑day free trial on NinjaTrader"
                       : "Subscribe on NinjaTrader"}
                   </button>
@@ -478,12 +495,12 @@ export function PricingPage() {
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                     aria-label={
-                      billingPeriod === "monthly"
+                      billingPeriod === "monthly" && !hasExistingSubscription
                         ? "Start 30 day free trial on TradingView"
                         : "Subscribe on TradingView"
                     }
                   >
-                    {billingPeriod === "monthly"
+                    {billingPeriod === "monthly" && !hasExistingSubscription
                       ? "Start 30‑day free trial on TradingView"
                       : "Subscribe on TradingView"}
                   </button>
@@ -499,7 +516,7 @@ export function PricingPage() {
                     onClick={() => navigate("/account")}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
-                    {billingPeriod === "monthly"
+                    {billingPeriod === "monthly" && !hasExistingSubscription
                       ? "Start 30‑day free trial on NinjaTrader"
                       : "Subscribe on NinjaTrader"}
                   </button>
@@ -507,7 +524,7 @@ export function PricingPage() {
                     onClick={() => navigate("/account")}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
-                    {billingPeriod === "monthly"
+                    {billingPeriod === "monthly" && !hasExistingSubscription
                       ? "Start 30‑day free trial on TradingView"
                       : "Subscribe on TradingView"}
                   </button>
@@ -613,12 +630,12 @@ export function PricingPage() {
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                     aria-label={
-                      billingPeriod === "monthly"
+                      billingPeriod === "monthly" && !hasExistingSubscription
                         ? "Start 30 day free trial for both platforms"
                         : "Subscribe now for both platforms"
                     }
                   >
-                    {billingPeriod === "monthly"
+                    {billingPeriod === "monthly" && !hasExistingSubscription
                       ? "Start 30‑day free trial"
                       : "Subscribe Now"}
                   </button>
@@ -632,7 +649,7 @@ export function PricingPage() {
                     onClick={() => navigate("/account")}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                   >
-                    {billingPeriod === "monthly"
+                    {billingPeriod === "monthly" && !hasExistingSubscription
                       ? "Start 30‑day free trial"
                       : "Subscribe Now"}
                   </button>
@@ -720,7 +737,7 @@ export function PricingPage() {
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
-                    {billingPeriod === "monthly"
+                    {billingPeriod === "monthly" && !hasExistingSubscription
                       ? "Start 30‑day free trial on NinjaTrader"
                       : "Subscribe on NinjaTrader"}
                   </button>
@@ -730,7 +747,7 @@ export function PricingPage() {
                     }
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
-                    {billingPeriod === "monthly"
+                    {billingPeriod === "monthly" && !hasExistingSubscription
                       ? "Start 30‑day free trial on TradingView"
                       : "Subscribe on TradingView"}
                   </button>
@@ -746,7 +763,7 @@ export function PricingPage() {
                     onClick={() => navigate("/account")}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
-                    {billingPeriod === "monthly"
+                    {billingPeriod === "monthly" && !hasExistingSubscription
                       ? "Start 30‑day free trial on NinjaTrader"
                       : "Subscribe on NinjaTrader"}
                   </button>
@@ -754,7 +771,7 @@ export function PricingPage() {
                     onClick={() => navigate("/account")}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
-                    {billingPeriod === "monthly"
+                    {billingPeriod === "monthly" && !hasExistingSubscription
                       ? "Start 30‑day free trial on TradingView"
                       : "Subscribe on TradingView"}
                   </button>
@@ -846,7 +863,7 @@ export function PricingPage() {
                   }
                   className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                 >
-                  {billingPeriod === "monthly"
+                  {billingPeriod === "monthly" && !hasExistingSubscription
                     ? "Start 30‑day free trial"
                     : "Subscribe Now"}
                 </button>
@@ -860,7 +877,7 @@ export function PricingPage() {
                   onClick={() => navigate("/account")}
                   className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                 >
-                  {billingPeriod === "monthly"
+                  {billingPeriod === "monthly" && !hasExistingSubscription
                     ? "Start 30‑day free trial"
                     : "Subscribe Now"}
                 </button>
