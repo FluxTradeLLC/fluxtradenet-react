@@ -553,5 +553,183 @@
         ]
       }
     }
+  },
+  "streaming": {
+    "title": "Live Stream",
+    "description": "Watch our live trading streams on Twitch",
+    "followUs": "Follow Us",
+    "followYouTube": "Follow us on YouTube (opens in new tab)",
+    "followTwitch": "Follow us on Twitch (opens in new tab)",
+    "followInstagram": "Follow us on Instagram (opens in new tab)",
+    "followTikTok": "Follow us on TikTok (opens in new tab)",
+    "followFacebook": "Follow us on Facebook (opens in new tab)"
+  },
+  "backtestExplorer": {
+    "loading": "Loading backtest data...",
+    "seoTitle": "Backtest Explorer - Strategy Performance Analysis",
+    "seoDescription": "Explore comprehensive backtest results for FluxTrade strategies. Analyze performance metrics, profit distributions, and strategy comparisons across different instruments and market conditions.",
+    "seoKeywords": "backtest results, trading strategy performance, strategy analysis, trading metrics, backtest explorer, strategy comparison",
+    "title": "Backtest Explorer",
+    "subtitle": "Interactive analysis of backtest results. Filter by strategy, instrument, and session.",
+    "strategy": "Strategy",
+    "instrument": "Instrument",
+    "session": "Session",
+    "currency": "Currency",
+    "all": "All",
+    "totalTrades": "Total Trades",
+    "winRate": "Win Rate",
+    "totalProfit": "Total Profit",
+    "maxDrawdown": "Max Drawdown",
+    "profitFactor": "Profit Factor",
+    "avgWin": "Avg Win",
+    "avgLoss": "Avg Loss",
+    "largestWin": "Largest Win",
+    "largestLoss": "Largest Loss",
+    "equityCurve": "Equity Curve",
+    "drawdown": "Drawdown",
+    "profitDistribution": "Profit Distribution",
+    "tradeCount": "Trade Count",
+    "tradeDetails": "Trade Details",
+    "tradeNumber": "Trade #",
+    "entryTime": "Entry Time",
+    "profit": "Profit",
+    "cumProfit": "Cum. Profit",
+    "equityLabel": "Equity ({{currency}})",
+    "drawdownLabel": "Drawdown ({{currency}})",
+    "showingTrades": "Showing first 100 of {{total}} trades",
+    "sessions": {
+      "Morning": "Morning",
+      "Afternoon": "Afternoon",
+      "Evening": "Evening",
+      "Night": "Night",
+      "Unknown": "Unknown"
+    }
+  },
+  "pricing": {
+    "title": "Choose Your Plan",
+    "subtitle": "Unlock the full potential of FluxTrade with our tailored plans.",
+    "freeTrial": "Monthly plans include a 30-day free trial!",
+    "save": "Save",
+    "save10": "Save 10%",
+    "save17": "Save 17%",
+    "save10Percent": "Save 10 percent",
+    "save17Percent": "Save 17 percent",
+    "noCommitment": "No commitment. Cancel anytime.",
+    "billingPeriods": {
+      "monthly": "/mo",
+      "quarterly": "/qtr",
+      "yearly": "/yr",
+      "monthlyLabel": "Monthly",
+      "quarterlyLabel": "Quarterly",
+      "yearlyLabel": "Yearly"
+    },
+    "buttons": {
+      "startTrial": "Start 30‑day free trial",
+      "startTrialNinjaTrader": "Start 30‑day free trial on NinjaTrader",
+      "startTrialTradingView": "Start 30‑day free trial on TradingView",
+      "startTrialBoth": "Start 30 day free trial for both platforms",
+      "subscribeNow": "Subscribe Now",
+      "subscribeNinjaTrader": "Subscribe on NinjaTrader",
+      "subscribeTradingView": "Subscribe on TradingView"
+    },
+    "errors": {
+      "sessionExpired": "Your session has expired. Please sign in again to continue.",
+      "checkoutError": "An error occurred while creating your checkout session. Please try again."
+    },
+    "seo": {
+      "title": "Pricing - Trading Software Subscriptions",
+      "description": "Choose the perfect FluxTrade subscription plan for your trading needs. Access automated strategies, indicators, and professional trading tools for NinjaTrader and TradingView. Flexible monthly, quarterly, and yearly plans available.",
+      "keywords": "trading software pricing, ninjatrader subscription, tradingview strategies pricing, automated trading subscription, prop firm trading tools pricing"
+    },
+    "products": {
+      "category": "Trading Software Subscription",
+      "platforms": {
+        "single": "NinjaTrader or TradingView",
+        "both": "NinjaTrader and TradingView"
+      },
+      "strategiesSingle": {
+        "name": "Automated Strategies - Single Platform",
+        "description": "Access to all automated trading strategies for NinjaTrader or TradingView. Includes indicators for chosen platform."
+      },
+      "strategiesBoth": {
+        "name": "Automated Strategies - Both Platforms",
+        "description": "Access to all automated trading strategies for both NinjaTrader and TradingView. Includes indicators for both platforms with priority updates."
+      },
+      "indicatorsSingle": {
+        "name": "Trading Indicators - Single Platform",
+        "description": "Access to all trading indicators for NinjaTrader or TradingView. Professional-grade technical analysis tools."
+      },
+      "indicatorsBoth": {
+        "name": "Trading Indicators - Both Platforms",
+        "description": "Access to all trading indicators for both NinjaTrader and TradingView. Complete indicator suite for both platforms."
+      }
+    },
+    "plans": {
+      "strategiesSingle": {
+        "title": "Automated Strategies",
+        "subtitle": "Single Platform",
+        "badge": "Automated Strategies",
+        "features": {
+          "includesIndicators": "Includes indicators for chosen platform",
+          "allStrategies": "Access to all automated strategies",
+          "newFeatures": "Direct access to new features"
+        }
+      },
+      "strategiesBoth": {
+        "title": "Automated Strategies",
+        "subtitle": "Both Platforms",
+        "mostPopular": "MOST POPULAR",
+        "badgeStrategies": "Automated Strategies",
+        "badgeBothPlatforms": "Both Platforms",
+        "badgePriority": "Priority Updates",
+        "features": {
+          "includesIndicators": "Includes indicators for both platforms",
+          "platforms": "NinjaTrader and TradingView",
+          "allStrategies": "Access to all automated strategies"
+        }
+      },
+      "indicatorsSingle": {
+        "title": "Indicators",
+        "subtitle": "Single Platform",
+        "features": {
+          "allIndicators": "Access to all our indicators",
+          "support": "24/7 customer support",
+          "cancelAnytime": "Cancel anytime"
+        }
+      },
+      "indicatorsBoth": {
+        "title": "Indicators",
+        "subtitle": "Both Platforms",
+        "badge": "Both Platforms",
+        "features": {
+          "allIndicators": "Access to all our indicators",
+          "platforms": "NinjaTrader and TradingView",
+          "cancelAnytime": "Cancel anytime"
+        }
+      }
+    },
+    "test": {
+      "title": "Test",
+      "subtitle": "Stripe test price",
+      "description": "For testing checkout flows only",
+      "button": "Use Test Checkout",
+      "getStarted": "Get Started"
+    },
+    "comparison": {
+      "title": "Compare Plans & Features",
+      "features": "Features",
+      "indicators": "Indicators",
+      "strategies": "Automated Strategies",
+      "singlePlatform": "Single Platform",
+      "bothPlatforms": "Both Platforms",
+      "mostPopular": "MOST POPULAR",
+      "accessIndicators": "Access to all indicators",
+      "platformAccess": "Platform access",
+      "single": "Single",
+      "accessStrategies": "Access to automated strategies",
+      "support": "24/7 customer support",
+      "newFeatures": "Direct access to new features",
+      "priorityUpdates": "Priority updates"
+    }
   }
 }

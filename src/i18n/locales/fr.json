@@ -45,6 +45,47 @@
     "signUp": "S'inscrire",
     "validEmail": "Veuillez entrer une adresse e-mail valide"
   },
+  "backtestExplorer": {
+    "all": "Tous",
+    "avgLoss": "Perte Moyenne",
+    "avgWin": "Gain Moyen",
+    "cumProfit": "Profit Cum.",
+    "currency": "Devise",
+    "drawdown": "Drawdown",
+    "drawdownLabel": "Drawdown ({{currency}})",
+    "entryTime": "Heure d'Entrée",
+    "equityCurve": "Courbe de Capital",
+    "equityLabel": "Capital ({{currency}})",
+    "instrument": "Instrument",
+    "largestLoss": "Plus Grande Perte",
+    "largestWin": "Plus Grand Gain",
+    "loading": "Chargement des données de backtest...",
+    "maxDrawdown": "Drawdown Maximum",
+    "profit": "Profit",
+    "profitDistribution": "Distribution des Profits",
+    "profitFactor": "Facteur de Profit",
+    "seoDescription": "Explorez les résultats complets de backtests pour les stratégies FluxTrade. Analysez les métriques de performance, les distributions de profit et les comparaisons de stratégies sur différents instruments et conditions de marché.",
+    "seoKeywords": "résultats de backtest, performance des stratégies de trading, analyse de stratégies, métriques de trading, explorateur de backtests, comparaison de stratégies",
+    "seoTitle": "Explorateur de Backtests - Analyse de Performance des Stratégies",
+    "session": "Session",
+    "sessions": {
+      "Afternoon": "Après-midi",
+      "Evening": "Soir",
+      "Morning": "Matin",
+      "Night": "Nuit",
+      "Unknown": "Inconnu"
+    },
+    "showingTrades": "Affichage des 100 premières sur {{total}} opérations",
+    "strategy": "Stratégie",
+    "subtitle": "Analyse interactive des résultats de backtest. Filtrez par stratégie, instrument et session.",
+    "title": "Explorateur de Backtests",
+    "totalProfit": "Profit Total",
+    "totalTrades": "Total des Opérations",
+    "tradeCount": "Nombre d'Opérations",
+    "tradeDetails": "Détails des Opérations",
+    "tradeNumber": "Opération #",
+    "winRate": "Taux de Réussite"
+  },
   "blog": {
     "articles": {
       "cointegratedPairs": {
@@ -524,6 +565,133 @@
     "select": "Sélectionner la Langue",
     "spanish": "Espagnol"
   },
+  "pricing": {
+    "billingPeriods": {
+      "monthly": "/mois",
+      "monthlyLabel": "Mensuel",
+      "quarterly": "/trim",
+      "quarterlyLabel": "Trimestriel",
+      "yearly": "/an",
+      "yearlyLabel": "Annuel"
+    },
+    "buttons": {
+      "startTrial": "Commencer l'essai gratuit de 30 jours",
+      "startTrialBoth": "Commencer l'essai gratuit de 30 jours pour les deux plateformes",
+      "startTrialNinjaTrader": "Commencer l'essai gratuit de 30 jours sur NinjaTrader",
+      "startTrialTradingView": "Commencer l'essai gratuit de 30 jours sur TradingView",
+      "subscribeNinjaTrader": "S'abonner sur NinjaTrader",
+      "subscribeNow": "S'abonner Maintenant",
+      "subscribeTradingView": "S'abonner sur TradingView"
+    },
+    "comparison": {
+      "accessIndicators": "Accès à tous les indicateurs",
+      "accessStrategies": "Accès aux stratégies automatisées",
+      "bothPlatforms": "Les Deux Plateformes",
+      "features": "Caractéristiques",
+      "indicators": "Indicateurs",
+      "mostPopular": "LE PLUS POPULAIRE",
+      "newFeatures": "Accès direct aux nouvelles fonctionnalités",
+      "platformAccess": "Accès à la plateforme",
+      "priorityUpdates": "Mises à jour prioritaires",
+      "single": "Unique",
+      "singlePlatform": "Plateforme Unique",
+      "strategies": "Stratégies Automatisées",
+      "support": "Support client 24/7",
+      "title": "Comparer les Plans et Caractéristiques"
+    },
+    "errors": {
+      "checkoutError": "Une erreur s'est produite lors de la création de votre session de paiement. Veuillez réessayer.",
+      "sessionExpired": "Votre session a expiré. Veuillez vous reconnecter pour continuer."
+    },
+    "freeTrial": "Les plans mensuels incluent un essai gratuit de 30 jours !",
+    "noCommitment": "Sans engagement. Annulez à tout moment.",
+    "plans": {
+      "indicatorsBoth": {
+        "badge": "Les Deux Plateformes",
+        "features": {
+          "allIndicators": "Accès à tous nos indicateurs",
+          "cancelAnytime": "Annulez à tout moment",
+          "platforms": "NinjaTrader et TradingView"
+        },
+        "subtitle": "Les Deux Plateformes",
+        "title": "Indicateurs"
+      },
+      "indicatorsSingle": {
+        "features": {
+          "allIndicators": "Accès à tous nos indicateurs",
+          "cancelAnytime": "Annulez à tout moment",
+          "support": "Support client 24/7"
+        },
+        "subtitle": "Plateforme Unique",
+        "title": "Indicateurs"
+      },
+      "strategiesBoth": {
+        "badgeBothPlatforms": "Les Deux Plateformes",
+        "badgePriority": "Mises à Jour Prioritaires",
+        "badgeStrategies": "Stratégies Automatisées",
+        "features": {
+          "allStrategies": "Accès à toutes les stratégies automatisées",
+          "includesIndicators": "Inclut les indicateurs pour les deux plateformes",
+          "platforms": "NinjaTrader et TradingView"
+        },
+        "mostPopular": "LE PLUS POPULAIRE",
+        "subtitle": "Les Deux Plateformes",
+        "title": "Stratégies Automatisées"
+      },
+      "strategiesSingle": {
+        "badge": "Stratégies Automatisées",
+        "features": {
+          "allStrategies": "Accès à toutes les stratégies automatisées",
+          "includesIndicators": "Inclut les indicateurs pour la plateforme choisie",
+          "newFeatures": "Accès direct aux nouvelles fonctionnalités"
+        },
+        "subtitle": "Plateforme Unique",
+        "title": "Stratégies Automatisées"
+      }
+    },
+    "products": {
+      "category": "Abonnement Logiciel de Trading",
+      "indicatorsBoth": {
+        "description": "Accès à tous les indicateurs de trading pour NinjaTrader et TradingView. Suite complète d'indicateurs pour les deux plateformes.",
+        "name": "Indicateurs de Trading - Les Deux Plateformes"
+      },
+      "indicatorsSingle": {
+        "description": "Accès à tous les indicateurs de trading pour NinjaTrader ou TradingView. Outils d'analyse technique de niveau professionnel.",
+        "name": "Indicateurs de Trading - Plateforme Unique"
+      },
+      "platforms": {
+        "both": "NinjaTrader et TradingView",
+        "single": "NinjaTrader ou TradingView"
+      },
+      "strategiesBoth": {
+        "description": "Accès à toutes les stratégies de trading automatisées pour NinjaTrader et TradingView. Inclut les indicateurs pour les deux plateformes avec mises à jour prioritaires.",
+        "name": "Stratégies Automatisées - Les Deux Plateformes"
+      },
+      "strategiesSingle": {
+        "description": "Accès à toutes les stratégies de trading automatisées pour NinjaTrader ou TradingView. Inclut les indicateurs pour la plateforme choisie.",
+        "name": "Stratégies Automatisées - Plateforme Unique"
+      }
+    },
+    "save": "Économisez",
+    "save10": "Économisez 10%",
+    "save10Percent": "Économisez 10 pour cent",
+    "save17": "Économisez 17%",
+    "save17Percent": "Économisez 17 pour cent",
+    "seo": {
+      "description": "Choisissez le plan d'abonnement FluxTrade parfait pour vos besoins de trading. Accédez à des stratégies automatisées, des indicateurs et des outils de trading professionnels pour NinjaTrader et TradingView. Plans flexibles mensuels, trimestriels et annuels disponibles.",
+      "keywords": "tarifs logiciels de trading, abonnement ninjatrader, tarifs stratégies tradingview, abonnement trading automatisé, tarifs outils trading prop firm",
+      "title": "Tarifs - Abonnements Logiciels de Trading"
+    },
+    "subtitle": "Libérez tout le potentiel de FluxTrade avec nos plans sur mesure.",
+    "test": {
+      "button": "Utiliser le Paiement de Test",
+      "description": "Uniquement pour tester les flux de paiement",
+      "getStarted": "Commencer",
+      "subtitle": "Prix de test Stripe",
+      "title": "Test"
+    },
+    "title": "Choisissez Votre Plan"
+  },
   "stickyCTA": {
     "bothPlatforms": "Les Deux Plateformes",
     "ninjaTrader": "NinjaTrader",
@@ -532,6 +700,16 @@
     "startTrial": "Commencer l'Essai Gratuit (30 jours)",
     "startTrialLabel": "Commencer l'essai gratuit de 30 jours pour {{platform}}",
     "tradingView": "TradingView"
+  },
+  "streaming": {
+    "description": "Regardez nos diffusions de trading en direct sur Twitch",
+    "followFacebook": "Suivez-nous sur Facebook (s'ouvre dans un nouvel onglet)",
+    "followInstagram": "Suivez-nous sur Instagram (s'ouvre dans un nouvel onglet)",
+    "followTikTok": "Suivez-nous sur TikTok (s'ouvre dans un nouvel onglet)",
+    "followTwitch": "Suivez-nous sur Twitch (s'ouvre dans un nouvel onglet)",
+    "followUs": "Suivez-nous",
+    "followYouTube": "Suivez-nous sur YouTube (s'ouvre dans un nouvel onglet)",
+    "title": "Diffusion en Direct"
   },
   "support": {
     "additionalResources": "Ressources Supplémentaires",

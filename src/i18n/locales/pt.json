@@ -553,5 +553,183 @@
         ]
       }
     }
+  },
+  "streaming": {
+    "title": "Transmissão ao Vivo",
+    "description": "Assista às nossas transmissões de trading ao vivo no Twitch",
+    "followUs": "Siga-nos",
+    "followYouTube": "Siga-nos no YouTube (abre em nova aba)",
+    "followTwitch": "Siga-nos no Twitch (abre em nova aba)",
+    "followInstagram": "Siga-nos no Instagram (abre em nova aba)",
+    "followTikTok": "Siga-nos no TikTok (abre em nova aba)",
+    "followFacebook": "Siga-nos no Facebook (abre em nova aba)"
+  },
+  "backtestExplorer": {
+    "loading": "Carregando dados de backtest...",
+    "seoTitle": "Explorador de Backtests - Análise de Desempenho de Estratégias",
+    "seoDescription": "Explore resultados abrangentes de backtests para estratégias FluxTrade. Analise métricas de desempenho, distribuições de lucro e comparações de estratégias em diferentes instrumentos e condições de mercado.",
+    "seoKeywords": "resultados de backtest, desempenho de estratégias de trading, análise de estratégias, métricas de trading, explorador de backtests, comparação de estratégias",
+    "title": "Explorador de Backtests",
+    "subtitle": "Análise interativa de resultados de backtest. Filtre por estratégia, instrumento e sessão.",
+    "strategy": "Estratégia",
+    "instrument": "Instrumento",
+    "session": "Sessão",
+    "currency": "Moeda",
+    "all": "Todos",
+    "totalTrades": "Total de Operações",
+    "winRate": "Taxa de Vitória",
+    "totalProfit": "Lucro Total",
+    "maxDrawdown": "Drawdown Máximo",
+    "profitFactor": "Fator de Lucro",
+    "avgWin": "Ganho Médio",
+    "avgLoss": "Perda Média",
+    "largestWin": "Maior Ganho",
+    "largestLoss": "Maior Perda",
+    "equityCurve": "Curva de Capital",
+    "drawdown": "Drawdown",
+    "profitDistribution": "Distribuição de Lucros",
+    "tradeCount": "Quantidade de Operações",
+    "tradeDetails": "Detalhes das Operações",
+    "tradeNumber": "Operação #",
+    "entryTime": "Hora de Entrada",
+    "profit": "Lucro",
+    "cumProfit": "Lucro Acum.",
+    "equityLabel": "Capital ({{currency}})",
+    "drawdownLabel": "Drawdown ({{currency}})",
+    "showingTrades": "Mostrando as primeiras 100 de {{total}} operações",
+    "sessions": {
+      "Morning": "Manhã",
+      "Afternoon": "Tarde",
+      "Evening": "Noite",
+      "Night": "Madrugada",
+      "Unknown": "Desconhecido"
+    }
+  },
+  "pricing": {
+    "title": "Escolha Seu Plano",
+    "subtitle": "Desbloqueie todo o potencial do FluxTrade com nossos planos personalizados.",
+    "freeTrial": "Os planos mensais incluem um teste gratuito de 30 dias!",
+    "save": "Economize",
+    "save10": "Economize 10%",
+    "save17": "Economize 17%",
+    "save10Percent": "Economize 10 por cento",
+    "save17Percent": "Economize 17 por cento",
+    "noCommitment": "Sem compromisso. Cancele a qualquer momento.",
+    "billingPeriods": {
+      "monthly": "/mês",
+      "quarterly": "/trim",
+      "yearly": "/ano",
+      "monthlyLabel": "Mensal",
+      "quarterlyLabel": "Trimestral",
+      "yearlyLabel": "Anual"
+    },
+    "buttons": {
+      "startTrial": "Iniciar teste gratuito de 30 dias",
+      "startTrialNinjaTrader": "Iniciar teste gratuito de 30 dias no NinjaTrader",
+      "startTrialTradingView": "Iniciar teste gratuito de 30 dias no TradingView",
+      "startTrialBoth": "Iniciar teste gratuito de 30 dias para ambas as plataformas",
+      "subscribeNow": "Assinar Agora",
+      "subscribeNinjaTrader": "Assinar no NinjaTrader",
+      "subscribeTradingView": "Assinar no TradingView"
+    },
+    "errors": {
+      "sessionExpired": "Sua sessão expirou. Por favor, faça login novamente para continuar.",
+      "checkoutError": "Ocorreu um erro ao criar sua sessão de checkout. Por favor, tente novamente."
+    },
+    "seo": {
+      "title": "Preços - Assinaturas de Software de Trading",
+      "description": "Escolha o plano de assinatura FluxTrade perfeito para suas necessidades de trading. Acesse estratégias automatizadas, indicadores e ferramentas profissionais de trading para NinjaTrader e TradingView. Planos flexíveis mensais, trimestrais e anuais disponíveis.",
+      "keywords": "preços de software de trading, assinatura ninjatrader, preços de estratégias tradingview, assinatura de trading automatizado, preços de ferramentas de trading para prop firms"
+    },
+    "products": {
+      "category": "Assinatura de Software de Trading",
+      "platforms": {
+        "single": "NinjaTrader ou TradingView",
+        "both": "NinjaTrader e TradingView"
+      },
+      "strategiesSingle": {
+        "name": "Estratégias Automatizadas - Plataforma Única",
+        "description": "Acesso a todas as estratégias de trading automatizadas para NinjaTrader ou TradingView. Inclui indicadores para a plataforma escolhida."
+      },
+      "strategiesBoth": {
+        "name": "Estratégias Automatizadas - Ambas as Plataformas",
+        "description": "Acesso a todas as estratégias de trading automatizadas para NinjaTrader e TradingView. Inclui indicadores para ambas as plataformas com atualizações prioritárias."
+      },
+      "indicatorsSingle": {
+        "name": "Indicadores de Trading - Plataforma Única",
+        "description": "Acesso a todos os indicadores de trading para NinjaTrader ou TradingView. Ferramentas profissionais de análise técnica."
+      },
+      "indicatorsBoth": {
+        "name": "Indicadores de Trading - Ambas as Plataformas",
+        "description": "Acesso a todos os indicadores de trading para NinjaTrader e TradingView. Suite completa de indicadores para ambas as plataformas."
+      }
+    },
+    "plans": {
+      "strategiesSingle": {
+        "title": "Estratégias Automatizadas",
+        "subtitle": "Plataforma Única",
+        "badge": "Estratégias Automatizadas",
+        "features": {
+          "includesIndicators": "Inclui indicadores para a plataforma escolhida",
+          "allStrategies": "Acesso a todas as estratégias automatizadas",
+          "newFeatures": "Acesso direto a novos recursos"
+        }
+      },
+      "strategiesBoth": {
+        "title": "Estratégias Automatizadas",
+        "subtitle": "Ambas as Plataformas",
+        "mostPopular": "MAIS POPULAR",
+        "badgeStrategies": "Estratégias Automatizadas",
+        "badgeBothPlatforms": "Ambas as Plataformas",
+        "badgePriority": "Atualizações Prioritárias",
+        "features": {
+          "includesIndicators": "Inclui indicadores para ambas as plataformas",
+          "platforms": "NinjaTrader e TradingView",
+          "allStrategies": "Acesso a todas as estratégias automatizadas"
+        }
+      },
+      "indicatorsSingle": {
+        "title": "Indicadores",
+        "subtitle": "Plataforma Única",
+        "features": {
+          "allIndicators": "Acesso a todos os nossos indicadores",
+          "support": "Suporte ao cliente 24/7",
+          "cancelAnytime": "Cancele a qualquer momento"
+        }
+      },
+      "indicatorsBoth": {
+        "title": "Indicadores",
+        "subtitle": "Ambas as Plataformas",
+        "badge": "Ambas as Plataformas",
+        "features": {
+          "allIndicators": "Acesso a todos os nossos indicadores",
+          "platforms": "NinjaTrader e TradingView",
+          "cancelAnytime": "Cancele a qualquer momento"
+        }
+      }
+    },
+    "test": {
+      "title": "Teste",
+      "subtitle": "Preço de teste Stripe",
+      "description": "Apenas para testar fluxos de checkout",
+      "button": "Usar Checkout de Teste",
+      "getStarted": "Começar"
+    },
+    "comparison": {
+      "title": "Comparar Planos e Recursos",
+      "features": "Recursos",
+      "indicators": "Indicadores",
+      "strategies": "Estratégias Automatizadas",
+      "singlePlatform": "Plataforma Única",
+      "bothPlatforms": "Ambas as Plataformas",
+      "mostPopular": "MAIS POPULAR",
+      "accessIndicators": "Acesso a todos os indicadores",
+      "platformAccess": "Acesso à plataforma",
+      "single": "Única",
+      "accessStrategies": "Acesso a estratégias automatizadas",
+      "support": "Suporte ao cliente 24/7",
+      "newFeatures": "Acesso direto a novos recursos",
+      "priorityUpdates": "Atualizações prioritárias"
+    }
   }
 }

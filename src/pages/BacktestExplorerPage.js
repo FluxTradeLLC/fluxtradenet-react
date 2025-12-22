@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Papa from "papaparse";
 import { SEO } from "../components/SEO";
 import {
@@ -90,6 +91,8 @@ const CURRENCY_SYMBOLS = {
 };
 
 // Helper function to extract session from time string
+// Note: Session names are translated in the component, but we need to keep the English keys here
+// for filtering logic. The translation happens when displaying.
 const getSession = (timeStr) => {
   if (!timeStr) return "Unknown";
   try {
@@ -140,6 +143,7 @@ const toTitleCase = (str) => {
 };
 
 export const BacktestExplorerPage = () => {
+  const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [allData, setAllData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -383,7 +387,7 @@ export const BacktestExplorerPage = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
-        <div className="text-xl">Loading backtest data...</div>
+        <div className="text-xl">{t("backtestExplorer.loading")}</div>
       </div>
     );
   }
@@ -391,19 +395,18 @@ export const BacktestExplorerPage = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
       <SEO
-        title="Backtest Explorer - Strategy Performance Analysis"
-        description="Explore comprehensive backtest results for FluxTrade strategies. Analyze performance metrics, profit distributions, and strategy comparisons across different instruments and market conditions."
-        keywords="backtest results, trading strategy performance, strategy analysis, trading metrics, backtest explorer, strategy comparison"
+        title={t("backtestExplorer.seoTitle")}
+        description={t("backtestExplorer.seoDescription")}
+        keywords={t("backtestExplorer.seoKeywords")}
         canonical="/backtests/explorer"
       />
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
           <h1 className="text-5xl font-extrabold mb-4 text-center">
-            Backtest Explorer
+            {t("backtestExplorer.title")}
           </h1>
           <p className="text-gray-400">
-            Interactive analysis of backtest results. Filter by strategy,
-            instrument, and session.
+            {t("backtestExplorer.subtitle")}
           </p>
         </div>
 
@@ -411,7 +414,7 @@ export const BacktestExplorerPage = () => {
         <div className="bg-gray-800 rounded-lg p-6 mb-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
-              <label className="block text-sm font-medium mb-2">Strategy</label>
+              <label className="block text-sm font-medium mb-2">{t("backtestExplorer.strategy")}</label>
               <select
                 value={selectedStrategy}
                 onChange={(e) => {
@@ -429,7 +432,7 @@ export const BacktestExplorerPage = () => {
               >
                 {strategies.map((strategy) => (
                   <option key={strategy} value={strategy}>
-                    {toTitleCase(strategy)}
+                    {strategy === "All" ? t("backtestExplorer.all") : toTitleCase(strategy)}
                   </option>
                 ))}
               </select>
@@ -437,7 +440,7 @@ export const BacktestExplorerPage = () => {
 
             <div>
               <label className="block text-sm font-medium mb-2">
-                Instrument
+                {t("backtestExplorer.instrument")}
               </label>
               <select
                 value={selectedInstrument}
@@ -446,14 +449,14 @@ export const BacktestExplorerPage = () => {
               >
                 {instruments.map((instrument) => (
                   <option key={instrument} value={instrument}>
-                    {instrument}
+                    {instrument === "All" ? t("backtestExplorer.all") : instrument}
                   </option>
                 ))}
               </select>
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Session</label>
+              <label className="block text-sm font-medium mb-2">{t("backtestExplorer.session")}</label>
               <select
                 value={selectedSession}
                 onChange={(e) => setSelectedSession(e.target.value)}
@@ -461,14 +464,14 @@ export const BacktestExplorerPage = () => {
               >
                 {sessions.map((session) => (
                   <option key={session} value={session}>
-                    {session}
+                    {session === "All" ? t("backtestExplorer.all") : t(`backtestExplorer.sessions.${session}`, session)}
                   </option>
                 ))}
               </select>
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Currency</label>
+              <label className="block text-sm font-medium mb-2">{t("backtestExplorer.currency")}</label>
               <select
                 value={selectedCurrency}
                 onChange={(e) => setSelectedCurrency(e.target.value)}
@@ -487,19 +490,19 @@ export const BacktestExplorerPage = () => {
         {/* Statistics Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-6">
           <div className="bg-gray-800 rounded-lg p-4">
-            <div className="text-sm text-gray-400">Total Trades</div>
+            <div className="text-sm text-gray-400">{t("backtestExplorer.totalTrades")}</div>
             <div className="text-2xl font-bold">
               {stats.totalTrades.toLocaleString()}
             </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
-            <div className="text-sm text-gray-400">Win Rate</div>
+            <div className="text-sm text-gray-400">{t("backtestExplorer.winRate")}</div>
             <div className="text-2xl font-bold text-green-400">
               {stats.winRate}%
             </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
-            <div className="text-sm text-gray-400">Total Profit</div>
+            <div className="text-sm text-gray-400">{t("backtestExplorer.totalProfit")}</div>
             <div
               className={`text-2xl font-bold ${parseFloat(stats.totalProfit) >= 0 ? "text-green-400" : "text-red-400"}`}
             >
@@ -507,13 +510,13 @@ export const BacktestExplorerPage = () => {
             </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
-            <div className="text-sm text-gray-400">Max Drawdown</div>
+            <div className="text-sm text-gray-400">{t("backtestExplorer.maxDrawdown")}</div>
             <div className="text-2xl font-bold text-red-400">
               {formatCurrency(parseFloat(stats.maxDrawdown))}
             </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
-            <div className="text-sm text-gray-400">Profit Factor</div>
+            <div className="text-sm text-gray-400">{t("backtestExplorer.profitFactor")}</div>
             <div className="text-2xl font-bold">{stats.profitFactor}</div>
           </div>
         </div>
@@ -521,25 +524,25 @@ export const BacktestExplorerPage = () => {
         {/* Additional Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="bg-gray-800 rounded-lg p-4">
-            <div className="text-sm text-gray-400">Avg Win</div>
+            <div className="text-sm text-gray-400">{t("backtestExplorer.avgWin")}</div>
             <div className="text-xl font-bold text-green-400">
               {formatCurrency(parseFloat(stats.avgWin))}
             </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
-            <div className="text-sm text-gray-400">Avg Loss</div>
+            <div className="text-sm text-gray-400">{t("backtestExplorer.avgLoss")}</div>
             <div className="text-xl font-bold text-red-400">
               {formatCurrency(parseFloat(stats.avgLoss))}
             </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
-            <div className="text-sm text-gray-400">Largest Win</div>
+            <div className="text-sm text-gray-400">{t("backtestExplorer.largestWin")}</div>
             <div className="text-xl font-bold text-green-400">
               {formatCurrency(parseFloat(stats.largestWin))}
             </div>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
-            <div className="text-sm text-gray-400">Largest Loss</div>
+            <div className="text-sm text-gray-400">{t("backtestExplorer.largestLoss")}</div>
             <div className="text-xl font-bold text-red-400">
               {formatCurrency(parseFloat(stats.largestLoss))}
             </div>
@@ -552,7 +555,7 @@ export const BacktestExplorerPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
               {/* Equity Curve */}
               <div className="bg-gray-800 rounded-lg p-6">
-                <h2 className="text-xl font-semibold mb-4">Equity Curve</h2>
+                <h2 className="text-xl font-semibold mb-4">{t("backtestExplorer.equityCurve")}</h2>
                 <ResponsiveContainer width="100%" height={300}>
                   <AreaChart data={equityCurveData}>
                     <defs>
@@ -601,7 +604,7 @@ export const BacktestExplorerPage = () => {
                       stroke="#3b82f6"
                       fillOpacity={1}
                       fill="url(#colorEquity)"
-                      name={`Equity (${selectedCurrency})`}
+                      name={t("backtestExplorer.equityLabel", { currency: selectedCurrency })}
                     />
                   </AreaChart>
                 </ResponsiveContainer>
@@ -609,7 +612,7 @@ export const BacktestExplorerPage = () => {
 
               {/* Drawdown Chart */}
               <div className="bg-gray-800 rounded-lg p-6">
-                <h2 className="text-xl font-semibold mb-4">Drawdown</h2>
+                <h2 className="text-xl font-semibold mb-4">{t("backtestExplorer.drawdown")}</h2>
                 <ResponsiveContainer width="100%" height={300}>
                   <AreaChart data={equityCurveData}>
                     <defs>
@@ -658,7 +661,7 @@ export const BacktestExplorerPage = () => {
                       stroke="#ef4444"
                       fillOpacity={1}
                       fill="url(#colorDrawdown)"
-                      name={`Drawdown (${selectedCurrency})`}
+                      name={t("backtestExplorer.drawdownLabel", { currency: selectedCurrency })}
                     />
                   </AreaChart>
                 </ResponsiveContainer>
@@ -669,7 +672,7 @@ export const BacktestExplorerPage = () => {
             {profitDistribution.length > 0 && (
               <div className="bg-gray-800 rounded-lg p-6 mb-6">
                 <h2 className="text-xl font-semibold mb-4">
-                  Profit Distribution
+                  {t("backtestExplorer.profitDistribution")}
                 </h2>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={profitDistribution}>
@@ -691,7 +694,7 @@ export const BacktestExplorerPage = () => {
                       labelStyle={{ color: "#fff" }}
                     />
                     <Legend />
-                    <Bar dataKey="count" fill="#8b5cf6" name="Trade Count" />
+                    <Bar dataKey="count" fill="#8b5cf6" name={t("backtestExplorer.tradeCount")} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
@@ -701,31 +704,31 @@ export const BacktestExplorerPage = () => {
 
         {/* Data Table */}
         <div className="bg-gray-800 rounded-lg p-6">
-          <h2 className="text-xl font-semibold mb-4">Trade Details</h2>
+          <h2 className="text-xl font-semibold mb-4">{t("backtestExplorer.tradeDetails")}</h2>
           <div className="overflow-x-auto">
             <table className="min-w-full">
               <thead>
                 <tr className="border-b border-gray-700">
                   <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
-                    Trade #
+                    {t("backtestExplorer.tradeNumber")}
                   </th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
-                    Strategy
+                    {t("backtestExplorer.strategy")}
                   </th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
-                    Instrument
+                    {t("backtestExplorer.instrument")}
                   </th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
-                    Entry Time
+                    {t("backtestExplorer.entryTime")}
                   </th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
-                    Session
+                    {t("backtestExplorer.session")}
                   </th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
-                    Profit
+                    {t("backtestExplorer.profit")}
                   </th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
-                    Cum. Profit
+                    {t("backtestExplorer.cumProfit")}
                   </th>
                 </tr>
               </thead>
@@ -747,7 +750,7 @@ export const BacktestExplorerPage = () => {
                         ? row.entryTime.toLocaleDateString()
                         : row["Entry time"]}
                     </td>
-                    <td className="py-3 px-4 text-sm">{row.session}</td>
+                    <td className="py-3 px-4 text-sm">{t(`backtestExplorer.sessions.${row.session}`, row.session)}</td>
                     <td
                       className={`py-3 px-4 text-sm font-medium ${row.profit >= 0 ? "text-green-400" : "text-red-400"}`}
                     >
@@ -764,7 +767,7 @@ export const BacktestExplorerPage = () => {
             </table>
             {filteredData.length > 100 && (
               <div className="mt-4 text-center text-gray-400 text-sm">
-                Showing first 100 of {filteredData.length} trades
+                {t("backtestExplorer.showingTrades", { total: filteredData.length })}
               </div>
             )}
           </div>

@@ -553,5 +553,183 @@
         ]
       }
     }
+  },
+  "streaming": {
+    "title": "라이브 스트리밍",
+    "description": "Twitch에서 라이브 트레이딩 스트림 시청",
+    "followUs": "팔로우하기",
+    "followYouTube": "YouTube에서 팔로우하기 (새 탭에서 열림)",
+    "followTwitch": "Twitch에서 팔로우하기 (새 탭에서 열림)",
+    "followInstagram": "Instagram에서 팔로우하기 (새 탭에서 열림)",
+    "followTikTok": "TikTok에서 팔로우하기 (새 탭에서 열림)",
+    "followFacebook": "Facebook에서 팔로우하기 (새 탭에서 열림)"
+  },
+  "backtestExplorer": {
+    "loading": "백테스트 데이터 로딩 중...",
+    "seoTitle": "백테스트 탐색기 - 전략 성능 분석",
+    "seoDescription": "FluxTrade 전략의 포괄적인 백테스트 결과를 탐색하세요. 다양한 도구와 시장 조건에서 성능 지표, 수익 분포 및 전략 비교를 분석합니다.",
+    "seoKeywords": "백테스트 결과, 트레이딩 전략 성능, 전략 분석, 트레이딩 지표, 백테스트 탐색기, 전략 비교",
+    "title": "백테스트 탐색기",
+    "subtitle": "백테스트 결과의 대화형 분석. 전략, 도구 및 세션별로 필터링합니다.",
+    "strategy": "전략",
+    "instrument": "도구",
+    "session": "세션",
+    "currency": "통화",
+    "all": "전체",
+    "totalTrades": "총 거래 수",
+    "winRate": "승률",
+    "totalProfit": "총 수익",
+    "maxDrawdown": "최대 낙폭",
+    "profitFactor": "수익 팩터",
+    "avgWin": "평균 수익",
+    "avgLoss": "평균 손실",
+    "largestWin": "최대 수익",
+    "largestLoss": "최대 손실",
+    "equityCurve": "자산 곡선",
+    "drawdown": "낙폭",
+    "profitDistribution": "수익 분포",
+    "tradeCount": "거래 수",
+    "tradeDetails": "거래 세부 정보",
+    "tradeNumber": "거래 #",
+    "entryTime": "진입 시간",
+    "profit": "수익",
+    "cumProfit": "누적 수익",
+    "equityLabel": "자산 ({{currency}})",
+    "drawdownLabel": "낙폭 ({{currency}})",
+    "showingTrades": "{{total}}개 거래 중 처음 100개 표시",
+    "sessions": {
+      "Morning": "아침",
+      "Afternoon": "오후",
+      "Evening": "저녁",
+      "Night": "밤",
+      "Unknown": "알 수 없음"
+    }
+  },
+  "pricing": {
+    "title": "플랜 선택",
+    "subtitle": "맞춤형 플랜으로 FluxTrade의 모든 잠재력을 발휘하세요.",
+    "freeTrial": "월간 플랜에는 30일 무료 체험이 포함됩니다!",
+    "save": "절약",
+    "save10": "10% 절약",
+    "save17": "17% 절약",
+    "save10Percent": "10% 절약",
+    "save17Percent": "17% 절약",
+    "noCommitment": "약정 없음. 언제든지 취소 가능합니다.",
+    "billingPeriods": {
+      "monthly": "/월",
+      "quarterly": "/분기",
+      "yearly": "/년",
+      "monthlyLabel": "월간",
+      "quarterlyLabel": "분기",
+      "yearlyLabel": "연간"
+    },
+    "buttons": {
+      "startTrial": "30일 무료 체험 시작",
+      "startTrialNinjaTrader": "NinjaTrader에서 30일 무료 체험 시작",
+      "startTrialTradingView": "TradingView에서 30일 무료 체험 시작",
+      "startTrialBoth": "두 플랫폼 모두에서 30일 무료 체험 시작",
+      "subscribeNow": "지금 구독",
+      "subscribeNinjaTrader": "NinjaTrader에서 구독",
+      "subscribeTradingView": "TradingView에서 구독"
+    },
+    "errors": {
+      "sessionExpired": "세션이 만료되었습니다. 계속하려면 다시 로그인해 주세요.",
+      "checkoutError": "결제 세션을 생성하는 중 오류가 발생했습니다. 다시 시도해 주세요."
+    },
+    "seo": {
+      "title": "가격 - 트레이딩 소프트웨어 구독",
+      "description": "트레이딩 요구사항에 맞는 완벽한 FluxTrade 구독 플랜을 선택하세요. NinjaTrader 및 TradingView용 자동화된 전략, 지표 및 전문 트레이딩 도구에 액세스할 수 있습니다. 유연한 월간, 분기 및 연간 플랜을 이용할 수 있습니다.",
+      "keywords": "트레이딩 소프트웨어 가격, ninjatrader 구독, tradingview 전략 가격, 자동화 트레이딩 구독, 프로프 펌 트레이딩 도구 가격"
+    },
+    "products": {
+      "category": "트레이딩 소프트웨어 구독",
+      "platforms": {
+        "single": "NinjaTrader 또는 TradingView",
+        "both": "NinjaTrader 및 TradingView"
+      },
+      "strategiesSingle": {
+        "name": "자동화 전략 - 단일 플랫폼",
+        "description": "NinjaTrader 또는 TradingView용 모든 자동화 트레이딩 전략에 액세스. 선택한 플랫폼용 지표 포함."
+      },
+      "strategiesBoth": {
+        "name": "자동화 전략 - 두 플랫폼",
+        "description": "NinjaTrader 및 TradingView용 모든 자동화 트레이딩 전략에 액세스. 우선 업데이트가 포함된 두 플랫폼용 지표 포함."
+      },
+      "indicatorsSingle": {
+        "name": "트레이딩 지표 - 단일 플랫폼",
+        "description": "NinjaTrader 또는 TradingView용 모든 트레이딩 지표에 액세스. 전문가 수준의 기술 분석 도구."
+      },
+      "indicatorsBoth": {
+        "name": "트레이딩 지표 - 두 플랫폼",
+        "description": "NinjaTrader 및 TradingView용 모든 트레이딩 지표에 액세스. 두 플랫폼용 완전한 지표 세트."
+      }
+    },
+    "plans": {
+      "strategiesSingle": {
+        "title": "자동화 전략",
+        "subtitle": "단일 플랫폼",
+        "badge": "자동화 전략",
+        "features": {
+          "includesIndicators": "선택한 플랫폼용 지표 포함",
+          "allStrategies": "모든 자동화 전략에 액세스",
+          "newFeatures": "새 기능에 직접 액세스"
+        }
+      },
+      "strategiesBoth": {
+        "title": "자동화 전략",
+        "subtitle": "두 플랫폼",
+        "mostPopular": "가장 인기",
+        "badgeStrategies": "자동화 전략",
+        "badgeBothPlatforms": "두 플랫폼",
+        "badgePriority": "우선 업데이트",
+        "features": {
+          "includesIndicators": "두 플랫폼용 지표 포함",
+          "platforms": "NinjaTrader 및 TradingView",
+          "allStrategies": "모든 자동화 전략에 액세스"
+        }
+      },
+      "indicatorsSingle": {
+        "title": "지표",
+        "subtitle": "단일 플랫폼",
+        "features": {
+          "allIndicators": "모든 지표에 액세스",
+          "support": "24/7 고객 지원",
+          "cancelAnytime": "언제든지 취소 가능"
+        }
+      },
+      "indicatorsBoth": {
+        "title": "지표",
+        "subtitle": "두 플랫폼",
+        "badge": "두 플랫폼",
+        "features": {
+          "allIndicators": "모든 지표에 액세스",
+          "platforms": "NinjaTrader 및 TradingView",
+          "cancelAnytime": "언제든지 취소 가능"
+        }
+      }
+    },
+    "test": {
+      "title": "테스트",
+      "subtitle": "Stripe 테스트 가격",
+      "description": "결제 흐름 테스트 전용",
+      "button": "테스트 결제 사용",
+      "getStarted": "시작하기"
+    },
+    "comparison": {
+      "title": "플랜 및 기능 비교",
+      "features": "기능",
+      "indicators": "지표",
+      "strategies": "자동화 전략",
+      "singlePlatform": "단일 플랫폼",
+      "bothPlatforms": "두 플랫폼",
+      "mostPopular": "가장 인기",
+      "accessIndicators": "모든 지표에 액세스",
+      "platformAccess": "플랫폼 액세스",
+      "single": "단일",
+      "accessStrategies": "자동화 전략에 액세스",
+      "support": "24/7 고객 지원",
+      "newFeatures": "새 기능에 직접 액세스",
+      "priorityUpdates": "우선 업데이트"
+    }
   }
 }

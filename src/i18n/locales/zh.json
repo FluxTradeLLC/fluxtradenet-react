@@ -553,5 +553,183 @@
         ]
       }
     }
+  },
+  "streaming": {
+    "title": "直播",
+    "description": "在Twitch上观看我们的实时交易直播",
+    "followUs": "关注我们",
+    "followYouTube": "在YouTube上关注我们（在新标签页中打开）",
+    "followTwitch": "在Twitch上关注我们（在新标签页中打开）",
+    "followInstagram": "在Instagram上关注我们（在新标签页中打开）",
+    "followTikTok": "在TikTok上关注我们（在新标签页中打开）",
+    "followFacebook": "在Facebook上关注我们（在新标签页中打开）"
+  },
+  "backtestExplorer": {
+    "loading": "正在加载回测数据...",
+    "seoTitle": "回测探索器 - 策略性能分析",
+    "seoDescription": "探索FluxTrade策略的全面回测结果。分析不同工具和市场条件下的性能指标、利润分布和策略比较。",
+    "seoKeywords": "回测结果，交易策略性能，策略分析，交易指标，回测探索器，策略比较",
+    "title": "回测探索器",
+    "subtitle": "回测结果的交互式分析。按策略、工具和时段筛选。",
+    "strategy": "策略",
+    "instrument": "工具",
+    "session": "时段",
+    "currency": "货币",
+    "all": "全部",
+    "totalTrades": "总交易数",
+    "winRate": "胜率",
+    "totalProfit": "总利润",
+    "maxDrawdown": "最大回撤",
+    "profitFactor": "盈利因子",
+    "avgWin": "平均盈利",
+    "avgLoss": "平均亏损",
+    "largestWin": "最大盈利",
+    "largestLoss": "最大亏损",
+    "equityCurve": "资金曲线",
+    "drawdown": "回撤",
+    "profitDistribution": "利润分布",
+    "tradeCount": "交易数量",
+    "tradeDetails": "交易详情",
+    "tradeNumber": "交易 #",
+    "entryTime": "入场时间",
+    "profit": "利润",
+    "cumProfit": "累计利润",
+    "equityLabel": "资金（{{currency}}）",
+    "drawdownLabel": "回撤（{{currency}}）",
+    "showingTrades": "显示前100笔，共{{total}}笔交易",
+    "sessions": {
+      "Morning": "上午",
+      "Afternoon": "下午",
+      "Evening": "晚上",
+      "Night": "夜间",
+      "Unknown": "未知"
+    }
+  },
+  "pricing": {
+    "title": "选择您的计划",
+    "subtitle": "通过我们量身定制的计划释放 FluxTrade 的全部潜力。",
+    "freeTrial": "月度计划包含 30 天免费试用！",
+    "save": "节省",
+    "save10": "节省 10%",
+    "save17": "节省 17%",
+    "save10Percent": "节省 10%",
+    "save17Percent": "节省 17%",
+    "noCommitment": "无承诺。随时取消。",
+    "billingPeriods": {
+      "monthly": "/月",
+      "quarterly": "/季度",
+      "yearly": "/年",
+      "monthlyLabel": "月度",
+      "quarterlyLabel": "季度",
+      "yearlyLabel": "年度"
+    },
+    "buttons": {
+      "startTrial": "开始 30 天免费试用",
+      "startTrialNinjaTrader": "在 NinjaTrader 上开始 30 天免费试用",
+      "startTrialTradingView": "在 TradingView 上开始 30 天免费试用",
+      "startTrialBoth": "为两个平台开始 30 天免费试用",
+      "subscribeNow": "立即订阅",
+      "subscribeNinjaTrader": "在 NinjaTrader 上订阅",
+      "subscribeTradingView": "在 TradingView 上订阅"
+    },
+    "errors": {
+      "sessionExpired": "您的会话已过期。请重新登录以继续。",
+      "checkoutError": "创建结账会话时出错。请重试。"
+    },
+    "seo": {
+      "title": "定价 - 交易软件订阅",
+      "description": "为您的交易需求选择完美的 FluxTrade 订阅计划。访问 NinjaTrader 和 TradingView 的自动化策略、指标和专业交易工具。提供灵活的月度、季度和年度计划。",
+      "keywords": "交易软件定价, ninjatrader 订阅, tradingview 策略定价, 自动化交易订阅, 自营公司交易工具定价"
+    },
+    "products": {
+      "category": "交易软件订阅",
+      "platforms": {
+        "single": "NinjaTrader 或 TradingView",
+        "both": "NinjaTrader 和 TradingView"
+      },
+      "strategiesSingle": {
+        "name": "自动化策略 - 单一平台",
+        "description": "访问 NinjaTrader 或 TradingView 的所有自动化交易策略。包括所选平台的指标。"
+      },
+      "strategiesBoth": {
+        "name": "自动化策略 - 两个平台",
+        "description": "访问 NinjaTrader 和 TradingView 的所有自动化交易策略。包括两个平台的指标和优先更新。"
+      },
+      "indicatorsSingle": {
+        "name": "交易指标 - 单一平台",
+        "description": "访问 NinjaTrader 或 TradingView 的所有交易指标。专业级技术分析工具。"
+      },
+      "indicatorsBoth": {
+        "name": "交易指标 - 两个平台",
+        "description": "访问 NinjaTrader 和 TradingView 的所有交易指标。两个平台的完整指标套件。"
+      }
+    },
+    "plans": {
+      "strategiesSingle": {
+        "title": "自动化策略",
+        "subtitle": "单一平台",
+        "badge": "自动化策略",
+        "features": {
+          "includesIndicators": "包括所选平台的指标",
+          "allStrategies": "访问所有自动化策略",
+          "newFeatures": "直接访问新功能"
+        }
+      },
+      "strategiesBoth": {
+        "title": "自动化策略",
+        "subtitle": "两个平台",
+        "mostPopular": "最受欢迎",
+        "badgeStrategies": "自动化策略",
+        "badgeBothPlatforms": "两个平台",
+        "badgePriority": "优先更新",
+        "features": {
+          "includesIndicators": "包括两个平台的指标",
+          "platforms": "NinjaTrader 和 TradingView",
+          "allStrategies": "访问所有自动化策略"
+        }
+      },
+      "indicatorsSingle": {
+        "title": "指标",
+        "subtitle": "单一平台",
+        "features": {
+          "allIndicators": "访问我们所有的指标",
+          "support": "24/7 客户支持",
+          "cancelAnytime": "随时取消"
+        }
+      },
+      "indicatorsBoth": {
+        "title": "指标",
+        "subtitle": "两个平台",
+        "badge": "两个平台",
+        "features": {
+          "allIndicators": "访问我们所有的指标",
+          "platforms": "NinjaTrader 和 TradingView",
+          "cancelAnytime": "随时取消"
+        }
+      }
+    },
+    "test": {
+      "title": "测试",
+      "subtitle": "Stripe 测试价格",
+      "description": "仅用于测试结账流程",
+      "button": "使用测试结账",
+      "getStarted": "开始"
+    },
+    "comparison": {
+      "title": "比较计划和功能",
+      "features": "功能",
+      "indicators": "指标",
+      "strategies": "自动化策略",
+      "singlePlatform": "单一平台",
+      "bothPlatforms": "两个平台",
+      "mostPopular": "最受欢迎",
+      "accessIndicators": "访问所有指标",
+      "platformAccess": "平台访问",
+      "single": "单一",
+      "accessStrategies": "访问自动化策略",
+      "support": "24/7 客户支持",
+      "newFeatures": "直接访问新功能",
+      "priorityUpdates": "优先更新"
+    }
   }
 }

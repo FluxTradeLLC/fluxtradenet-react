@@ -553,5 +553,183 @@
         ]
       }
     }
+  },
+  "streaming": {
+    "title": "ライブストリーム",
+    "description": "Twitchでライブトレーディングストリームを視聴",
+    "followUs": "フォローする",
+    "followYouTube": "YouTubeでフォロー（新しいタブで開く）",
+    "followTwitch": "Twitchでフォロー（新しいタブで開く）",
+    "followInstagram": "Instagramでフォロー（新しいタブで開く）",
+    "followTikTok": "TikTokでフォロー（新しいタブで開く）",
+    "followFacebook": "Facebookでフォロー（新しいタブで開く）"
+  },
+  "backtestExplorer": {
+    "loading": "バックテストデータを読み込み中...",
+    "seoTitle": "バックテストエクスプローラー - 戦略パフォーマンス分析",
+    "seoDescription": "FluxTrade戦略の包括的なバックテスト結果を探索。さまざまな商品と市場条件におけるパフォーマンス指標、利益分布、戦略比較を分析。",
+    "seoKeywords": "バックテスト結果、トレーディング戦略パフォーマンス、戦略分析、トレーディング指標、バックテストエクスプローラー、戦略比較",
+    "title": "バックテストエクスプローラー",
+    "subtitle": "バックテスト結果のインタラクティブ分析。戦略、商品、セッションでフィルタリング。",
+    "strategy": "戦略",
+    "instrument": "商品",
+    "session": "セッション",
+    "currency": "通貨",
+    "all": "すべて",
+    "totalTrades": "総取引数",
+    "winRate": "勝率",
+    "totalProfit": "総利益",
+    "maxDrawdown": "最大ドローダウン",
+    "profitFactor": "プロフィットファクター",
+    "avgWin": "平均利益",
+    "avgLoss": "平均損失",
+    "largestWin": "最大利益",
+    "largestLoss": "最大損失",
+    "equityCurve": "エクイティカーブ",
+    "drawdown": "ドローダウン",
+    "profitDistribution": "利益分布",
+    "tradeCount": "取引数",
+    "tradeDetails": "取引詳細",
+    "tradeNumber": "取引 #",
+    "entryTime": "エントリー時間",
+    "profit": "利益",
+    "cumProfit": "累積利益",
+    "equityLabel": "エクイティ（{{currency}}）",
+    "drawdownLabel": "ドローダウン（{{currency}}）",
+    "showingTrades": "{{total}}件中最初の100件を表示",
+    "sessions": {
+      "Morning": "朝",
+      "Afternoon": "午後",
+      "Evening": "夕方",
+      "Night": "夜",
+      "Unknown": "不明"
+    }
+  },
+  "pricing": {
+    "title": "プランを選択",
+    "subtitle": "カスタマイズされたプランで FluxTrade の全機能を活用しましょう。",
+    "freeTrial": "月額プランには30日間の無料トライアルが含まれます！",
+    "save": "節約",
+    "save10": "10%節約",
+    "save17": "17%節約",
+    "save10Percent": "10%節約",
+    "save17Percent": "17%節約",
+    "noCommitment": "契約の縛りなし。いつでもキャンセル可能。",
+    "billingPeriods": {
+      "monthly": "/月",
+      "quarterly": "/四半期",
+      "yearly": "/年",
+      "monthlyLabel": "月額",
+      "quarterlyLabel": "四半期",
+      "yearlyLabel": "年額"
+    },
+    "buttons": {
+      "startTrial": "30日間の無料トライアルを開始",
+      "startTrialNinjaTrader": "NinjaTraderで30日間の無料トライアルを開始",
+      "startTrialTradingView": "TradingViewで30日間の無料トライアルを開始",
+      "startTrialBoth": "両プラットフォームで30日間の無料トライアルを開始",
+      "subscribeNow": "今すぐ購読",
+      "subscribeNinjaTrader": "NinjaTraderで購読",
+      "subscribeTradingView": "TradingViewで購読"
+    },
+    "errors": {
+      "sessionExpired": "セッションが期限切れです。続行するには再度サインインしてください。",
+      "checkoutError": "チェックアウトセッションの作成中にエラーが発生しました。もう一度お試しください。"
+    },
+    "seo": {
+      "title": "料金 - トレーディングソフトウェアサブスクリプション",
+      "description": "トレーディングニーズに最適な FluxTrade サブスクリプションプランを選択してください。NinjaTrader と TradingView 用の自動化された戦略、インジケーター、プロフェッショナルなトレーディングツールにアクセスできます。柔軟な月額、四半期、年間プランをご利用いただけます。",
+      "keywords": "トレーディングソフトウェア料金, ninjatrader サブスクリプション, tradingview 戦略料金, 自動化トレーディングサブスクリプション, プロップファームトレーディングツール料金"
+    },
+    "products": {
+      "category": "トレーディングソフトウェアサブスクリプション",
+      "platforms": {
+        "single": "NinjaTrader または TradingView",
+        "both": "NinjaTrader と TradingView"
+      },
+      "strategiesSingle": {
+        "name": "自動化戦略 - 単一プラットフォーム",
+        "description": "NinjaTrader または TradingView 用のすべての自動化トレーディング戦略にアクセス。選択したプラットフォーム用のインジケーターを含みます。"
+      },
+      "strategiesBoth": {
+        "name": "自動化戦略 - 両プラットフォーム",
+        "description": "NinjaTrader と TradingView 用のすべての自動化トレーディング戦略にアクセス。優先更新付きで両プラットフォーム用のインジケーターを含みます。"
+      },
+      "indicatorsSingle": {
+        "name": "トレーディングインジケーター - 単一プラットフォーム",
+        "description": "NinjaTrader または TradingView 用のすべてのトレーディングインジケーターにアクセス。プロフェッショナルレベルのテクニカル分析ツール。"
+      },
+      "indicatorsBoth": {
+        "name": "トレーディングインジケーター - 両プラットフォーム",
+        "description": "NinjaTrader と TradingView 用のすべてのトレーディングインジケーターにアクセス。両プラットフォーム用の完全なインジケータースイート。"
+      }
+    },
+    "plans": {
+      "strategiesSingle": {
+        "title": "自動化戦略",
+        "subtitle": "単一プラットフォーム",
+        "badge": "自動化戦略",
+        "features": {
+          "includesIndicators": "選択したプラットフォーム用のインジケーターを含む",
+          "allStrategies": "すべての自動化戦略にアクセス",
+          "newFeatures": "新機能への直接アクセス"
+        }
+      },
+      "strategiesBoth": {
+        "title": "自動化戦略",
+        "subtitle": "両プラットフォーム",
+        "mostPopular": "最も人気",
+        "badgeStrategies": "自動化戦略",
+        "badgeBothPlatforms": "両プラットフォーム",
+        "badgePriority": "優先更新",
+        "features": {
+          "includesIndicators": "両プラットフォーム用のインジケーターを含む",
+          "platforms": "NinjaTrader と TradingView",
+          "allStrategies": "すべての自動化戦略にアクセス"
+        }
+      },
+      "indicatorsSingle": {
+        "title": "インジケーター",
+        "subtitle": "単一プラットフォーム",
+        "features": {
+          "allIndicators": "すべてのインジケーターにアクセス",
+          "support": "24/7カスタマーサポート",
+          "cancelAnytime": "いつでもキャンセル可能"
+        }
+      },
+      "indicatorsBoth": {
+        "title": "インジケーター",
+        "subtitle": "両プラットフォーム",
+        "badge": "両プラットフォーム",
+        "features": {
+          "allIndicators": "すべてのインジケーターにアクセス",
+          "platforms": "NinjaTrader と TradingView",
+          "cancelAnytime": "いつでもキャンセル可能"
+        }
+      }
+    },
+    "test": {
+      "title": "テスト",
+      "subtitle": "Stripe テスト価格",
+      "description": "チェックアウトフローのテストのみ",
+      "button": "テストチェックアウトを使用",
+      "getStarted": "始める"
+    },
+    "comparison": {
+      "title": "プランと機能を比較",
+      "features": "機能",
+      "indicators": "インジケーター",
+      "strategies": "自動化戦略",
+      "singlePlatform": "単一プラットフォーム",
+      "bothPlatforms": "両プラットフォーム",
+      "mostPopular": "最も人気",
+      "accessIndicators": "すべてのインジケーターにアクセス",
+      "platformAccess": "プラットフォームアクセス",
+      "single": "単一",
+      "accessStrategies": "自動化戦略にアクセス",
+      "support": "24/7カスタマーサポート",
+      "newFeatures": "新機能への直接アクセス",
+      "priorityUpdates": "優先更新"
+    }
   }
 }
