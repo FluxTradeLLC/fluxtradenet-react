@@ -22,6 +22,190 @@
     "italian": "イタリア語",
     "russian": "ロシア語",
     "korean": "韓国語"
+  },
+  "footer": {
+    "navigation": "ナビゲーション",
+    "home": "ホーム",
+    "pricing": "価格",
+    "account": "アカウント",
+    "refundPolicies": "返金およびキャンセルポリシー",
+    "affiliates": "アフィリエイト",
+    "support": "サポート",
+    "terms": "利用規約",
+    "followUs": "フォローする",
+    "disclaimers": "免責事項",
+    "disclaimer1": "先物および外国為替取引には大きなリスクが含まれており、すべての投資家に適しているわけではありません。投資家は初期投資のすべてまたはそれ以上を失う可能性があります。リスク資本は、財務の安全性やライフスタイルを危険にさらすことなく失うことができるお金です。取引にはリスク資本のみを使用すべきであり、十分なリスク資本を持つ人だけが取引を検討すべきです。過去の実績は必ずしも将来の結果を示すものではありません",
+    "disclaimer2": "仮想的なパフォーマンス結果には多くの固有の制限があり、その一部は以下に説明されています。表示されたものと同様の利益または損失を達成する、または達成する可能性があるという表現は行われていません。実際、仮想的なパフォーマンス結果と、特定の取引プログラムによって後続に達成された実際の結果の間には、しばしば大きな違いがあります。仮想的なパフォーマンス結果の制限の1つは、一般的に後知恵の利点を持って準備されることです。さらに、仮想的な取引には金融リスクが含まれておらず、仮想的な取引記録は実際の取引の金融リスクの影響を完全に説明することはできません。たとえば、損失に耐える能力や、取引損失にもかかわらず特定の取引プログラムに固執する能力は、実際の取引結果に悪影響を与える可能性のある重要なポイントです。市場全般または特定の取引プログラムの実装に関連する他の多くの要因があり、これらは仮想的なパフォーマンス結果の準備で完全に考慮することができず、すべてが取引結果に悪影響を与える可能性があります。",
+    "disclaimer3": "このウェブサイトに表示される推薦文は、他のクライアントや顧客を代表するものではない場合があり、将来のパフォーマンスや成功の保証ではありません。",
+    "copyright": "著作権 © {{year}}, FluxTrade, LLC. 全著作権所有。"
+  },
+  "stickyCTA": {
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "bothPlatforms": "両方のプラットフォーム",
+    "startTrial": "無料トライアルを開始（30日）",
+    "signUpTrial": "無料トライアルを開始するために登録（30日）",
+    "startTrialLabel": "{{platform}}の30日間無料トライアルを開始",
+    "signUpTrialLabel": "{{platform}}の30日間無料トライアルを開始するために登録"
+  },
+  "support": {
+    "title": "サポート",
+    "description": "サポートのお問い合わせについては、メールでお問い合わせください",
+    "orSendMessage": "または下記のフォームからメッセージを送信してください。",
+    "discordHelp": "より迅速なヘルプとお知らせのために、Discordコミュニティに参加することもできます。",
+    "additionalResources": "追加リソース",
+    "resourcesDescription": "サポートに連絡する前に、ポリシーと規約でよくある質問への回答を見つけることができます：",
+    "refundInfo": "返金、キャンセル、サブスクリプション管理に関する情報については、以下をご覧ください",
+    "termsInfo": "サービス条件、アカウント責任、一般条件については、以下をご覧ください",
+    "stillNeedHelp": "これらのリソースを確認した後もまだサポートが必要な場合は、下記のフォームを使用してお気軽にお問い合わせください。または",
+    "emailDirectly": "直接メールでお問い合わせください",
+    "sendMessage": "メッセージを送信",
+    "yourName": "お名前",
+    "yourEmail": "メールアドレス",
+    "subject": "件名",
+    "message": "メッセージ",
+    "sending": "送信中...",
+    "sendEmail": "サポートメールを送信",
+    "success": "サポートメールが正常に送信されました！すぐにご連絡いたします。",
+    "error": "サポートメールの送信に失敗しました"
+  },
+  "affiliates": {
+    "title": "FluxTradeアフィリエイトプログラム",
+    "subtitle": "FluxTradeを宣伝して継続的な手数料を獲得しましょう。私たちのプログラムはシンプルで透明性があり、クリエイターに優しいです。",
+    "commission": "30%",
+    "commissionDesc": "紹介したすべてのサブスクリプション支払いに対する継続的な手数料。",
+    "payouts": "Net-60支払い",
+    "payoutsDesc": "Net-60スケジュールでPayPal経由で支払われます。",
+    "useAssets": "アセットを使用",
+    "useAssetsDesc": "プロモーションでロゴ、サイトメディア、動画を使用できます。",
+    "freeTrial": "無料トライアル",
+    "freeTrialDesc": "お客様に30日間の無料トライアルを提供しています",
+    "powerfulTools": "強力なツール",
+    "powerfulToolsDesc": "ツールスイートは一から構築されています",
+    "growingCommunity": "成長するコミュニティ",
+    "growingCommunityDesc": "無料のDiscordにより、トレーダーが共有し、協力できます",
+    "joinProgram": "アフィリエイトプログラムに参加",
+    "programDetails": "プログラム詳細",
+    "commissionLabel": "手数料：",
+    "commissionValue": "30%継続",
+    "commissionFull": "紹介したサブスクリプションに対して。",
+    "payoutTerms": "支払い条件：",
+    "payoutValue": "Net-60",
+    "payoutMethod": "PayPal経由。",
+    "attribution": "帰属はPromoteKitによって処理されます。紹介は自動的に追跡されます。",
+    "marketingAssets": "マーケティングアセット：サイトのあらゆる資料を使用できます。YouTubeチャンネルのロゴや動画を含む",
+    "marketingMaterials": "マーケティング資料",
+    "marketingMaterialsDesc": "使用できる動画を含む。",
+    "getStarted": "始めるには、ここでアフィリエイトアカウントを作成してください：",
+    "questions": "追加情報や質問については、メールでお問い合わせください"
+  },
+  "auth": {
+    "signIn": "サインイン",
+    "signUp": "サインアップ",
+    "email": "メール",
+    "password": "パスワード",
+    "signInFailed": "サインインに失敗しました",
+    "googleSignInFailed": "Googleサインインに失敗しました",
+    "registrationFailed": "登録に失敗しました",
+    "agreeTerms": "同意します",
+    "and": "および",
+    "signInWithGoogle": "Googleでサインイン",
+    "continueWithGoogle": "Googleで続行",
+    "or": "または",
+    "validEmail": "有効なメールアドレスを入力してください",
+    "byUsingService": "このサービスを使用することで、以下に同意したことになります"
+  },
+  "blog": {
+    "title": "ブログ",
+    "subtitle": "取引戦略を理解し、プロップ会社の環境をナビゲートするのに役立つ教育コンテンツ",
+    "readFullArticle": "全文を読む",
+    "readyToStart": "取引を始める準備はできていますか？",
+    "readyDesc": "バックテスト済みの戦略を探索し、取引の旅に適したプランを見つけましょう",
+    "viewStrategies": "すべての戦略を表示",
+    "seePricing": "価格プランを表示",
+    "categories": {
+      "strategyIntro": "戦略紹介",
+      "propFirmPitfalls": "プロップ会社の落とし穴"
+    },
+    "articles": {
+      "fluxTrident": {
+        "title": "Flux Trident戦略の紹介",
+        "excerpt": "Flux Tridentは、トレンド分析とモメンタムインジケーターを組み合わせたマルチタイムフレームコンフルエンス戦略です。この体系的なアプローチが、さまざまな市場条件で高確率のエントリーをどのように識別するかを学びましょう。"
+      },
+      "fluxSignal": {
+        "title": "Flux Signal戦略の理解",
+        "excerpt": "Flux Signal戦略は、独自のインジケーターを使用して、早期のトレンド反転と継続パターンを識別します。この記事では、この戦略を効果的にするコアコンセプトとエントリー基準を分解します。"
+      },
+      "fluxPivot": {
+        "title": "Flux Pivot：サポートとレジスタンスの取引",
+        "excerpt": "Flux Pivotを使用して主要なピボットレベルを取引する技術をマスターしましょう。この戦略は、重要なサポートとレジスタンスゾーンを識別して取引することに焦点を当て、価格アクションとボリューム分析を組み合わせます。"
+      },
+      "propFirmHiddenCosts": {
+        "title": "プロップ会社チャレンジの隠れたコスト",
+        "excerpt": "多くのトレーダーは、手遅れになるまでプロップ会社チャレンジの真のコストを認識していません。隠れた手数料から非現実的な利益目標まで、資金提供されたアカウントの旅を台無しにする可能性のある一般的な落とし穴について学びましょう。"
+      },
+      "propFirmFailure": {
+        "title": "なぜほとんどのプロップ会社トレーダーが失敗するのか（そしてそれを避ける方法）",
+        "excerpt": "プロップ会社トレーダーの90％以上がチャレンジに失敗しています。失敗につながる心理的な罠、リスク管理の間違い、戦略の欠陥を発見し、実証済みのバックテスト戦略がどのように優位性を与えるかを学びましょう。"
+      },
+      "cointegratedPairs": {
+        "title": "共統合ペア取引の説明",
+        "excerpt": "ペア取引は機関専用ではありません。共統合ペア取引の仕組み、方向性取引よりもリスクが低い理由、先物市場で収益性の高いペアの機会を識別する方法を学びましょう。"
+      },
+      "propFirmDrawdown": {
+        "title": "プロップ会社ドローダウントラップ",
+        "excerpt": "プロップ会社は、紙面上では寛大に見えるが、実際には不意を突くように設計されたドローダウン制限を設定します。毎日のドローダウン、トレーリングドローダウン、隠れたルールがチャレンジを早期に終了させる方法を理解しましょう。"
+      },
+      "orb": {
+        "title": "ORB戦略：オープニングレンジの取引",
+        "excerpt": "オープニングレンジブレイクアウト（ORB）戦略は、最初の1時間のボラティリティを利用します。この記事では、高確率のブレイクアウトを識別し、市場オープンを取引する際にリスクを管理する方法を説明します。"
+      }
+    }
+  },
+  "landing": {
+    "understandMarkets": "市場を理解する",
+    "markets": "市場",
+    "gainEdge": "優位性を獲得する",
+    "edge": "優位性",
+    "subtitle": "一貫性、リスク管理、規律のために構築されたプロップ会社フレンドリーなシステム。",
+    "seeItTrade": "60秒で取引を見る",
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "new": "新着！",
+    "propFirmFocused": "プロップ会社重視戦略",
+    "propFirmSubtitle": "プロップ会社のルールと一貫性のために構築",
+    "clearFilters": "フィルターをクリア",
+    "viewBacktest": "バックテストを表示",
+    "exploreBacktest": "バックテストを探索",
+    "loadMoreStrategies": "より多くの戦略を読み込む",
+    "loadMoreIndicators": "より多くのインジケーターを読み込む",
+    "winRate": "勝率",
+    "profitFactor": "利益係数",
+    "ourIndicators": "私たちのインジケーター",
+    "indicatorsSubtitle": "インジケーターで構築された計画と戦略で手動取引する方法を学ぶ",
+    "wins": "勝利",
+    "winsSubtitle": "Discordのメンバーのツールを使用した勝利",
+    "officialVendor": "公式NinjaTraderエコシステムベンダー",
+    "affiliateLink": "（アフィリエイトリンク*）",
+    "playCarousel": "カルーセルを再生",
+    "pauseCarousel": "カルーセルを一時停止",
+    "previousVideo": "前の動画",
+    "nextVideo": "次の動画",
+    "videoCarousel": "動画カルーセル",
+    "videoCarouselNav": "動画カルーセルナビゲーション",
+    "goToVideo": "{{label}}の動画に移動",
+    "demonstrationVideo": "{{label}}のデモンストレーション動画。クリックして再生または一時停止。",
+    "filters": {
+      "meanReversion": "平均回帰",
+      "conservative": "保守的",
+      "propFirmSafe": "プロップ会社安全",
+      "trend": "トレンド"
+    },
+    "videoLabels": {
+      "previousLevels": "以前のレベル",
+      "fluxConfluence": "FluxConfluence",
+      "fluxPivot": "Flux Pivot",
+      "fluxSignal": "Flux Signal"
+    }
   }
 }
-

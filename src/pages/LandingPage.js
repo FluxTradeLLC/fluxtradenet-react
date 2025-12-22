@@ -296,19 +296,19 @@ export function LandingPage() {
   const videos = [
     {
       src: previous,
-      label: "Previous Levels",
+      label: t("landing.videoLabels.previousLevels"),
     },
     {
       src: confluenceVideo,
-      label: "FluxConfluence",
+      label: t("landing.videoLabels.fluxConfluence"),
     },
     {
       src: pivotVideo,
-      label: "FluxPivot",
+      label: t("landing.videoLabels.fluxPivot"),
     },
     {
       src: signalVideo,
-      label: "FluxSignal",
+      label: t("landing.videoLabels.fluxSignal"),
     },
   ];
 
@@ -333,16 +333,16 @@ export function LandingPage() {
 
   // Filter chips configuration
   const filterOptions = [
-    "Trend",
-    "Mean Reversion",
+    t("landing.filters.trend"),
+    t("landing.filters.meanReversion"),
     "Scalping",
-    "Conservative",
-    "Prop-firm-safe",
+    t("landing.filters.conservative"),
+    t("landing.filters.propFirmSafe"),
   ];
 
   // Indicator filter chips configuration
   const indicatorFilterOptions = [
-    "Trend",
+    t("landing.filters.trend"),
     "Momentum",
     "Volatility",
     "Levels",
@@ -1405,7 +1405,7 @@ export function LandingPage() {
           {/* Right side: Video Carousel */}
           <div
             className="w-auto flex flex-col items-center h-[600px]"
-            aria-label="Video carousel"
+              aria-label={t("landing.videoCarousel")}
           >
             <div
               className="relative rounded-lg overflow-hidden shadow-lg mb-4"
@@ -1423,7 +1423,7 @@ export function LandingPage() {
                 controls={false}
                 onLoadedData={handleVideoLoaded}
                 onClick={togglePause}
-                aria-label={`${videos[currentVideoIndex].label} demonstration video`}
+                aria-label={t("landing.demonstrationVideo", { label: videos[currentVideoIndex].label })}
                 aria-describedby="video-description"
               >
                 <source src={videos[currentVideoIndex].src} type="video/mp4" />
@@ -1436,8 +1436,7 @@ export function LandingPage() {
                 Your browser does not support the video tag.
               </video>
               <div id="video-description" className="sr-only">
-                {videos[currentVideoIndex].label} demonstration video. Click to
-                play or pause.
+                {t("landing.demonstrationVideo", { label: videos[currentVideoIndex].label })}
               </div>
 
               {/* Centered Pause/Play Button - Visible on hover or when paused */}
@@ -1448,7 +1447,7 @@ export function LandingPage() {
                     togglePause();
                   }}
                   className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white rounded-full p-4 transition-all duration-200 z-20 shadow-lg"
-                  aria-label={isPaused ? "Play carousel" : "Pause carousel"}
+                  aria-label={isPaused ? t("landing.playCarousel") : t("landing.pauseCarousel")}
                 >
                   {isPaused ? (
                     <svg
@@ -1474,7 +1473,7 @@ export function LandingPage() {
               <button
                 onClick={prevVideo}
                 className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-200 z-10"
-                aria-label="Previous video"
+                aria-label={t("landing.previousVideo")}
               >
                 <svg
                   className="w-6 h-6"
@@ -1493,7 +1492,7 @@ export function LandingPage() {
               <button
                 onClick={nextVideo}
                 className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-200 z-10"
-                aria-label="Next video"
+                aria-label={t("landing.nextVideo")}
               >
                 <svg
                   className="w-6 h-6"
@@ -1515,7 +1514,7 @@ export function LandingPage() {
                 <button
                   onClick={togglePause}
                   className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-all duration-200 relative w-12 h-12 flex items-center justify-center"
-                  aria-label={isPaused ? "Play carousel" : "Pause carousel"}
+                  aria-label={isPaused ? t("landing.playCarousel") : t("landing.pauseCarousel")}
                 >
                   {/* Circular Progress Indicator */}
                   <svg
@@ -1584,7 +1583,7 @@ export function LandingPage() {
             <div
               className="flex gap-2 justify-center"
               role="tablist"
-              aria-label="Video carousel navigation"
+              aria-label={t("landing.videoCarouselNav")}
             >
               {videos.map((_, index) => (
                 <button
@@ -1598,7 +1597,7 @@ export function LandingPage() {
                       ? "bg-[#5865F2] w-8"
                       : "bg-gray-600 hover:bg-gray-500"
                   }`}
-                  aria-label={`Go to ${videos[index].label} video`}
+                  aria-label={t("landing.goToVideo", { label: videos[index].label })}
                 />
               ))}
             </div>
@@ -1622,7 +1621,7 @@ export function LandingPage() {
               aria-controls="ninjatrader-content"
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "NinjaTrader" ? "bg-[#5865F2] hover:bg-[#4752C4] text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
             >
-              NinjaTrader
+              {t("landing.ninjaTrader")}
             </button>
             <button
               onClick={() => setActiveTab("TradingView")}
@@ -1632,12 +1631,12 @@ export function LandingPage() {
               aria-controls="tradingview-content"
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "TradingView" ? "bg-[#5865F2] hover:bg-[#4752C4] text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
             >
-              TradingView{" "}
+              {t("landing.tradingView")}{" "}
               <span
                 className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                aria-label="New"
+                aria-label={t("landing.new")}
               >
-                NEW!
+                {t("landing.new")}
               </span>
             </button>
           </div>
@@ -1678,10 +1677,10 @@ export function LandingPage() {
                   >
                     <div className="text-center">
                       <h2 className="text-3xl font-bold mb-2">
-                        Prop Firm Focused Strategies
+                        {t("landing.propFirmFocused")}
                       </h2>
                       <h3 className="text-2xl">
-                        Built for prop firm rules and consistency
+                        {t("landing.propFirmSubtitle")}
                       </h3>
                     </div>
                     <svg
@@ -1735,9 +1734,9 @@ export function LandingPage() {
                               ? "bg-gray-600 text-gray-300 hover:bg-gray-500 hover:text-white"
                               : "bg-gray-700 text-gray-500 cursor-not-allowed opacity-50"
                           }`}
-                          aria-label="Clear all filters"
+                          aria-label={t("landing.clearFilters")}
                         >
-                          Clear Filters
+                          {t("landing.clearFilters")}
                         </button>
                       </div>
                       <div
@@ -1757,9 +1756,9 @@ export function LandingPage() {
                                   {strategy.isNew && (
                                     <span
                                       className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                                      aria-label="New"
+                                      aria-label={t("landing.new")}
                                     >
-                                      NEW!
+                                      {t("landing.new")}
                                     </span>
                                   )}
                                 </h3>
@@ -1927,9 +1926,9 @@ export function LandingPage() {
                               ? "bg-gray-600 text-gray-300 hover:bg-gray-500 hover:text-white"
                               : "bg-gray-700 text-gray-500 cursor-not-allowed opacity-50"
                           }`}
-                          aria-label="Clear all filters"
+                          aria-label={t("landing.clearFilters")}
                         >
-                          Clear Filters
+                          {t("landing.clearFilters")}
                         </button>
                       </div>
                       <div
@@ -1949,9 +1948,9 @@ export function LandingPage() {
                                   {strategy.isNew && (
                                     <span
                                       className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                                      aria-label="New"
+                                      aria-label={t("landing.new")}
                                     >
-                                      NEW!
+                                      {t("landing.new")}
                                     </span>
                                   )}
                                 </h3>
@@ -2234,7 +2233,7 @@ export function LandingPage() {
                         <button
                           onClick={loadMoreStrategies}
                           className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300"
-                          aria-label="Load more strategies"
+                          aria-label={t("landing.loadMoreStrategies")}
                         >
                           Load More Strategies
                         </button>
@@ -2253,10 +2252,9 @@ export function LandingPage() {
                   aria-controls="indicators-content"
                 >
                   <div className="text-center">
-                    <h2 className="text-3xl font-bold mb-2">Our Indicators</h2>
+                    <h2 className="text-3xl font-bold mb-2">{t("landing.ourIndicators")}</h2>
                     <h3 className="text-2xl">
-                      Learn how to trade manually with a plan and strategy built
-                      with indicators
+                      {t("landing.indicatorsSubtitle")}
                     </h3>
                   </div>
                   <svg
@@ -2336,9 +2334,9 @@ export function LandingPage() {
                                 {indicator.isNew && (
                                   <span
                                     className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                                    aria-label="New"
+                                    aria-label={t("landing.new")}
                                   >
-                                    NEW!
+                                    {t("landing.new")}
                                   </span>
                                 )}
                               </h3>
@@ -2372,9 +2370,9 @@ export function LandingPage() {
                         <button
                           onClick={loadMoreIndicators}
                           className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300"
-                          aria-label="Load more indicators"
+                          aria-label={t("landing.loadMoreIndicators")}
                         >
-                          Load More Indicators
+                          {t("landing.loadMoreIndicators")}
                         </button>
                       </div>
                     )}
@@ -2391,9 +2389,9 @@ export function LandingPage() {
                   aria-controls="wins-content"
                 >
                   <div className="text-center">
-                    <h2 className="text-3xl font-bold mb-2">Wins</h2>
+                    <h2 className="text-3xl font-bold mb-2">{t("landing.wins")}</h2>
                     <h3 className="text-2xl">
-                      Wins using the tools from members in the Discord
+                      {t("landing.winsSubtitle")}
                     </h3>
                   </div>
                   <svg
@@ -2446,7 +2444,7 @@ export function LandingPage() {
           aria-label="Partners and affiliates"
         >
           <h2 className="text-3xl font-bold text-center mb-4 text-white">
-            Official NinjaTrader Ecosystem Vendor
+            {t("landing.officialVendor")}
           </h2>
           <div className="flex flex-col flex-wrap justify-center items-center space-x-8 text-white bg-[#0c111b] p-6 rounded-lg">
             <div className="flex flex-col lg:flex-row flex-wrap justify-center items-center lg:space-x-8">
@@ -2491,7 +2489,7 @@ export function LandingPage() {
                 />
               </a>
               <p className="text-white w-[300px] lg:ml-[20px] mt-8 md:mt-0">
-                (Affiliate link*){" "}
+                {t("landing.affiliateLink")}{" "}
                 <a
                   href="https://ninjatraderus.pxf.io/APNodJ"
                   className="text-blue-500 underline"

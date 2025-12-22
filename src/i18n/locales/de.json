@@ -22,6 +22,190 @@
     "italian": "Italienisch",
     "russian": "Russisch",
     "korean": "Koreanisch"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "home": "Startseite",
+    "pricing": "Preise",
+    "account": "Konto",
+    "refundPolicies": "Rückerstattungs- und Stornierungsrichtlinien",
+    "affiliates": "Partner",
+    "support": "Support",
+    "terms": "Allgemeine Geschäftsbedingungen",
+    "followUs": "Folgen Sie uns",
+    "disclaimers": "Haftungsausschlüsse",
+    "disclaimer1": "Der Handel mit Futures und Devisen birgt erhebliche Risiken und ist nicht für jeden Anleger geeignet. Ein Anleger könnte möglicherweise alles oder mehr als die ursprüngliche Investition verlieren. Risikokapital ist Geld, das verloren werden kann, ohne die finanzielle Sicherheit oder den Lebensstil zu gefährden. Nur Risikokapital sollte für den Handel verwendet werden, und nur diejenigen mit ausreichendem Risikokapital sollten den Handel in Betracht ziehen. Die Wertentwicklung in der Vergangenheit ist nicht unbedingt ein Indikator für zukünftige Ergebnisse",
+    "disclaimer2": "Hypothetische Performanceergebnisse haben viele inhärente Einschränkungen, von denen einige unten beschrieben sind. Es wird nicht dargestellt, dass ein Konto Gewinne oder Verluste ähnlich den gezeigten erzielen wird oder wahrscheinlich erzielen wird; tatsächlich gibt es häufig erhebliche Unterschiede zwischen hypothetischen Performanceergebnissen und den tatsächlichen Ergebnissen, die anschließend von einem bestimmten Handelsprogramm erzielt wurden. Eine der Einschränkungen hypothetischer Performanceergebnisse ist, dass sie im Allgemeinen mit dem Vorteil des Rückblicks erstellt werden. Darüber hinaus beinhaltet der hypothetische Handel kein finanzielles Risiko, und keine hypothetische Handelsaufzeichnung kann die Auswirkungen des finanziellen Risikos des tatsächlichen Handels vollständig berücksichtigen. Zum Beispiel sind die Fähigkeit, Verluste zu verkraften oder trotz Handelsverlusten an einem bestimmten Handelsprogramm festzuhalten, wichtige Punkte, die sich auch nachteilig auf die tatsächlichen Handelsergebnisse auswirken können. Es gibt zahlreiche andere Faktoren im Zusammenhang mit den Märkten im Allgemeinen oder der Umsetzung eines bestimmten Handelsprogramms, die bei der Vorbereitung hypothetischer Performanceergebnisse nicht vollständig berücksichtigt werden können und die sich alle nachteilig auf die Handelsergebnisse auswirken können.",
+    "disclaimer3": "Die auf dieser Website erscheinenden Testimonials sind möglicherweise nicht repräsentativ für andere Kunden und sind keine Garantie für zukünftige Leistung oder Erfolg.",
+    "copyright": "Copyright © {{year}}, FluxTrade, LLC. Alle Rechte vorbehalten."
+  },
+  "stickyCTA": {
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "bothPlatforms": "Beide Plattformen",
+    "startTrial": "Kostenlose Testversion Starten (30 Tage)",
+    "signUpTrial": "Anmelden, um Kostenlose Testversion zu Starten (30 Tage)",
+    "startTrialLabel": "Kostenlose 30-Tage-Testversion für {{platform}} starten",
+    "signUpTrialLabel": "Anmelden, um kostenlose 30-Tage-Testversion für {{platform}} zu starten"
+  },
+  "support": {
+    "title": "Support",
+    "description": "Für Support-Anfragen senden Sie bitte eine E-Mail an",
+    "orSendMessage": "oder senden Sie eine Nachricht mit dem untenstehenden Formular.",
+    "discordHelp": "Sie können auch unserer Discord-Community beitreten, um schnellere Hilfe und Ankündigungen zu erhalten.",
+    "additionalResources": "Zusätzliche Ressourcen",
+    "resourcesDescription": "Bevor Sie den Support kontaktieren, finden Sie möglicherweise Antworten auf häufige Fragen in unseren Richtlinien und Bedingungen:",
+    "refundInfo": "Für Informationen zu Rückerstattungen, Stornierungen und Abonnementverwaltung besuchen Sie unsere",
+    "termsInfo": "Für Servicebedingungen, Kontoverantwortlichkeiten und allgemeine Bedingungen besuchen Sie unsere",
+    "stillNeedHelp": "Wenn Sie nach der Überprüfung dieser Ressourcen noch Hilfe benötigen, zögern Sie bitte nicht, uns über das untenstehende Formular zu kontaktieren oder",
+    "emailDirectly": "senden Sie uns direkt eine E-Mail",
+    "sendMessage": "Senden Sie uns eine Nachricht",
+    "yourName": "Ihr Name",
+    "yourEmail": "Ihre E-Mail",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "sending": "Wird gesendet...",
+    "sendEmail": "Support-E-Mail Senden",
+    "success": "Support-E-Mail erfolgreich gesendet! Wir werden uns bald bei Ihnen melden.",
+    "error": "Fehler beim Senden der Support-E-Mail"
+  },
+  "affiliates": {
+    "title": "FluxTrade Partnerprogramm",
+    "subtitle": "Verdienen Sie wiederkehrende Provisionen durch die Bewerbung von FluxTrade. Unser Programm ist einfach, transparent und creator-freundlich.",
+    "commission": "30%",
+    "commissionDesc": "Wiederkehrende Provision auf alle Abonnementzahlungen, die Sie vermitteln.",
+    "payouts": "Netto-60 Auszahlungen",
+    "payoutsDesc": "Auszahlung über PayPal nach einem Netto-60-Zeitplan.",
+    "useAssets": "Nutzen Sie Unsere Assets",
+    "useAssetsDesc": "Verwenden Sie unser Logo, Site-Medien und Videos in Ihren Promos.",
+    "freeTrial": "Kostenlose Testversion",
+    "freeTrialDesc": "Wir bieten unseren Kunden eine kostenlose 30-Tage-Testversion an",
+    "powerfulTools": "Leistungsstarke Tools",
+    "powerfulToolsDesc": "Unsere Tool-Suite wurde von Grund auf entwickelt",
+    "growingCommunity": "Wachsende Community",
+    "growingCommunityDesc": "Unser kostenloser Discord ermöglicht es Händlern, zu teilen und zusammenzuarbeiten",
+    "joinProgram": "Dem Partnerprogramm Beitreten",
+    "programDetails": "Programmdetails",
+    "commissionLabel": "Provision:",
+    "commissionValue": "30% wiederkehrend",
+    "commissionFull": "auf Abonnements, die Sie vermitteln.",
+    "payoutTerms": "Auszahlungsbedingungen:",
+    "payoutValue": "Netto-60",
+    "payoutMethod": "über PayPal.",
+    "attribution": "Zuschreibung wird von PromoteKit verwaltet; Ihre Empfehlungen werden automatisch verfolgt.",
+    "marketingAssets": "Marketing-Assets: Sie können alle Materialien von unserer Website verwenden, einschließlich unseres Logos und Videos auf unserem YouTube-Kanal",
+    "marketingMaterials": "Marketingmaterialien",
+    "marketingMaterialsDesc": "einschließlich Videos, die Sie verwenden können.",
+    "getStarted": "Um zu beginnen, erstellen Sie hier Ihr Partnerkonto:",
+    "questions": "Für zusätzliche Informationen oder Fragen senden Sie mir bitte eine E-Mail an"
+  },
+  "auth": {
+    "signIn": "Anmelden",
+    "signUp": "Registrieren",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "signInFailed": "Anmeldung fehlgeschlagen",
+    "googleSignInFailed": "Google-Anmeldung fehlgeschlagen",
+    "registrationFailed": "Registrierung fehlgeschlagen",
+    "agreeTerms": "Ich stimme den",
+    "and": "und",
+    "signInWithGoogle": "Mit Google Anmelden",
+    "continueWithGoogle": "Mit Google Fortfahren",
+    "or": "ODER",
+    "validEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "byUsingService": "Durch die Nutzung dieses Dienstes stimmen Sie den"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Bildungsinhalte, die Ihnen helfen, Handelsstrategien zu verstehen und sich im Prop-Firm-Umfeld zurechtzufinden",
+    "readFullArticle": "Vollständigen Artikel Lesen",
+    "readyToStart": "Bereit zum Handeln?",
+    "readyDesc": "Erkunden Sie unsere Backtest-Strategien und finden Sie den richtigen Plan für Ihre Handelsreise",
+    "viewStrategies": "Alle Strategien Anzeigen",
+    "seePricing": "Preispläne Ansehen",
+    "categories": {
+      "strategyIntro": "Strategie-Einführung",
+      "propFirmPitfalls": "Prop-Firm-Fallen"
+    },
+    "articles": {
+      "fluxTrident": {
+        "title": "Einführung in die Flux Trident Strategie",
+        "excerpt": "Flux Trident ist eine Multi-Timeframe-Confluence-Strategie, die Trendanalyse mit Momentum-Indikatoren kombiniert. Erfahren Sie, wie dieser systematische Ansatz hochwahrscheinliche Einstiege in verschiedenen Marktbedingungen identifiziert."
+      },
+      "fluxSignal": {
+        "title": "Die Flux Signal Strategie Verstehen",
+        "excerpt": "Die Flux Signal Strategie verwendet proprietäre Indikatoren, um frühe Trendumkehrungen und Fortsetzungsmuster zu identifizieren. Dieser Artikel erklärt die Kernkonzepte und Einstiegskriterien, die diese Strategie effektiv machen."
+      },
+      "fluxPivot": {
+        "title": "Flux Pivot: Handel mit Support und Widerstand",
+        "excerpt": "Meistern Sie die Kunst des Handels wichtiger Pivot-Levels mit Flux Pivot. Diese Strategie konzentriert sich auf die Identifizierung und den Handel signifikanter Support- und Widerstandszonen, kombiniert mit Preisaktion und Volumenanalyse."
+      },
+      "propFirmHiddenCosts": {
+        "title": "Die Versteckten Kosten von Prop-Firm-Herausforderungen",
+        "excerpt": "Viele Händler erkennen die wahren Kosten von Prop-Firm-Herausforderungen erst, wenn es zu spät ist. Von versteckten Gebühren bis zu unrealistischen Gewinnzielen erfahren Sie mehr über die häufigen Fallen, die Ihre Reise zum finanzierten Konto zum Scheitern bringen können."
+      },
+      "propFirmFailure": {
+        "title": "Warum die Meisten Prop-Firm-Händler Scheitern (Und Wie Man Es Vermeidet)",
+        "excerpt": "Über 90% der Prop-Firm-Händler scheitern an ihren Herausforderungen. Entdecken Sie die psychologischen Fallen, Risikomanagementfehler und Strategiefehler, die zum Scheitern führen—und wie bewährte Backtest-Strategien Ihnen einen Vorteil verschaffen können."
+      },
+      "cointegratedPairs": {
+        "title": "Cointegrierter Paarhandel Erklärt",
+        "excerpt": "Paarhandel ist nicht nur für Institutionen. Erfahren Sie, wie cointegrierter Paarhandel funktioniert, warum er weniger riskant ist als Richtungshandel und wie Sie profitable Paar-Chancen auf Terminmärkten identifizieren."
+      },
+      "propFirmDrawdown": {
+        "title": "Die Prop-Firm-Drawdown-Falle",
+        "excerpt": "Prop-Firmen setzen Drawdown-Limits, die auf dem Papier großzügig erscheinen, aber tatsächlich darauf ausgelegt sind, Sie zu überraschen. Verstehen Sie, wie tägliche Drawdowns, Trailing-Drawdowns und versteckte Regeln Ihre Herausforderung vorzeitig beenden können."
+      },
+      "orb": {
+        "title": "ORB-Strategie: Handel mit der Eröffnungsspanne",
+        "excerpt": "Die Opening Range Breakout (ORB)-Strategie nutzt die Volatilität der ersten Stunde. Dieser Artikel erklärt, wie Sie hochwahrscheinliche Ausbrüche identifizieren und das Risiko beim Handel der Markteröffnung managen."
+      }
+    }
+  },
+  "landing": {
+    "understandMarkets": "Verstehen Sie die",
+    "markets": "Märkte",
+    "gainEdge": "Erhalten Sie einen",
+    "edge": "Vorteil",
+    "subtitle": "Prop-Firm-freundliche Systeme, die für Konsistenz, Risikomanagement und Disziplin entwickelt wurden.",
+    "seeItTrade": "Sehen Sie es in 60s handeln",
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "new": "NEU!",
+    "propFirmFocused": "Prop-Firm-Fokussierte Strategien",
+    "propFirmSubtitle": "Entwickelt für Prop-Firm-Regeln und Konsistenz",
+    "clearFilters": "Filter Löschen",
+    "viewBacktest": "Backtest Anzeigen",
+    "exploreBacktest": "Backtest Erkunden",
+    "loadMoreStrategies": "Mehr Strategien Laden",
+    "loadMoreIndicators": "Mehr Indikatoren Laden",
+    "winRate": "Gewinnquote",
+    "profitFactor": "Profitfaktor",
+    "ourIndicators": "Unsere Indikatoren",
+    "indicatorsSubtitle": "Lernen Sie, manuell mit einem Plan und einer Strategie zu handeln, die mit Indikatoren erstellt wurden",
+    "wins": "Gewinne",
+    "winsSubtitle": "Gewinne mit den Tools von Mitgliedern im Discord",
+    "officialVendor": "Offizieller NinjaTrader-Ökosystem-Anbieter",
+    "affiliateLink": "(Affiliate-Link*)",
+    "playCarousel": "Karussell Abspielen",
+    "pauseCarousel": "Karussell Pausieren",
+    "previousVideo": "Vorheriges Video",
+    "nextVideo": "Nächstes Video",
+    "videoCarousel": "Video-Karussell",
+    "videoCarouselNav": "Video-Karussell-Navigation",
+    "goToVideo": "Zum Video {{label}} Gehen",
+    "demonstrationVideo": "{{label}} Demonstrationsvideo. Klicken Sie zum Abspielen oder Pausieren.",
+    "filters": {
+      "meanReversion": "Mittelwertumkehr",
+      "conservative": "Konservativ",
+      "propFirmSafe": "Prop-Firm-sicher",
+      "trend": "Trend"
+    },
+    "videoLabels": {
+      "previousLevels": "Vorherige Ebenen",
+      "fluxConfluence": "FluxConfluence",
+      "fluxPivot": "Flux Pivot",
+      "fluxSignal": "Flux Signal"
+    }
   }
 }
-

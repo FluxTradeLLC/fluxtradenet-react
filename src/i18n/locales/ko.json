@@ -22,6 +22,190 @@
     "italian": "이탈리아어",
     "russian": "러시아어",
     "korean": "한국어"
+  },
+  "footer": {
+    "navigation": "내비게이션",
+    "home": "홈",
+    "pricing": "가격",
+    "account": "계정",
+    "refundPolicies": "환불 및 취소 정책",
+    "affiliates": "제휴사",
+    "support": "지원",
+    "terms": "이용 약관",
+    "followUs": "팔로우하기",
+    "disclaimers": "면책 조항",
+    "disclaimer1": "선물 및 외환 거래에는 상당한 위험이 포함되어 있으며 모든 투자자에게 적합하지 않습니다. 투자자는 초기 투자 전액 또는 그 이상을 잃을 수 있습니다. 위험 자본은 재정적 안전이나 생활 방식을 위협하지 않고 잃을 수 있는 돈입니다. 거래에는 위험 자본만 사용해야 하며 충분한 위험 자본을 가진 사람만 거래를 고려해야 합니다. 과거 성과가 반드시 미래 결과를 나타내는 것은 아닙니다",
+    "disclaimer2": "가상 성과 결과에는 아래에 설명된 것과 같은 많은 고유한 제한 사항이 있습니다. 표시된 것과 유사한 수익이나 손실을 달성하거나 달성할 가능성이 있다는 표현은 없습니다. 실제로 가상 성과 결과와 특정 거래 프로그램에 의해 나중에 달성된 실제 결과 사이에는 종종 큰 차이가 있습니다. 가상 성과 결과의 제한 사항 중 하나는 일반적으로 후견의 이점으로 준비된다는 것입니다. 또한 가상 거래는 재정적 위험을 수반하지 않으며, 가상 거래 기록은 실제 거래의 재정적 위험 영향을 완전히 설명할 수 없습니다. 예를 들어, 손실을 견디거나 거래 손실에도 불구하고 특정 거래 프로그램을 고수하는 능력은 실제 거래 결과에 부정적인 영향을 미칠 수 있는 중요한 포인트입니다. 시장 전반 또는 특정 거래 프로그램의 구현과 관련된 수많은 다른 요인들이 있으며, 이들은 가상 성과 결과 준비에서 완전히 고려될 수 없으며 모두 거래 결과에 부정적인 영향을 미칠 수 있습니다.",
+    "disclaimer3": "이 웹사이트에 나타나는 증언은 다른 고객이나 고객을 대표하지 않을 수 있으며 미래 성과나 성공을 보장하지 않습니다.",
+    "copyright": "저작권 © {{year}}, FluxTrade, LLC. 모든 권리 보유."
+  },
+  "stickyCTA": {
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "bothPlatforms": "두 플랫폼 모두",
+    "startTrial": "무료 체험 시작 (30일)",
+    "signUpTrial": "무료 체험을 시작하려면 가입 (30일)",
+    "startTrialLabel": "{{platform}}의 30일 무료 체험 시작",
+    "signUpTrialLabel": "{{platform}}의 30일 무료 체험을 시작하려면 가입"
+  },
+  "support": {
+    "title": "지원",
+    "description": "지원 문의사항은 이메일로 보내주세요",
+    "orSendMessage": "또는 아래 양식을 사용하여 메시지를 보내주세요.",
+    "discordHelp": "더 빠른 도움과 공지를 위해 Discord 커뮤니티에 가입할 수도 있습니다.",
+    "additionalResources": "추가 리소스",
+    "resourcesDescription": "지원에 문의하기 전에 정책 및 약관에서 일반적인 질문에 대한 답변을 찾을 수 있습니다:",
+    "refundInfo": "환불, 취소 및 구독 관리에 대한 정보는 다음을 방문하세요",
+    "termsInfo": "서비스 약관, 계정 책임 및 일반 약관에 대한 정보는 다음을 방문하세요",
+    "stillNeedHelp": "이 리소스를 검토한 후에도 여전히 도움이 필요하시면 아래 양식을 사용하여 언제든지 문의하시거나",
+    "emailDirectly": "직접 이메일을 보내주세요",
+    "sendMessage": "메시지 보내기",
+    "yourName": "이름",
+    "yourEmail": "이메일",
+    "subject": "제목",
+    "message": "메시지",
+    "sending": "전송 중...",
+    "sendEmail": "지원 이메일 보내기",
+    "success": "지원 이메일이 성공적으로 전송되었습니다! 곧 연락드리겠습니다.",
+    "error": "지원 이메일 전송 실패"
+  },
+  "affiliates": {
+    "title": "FluxTrade 제휴 프로그램",
+    "subtitle": "FluxTrade를 홍보하여 반복 수수료를 획득하세요. 우리 프로그램은 간단하고 투명하며 크리에이터 친화적입니다.",
+    "commission": "30%",
+    "commissionDesc": "추천한 모든 구독 결제에 대한 반복 수수료.",
+    "payouts": "Net-60 지급",
+    "payoutsDesc": "Net-60 일정에 따라 PayPal을 통해 지급됩니다.",
+    "useAssets": "자산 사용",
+    "useAssetsDesc": "프로모션에서 로고, 사이트 미디어 및 비디오를 사용할 수 있습니다.",
+    "freeTrial": "무료 체험",
+    "freeTrialDesc": "고객에게 30일 무료 체험을 제공합니다",
+    "powerfulTools": "강력한 도구",
+    "powerfulToolsDesc": "도구 제품군은 처음부터 구축되었습니다",
+    "growingCommunity": "성장하는 커뮤니티",
+    "growingCommunityDesc": "무료 Discord를 통해 거래자가 공유하고 협업할 수 있습니다",
+    "joinProgram": "제휴 프로그램 가입",
+    "programDetails": "프로그램 세부 정보",
+    "commissionLabel": "수수료:",
+    "commissionValue": "30% 반복",
+    "commissionFull": "추천한 구독에 대해.",
+    "payoutTerms": "지급 조건:",
+    "payoutValue": "Net-60",
+    "payoutMethod": "PayPal을 통해.",
+    "attribution": "귀속은 PromoteKit에서 처리됩니다. 추천은 자동으로 추적됩니다.",
+    "marketingAssets": "마케팅 자산: YouTube 채널의 로고 및 비디오를 포함하여 사이트의 모든 자료를 사용할 수 있습니다",
+    "marketingMaterials": "마케팅 자료",
+    "marketingMaterialsDesc": "사용할 수 있는 비디오를 포함합니다.",
+    "getStarted": "시작하려면 여기에서 제휴 계정을 만드세요:",
+    "questions": "추가 정보나 질문이 있으시면 이메일로 연락주세요"
+  },
+  "auth": {
+    "signIn": "로그인",
+    "signUp": "가입",
+    "email": "이메일",
+    "password": "비밀번호",
+    "signInFailed": "로그인 실패",
+    "googleSignInFailed": "Google 로그인 실패",
+    "registrationFailed": "등록 실패",
+    "agreeTerms": "다음에 동의합니다",
+    "and": "및",
+    "signInWithGoogle": "Google로 로그인",
+    "continueWithGoogle": "Google로 계속",
+    "or": "또는",
+    "validEmail": "유효한 이메일 주소를 입력하세요",
+    "byUsingService": "이 서비스를 사용하면 다음에 동의하는 것입니다"
+  },
+  "blog": {
+    "title": "블로그",
+    "subtitle": "거래 전략을 이해하고 프로프 회사 환경을 탐색하는 데 도움이 되는 교육 콘텐츠",
+    "readFullArticle": "전체 기사 읽기",
+    "readyToStart": "거래를 시작할 준비가 되셨나요?",
+    "readyDesc": "백테스트된 전략을 탐색하고 거래 여정에 적합한 계획을 찾으세요",
+    "viewStrategies": "모든 전략 보기",
+    "seePricing": "가격 계획 보기",
+    "categories": {
+      "strategyIntro": "전략 소개",
+      "propFirmPitfalls": "프로프 회사 함정"
+    },
+    "articles": {
+      "fluxTrident": {
+        "title": "Flux Trident 전략 소개",
+        "excerpt": "Flux Trident는 추세 분석과 모멘텀 지표를 결합한 다중 시간대 합류 전략입니다. 이 체계적인 접근 방식이 다양한 시장 조건에서 높은 확률의 진입점을 식별하는 방법을 알아보세요."
+      },
+      "fluxSignal": {
+        "title": "Flux Signal 전략 이해하기",
+        "excerpt": "Flux Signal 전략은 독점 지표를 사용하여 초기 추세 반전 및 지속 패턴을 식별합니다. 이 기사는 이 전략을 효과적으로 만드는 핵심 개념과 진입 기준을 분석합니다."
+      },
+      "fluxPivot": {
+        "title": "Flux Pivot: 지지 및 저항 거래",
+        "excerpt": "Flux Pivot를 사용하여 주요 피벗 레벨을 거래하는 기술을 마스터하세요. 이 전략은 중요한 지지 및 저항 영역을 식별하고 거래하는 데 중점을 두며 가격 행동과 거래량 분석을 결합합니다."
+      },
+      "propFirmHiddenCosts": {
+        "title": "프로프 회사 챌린지의 숨겨진 비용",
+        "excerpt": "많은 거래자는 너무 늦을 때까지 프로프 회사 챌린지의 실제 비용을 깨닫지 못합니다. 숨겨진 수수료부터 비현실적인 수익 목표까지, 자금 조달된 계정 여정을 방해할 수 있는 일반적인 함정에 대해 알아보세요."
+      },
+      "propFirmFailure": {
+        "title": "대부분의 프로프 회사 거래자가 실패하는 이유 (그리고 피하는 방법)",
+        "excerpt": "프로프 회사 거래자의 90% 이상이 챌린지에 실패합니다. 실패로 이어지는 심리적 함정, 위험 관리 실수 및 전략 결함을 발견하고 검증된 백테스트 전략이 어떻게 우위를 제공할 수 있는지 알아보세요."
+      },
+      "cointegratedPairs": {
+        "title": "공적분 쌍 거래 설명",
+        "excerpt": "쌍 거래는 기관 전용이 아닙니다. 공적분 쌍 거래가 어떻게 작동하는지, 방향성 거래보다 위험이 적은 이유, 선물 시장에서 수익성 있는 쌍 기회를 식별하는 방법을 알아보세요."
+      },
+      "propFirmDrawdown": {
+        "title": "프로프 회사 드로다운 함정",
+        "excerpt": "프로프 회사는 종이상으로는 관대해 보이지만 실제로는 당신을 방심하게 하도록 설계된 드로다운 제한을 설정합니다. 일일 드로다운, 추적 드로다운 및 숨겨진 규칙이 챌린지를 조기에 종료할 수 있는 방법을 이해하세요."
+      },
+      "orb": {
+        "title": "ORB 전략: 시작 범위 거래",
+        "excerpt": "시작 범위 돌파(ORB) 전략은 첫 시간의 변동성을 활용합니다. 이 기사는 높은 확률의 돌파를 식별하고 시장 시작을 거래할 때 위험을 관리하는 방법을 설명합니다."
+      }
+    }
+  },
+  "landing": {
+    "understandMarkets": "시장을 이해하세요",
+    "markets": "시장",
+    "gainEdge": "우위를 얻으세요",
+    "edge": "우위",
+    "subtitle": "일관성, 위험 관리 및 규율을 위해 구축된 프로프 회사 친화적 시스템.",
+    "seeItTrade": "60초 안에 거래 보기",
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "new": "신규!",
+    "propFirmFocused": "프로프 회사 중심 전략",
+    "propFirmSubtitle": "프로프 회사 규칙과 일관성을 위해 구축",
+    "clearFilters": "필터 지우기",
+    "viewBacktest": "백테스트 보기",
+    "exploreBacktest": "백테스트 탐색",
+    "loadMoreStrategies": "더 많은 전략 로드",
+    "loadMoreIndicators": "더 많은 지표 로드",
+    "winRate": "승률",
+    "profitFactor": "수익 계수",
+    "ourIndicators": "우리의 지표",
+    "indicatorsSubtitle": "지표로 구축된 계획과 전략으로 수동 거래하는 방법 배우기",
+    "wins": "승리",
+    "winsSubtitle": "Discord 회원의 도구를 사용한 승리",
+    "officialVendor": "공식 NinjaTrader 생태계 공급업체",
+    "affiliateLink": "(제휴 링크*)",
+    "playCarousel": "캐러셀 재생",
+    "pauseCarousel": "캐러셀 일시 정지",
+    "previousVideo": "이전 비디오",
+    "nextVideo": "다음 비디오",
+    "videoCarousel": "비디오 캐러셀",
+    "videoCarouselNav": "비디오 캐러셀 내비게이션",
+    "goToVideo": "{{label}} 비디오로 이동",
+    "demonstrationVideo": "{{label}} 데모 비디오. 재생 또는 일시 정지를 클릭하세요.",
+    "filters": {
+      "meanReversion": "평균 회귀",
+      "conservative": "보수적",
+      "propFirmSafe": "프로프 회사 안전",
+      "trend": "추세"
+    },
+    "videoLabels": {
+      "previousLevels": "이전 레벨",
+      "fluxConfluence": "FluxConfluence",
+      "fluxPivot": "Flux Pivot",
+      "fluxSignal": "Flux Signal"
+    }
   }
 }
-

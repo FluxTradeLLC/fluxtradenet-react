@@ -168,6 +168,44 @@
     "gainEdge": "Gain an",
     "edge": "edge",
     "subtitle": "Prop‑firm friendly systems built for consistency, risk management, and discipline.",
-    "seeItTrade": "See it trade in 60s"
+    "seeItTrade": "See it trade in 60s",
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "new": "NEW!",
+    "propFirmFocused": "Prop Firm Focused Strategies",
+    "propFirmSubtitle": "Built for prop firm rules and consistency",
+    "clearFilters": "Clear Filters",
+    "viewBacktest": "View Backtest",
+    "exploreBacktest": "Explore Backtest",
+    "loadMoreStrategies": "Load More Strategies",
+    "loadMoreIndicators": "Load More Indicators",
+    "winRate": "Win rate",
+    "profitFactor": "Profit Factor",
+    "ourIndicators": "Our Indicators",
+    "indicatorsSubtitle": "Learn how to trade manually with a plan and strategy built with indicators",
+    "wins": "Wins",
+    "winsSubtitle": "Wins using the tools from members in the Discord",
+    "officialVendor": "Official NinjaTrader Ecosystem Vendor",
+    "affiliateLink": "(Affiliate link*)",
+    "playCarousel": "Play carousel",
+    "pauseCarousel": "Pause carousel",
+    "previousVideo": "Previous video",
+    "nextVideo": "Next video",
+    "videoCarousel": "Video carousel",
+    "videoCarouselNav": "Video carousel navigation",
+    "goToVideo": "Go to {{label}} video",
+    "demonstrationVideo": "{{label}} demonstration video. Click to play or pause.",
+    "filters": {
+      "meanReversion": "Mean Reversion",
+      "conservative": "Conservative",
+      "propFirmSafe": "Prop-firm-safe",
+      "trend": "Trend"
+    },
+    "videoLabels": {
+      "previousLevels": "Previous Levels",
+      "fluxConfluence": "FluxConfluence",
+      "fluxPivot": "Flux Pivot",
+      "fluxSignal": "Flux Signal"
+    }
   }
 }

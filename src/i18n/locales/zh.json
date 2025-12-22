@@ -22,6 +22,190 @@
     "italian": "意大利语",
     "russian": "俄语",
     "korean": "韩语"
+  },
+  "footer": {
+    "navigation": "导航",
+    "home": "首页",
+    "pricing": "定价",
+    "account": "账户",
+    "refundPolicies": "退款和取消政策",
+    "affiliates": "联盟",
+    "support": "支持",
+    "terms": "条款和条件",
+    "followUs": "关注我们",
+    "disclaimers": "免责声明",
+    "disclaimer1": "期货和外汇交易存在重大风险，并非适合所有投资者。投资者可能损失全部或超过初始投资。风险资本是指可以在不影响个人财务安全或生活方式的情况下损失的资金。只有风险资本应用于交易，只有拥有足够风险资本的人才应考虑交易。过往表现不一定预示未来结果",
+    "disclaimer2": "假设性能结果有许多固有局限性，其中一些如下所述。没有表示任何账户将或可能实现与所示类似的利润或损失；事实上，假设性能结果与随后任何特定交易计划实现的实际结果之间经常存在显著差异。假设性能结果的局限性之一是它们通常是在事后回顾的帮助下准备的。此外，假设交易不涉及财务风险，任何假设交易记录都无法完全说明实际交易的财务风险影响。例如，承受损失或在交易损失的情况下坚持特定交易计划的能力是也可能对实际交易结果产生不利影响的重要点。与市场总体或任何特定交易计划的实施相关的许多其他因素无法在准备假设性能结果时完全考虑，所有这些都可能对交易结果产生不利影响。",
+    "disclaimer3": "本网站上出现的推荐可能不代表其他客户或客户，也不保证未来的表现或成功。",
+    "copyright": "版权所有 © {{year}}, FluxTrade, LLC. 保留所有权利。"
+  },
+  "stickyCTA": {
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "bothPlatforms": "两个平台",
+    "startTrial": "开始免费试用（30天）",
+    "signUpTrial": "注册以开始免费试用（30天）",
+    "startTrialLabel": "开始 {{platform}} 的30天免费试用",
+    "signUpTrialLabel": "注册以开始 {{platform}} 的30天免费试用"
+  },
+  "support": {
+    "title": "支持",
+    "description": "如需支持咨询，请发送电子邮件至",
+    "orSendMessage": "或使用下面的表格发送消息。",
+    "discordHelp": "您也可以加入我们的 Discord 社区以获得更快的帮助和公告。",
+    "additionalResources": "其他资源",
+    "resourcesDescription": "在联系支持之前，您可以在我们的政策和条款中找到常见问题的答案：",
+    "refundInfo": "有关退款、取消和订阅管理的信息，请访问我们的",
+    "termsInfo": "有关服务条款、账户责任和一般条款，请访问我们的",
+    "stillNeedHelp": "如果您在查看这些资源后仍需要帮助，请随时使用下面的表格联系我们或",
+    "emailDirectly": "直接给我们发电子邮件",
+    "sendMessage": "给我们发消息",
+    "yourName": "您的姓名",
+    "yourEmail": "您的电子邮件",
+    "subject": "主题",
+    "message": "消息",
+    "sending": "发送中...",
+    "sendEmail": "发送支持电子邮件",
+    "success": "支持电子邮件发送成功！我们会尽快回复您。",
+    "error": "发送支持电子邮件失败"
+  },
+  "affiliates": {
+    "title": "FluxTrade 联盟计划",
+    "subtitle": "通过推广 FluxTrade 赚取经常性佣金。我们的计划简单、透明且对创作者友好。",
+    "commission": "30%",
+    "commissionDesc": "您推荐的订阅付款的经常性佣金。",
+    "payouts": "净60付款",
+    "payoutsDesc": "通过 PayPal 按净60时间表支付。",
+    "useAssets": "使用我们的资源",
+    "useAssetsDesc": "在您的促销中使用我们的徽标、网站媒体和视频。",
+    "freeTrial": "免费试用",
+    "freeTrialDesc": "我们为客户提供30天免费试用",
+    "powerfulTools": "强大的工具",
+    "powerfulToolsDesc": "我们的工具套件是从头开始构建的",
+    "growingCommunity": "不断发展的社区",
+    "growingCommunityDesc": "我们的免费 Discord 允许交易者分享和协作",
+    "joinProgram": "加入联盟计划",
+    "programDetails": "计划详情",
+    "commissionLabel": "佣金：",
+    "commissionValue": "30% 经常性",
+    "commissionFull": "在您推荐的订阅上。",
+    "payoutTerms": "付款条件：",
+    "payoutValue": "净60",
+    "payoutMethod": "通过 PayPal。",
+    "attribution": "归因由 PromoteKit 处理；您的推荐会自动跟踪。",
+    "marketingAssets": "营销资源：您可以使用我们网站上的任何材料，包括我们 YouTube 频道上的徽标和视频",
+    "marketingMaterials": "营销材料",
+    "marketingMaterialsDesc": "包括您可以使用的视频。",
+    "getStarted": "要开始，请在此处创建您的联盟账户：",
+    "questions": "如需其他信息或问题，请给我发电子邮件至"
+  },
+  "auth": {
+    "signIn": "登录",
+    "signUp": "注册",
+    "email": "电子邮件",
+    "password": "密码",
+    "signInFailed": "登录失败",
+    "googleSignInFailed": "Google 登录失败",
+    "registrationFailed": "注册失败",
+    "agreeTerms": "我同意",
+    "and": "和",
+    "signInWithGoogle": "使用 Google 登录",
+    "continueWithGoogle": "使用 Google 继续",
+    "or": "或",
+    "validEmail": "请输入有效的电子邮件地址",
+    "byUsingService": "使用此服务即表示您同意"
+  },
+  "blog": {
+    "title": "博客",
+    "subtitle": "教育内容，帮助您了解交易策略并驾驭 prop 公司环境",
+    "readFullArticle": "阅读全文",
+    "readyToStart": "准备开始交易了吗？",
+    "readyDesc": "探索我们的回测策略，为您的交易之旅找到合适的计划",
+    "viewStrategies": "查看所有策略",
+    "seePricing": "查看定价计划",
+    "categories": {
+      "strategyIntro": "策略介绍",
+      "propFirmPitfalls": "Prop 公司陷阱"
+    },
+    "articles": {
+      "fluxTrident": {
+        "title": "Flux Trident 策略介绍",
+        "excerpt": "Flux Trident 是一种多时间框架汇合策略，结合趋势分析和动量指标。了解这种系统方法如何在各种市场条件下识别高概率入场。"
+      },
+      "fluxSignal": {
+        "title": "了解 Flux Signal 策略",
+        "excerpt": "Flux Signal 策略使用专有指标来识别早期趋势反转和延续模式。本文分解了使该策略有效的核心概念和入场标准。"
+      },
+      "fluxPivot": {
+        "title": "Flux Pivot：交易支撑和阻力",
+        "excerpt": "掌握使用 Flux Pivot 交易关键枢轴点的艺术。该策略专注于识别和交易重要的支撑和阻力区域，结合价格行为和成交量分析。"
+      },
+      "propFirmHiddenCosts": {
+        "title": "Prop 公司挑战的隐藏成本",
+        "excerpt": "许多交易者直到为时已晚才意识到 prop 公司挑战的真正成本。从隐藏费用到不切实际的利润目标，了解可能破坏您资金账户旅程的常见陷阱。"
+      },
+      "propFirmFailure": {
+        "title": "为什么大多数 Prop 公司交易者失败（以及如何避免）",
+        "excerpt": "超过90%的 prop 公司交易者未能通过挑战。发现导致失败的心理陷阱、风险管理错误和策略缺陷—以及经过验证的回测策略如何为您提供优势。"
+      },
+      "cointegratedPairs": {
+        "title": "协整配对交易解释",
+        "excerpt": "配对交易不仅适用于机构。了解协整配对交易的工作原理，为什么它比方向性交易风险更小，以及如何在期货市场中识别有利可图的配对机会。"
+      },
+      "propFirmDrawdown": {
+        "title": "Prop 公司回撤陷阱",
+        "excerpt": "Prop 公司设定的回撤限制在纸面上看起来很慷慨，但实际上是为了让您措手不及。了解每日回撤、追踪回撤和隐藏规则如何过早结束您的挑战。"
+      },
+      "orb": {
+        "title": "ORB 策略：交易开盘区间",
+        "excerpt": "开盘区间突破（ORB）策略利用第一小时的波动性。本文解释了如何识别高概率突破并在交易市场开盘时管理风险。"
+      }
+    }
+  },
+  "landing": {
+    "understandMarkets": "了解",
+    "markets": "市场",
+    "gainEdge": "获得",
+    "edge": "优势",
+    "subtitle": "为一致性、风险管理和纪律而构建的 prop 公司友好系统。",
+    "seeItTrade": "在60秒内看到它交易",
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "new": "新！",
+    "propFirmFocused": "Prop 公司重点策略",
+    "propFirmSubtitle": "为 prop 公司规则和一致性而构建",
+    "clearFilters": "清除过滤器",
+    "viewBacktest": "查看回测",
+    "exploreBacktest": "探索回测",
+    "loadMoreStrategies": "加载更多策略",
+    "loadMoreIndicators": "加载更多指标",
+    "winRate": "胜率",
+    "profitFactor": "利润因子",
+    "ourIndicators": "我们的指标",
+    "indicatorsSubtitle": "学习如何使用指标构建的计划和策略手动交易",
+    "wins": "盈利",
+    "winsSubtitle": "使用 Discord 成员的工具获得的盈利",
+    "officialVendor": "官方 NinjaTrader 生态系统供应商",
+    "affiliateLink": "（联盟链接*）",
+    "playCarousel": "播放轮播",
+    "pauseCarousel": "暂停轮播",
+    "previousVideo": "上一个视频",
+    "nextVideo": "下一个视频",
+    "videoCarousel": "视频轮播",
+    "videoCarouselNav": "视频轮播导航",
+    "goToVideo": "转到 {{label}} 视频",
+    "demonstrationVideo": "{{label}} 演示视频。点击播放或暂停。",
+    "filters": {
+      "meanReversion": "均值回归",
+      "conservative": "保守",
+      "propFirmSafe": "Prop 公司安全",
+      "trend": "趋势"
+    },
+    "videoLabels": {
+      "previousLevels": "先前水平",
+      "fluxConfluence": "FluxConfluence",
+      "fluxPivot": "Flux Pivot",
+      "fluxSignal": "Flux Signal"
+    }
   }
 }
-

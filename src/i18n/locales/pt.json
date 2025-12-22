@@ -22,6 +22,190 @@
     "italian": "Italiano",
     "russian": "Russo",
     "korean": "Coreano"
+  },
+  "footer": {
+    "navigation": "Navegação",
+    "home": "Início",
+    "pricing": "Preços",
+    "account": "Conta",
+    "refundPolicies": "Políticas de Reembolso e Cancelamento",
+    "affiliates": "Afiliados",
+    "support": "Suporte",
+    "terms": "Termos e Condições",
+    "followUs": "Siga-nos",
+    "disclaimers": "Avisos Legais",
+    "disclaimer1": "O trading de futuros e forex contém riscos substanciais e não é para todos os investidores. Um investidor pode potencialmente perder tudo ou mais do que o investimento inicial. Capital de risco é dinheiro que pode ser perdido sem comprometer a segurança financeira ou o estilo de vida. Apenas capital de risco deve ser usado para trading e apenas aqueles com capital de risco suficiente devem considerar fazer trading. O desempenho passado não é necessariamente indicativo de resultados futuros",
+    "disclaimer2": "Os resultados de desempenho hipotéticos têm muitas limitações inerentes, algumas das quais são descritas abaixo. Nenhuma representação está sendo feita de que qualquer conta alcançará ou provavelmente alcançará lucros ou perdas semelhantes aos mostrados; na verdade, há frequentemente diferenças acentuadas entre os resultados de desempenho hipotéticos e os resultados reais subsequentemente alcançados por qualquer programa de trading específico. Uma das limitações dos resultados de desempenho hipotéticos é que eles são geralmente preparados com o benefício da retrospectiva. Além disso, o trading hipotético não envolve risco financeiro, e nenhum registro de trading hipotético pode dar conta completamente do impacto do risco financeiro do trading real. por exemplo, a capacidade de suportar perdas ou aderir a um programa de trading particular apesar das perdas de trading são pontos materiais que também podem afetar adversamente os resultados de trading reais. Existem numerosos outros fatores relacionados aos mercados em geral ou à implementação de qualquer programa de trading específico que não podem ser totalmente contabilizados na preparação dos resultados de desempenho hipotéticos e todos os quais podem afetar adversamente os resultados de trading.",
+    "disclaimer3": "Os depoimentos que aparecem neste site podem não ser representativos de outros clientes ou clientes e não são uma garantia de desempenho ou sucesso futuro.",
+    "copyright": "Copyright © {{year}}, FluxTrade, LLC. Todos os direitos reservados."
+  },
+  "stickyCTA": {
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "bothPlatforms": "Ambas as Plataformas",
+    "startTrial": "Iniciar Teste Gratuito (30 dias)",
+    "signUpTrial": "Inscrever-se Para Iniciar Teste Gratuito (30 dias)",
+    "startTrialLabel": "Iniciar teste gratuito de 30 dias para {{platform}}",
+    "signUpTrialLabel": "Inscrever-se para iniciar teste gratuito de 30 dias para {{platform}}"
+  },
+  "support": {
+    "title": "Suporte",
+    "description": "Para consultas de suporte, envie um e-mail para",
+    "orSendMessage": "ou envie uma mensagem com o formulário abaixo.",
+    "discordHelp": "Você também pode se juntar à nossa comunidade Discord para ajuda mais rápida e anúncios.",
+    "additionalResources": "Recursos Adicionais",
+    "resourcesDescription": "Antes de entrar em contato com o suporte, você pode encontrar respostas para perguntas comuns em nossas políticas e termos:",
+    "refundInfo": "Para informações sobre reembolsos, cancelamentos e gerenciamento de assinatura, visite nossas",
+    "termsInfo": "Para termos de serviço, responsabilidades da conta e termos gerais, visite nossos",
+    "stillNeedHelp": "Se você ainda precisar de assistência após revisar esses recursos, não hesite em entrar em contato usando o formulário abaixo ou",
+    "emailDirectly": "envie-nos um e-mail diretamente",
+    "sendMessage": "Envie-nos uma Mensagem",
+    "yourName": "Seu Nome",
+    "yourEmail": "Seu E-mail",
+    "subject": "Assunto",
+    "message": "Mensagem",
+    "sending": "Enviando...",
+    "sendEmail": "Enviar E-mail de Suporte",
+    "success": "E-mail de suporte enviado com sucesso! Entraremos em contato em breve.",
+    "error": "Falha ao enviar e-mail de suporte"
+  },
+  "affiliates": {
+    "title": "Programa de Afiliados FluxTrade",
+    "subtitle": "Ganhe comissões recorrentes promovendo FluxTrade. Nosso programa é simples, transparente e amigável para criadores.",
+    "commission": "30%",
+    "commissionDesc": "Comissão recorrente em todos os pagamentos de assinatura que você indicar.",
+    "payouts": "Pagamentos Net-60",
+    "payoutsDesc": "Pagos via PayPal em um cronograma net-60.",
+    "useAssets": "Use Nossos Recursos",
+    "useAssetsDesc": "Use nosso logotipo, mídia do site e vídeos em suas promoções.",
+    "freeTrial": "Teste gratuito",
+    "freeTrialDesc": "Oferecemos um teste gratuito de 30 dias para nossos clientes",
+    "powerfulTools": "Ferramentas poderosas",
+    "powerfulToolsDesc": "Nossa suíte de ferramentas foi construída do zero",
+    "growingCommunity": "Comunidade crescente",
+    "growingCommunityDesc": "Nosso Discord gratuito permite que traders compartilhem e colaborem",
+    "joinProgram": "Juntar-se ao Programa de Afiliados",
+    "programDetails": "Detalhes do Programa",
+    "commissionLabel": "Comissão:",
+    "commissionValue": "30% recorrente",
+    "commissionFull": "nas assinaturas que você indicar.",
+    "payoutTerms": "Termos de pagamento:",
+    "payoutValue": "Net-60",
+    "payoutMethod": "via PayPal.",
+    "attribution": "Atribuição gerenciada por PromoteKit; suas indicações são rastreadas automaticamente.",
+    "marketingAssets": "Recursos de marketing: Você pode usar qualquer material de nosso site, incluindo nosso logotipo e vídeos em nosso canal do YouTube",
+    "marketingMaterials": "Materiais de Marketing",
+    "marketingMaterialsDesc": "incluindo vídeos que você pode usar.",
+    "getStarted": "Para começar, crie sua conta de afiliado aqui:",
+    "questions": "Para informações adicionais ou perguntas, envie-me um e-mail para"
+  },
+  "auth": {
+    "signIn": "Entrar",
+    "signUp": "Inscrever-se",
+    "email": "E-mail",
+    "password": "Senha",
+    "signInFailed": "Falha no login",
+    "googleSignInFailed": "Falha no login do Google",
+    "registrationFailed": "Falha no registro",
+    "agreeTerms": "Concordo com os",
+    "and": "e",
+    "signInWithGoogle": "Entrar com Google",
+    "continueWithGoogle": "Continuar com Google",
+    "or": "OU",
+    "validEmail": "Por favor, insira um endereço de e-mail válido",
+    "byUsingService": "Ao usar este serviço, você concorda com os"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Conteúdo educacional para ajudá-lo a entender estratégias de trading e navegar no cenário de empresas prop",
+    "readFullArticle": "Ler Artigo Completo",
+    "readyToStart": "Pronto para Começar a Operar?",
+    "readyDesc": "Explore nossas estratégias com backtest e encontre o plano certo para sua jornada de trading",
+    "viewStrategies": "Ver Todas as Estratégias",
+    "seePricing": "Ver Planos de Preços",
+    "categories": {
+      "strategyIntro": "Introdução à Estratégia",
+      "propFirmPitfalls": "Armadilhas de Empresas Prop"
+    },
+    "articles": {
+      "fluxTrident": {
+        "title": "Introdução à Estratégia Flux Trident",
+        "excerpt": "Flux Trident é uma estratégia de confluência multi-timeframe que combina análise de tendência com indicadores de momentum. Aprenda como essa abordagem sistemática identifica entradas de alta probabilidade em várias condições de mercado."
+      },
+      "fluxSignal": {
+        "title": "Entendendo a Estratégia Flux Signal",
+        "excerpt": "A estratégia Flux Signal usa indicadores proprietários para identificar reversões de tendência precoces e padrões de continuação. Este artigo detalha os conceitos centrais e critérios de entrada que tornam essa estratégia eficaz."
+      },
+      "fluxPivot": {
+        "title": "Flux Pivot: Trading de Suporte e Resistência",
+        "excerpt": "Domine a arte de operar níveis de pivô importantes com Flux Pivot. Esta estratégia se concentra em identificar e operar zonas significativas de suporte e resistência, combinando ação de preço com análise de volume."
+      },
+      "propFirmHiddenCosts": {
+        "title": "Os Custos Ocultos dos Desafios de Empresas Prop",
+        "excerpt": "Muitos traders não percebem o custo real dos desafios de empresas prop até que seja tarde demais. De taxas ocultas a metas de lucro irrealistas, aprenda sobre as armadilhas comuns que podem descarrilar sua jornada de conta financiada."
+      },
+      "propFirmFailure": {
+        "title": "Por Que a Maioria dos Traders de Empresas Prop Falham (E Como Evitar)",
+        "excerpt": "Mais de 90% dos traders de empresas prop falham em seus desafios. Descubra as armadilhas psicológicas, erros de gerenciamento de risco e falhas de estratégia que levam ao fracasso—e como estratégias comprovadas com backtest podem dar-lhe uma vantagem."
+      },
+      "cointegratedPairs": {
+        "title": "Trading de Pares Cointegrados Explicado",
+        "excerpt": "O trading de pares não é apenas para instituições. Aprenda como funciona o trading de pares cointegrados, por que é menos arriscado que o trading direcional e como identificar oportunidades de pares lucrativas nos mercados futuros."
+      },
+      "propFirmDrawdown": {
+        "title": "A Armadilha do Drawdown de Empresas Prop",
+        "excerpt": "As empresas prop estabelecem limites de drawdown que parecem generosos no papel, mas na verdade são projetados para pegá-lo desprevenido. Entenda como drawdowns diários, drawdowns trailing e regras ocultas podem encerrar seu desafio prematuramente."
+      },
+      "orb": {
+        "title": "Estratégia ORB: Trading da Faixa de Abertura",
+        "excerpt": "A estratégia de Ruptura da Faixa de Abertura (ORB) capitaliza a volatilidade da primeira hora. Este artigo explica como identificar rupturas de alta probabilidade e gerenciar o risco ao operar a abertura do mercado."
+      }
+    }
+  },
+  "landing": {
+    "understandMarkets": "Entenda os",
+    "markets": "mercados",
+    "gainEdge": "Obtenha uma",
+    "edge": "vantagem",
+    "subtitle": "Sistemas amigáveis para empresas prop construídos para consistência, gerenciamento de risco e disciplina.",
+    "seeItTrade": "Veja operar em 60s",
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "new": "NOVO!",
+    "propFirmFocused": "Estratégias Focadas em Empresas Prop",
+    "propFirmSubtitle": "Construídas para regras de empresas prop e consistência",
+    "clearFilters": "Limpar Filtros",
+    "viewBacktest": "Ver Backtest",
+    "exploreBacktest": "Explorar Backtest",
+    "loadMoreStrategies": "Carregar Mais Estratégias",
+    "loadMoreIndicators": "Carregar Mais Indicadores",
+    "winRate": "Taxa de ganhos",
+    "profitFactor": "Fator de lucro",
+    "ourIndicators": "Nossos Indicadores",
+    "indicatorsSubtitle": "Aprenda a operar manualmente com um plano e estratégia construídos com indicadores",
+    "wins": "Ganhos",
+    "winsSubtitle": "Ganhos usando as ferramentas de membros no Discord",
+    "officialVendor": "Fornecedor Oficial do Ecossistema NinjaTrader",
+    "affiliateLink": "(Link de afiliado*)",
+    "playCarousel": "Reproduzir carrossel",
+    "pauseCarousel": "Pausar carrossel",
+    "previousVideo": "Vídeo anterior",
+    "nextVideo": "Próximo vídeo",
+    "videoCarousel": "Carrossel de vídeos",
+    "videoCarouselNav": "Navegação do carrossel de vídeos",
+    "goToVideo": "Ir para o vídeo {{label}}",
+    "demonstrationVideo": "Vídeo de demonstração {{label}}. Clique para reproduzir ou pausar.",
+    "filters": {
+      "meanReversion": "Reversão à Média",
+      "conservative": "Conservador",
+      "propFirmSafe": "Seguro para empresas prop",
+      "trend": "Tendência"
+    },
+    "videoLabels": {
+      "previousLevels": "Níveis Anteriores",
+      "fluxConfluence": "FluxConfluence",
+      "fluxPivot": "Flux Pivot",
+      "fluxSignal": "Flux Signal"
+    }
   }
 }
-

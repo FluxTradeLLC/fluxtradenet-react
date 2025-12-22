@@ -168,6 +168,44 @@
     "gainEdge": "Obtén una",
     "edge": "ventaja",
     "subtitle": "Sistemas amigables para empresas prop construidos para consistencia, gestión de riesgo y disciplina.",
-    "seeItTrade": "Véalo operar en 60s"
+    "seeItTrade": "Véalo operar en 60s",
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "new": "¡NUEVO!",
+    "propFirmFocused": "Estrategias Enfocadas en Empresas Prop",
+    "propFirmSubtitle": "Construidas para reglas de empresas prop y consistencia",
+    "clearFilters": "Limpiar Filtros",
+    "viewBacktest": "Ver Backtest",
+    "exploreBacktest": "Explorar Backtest",
+    "loadMoreStrategies": "Cargar Más Estrategias",
+    "loadMoreIndicators": "Cargar Más Indicadores",
+    "winRate": "Tasa de ganancia",
+    "profitFactor": "Factor de ganancia",
+    "ourIndicators": "Nuestros Indicadores",
+    "indicatorsSubtitle": "Aprende a operar manualmente con un plan y estrategia construidos con indicadores",
+    "wins": "Ganancias",
+    "winsSubtitle": "Ganancias usando las herramientas de miembros en el Discord",
+    "officialVendor": "Vendedor Oficial del Ecosistema NinjaTrader",
+    "affiliateLink": "(Enlace de afiliado*)",
+    "playCarousel": "Reproducir carrusel",
+    "pauseCarousel": "Pausar carrusel",
+    "previousVideo": "Video anterior",
+    "nextVideo": "Video siguiente",
+    "videoCarousel": "Carrusel de videos",
+    "videoCarouselNav": "Navegación del carrusel de videos",
+    "goToVideo": "Ir al video {{label}}",
+    "demonstrationVideo": "Video de demostración {{label}}. Haz clic para reproducir o pausar.",
+    "filters": {
+      "meanReversion": "Reversión a la Media",
+      "conservative": "Conservador",
+      "propFirmSafe": "Seguro para empresas prop",
+      "trend": "Tendencia"
+    },
+    "videoLabels": {
+      "previousLevels": "Niveles Previos",
+      "fluxConfluence": "FluxConfluence",
+      "fluxPivot": "Flux Pivot",
+      "fluxSignal": "Flux Signal"
+    }
   }
 }
