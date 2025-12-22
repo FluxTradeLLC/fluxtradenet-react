@@ -199,13 +199,353 @@
       "meanReversion": "均值回归",
       "conservative": "保守",
       "propFirmSafe": "Prop 公司安全",
-      "trend": "趋势"
+      "trend": "趋势",
+      "scalping": "剥头皮",
+      "momentum": "动量",
+      "volatility": "波动性",
+      "levels": "水平",
+      "signals": "信号"
     },
     "videoLabels": {
       "previousLevels": "先前水平",
       "fluxConfluence": "FluxConfluence",
       "fluxPivot": "Flux Pivot",
       "fluxSignal": "Flux Signal"
+    },
+    "indicators": {
+      "highLowBands": {
+        "name": "HighLowBands",
+        "features": [
+          "高低带检测",
+          "动态支撑和阻力水平",
+          "非常适合突破和反转交易"
+        ]
+      },
+      "fluxTarget": {
+        "name": "FluxTarget",
+        "features": [
+          "动态目标带",
+          "适应波动性",
+          "非常适合退出"
+        ]
+      },
+      "marketPhase": {
+        "name": "市场阶段",
+        "features": [
+          "可视化市场阶段检测",
+          "趋势和区间突出显示",
+          "易于解释"
+        ]
+      },
+      "ttmSqueeze": {
+        "name": "TTM Squeeze",
+        "features": [
+          "动量和压缩检测",
+          "非常适合突破交易",
+          "可视化直方图"
+        ]
+      },
+      "volatilityCycle": {
+        "name": "波动周期",
+        "features": [
+          "波动周期振荡器",
+          "发现扩张和收缩",
+          "与其他指标配合良好"
+        ]
+      },
+      "fluxConfluence": {
+        "name": "FluxConfluence",
+        "features": [
+          "跟随趋势交易",
+          "获得多个汇合点",
+          "买卖信号"
+        ]
+      },
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "features": [
+          "买卖之间的枢轴",
+          "添加到现有仓位",
+          "智能枢轴检测"
+        ]
+      },
+      "fluxSignal": {
+        "name": "FluxSignal",
+        "features": [
+          "理解变化的市场",
+          "买卖信号",
+          "在新趋势开始时捕捉"
+        ]
+      },
+      "marketRegime": {
+        "name": "市场制度",
+        "features": [
+          "理解市场制度",
+          "高波动和低波动",
+          "横盘或趋势"
+        ]
+      },
+      "parabolicRSI": {
+        "name": "抛物线RSI",
+        "features": [
+          "抛物线SAR + RSI",
+          "与终极入场指标配对",
+          "超买和超卖区域"
+        ]
+      },
+      "previousLevels": {
+        "name": "先前水平",
+        "features": [
+          "识别先前的高点和低点",
+          "交易反转和突破",
+          "昨天、盘前和开盘区间"
+        ]
+      }
+    },
+    "strategies": {
+      "averageBounce": {
+        "name": "AverageBounce",
+        "features": [
+          "均值回归策略",
+          "从关键平均水平反弹",
+          "自动化入场和出场"
+        ]
+      },
+      "megaBands": {
+        "name": "MegaBands",
+        "features": [
+          "基于动态带的策略",
+          "适应波动性的入场",
+          "使用带进行趋势跟踪"
+        ]
+      },
+      "stopHunter": {
+        "name": "StopHunter",
+        "features": [
+          "针对止损水平",
+          "流动性扫荡检测",
+          "自动化入场信号"
+        ]
+      },
+      "chatGPT": {
+        "name": "ChatGPT",
+        "features": [
+          "AI驱动的策略信号",
+          "基于机器学习的入场",
+          "适应市场条件"
+        ]
+      },
+      "orms": {
+        "name": "ORMS",
+        "features": [
+          "围绕纽约开盘区间的动量剥头皮",
+          "使用开盘区间动量变化",
+          "严格控制风险，快速目标"
+        ]
+      },
+      "liquiditySweep": {
+        "name": "流动性扫荡",
+        "features": [
+          "扫荡关键水平周围的流动性",
+          "淡出和突破模式",
+          "风险管理入场"
+        ]
+      },
+      "slowAndSteady": {
+        "name": "缓慢而稳定",
+        "features": [
+          "高概率、低频率设置",
+          "严格的风险控制",
+          "适合保守增长"
+        ]
+      },
+      "superMomentum": {
+        "name": "超级动量",
+        "features": [
+          "动量延续信号",
+          "带追踪止损的动态目标",
+          "在强趋势日表现优异"
+        ]
+      },
+      "donchianTurtle": {
+        "name": "Donchian Turtle",
+        "features": [
+          "使用Donchian通道的突破策略",
+          "金字塔式趋势跟踪",
+          "基于ATR的止损和仓位大小"
+        ]
+      },
+      "ichimokoStrat": {
+        "name": "IchimokoStrat",
+        "features": [
+          "基于一目均衡表的入场",
+          "云、转换线/基准线交叉和延迟线",
+          "适用于所有市场制度"
+        ]
+      },
+      "keltnerStrat": {
+        "name": "KeltnerStrat",
+        "features": [
+          "Keltner通道突破和回调",
+          "适应波动性的目标和止损",
+          "与动量过滤器配合良好"
+        ]
+      },
+      "futurePredictionServer": {
+        "name": "未来预测服务器",
+        "features": [
+          "使用机器学习进行标记和预测",
+          "调用远程服务器",
+          "强化学习算法"
+        ]
+      },
+      "quadConfluence": {
+        "name": "四重汇合",
+        "features": [
+          "多种入场触发类型",
+          "寻找多个汇合点",
+          "动态目标和止损"
+        ]
+      },
+      "holyGrailAdaptive": {
+        "name": "圣杯自适应",
+        "features": [
+          "自适应趋势跟踪",
+          "自动化入场和出场",
+          "目标和风险控制"
+        ]
+      },
+      "elliotWave": {
+        "name": "ElliotWave",
+        "features": [
+          "自动化艾略特波浪计数",
+          "识别推动波和修正波",
+          "与结构对齐的风险目标"
+        ]
+      },
+      "iccChoCh": {
+        "name": "ICC ChoCh",
+        "features": [
+          "智能结构转换检测",
+          "用于反转的ChoCh/BOS信号",
+          "趋势延续和反转逻辑"
+        ]
+      },
+      "lowVolatility": {
+        "name": "低波动性",
+        "features": [
+          "在安静制度中的均值回归",
+          "自适应过滤器和带",
+          "捕捉压缩扩张"
+        ]
+      },
+      "projectGamma": {
+        "name": "项目Gamma",
+        "features": [
+          "看涨和看跌吞没形态检测",
+          "波动性感知的入场和出场",
+          "在指数和期货上表现优异"
+        ]
+      },
+      "trendCatcher": {
+        "name": "TrendCatcher",
+        "features": [
+          "捕捉持续趋势",
+          "动态追踪止损逻辑",
+          "多时间框架确认"
+        ]
+      },
+      "orb": {
+        "name": "ORB（开盘区间突破）",
+        "features": [
+          "经典开盘区间突破",
+          "自动化入场和出场",
+          "适用于所有时间框架",
+          "非常适合波动性和动量"
+        ]
+      },
+      "cointegratedPairs": {
+        "name": "CointegratedPairs",
+        "features": [
+          "配对交易策略",
+          "统计套利",
+          "动态Z-Score入场和出场"
+        ]
+      },
+      "rileySR": {
+        "name": "RileySR",
+        "features": [
+          "支撑/阻力突破",
+          "多个指标过滤器",
+          "成交量和RSI确认"
+        ]
+      },
+      "fluxLightning": {
+        "name": "FluxLightning",
+        "features": [
+          "完全自动化策略",
+          "非常适合趋势市场",
+          "多空信号"
+        ]
+      },
+      "fluxPivotStrategy": {
+        "name": "FluxPivot策略",
+        "features": [
+          "自动化枢轴检测",
+          "与机构水平交易",
+          "与FluxPivot指标配合良好"
+        ]
+      },
+      "fluxSignalStrategy": {
+        "name": "FluxSignal策略",
+        "features": [
+          "使用Flux Signal进行入场",
+          "早期捕捉趋势",
+          "简单易用"
+        ]
+      },
+      "fluxTrident": {
+        "name": "FluxTrident",
+        "features": [
+          "三步趋势确认",
+          "强大的剥头皮策略",
+          "识别强趋势延续"
+        ]
+      }
+    },
+    "propFocusedStrategies": {
+      "centauri": {
+        "name": "Centauri",
+        "features": [
+          "适合prop公司的风险管理",
+          "设计用于低回撤和一致性",
+          "严格遵守每日亏损限制"
+        ]
+      },
+      "mars": {
+        "name": "Mars",
+        "features": [
+          "有纪律风险的动量",
+          "自适应目标和止损",
+          "专注于prop账户扩展"
+        ]
+      },
+      "moon": {
+        "name": "Moon",
+        "features": [
+          "严格控制下的趋势捕捉",
+          "高质量信号过滤",
+          "一致的性能特征"
+        ]
+      },
+      "pluto": {
+        "name": "Pluto",
+        "features": [
+          "结构化入场和出场",
+          "波动性感知的仓位大小",
+          "与prop公司目标对齐"
+        ]
+      }
     }
   }
 }

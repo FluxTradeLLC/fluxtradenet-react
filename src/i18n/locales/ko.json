@@ -199,13 +199,353 @@
       "meanReversion": "평균 회귀",
       "conservative": "보수적",
       "propFirmSafe": "프로프 회사 안전",
-      "trend": "추세"
+      "trend": "추세",
+      "scalping": "스캘핑",
+      "momentum": "모멘텀",
+      "volatility": "변동성",
+      "levels": "레벨",
+      "signals": "신호"
     },
     "videoLabels": {
       "previousLevels": "이전 레벨",
       "fluxConfluence": "FluxConfluence",
       "fluxPivot": "Flux Pivot",
       "fluxSignal": "Flux Signal"
+    },
+    "indicators": {
+      "highLowBands": {
+        "name": "HighLowBands",
+        "features": [
+          "고가 및 저가 밴드 감지",
+          "동적 지지 및 저항 수준",
+          "돌파 및 반전 거래에 최적"
+        ]
+      },
+      "fluxTarget": {
+        "name": "FluxTarget",
+        "features": [
+          "동적 목표 밴드",
+          "변동성에 적응",
+          "청산에 최적"
+        ]
+      },
+      "marketPhase": {
+        "name": "시장 단계",
+        "features": [
+          "시각적 시장 단계 감지",
+          "추세 및 범위 강조",
+          "해석이 쉬움"
+        ]
+      },
+      "ttmSqueeze": {
+        "name": "TTM Squeeze",
+        "features": [
+          "모멘텀 및 스퀴즈 감지",
+          "돌파 거래에 최적",
+          "시각적 히스토그램"
+        ]
+      },
+      "volatilityCycle": {
+        "name": "변동성 사이클",
+        "features": [
+          "변동성 사이클 오실레이터",
+          "확장 및 수축 감지",
+          "다른 지표와 잘 어울림"
+        ]
+      },
+      "fluxConfluence": {
+        "name": "FluxConfluence",
+        "features": [
+          "추세에 따른 거래",
+          "다중 합류점 획득",
+          "매수 및 매도 신호"
+        ]
+      },
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "features": [
+          "매수와 매도 사이의 피벗",
+          "기존 포지션에 추가",
+          "스마트 피벗 감지"
+        ]
+      },
+      "fluxSignal": {
+        "name": "FluxSignal",
+        "features": [
+          "변화하는 시장 이해",
+          "매수 및 매도 신호",
+          "새로운 추세를 시작할 때 포착"
+        ]
+      },
+      "marketRegime": {
+        "name": "시장 체제",
+        "features": [
+          "시장 체제 이해",
+          "높은 변동성과 낮은 변동성",
+          "횡보 또는 추세"
+        ]
+      },
+      "parabolicRSI": {
+        "name": "포물선 RSI",
+        "features": [
+          "포물선 SAR + RSI",
+          "Ultimate Entry Indicator와 페어링",
+          "과매수 및 과매도 영역"
+        ]
+      },
+      "previousLevels": {
+        "name": "이전 레벨",
+        "features": [
+          "이전 고점 및 저점 식별",
+          "반전 및 돌파 거래",
+          "어제, 프리마켓 및 개장 범위"
+        ]
+      }
+    },
+    "strategies": {
+      "averageBounce": {
+        "name": "AverageBounce",
+        "features": [
+          "평균 회귀 전략",
+          "주요 평균 수준에서 반등",
+          "자동화된 진입 및 청산"
+        ]
+      },
+      "megaBands": {
+        "name": "MegaBands",
+        "features": [
+          "동적 밴드 기반 전략",
+          "변동성 적응형 진입",
+          "밴드를 사용한 추세 추종"
+        ]
+      },
+      "stopHunter": {
+        "name": "StopHunter",
+        "features": [
+          "손절매 수준 타겟팅",
+          "유동성 스위프 감지",
+          "자동화된 진입 신호"
+        ]
+      },
+      "chatGPT": {
+        "name": "ChatGPT",
+        "features": [
+          "AI 기반 전략 신호",
+          "머신러닝 기반 진입",
+          "시장 조건에 적응"
+        ]
+      },
+      "orms": {
+        "name": "ORMS",
+        "features": [
+          "NY 개장 범위 주변 모멘텀 스캘핑",
+          "개장 범위 모멘텀 변화 사용",
+          "빠른 목표와 엄격한 리스크 관리"
+        ]
+      },
+      "liquiditySweep": {
+        "name": "유동성 스위프",
+        "features": [
+          "주요 수준 주변 유동성 스위프",
+          "페이드 및 돌파 모드",
+          "리스크 관리된 진입"
+        ]
+      },
+      "slowAndSteady": {
+        "name": "느리고 꾸준하게",
+        "features": [
+          "높은 확률, 낮은 빈도 설정",
+          "엄격한 리스크 제어",
+          "보수적 성장에 이상적"
+        ]
+      },
+      "superMomentum": {
+        "name": "슈퍼 모멘텀",
+        "features": [
+          "모멘텀 지속 신호",
+          "트레일링 스톱이 있는 동적 목표",
+          "강한 추세일에 최적"
+        ]
+      },
+      "donchianTurtle": {
+        "name": "Donchian Turtle",
+        "features": [
+          "Donchian 채널을 사용한 돌파 전략",
+          "피라미딩을 통한 추세 추종",
+          "ATR 기반 스톱 및 포지션 크기 조정"
+        ]
+      },
+      "ichimokoStrat": {
+        "name": "IchimokoStrat",
+        "features": [
+          "일목균형표 기반 진입",
+          "구름, 전환선/기준선 교차, 지표선",
+          "모든 시장 체제에서 작동"
+        ]
+      },
+      "keltnerStrat": {
+        "name": "KeltnerStrat",
+        "features": [
+          "Keltner 채널 돌파 및 되돌림",
+          "변동성 적응형 목표 및 스톱",
+          "모멘텀 필터와 잘 어울림"
+        ]
+      },
+      "futurePredictionServer": {
+        "name": "미래 예측 서버",
+        "features": [
+          "라벨링 및 예측을 위한 머신러닝 사용",
+          "원격 서버 호출",
+          "강화 학습 알고리즘"
+        ]
+      },
+      "quadConfluence": {
+        "name": "쿼드 합류점",
+        "features": [
+          "다중 진입 트리거 유형",
+          "다중 합류점 찾기",
+          "동적 목표 및 스톱"
+        ]
+      },
+      "holyGrailAdaptive": {
+        "name": "성배 적응형",
+        "features": [
+          "적응형 추세 추종",
+          "자동화된 진입 및 청산",
+          "목표 및 리스크 제어"
+        ]
+      },
+      "elliotWave": {
+        "name": "ElliotWave",
+        "features": [
+          "자동화된 엘리엇 파동 카운트",
+          "충격파 및 수정파 식별",
+          "구조에 정렬된 리스크 목표"
+        ]
+      },
+      "iccChoCh": {
+        "name": "ICC ChoCh",
+        "features": [
+          "스마트 구조 변화 감지",
+          "반전을 위한 ChoCh/BOS 신호",
+          "추세 지속 및 반전 로직"
+        ]
+      },
+      "lowVolatility": {
+        "name": "낮은 변동성",
+        "features": [
+          "조용한 체제에서의 평균 회귀",
+          "적응형 필터 및 밴드",
+          "스퀴즈 확장 포착"
+        ]
+      },
+      "projectGamma": {
+        "name": "프로젝트 감마",
+        "features": [
+          "강세 및 약세 엔걸핑 패턴 감지",
+          "변동성을 고려한 진입 및 청산",
+          "지수 및 선물에서 우수한 성능"
+        ]
+      },
+      "trendCatcher": {
+        "name": "TrendCatcher",
+        "features": [
+          "지속적인 추세 타기",
+          "동적 트레일링 스톱 로직",
+          "다중 타임프레임 확인"
+        ]
+      },
+      "orb": {
+        "name": "ORB (개장 범위 돌파)",
+        "features": [
+          "클래식 개장 범위 돌파",
+          "자동화된 진입 및 청산",
+          "모든 타임프레임에서 작동",
+          "변동성 및 모멘텀에 최적"
+        ]
+      },
+      "cointegratedPairs": {
+        "name": "CointegratedPairs",
+        "features": [
+          "페어 거래 전략",
+          "통계적 차익거래",
+          "동적 Z-Score 진입 및 청산"
+        ]
+      },
+      "rileySR": {
+        "name": "RileySR",
+        "features": [
+          "지지/저항 돌파",
+          "다중 지표 필터",
+          "거래량 및 RSI 확인"
+        ]
+      },
+      "fluxLightning": {
+        "name": "FluxLightning",
+        "features": [
+          "완전 자동화 전략",
+          "추세 시장에 최적",
+          "롱 및 숏 신호"
+        ]
+      },
+      "fluxPivotStrategy": {
+        "name": "FluxPivot 전략",
+        "features": [
+          "자동화된 피벗 감지",
+          "기관 수준에서 거래",
+          "FluxPivot 지표와 매우 잘 작동"
+        ]
+      },
+      "fluxSignalStrategy": {
+        "name": "FluxSignal 전략",
+        "features": [
+          "진입에 Flux Signal 사용",
+          "추세를 일찍 포착",
+          "사용하기 쉬움"
+        ]
+      },
+      "fluxTrident": {
+        "name": "FluxTrident",
+        "features": [
+          "3단계 추세 확인",
+          "강력한 스캘핑 전략",
+          "강한 추세 지속 식별"
+        ]
+      }
+    },
+    "propFocusedStrategies": {
+      "centauri": {
+        "name": "Centauri",
+        "features": [
+          "프로프 회사 친화적 리스크 관리",
+          "낮은 드로다운과 일관성을 위해 설계",
+          "엄격한 일일 손실 준수"
+        ]
+      },
+      "mars": {
+        "name": "Mars",
+        "features": [
+          "규율 있는 리스크의 모멘텀",
+          "적응형 목표 및 스톱",
+          "프로프 계정 확장 집중"
+        ]
+      },
+      "moon": {
+        "name": "Moon",
+        "features": [
+          "엄격한 제어로 추세 포착",
+          "고품질 신호 필터링",
+          "일관된 성능 특성"
+        ]
+      },
+      "pluto": {
+        "name": "Pluto",
+        "features": [
+          "구조화된 진입 및 청산",
+          "변동성을 고려한 포지션 크기 조정",
+          "프로프 회사 목표 정렬"
+        ]
+      }
     }
   }
 }

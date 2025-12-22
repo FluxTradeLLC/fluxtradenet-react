@@ -218,6 +218,39 @@ const calculateMetrics = (csvData) => {
 export function LandingPage() {
   const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
+
+  // Helper function to get translated indicator name
+  const getIndicatorName = (key) => {
+    return t(`landing.indicators.${key}.name`, { defaultValue: key });
+  };
+
+  // Helper function to get translated indicator features
+  const getIndicatorFeatures = (key) => {
+    const features = t(`landing.indicators.${key}.features`, { returnObjects: true });
+    return Array.isArray(features) ? features : [];
+  };
+
+  // Helper function to get translated strategy name
+  const getStrategyName = (key) => {
+    return t(`landing.strategies.${key}.name`, { defaultValue: key });
+  };
+
+  // Helper function to get translated strategy features
+  const getStrategyFeatures = (key) => {
+    const features = t(`landing.strategies.${key}.features`, { returnObjects: true });
+    return Array.isArray(features) ? features : [];
+  };
+
+  // Helper function to get translated prop-focused strategy name
+  const getPropStrategyName = (key) => {
+    return t(`landing.propFocusedStrategies.${key}.name`, { defaultValue: key });
+  };
+
+  // Helper function to get translated prop-focused strategy features
+  const getPropStrategyFeatures = (key) => {
+    const features = t(`landing.propFocusedStrategies.${key}.features`, { returnObjects: true });
+    return Array.isArray(features) ? features : [];
+  };
   const [activeTab, setActiveTab] = useState(() => {
     const savedTab = localStorage.getItem("landingPageActiveTab");
     return savedTab || "NinjaTrader";
@@ -335,7 +368,7 @@ export function LandingPage() {
   const filterOptions = [
     t("landing.filters.trend"),
     t("landing.filters.meanReversion"),
-    "Scalping",
+    t("landing.filters.scalping"),
     t("landing.filters.conservative"),
     t("landing.filters.propFirmSafe"),
   ];
@@ -343,10 +376,10 @@ export function LandingPage() {
   // Indicator filter chips configuration
   const indicatorFilterOptions = [
     t("landing.filters.trend"),
-    "Momentum",
-    "Volatility",
-    "Levels",
-    "Signals",
+    t("landing.filters.momentum"),
+    t("landing.filters.volatility"),
+    t("landing.filters.levels"),
+    t("landing.filters.signals"),
   ];
 
   // Toggle filter selection
@@ -498,6 +531,7 @@ export function LandingPage() {
   const indicators = [
     {
       name: "HighLowBands",
+      nameKey: "highLowBands",
       image: highLowBands,
       features: [
         "High and low band detection",
@@ -509,6 +543,7 @@ export function LandingPage() {
     },
     {
       name: "FluxTarget",
+      nameKey: "fluxTarget",
       image: fluxTarget,
       features: [
         "Dynamic target bands",
@@ -519,6 +554,7 @@ export function LandingPage() {
     },
     {
       name: "Market Phase",
+      nameKey: "marketPhase",
       image: marketPhase,
       features: [
         "Visual market phase detection",
@@ -529,6 +565,7 @@ export function LandingPage() {
     },
     {
       name: "TTM Squeeze",
+      nameKey: "ttmSqueeze",
       image: ttmSqueeze,
       features: [
         "Momentum and squeeze detection",
@@ -539,6 +576,7 @@ export function LandingPage() {
     },
     {
       name: "Volatility Cycle",
+      nameKey: "volatilityCycle",
       image: volatilityCycle,
       features: [
         "Volatility cycle oscillator",
@@ -550,6 +588,7 @@ export function LandingPage() {
 
     {
       name: "FluxConfluence",
+      nameKey: "fluxConfluence",
       image: fluxConfluence,
       features: [
         "Trade with the trend",
@@ -560,6 +599,7 @@ export function LandingPage() {
     },
     {
       name: "FluxPivot",
+      nameKey: "fluxPivot",
       image: fluxPivot,
       features: [
         "Pivot between buying and selling",
@@ -570,6 +610,7 @@ export function LandingPage() {
     },
     {
       name: "FluxSignal",
+      nameKey: "fluxSignal",
       image: fluxSignal,
       features: [
         "Understand changing markets",
@@ -580,6 +621,7 @@ export function LandingPage() {
     },
     {
       name: "Market Regime",
+      nameKey: "marketRegime",
       image: marketRegime,
       features: [
         "Understand market regimes",
@@ -590,6 +632,7 @@ export function LandingPage() {
     },
     {
       name: "Parabolic RSI",
+      nameKey: "parabolicRSI",
       image: parabolicRSI,
       features: [
         "Parabolic SAR + RSI",
@@ -600,6 +643,7 @@ export function LandingPage() {
     },
     {
       name: "Previous Levels",
+      nameKey: "previousLevels",
       image: previousLevels,
       features: [
         "Identify previous highs and lows",
@@ -613,6 +657,7 @@ export function LandingPage() {
   const strategies = [
     {
       name: "AverageBounce",
+      nameKey: "averageBounce",
       images: [averageBounce1, averageBounce2],
       features: [
         "Mean reversion strategy",
@@ -625,6 +670,7 @@ export function LandingPage() {
     },
     {
       name: "MegaBands",
+      nameKey: "megaBands",
       images: [megaBands1, megaBands2],
       features: [
         "Dynamic band-based strategy",
@@ -637,6 +683,7 @@ export function LandingPage() {
     },
     {
       name: "StopHunter",
+      nameKey: "stopHunter",
       images: [stopHunter1, stopHunter2],
       features: [
         "Targets stop-loss levels",
@@ -649,6 +696,7 @@ export function LandingPage() {
     },
     {
       name: "ChatGPT",
+      nameKey: "chatGPT",
       images: [chatGpt1, chatGpt2],
       features: [
         "AI-powered strategy signals",
@@ -661,6 +709,7 @@ export function LandingPage() {
     },
     {
       name: "ORMS",
+      nameKey: "orms",
       images: [ORMS1, ORMS2],
       features: [
         "Momentum scalping around NY open range",
@@ -672,6 +721,7 @@ export function LandingPage() {
     },
     {
       name: "Liquidity Sweep",
+      nameKey: "liquiditySweep",
       images: [liquiditySweep1, liquiditySweep2],
       features: [
         "Sweep liquidity around key levels",
@@ -683,6 +733,7 @@ export function LandingPage() {
     },
     {
       name: "Slow and Steady",
+      nameKey: "slowAndSteady",
       images: [slowAndSteady1, slowAndSteady2],
       features: [
         "High-probability, low-frequency setups",
@@ -694,6 +745,7 @@ export function LandingPage() {
     },
     {
       name: "Super Momentum",
+      nameKey: "superMomentum",
       images: [superMomentum1, superMomentum2],
       features: [
         "Momentum continuation signals",
@@ -705,6 +757,7 @@ export function LandingPage() {
     },
     {
       name: "Donchian Turtle",
+      nameKey: "donchianTurtle",
       images: [donchianTurtle1, donchianTurtle2],
       features: [
         "Breakout strategy using Donchian channels",
@@ -716,6 +769,7 @@ export function LandingPage() {
     },
     {
       name: "IchimokoStrat",
+      nameKey: "ichimokoStrat",
       images: [ichimokoStrat1, ichimokoStrat2],
       features: [
         "Ichimoku Kinko Hyo based entries",
@@ -727,6 +781,7 @@ export function LandingPage() {
     },
     {
       name: "KeltnerStrat",
+      nameKey: "keltnerStrat",
       images: [keltnerStrat1, keltnerStrat2],
       features: [
         "Keltner Channel breakouts and pullbacks",
@@ -738,6 +793,7 @@ export function LandingPage() {
     },
     {
       name: "Future Prediction Server",
+      nameKey: "futurePredictionServer",
       images: [futurePredictionServer1, futurePredictionServer2],
       features: [
         "Uses machine learning for labelling and predictions",
@@ -749,6 +805,7 @@ export function LandingPage() {
     },
     {
       name: "Quad Confluence",
+      nameKey: "quadConfluence",
       images: [quadConfluence1, quadConfluence2],
       features: [
         "Multiple entry trigger types",
@@ -760,6 +817,7 @@ export function LandingPage() {
     },
     {
       name: "Holy Grail Adaptive",
+      nameKey: "holyGrailAdaptive",
       images: [holyGrail1, holyGrail2],
       features: [
         "Adaptive trend following",
@@ -771,6 +829,7 @@ export function LandingPage() {
     },
     {
       name: "ElliotWave",
+      nameKey: "elliotWave",
       images: [elliotWave1, elliotWave2],
       features: [
         "Automated Elliott Wave counts",
@@ -782,6 +841,7 @@ export function LandingPage() {
     },
     {
       name: "ICC ChoCh",
+      nameKey: "iccChoCh",
       images: [iccChoch1, iccChoch2],
       features: [
         "Smart structure shift detection",
@@ -793,6 +853,7 @@ export function LandingPage() {
     },
     {
       name: "Low Volatility",
+      nameKey: "lowVolatility",
       images: [lowVolatility1, lowVolatility2],
       features: [
         "Mean reversion in quiet regimes",
@@ -804,6 +865,7 @@ export function LandingPage() {
     },
     {
       name: "Project Gamma",
+      nameKey: "projectGamma",
       images: [projectGamma1, projectGamma2],
       features: [
         "Bullish and bearish engulfing pattern detection",
@@ -815,6 +877,7 @@ export function LandingPage() {
     },
     {
       name: "TrendCatcher",
+      nameKey: "trendCatcher",
       images: [trendCatcher1, trendCatcher2],
       features: [
         "Ride sustained trends",
@@ -826,6 +889,7 @@ export function LandingPage() {
     },
     {
       name: "ORB (Opening Range Break)",
+      nameKey: "orb",
       images: [orb1, orb2],
       features: [
         "Classic opening range breakout",
@@ -838,6 +902,7 @@ export function LandingPage() {
     },
     {
       name: "CointegratedPairs",
+      nameKey: "cointegratedPairs",
       images: [cointegratedPairs1, cointegratedPairs2],
       features: [
         "Pairs trading strategy",
@@ -849,6 +914,7 @@ export function LandingPage() {
     },
     {
       name: "RileySR",
+      nameKey: "rileySR",
       images: [rileySR1, rileySR2],
       features: [
         "Support/resistance breakout",
@@ -860,6 +926,7 @@ export function LandingPage() {
     },
     {
       name: "FluxLightning",
+      nameKey: "fluxLightning",
       images: [fluxLightning1, fluxLightning2],
       features: [
         "Fully automated strategy",
@@ -871,6 +938,7 @@ export function LandingPage() {
     },
     {
       name: "FluxPivot Strategy",
+      nameKey: "fluxPivotStrategy",
       images: [fluxPivotStrat1, fluxPivotStrat2],
       features: [
         "Automated pivot detection",
@@ -882,6 +950,7 @@ export function LandingPage() {
     },
     {
       name: "FluxSignal Strategy",
+      nameKey: "fluxSignalStrategy",
       images: [fluxSignalStrat1, fluxSignalStrat2],
       features: [
         "Uses Flux Signal for entries",
@@ -893,6 +962,7 @@ export function LandingPage() {
     },
     {
       name: "FluxTrident",
+      nameKey: "fluxTrident",
       images: [fluxTrident1, fluxTrident2],
       features: [
         "Three-step trend confirmation",
@@ -908,6 +978,7 @@ export function LandingPage() {
   const propFocusedStrategies = [
     {
       name: "Centauri",
+      nameKey: "centauri",
       images: [centauri1, centauri2],
       features: [
         "Prop firm friendly risk management",
@@ -920,6 +991,7 @@ export function LandingPage() {
     },
     {
       name: "Mars",
+      nameKey: "mars",
       images: [mars1, mars2],
       features: [
         "Momentum with disciplined risk",
@@ -932,6 +1004,7 @@ export function LandingPage() {
     },
     {
       name: "Moon",
+      nameKey: "moon",
       images: [moon1, moon2],
       features: [
         "Trend capture with tight controls",
@@ -944,6 +1017,7 @@ export function LandingPage() {
     },
     {
       name: "Pluto",
+      nameKey: "pluto",
       images: [pluto1, pluto2],
       features: [
         "Structured entries and exits",
@@ -1405,7 +1479,7 @@ export function LandingPage() {
           {/* Right side: Video Carousel */}
           <div
             className="w-auto flex flex-col items-center h-[600px]"
-              aria-label={t("landing.videoCarousel")}
+            aria-label={t("landing.videoCarousel")}
           >
             <div
               className="relative rounded-lg overflow-hidden shadow-lg mb-4"
@@ -1423,7 +1497,9 @@ export function LandingPage() {
                 controls={false}
                 onLoadedData={handleVideoLoaded}
                 onClick={togglePause}
-                aria-label={t("landing.demonstrationVideo", { label: videos[currentVideoIndex].label })}
+                aria-label={t("landing.demonstrationVideo", {
+                  label: videos[currentVideoIndex].label,
+                })}
                 aria-describedby="video-description"
               >
                 <source src={videos[currentVideoIndex].src} type="video/mp4" />
@@ -1436,7 +1512,9 @@ export function LandingPage() {
                 Your browser does not support the video tag.
               </video>
               <div id="video-description" className="sr-only">
-                {t("landing.demonstrationVideo", { label: videos[currentVideoIndex].label })}
+                {t("landing.demonstrationVideo", {
+                  label: videos[currentVideoIndex].label,
+                })}
               </div>
 
               {/* Centered Pause/Play Button - Visible on hover or when paused */}
@@ -1447,7 +1525,11 @@ export function LandingPage() {
                     togglePause();
                   }}
                   className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white rounded-full p-4 transition-all duration-200 z-20 shadow-lg"
-                  aria-label={isPaused ? t("landing.playCarousel") : t("landing.pauseCarousel")}
+                  aria-label={
+                    isPaused
+                      ? t("landing.playCarousel")
+                      : t("landing.pauseCarousel")
+                  }
                 >
                   {isPaused ? (
                     <svg
@@ -1514,7 +1596,11 @@ export function LandingPage() {
                 <button
                   onClick={togglePause}
                   className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-all duration-200 relative w-12 h-12 flex items-center justify-center"
-                  aria-label={isPaused ? t("landing.playCarousel") : t("landing.pauseCarousel")}
+                  aria-label={
+                    isPaused
+                      ? t("landing.playCarousel")
+                      : t("landing.pauseCarousel")
+                  }
                 >
                   {/* Circular Progress Indicator */}
                   <svg
@@ -1597,7 +1683,9 @@ export function LandingPage() {
                       ? "bg-[#5865F2] w-8"
                       : "bg-gray-600 hover:bg-gray-500"
                   }`}
-                  aria-label={t("landing.goToVideo", { label: videos[index].label })}
+                  aria-label={t("landing.goToVideo", {
+                    label: videos[index].label,
+                  })}
                 />
               ))}
             </div>
@@ -1752,7 +1840,7 @@ export function LandingPage() {
                                 className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
                               >
                                 <h3 className="text-xl font-semibold mb-2 flex items-center">
-                                  {strategy.name}
+                                  {strategy.nameKey ? getPropStrategyName(strategy.nameKey) : strategy.name}
                                   {strategy.isNew && (
                                     <span
                                       className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
@@ -1763,8 +1851,8 @@ export function LandingPage() {
                                   )}
                                 </h3>
                                 <ul className="list-disc list-inside mb-4">
-                                  {strategy?.features?.map((feature) => (
-                                    <li key={feature}>{feature}</li>
+                                  {(strategy.nameKey ? getPropStrategyFeatures(strategy.nameKey) : strategy?.features || []).map((feature, idx) => (
+                                    <li key={idx}>{feature}</li>
                                   ))}
                                 </ul>
                                 {strategy?.backtestUrl && (
@@ -1944,7 +2032,7 @@ export function LandingPage() {
                                 className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
                               >
                                 <h3 className="text-xl font-semibold mb-2 flex items-center">
-                                  {strategy.name}
+                                  {strategy.nameKey ? getPropStrategyName(strategy.nameKey) : strategy.name}
                                   {strategy.isNew && (
                                     <span
                                       className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
@@ -1955,8 +2043,8 @@ export function LandingPage() {
                                   )}
                                 </h3>
                                 <ul className="list-disc list-inside mb-4">
-                                  {strategy?.features?.map((feature) => (
-                                    <li key={feature}>{feature}</li>
+                                  {(strategy.nameKey ? getPropStrategyFeatures(strategy.nameKey) : strategy?.features || []).map((feature, idx) => (
+                                    <li key={idx}>{feature}</li>
                                   ))}
                                 </ul>
                                 {strategy?.backtestUrl && (
@@ -2134,19 +2222,19 @@ export function LandingPage() {
                               className="bg-gray-800 rounded-lg p-4 flex flex-col items-center"
                             >
                               <h3 className="text-xl font-semibold mb-2 flex items-center">
-                                {strategy.name}
+                                {strategy.nameKey ? getStrategyName(strategy.nameKey) : strategy.name}
                                 {strategy.isNew && (
                                   <span
                                     className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                                    aria-label="New"
+                                    aria-label={t("landing.new")}
                                   >
-                                    NEW!
+                                    {t("landing.new")}
                                   </span>
                                 )}
                               </h3>
                               <ul className="list-disc list-inside mb-4">
-                                {strategy?.features?.map((feature) => (
-                                  <li key={feature}>{feature}</li>
+                                {(strategy.nameKey ? getStrategyFeatures(strategy.nameKey) : strategy?.features || []).map((feature, idx) => (
+                                  <li key={idx}>{feature}</li>
                                 ))}
                               </ul>
                               {strategy?.backtestUrl && (
@@ -2252,7 +2340,9 @@ export function LandingPage() {
                   aria-controls="indicators-content"
                 >
                   <div className="text-center">
-                    <h2 className="text-3xl font-bold mb-2">{t("landing.ourIndicators")}</h2>
+                    <h2 className="text-3xl font-bold mb-2">
+                      {t("landing.ourIndicators")}
+                    </h2>
                     <h3 className="text-2xl">
                       {t("landing.indicatorsSubtitle")}
                     </h3>
@@ -2330,7 +2420,7 @@ export function LandingPage() {
                               className="bg-gray-800 rounded-lg p-4 flex flex-col items-center relative"
                             >
                               <h3 className="text-xl font-semibold mb-2 flex items-center">
-                                {indicator.name}
+                                {indicator.nameKey ? getIndicatorName(indicator.nameKey) : indicator.name}
                                 {indicator.isNew && (
                                   <span
                                     className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
@@ -2341,8 +2431,8 @@ export function LandingPage() {
                                 )}
                               </h3>
                               <ul className="list-disc list-inside mb-4">
-                                {indicator?.features?.map((feature) => (
-                                  <li key={feature}>{feature}</li>
+                                {(indicator.nameKey ? getIndicatorFeatures(indicator.nameKey) : indicator?.features || []).map((feature, idx) => (
+                                  <li key={idx}>{feature}</li>
                                 ))}
                               </ul>
                               <div className="relative w-full">
@@ -2389,10 +2479,10 @@ export function LandingPage() {
                   aria-controls="wins-content"
                 >
                   <div className="text-center">
-                    <h2 className="text-3xl font-bold mb-2">{t("landing.wins")}</h2>
-                    <h3 className="text-2xl">
-                      {t("landing.winsSubtitle")}
-                    </h3>
+                    <h2 className="text-3xl font-bold mb-2">
+                      {t("landing.wins")}
+                    </h2>
+                    <h3 className="text-2xl">{t("landing.winsSubtitle")}</h3>
                   </div>
                   <svg
                     className={`w-6 h-6 transition-transform flex-shrink-0 ${

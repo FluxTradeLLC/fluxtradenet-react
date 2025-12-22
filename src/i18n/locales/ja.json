@@ -199,13 +199,353 @@
       "meanReversion": "平均回帰",
       "conservative": "保守的",
       "propFirmSafe": "プロップ会社安全",
-      "trend": "トレンド"
+      "trend": "トレンド",
+      "scalping": "スキャルピング",
+      "momentum": "モメンタム",
+      "volatility": "ボラティリティ",
+      "levels": "レベル",
+      "signals": "シグナル"
     },
     "videoLabels": {
       "previousLevels": "以前のレベル",
       "fluxConfluence": "FluxConfluence",
       "fluxPivot": "Flux Pivot",
       "fluxSignal": "Flux Signal"
+    },
+    "indicators": {
+      "highLowBands": {
+        "name": "HighLowBands",
+        "features": [
+          "高値と安値のバンド検出",
+          "動的なサポートとレジスタンスレベル",
+          "ブレイクアウトとリバーサル取引に最適"
+        ]
+      },
+      "fluxTarget": {
+        "name": "FluxTarget",
+        "features": [
+          "動的なターゲットバンド",
+          "ボラティリティに適応",
+          "エグジットに最適"
+        ]
+      },
+      "marketPhase": {
+        "name": "マーケットフェーズ",
+        "features": [
+          "視覚的なマーケットフェーズ検出",
+          "トレンドとレンジのハイライト",
+          "解釈が容易"
+        ]
+      },
+      "ttmSqueeze": {
+        "name": "TTM Squeeze",
+        "features": [
+          "モメンタムとスクイーズ検出",
+          "ブレイクアウト取引に最適",
+          "視覚的なヒストグラム"
+        ]
+      },
+      "volatilityCycle": {
+        "name": "ボラティリティサイクル",
+        "features": [
+          "ボラティリティサイクルオシレーター",
+          "拡張と収縮を検出",
+          "他のインジケーターとよく組み合わせられる"
+        ]
+      },
+      "fluxConfluence": {
+        "name": "FluxConfluence",
+        "features": [
+          "トレンドに沿って取引",
+          "複数のコンフルエンスを取得",
+          "買いと売りのシグナル"
+        ]
+      },
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "features": [
+          "買いと売りの間のピボット",
+          "既存のポジションに追加",
+          "スマートピボット検出"
+        ]
+      },
+      "fluxSignal": {
+        "name": "FluxSignal",
+        "features": [
+          "変化する市場を理解",
+          "買いと売りのシグナル",
+          "新しいトレンドを開始時にキャッチ"
+        ]
+      },
+      "marketRegime": {
+        "name": "マーケットレジーム",
+        "features": [
+          "マーケットレジームを理解",
+          "高ボラティリティと低ボラティリティ",
+          "横ばいまたはトレンド"
+        ]
+      },
+      "parabolicRSI": {
+        "name": "パラボリックRSI",
+        "features": [
+          "パラボリックSAR + RSI",
+          "Ultimate Entry Indicatorと組み合わせ",
+          "買われすぎと売られすぎの領域"
+        ]
+      },
+      "previousLevels": {
+        "name": "以前のレベル",
+        "features": [
+          "以前の高値と安値を識別",
+          "リバーサルとブレイクアウトを取引",
+          "昨日、プレマーケット、オープニングレンジ"
+        ]
+      }
+    },
+    "strategies": {
+      "averageBounce": {
+        "name": "AverageBounce",
+        "features": [
+          "平均回帰戦略",
+          "重要な平均レベルからのバウンス",
+          "自動化されたエントリーとエグジット"
+        ]
+      },
+      "megaBands": {
+        "name": "MegaBands",
+        "features": [
+          "動的なバンドベースの戦略",
+          "ボラティリティ適応型エントリー",
+          "バンドを使用したトレンドフォロー"
+        ]
+      },
+      "stopHunter": {
+        "name": "StopHunter",
+        "features": [
+          "ストップロスレベルのターゲット",
+          "流動性スイープ検出",
+          "自動化されたエントリーシグナル"
+        ]
+      },
+      "chatGPT": {
+        "name": "ChatGPT",
+        "features": [
+          "AI駆動の戦略シグナル",
+          "機械学習ベースのエントリー",
+          "市場状況に適応"
+        ]
+      },
+      "orms": {
+        "name": "ORMS",
+        "features": [
+          "NYオープンレンジ周辺のモメンタムスキャルピング",
+          "オープンレンジモメンタムシフトを使用",
+          "厳格なリスク管理と迅速なターゲット"
+        ]
+      },
+      "liquiditySweep": {
+        "name": "流動性スイープ",
+        "features": [
+          "重要なレベル周辺の流動性をスイープ",
+          "フェードとブレイクアウトモード",
+          "リスク管理されたエントリー"
+        ]
+      },
+      "slowAndSteady": {
+        "name": "スローアンドステディ",
+        "features": [
+          "高確率、低頻度のセットアップ",
+          "厳格なリスクコントロール",
+          "保守的な成長に理想的"
+        ]
+      },
+      "superMomentum": {
+        "name": "スーパーモメンタム",
+        "features": [
+          "モメンタム継続シグナル",
+          "トレーリングストップ付きの動的ターゲット",
+          "強いトレンド日に最適"
+        ]
+      },
+      "donchianTurtle": {
+        "name": "Donchian Turtle",
+        "features": [
+          "Donchianチャネルを使用したブレイクアウト戦略",
+          "ピラミディングによるトレンドフォロー",
+          "ATRベースのストップとポジションサイジング"
+        ]
+      },
+      "ichimokoStrat": {
+        "name": "IchimokoStrat",
+        "features": [
+          "一目均衡表ベースのエントリー",
+          "雲、転換線/基準線のクロス、遅行スパン",
+          "すべてのマーケットレジームで機能"
+        ]
+      },
+      "keltnerStrat": {
+        "name": "KeltnerStrat",
+        "features": [
+          "Keltnerチャネルのブレイクアウトとプルバック",
+          "ボラティリティ適応型ターゲットとストップ",
+          "モメンタムフィルターとよく組み合わせられる"
+        ]
+      },
+      "futurePredictionServer": {
+        "name": "未来予測サーバー",
+        "features": [
+          "ラベリングと予測に機械学習を使用",
+          "リモートサーバーに呼び出し",
+          "強化学習アルゴリズム"
+        ]
+      },
+      "quadConfluence": {
+        "name": "クワッドコンフルエンス",
+        "features": [
+          "複数のエントリートリガータイプ",
+          "複数のコンフルエンスを探す",
+          "動的なターゲットとストップ"
+        ]
+      },
+      "holyGrailAdaptive": {
+        "name": "ホーリーグレイル適応型",
+        "features": [
+          "適応型トレンドフォロー",
+          "自動化されたエントリーとエグジット",
+          "ターゲットとリスクコントロール"
+        ]
+      },
+      "elliotWave": {
+        "name": "ElliotWave",
+        "features": [
+          "自動化されたエリオット波動カウント",
+          "推進波と修正波を識別",
+          "構造に合わせたリスクターゲット"
+        ]
+      },
+      "iccChoCh": {
+        "name": "ICC ChoCh",
+        "features": [
+          "スマート構造シフト検出",
+          "リバーサルのためのChoCh/BOSシグナル",
+          "トレンド継続とリバーサルロジック"
+        ]
+      },
+      "lowVolatility": {
+        "name": "低ボラティリティ",
+        "features": [
+          "静かなレジームでの平均回帰",
+          "適応型フィルターとバンド",
+          "スクイーズ拡張をキャッチ"
+        ]
+      },
+      "projectGamma": {
+        "name": "プロジェクトガンマ",
+        "features": [
+          "強気と弱気の包み込みパターン検出",
+          "ボラティリティを意識したエントリーとエグジット",
+          "インデックスと先物で優れた性能"
+        ]
+      },
+      "trendCatcher": {
+        "name": "TrendCatcher",
+        "features": [
+          "持続的なトレンドに乗る",
+          "動的なトレーリングストップロジック",
+          "マルチタイムフレーム確認"
+        ]
+      },
+      "orb": {
+        "name": "ORB（オープニングレンジブレイク）",
+        "features": [
+          "クラシックなオープニングレンジブレイクアウト",
+          "自動化されたエントリーとエグジット",
+          "すべてのタイムフレームで機能",
+          "ボラティリティとモメンタムに最適"
+        ]
+      },
+      "cointegratedPairs": {
+        "name": "CointegratedPairs",
+        "features": [
+          "ペア取引戦略",
+          "統計的アービトラージ",
+          "動的Zスコアエントリーとエグジット"
+        ]
+      },
+      "rileySR": {
+        "name": "RileySR",
+        "features": [
+          "サポート/レジスタンスブレイクアウト",
+          "複数のインジケーターフィルター",
+          "出来高とRSIの確認"
+        ]
+      },
+      "fluxLightning": {
+        "name": "FluxLightning",
+        "features": [
+          "完全自動化戦略",
+          "トレンド市場に最適",
+          "ロングとショートシグナル"
+        ]
+      },
+      "fluxPivotStrategy": {
+        "name": "FluxPivot戦略",
+        "features": [
+          "自動化されたピボット検出",
+          "機関レベルでの取引",
+          "FluxPivotインジケーターと非常に良く機能"
+        ]
+      },
+      "fluxSignalStrategy": {
+        "name": "FluxSignal戦略",
+        "features": [
+          "エントリーにFlux Signalを使用",
+          "トレンドを早期にキャッチ",
+          "シンプルで使いやすい"
+        ]
+      },
+      "fluxTrident": {
+        "name": "FluxTrident",
+        "features": [
+          "3ステップトレンド確認",
+          "強力なスキャルピング戦略",
+          "強いトレンド継続を識別"
+        ]
+      }
+    },
+    "propFocusedStrategies": {
+      "centauri": {
+        "name": "Centauri",
+        "features": [
+          "プロップ会社に優しいリスク管理",
+          "低ドローダウンと一貫性のために設計",
+          "厳格な日次損失コンプライアンス"
+        ]
+      },
+      "mars": {
+        "name": "Mars",
+        "features": [
+          "規律あるリスク管理のモメンタム",
+          "適応型ターゲットとストップ",
+          "プロップアカウントスケーリングフォーカス"
+        ]
+      },
+      "moon": {
+        "name": "Moon",
+        "features": [
+          "厳格なコントロールでのトレンドキャプチャ",
+          "高品質なシグナルフィルタリング",
+          "一貫したパフォーマンス特性"
+        ]
+      },
+      "pluto": {
+        "name": "Pluto",
+        "features": [
+          "構造化されたエントリーとエグジット",
+          "ボラティリティを意識したポジションサイジング",
+          "プロップ会社目標との整合"
+        ]
+      }
     }
   }
 }

@@ -199,13 +199,353 @@
       "meanReversion": "Mean Reversion",
       "conservative": "Conservative",
       "propFirmSafe": "Prop-firm-safe",
-      "trend": "Trend"
+      "trend": "Trend",
+      "scalping": "Scalping",
+      "momentum": "Momentum",
+      "volatility": "Volatility",
+      "levels": "Levels",
+      "signals": "Signals"
     },
     "videoLabels": {
       "previousLevels": "Previous Levels",
       "fluxConfluence": "FluxConfluence",
       "fluxPivot": "Flux Pivot",
       "fluxSignal": "Flux Signal"
+    },
+    "indicators": {
+      "highLowBands": {
+        "name": "HighLowBands",
+        "features": [
+          "High and low band detection",
+          "Dynamic support and resistance levels",
+          "Great for breakout and reversal trades"
+        ]
+      },
+      "fluxTarget": {
+        "name": "FluxTarget",
+        "features": [
+          "Dynamic target bands",
+          "Adaptive to volatility",
+          "Great for exits"
+        ]
+      },
+      "marketPhase": {
+        "name": "Market Phase",
+        "features": [
+          "Visual market phase detection",
+          "Trend and range highlighting",
+          "Easy to interpret"
+        ]
+      },
+      "ttmSqueeze": {
+        "name": "TTM Squeeze",
+        "features": [
+          "Momentum and squeeze detection",
+          "Great for breakout trades",
+          "Visual histogram"
+        ]
+      },
+      "volatilityCycle": {
+        "name": "Volatility Cycle",
+        "features": [
+          "Volatility cycle oscillator",
+          "Spot expansion and contraction",
+          "Pairs well with other indicators"
+        ]
+      },
+      "fluxConfluence": {
+        "name": "FluxConfluence",
+        "features": [
+          "Trade with the trend",
+          "Get multiple confluences",
+          "Buy and sell signals"
+        ]
+      },
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "features": [
+          "Pivot between buying and selling",
+          "Add into existing positions",
+          "Smart pivot detection"
+        ]
+      },
+      "fluxSignal": {
+        "name": "FluxSignal",
+        "features": [
+          "Understand changing markets",
+          "Buy and sell signals",
+          "Catch new trends as they start"
+        ]
+      },
+      "marketRegime": {
+        "name": "Market Regime",
+        "features": [
+          "Understand market regimes",
+          "High and low volatility",
+          "Sideways or trending"
+        ]
+      },
+      "parabolicRSI": {
+        "name": "Parabolic RSI",
+        "features": [
+          "Parabolic SAR + RSI",
+          "Paired with Ultimate Entry Indicator",
+          "Overbought and oversold areas"
+        ]
+      },
+      "previousLevels": {
+        "name": "Previous Levels",
+        "features": [
+          "Identify previous highs and lows",
+          "Trade reversals and breakouts",
+          "Yesterday, premarket, and opening range"
+        ]
+      }
+    },
+    "strategies": {
+      "averageBounce": {
+        "name": "AverageBounce",
+        "features": [
+          "Mean reversion strategy",
+          "Bounces off key average levels",
+          "Automated entries and exits"
+        ]
+      },
+      "megaBands": {
+        "name": "MegaBands",
+        "features": [
+          "Dynamic band-based strategy",
+          "Volatility-adaptive entries",
+          "Trend following with bands"
+        ]
+      },
+      "stopHunter": {
+        "name": "StopHunter",
+        "features": [
+          "Targets stop-loss levels",
+          "Liquidity sweep detection",
+          "Automated entry signals"
+        ]
+      },
+      "chatGPT": {
+        "name": "ChatGPT",
+        "features": [
+          "AI-powered strategy signals",
+          "Machine learning based entries",
+          "Adaptive to market conditions"
+        ]
+      },
+      "orms": {
+        "name": "ORMS",
+        "features": [
+          "Momentum scalping around NY open range",
+          "Uses opening range momentum shifts",
+          "Tight risk with quick targets"
+        ]
+      },
+      "liquiditySweep": {
+        "name": "Liquidity Sweep",
+        "features": [
+          "Sweep liquidity around key levels",
+          "Fade and breakout modes",
+          "Risk-managed entries"
+        ]
+      },
+      "slowAndSteady": {
+        "name": "Slow and Steady",
+        "features": [
+          "High-probability, low-frequency setups",
+          "Tight risk controls",
+          "Ideal for conservative growth"
+        ]
+      },
+      "superMomentum": {
+        "name": "Super Momentum",
+        "features": [
+          "Momentum continuation signals",
+          "Dynamic targets with trailing stops",
+          "Great in strong trend days"
+        ]
+      },
+      "donchianTurtle": {
+        "name": "Donchian Turtle",
+        "features": [
+          "Breakout strategy using Donchian channels",
+          "Trend following with pyramiding",
+          "ATR-based stops and position sizing"
+        ]
+      },
+      "ichimokoStrat": {
+        "name": "IchimokoStrat",
+        "features": [
+          "Ichimoku Kinko Hyo based entries",
+          "Cloud, Tenkan/Kijun crosses, and Chikou span",
+          "Works across market regimes"
+        ]
+      },
+      "keltnerStrat": {
+        "name": "KeltnerStrat",
+        "features": [
+          "Keltner Channel breakouts and pullbacks",
+          "Volatility-adaptive targets and stops",
+          "Pairs well with momentum filters"
+        ]
+      },
+      "futurePredictionServer": {
+        "name": "Future Prediction Server",
+        "features": [
+          "Uses machine learning for labelling and predictions",
+          "Calls out to a remote server",
+          "Reinforcement learning algorithm"
+        ]
+      },
+      "quadConfluence": {
+        "name": "Quad Confluence",
+        "features": [
+          "Multiple entry trigger types",
+          "Looks for multiple confluences",
+          "Dynamic targets and stops"
+        ]
+      },
+      "holyGrailAdaptive": {
+        "name": "Holy Grail Adaptive",
+        "features": [
+          "Adaptive trend following",
+          "Automated entries and exits",
+          "Targets and risk controls"
+        ]
+      },
+      "elliotWave": {
+        "name": "ElliotWave",
+        "features": [
+          "Automated Elliott Wave counts",
+          "Identifies impulse and corrective waves",
+          "Risk targets aligned with structure"
+        ]
+      },
+      "iccChoCh": {
+        "name": "ICC ChoCh",
+        "features": [
+          "Smart structure shift detection",
+          "ChoCh/BOS signals for reversals",
+          "Trend continuation and reversal logic"
+        ]
+      },
+      "lowVolatility": {
+        "name": "Low Volatility",
+        "features": [
+          "Mean reversion in quiet regimes",
+          "Adaptive filters and bands",
+          "Captures squeeze expansions"
+        ]
+      },
+      "projectGamma": {
+        "name": "Project Gamma",
+        "features": [
+          "Bullish and bearish engulfing pattern detection",
+          "Volatility-aware entries and exits",
+          "Great on indices and futures"
+        ]
+      },
+      "trendCatcher": {
+        "name": "TrendCatcher",
+        "features": [
+          "Ride sustained trends",
+          "Dynamic trailing stop logic",
+          "Multi-timeframe confirmation"
+        ]
+      },
+      "orb": {
+        "name": "ORB (Opening Range Break)",
+        "features": [
+          "Classic opening range breakout",
+          "Automated entries and exits",
+          "Works on all timeframes",
+          "Great for volatility and momentum"
+        ]
+      },
+      "cointegratedPairs": {
+        "name": "CointegratedPairs",
+        "features": [
+          "Pairs trading strategy",
+          "Statistical arbitrage",
+          "Dynamic Z-Score entries and exits"
+        ]
+      },
+      "rileySR": {
+        "name": "RileySR",
+        "features": [
+          "Support/resistance breakout",
+          "Multiple indicator filters",
+          "Volume and RSI confirmation"
+        ]
+      },
+      "fluxLightning": {
+        "name": "FluxLightning",
+        "features": [
+          "Fully automated strategy",
+          "Great for trending markets",
+          "Long and short signals"
+        ]
+      },
+      "fluxPivotStrategy": {
+        "name": "FluxPivot Strategy",
+        "features": [
+          "Automated pivot detection",
+          "Trade with institutional levels",
+          "Works great with FluxPivot indicator"
+        ]
+      },
+      "fluxSignalStrategy": {
+        "name": "FluxSignal Strategy",
+        "features": [
+          "Uses Flux Signal for entries",
+          "Catches trends early",
+          "Simple to use"
+        ]
+      },
+      "fluxTrident": {
+        "name": "FluxTrident",
+        "features": [
+          "Three-step trend confirmation",
+          "Powerful scalping strategy",
+          "Identifies strong trend continuations"
+        ]
+      }
+    },
+    "propFocusedStrategies": {
+      "centauri": {
+        "name": "Centauri",
+        "features": [
+          "Prop firm friendly risk management",
+          "Designed for low drawdown and consistency",
+          "Strict daily loss compliance"
+        ]
+      },
+      "mars": {
+        "name": "Mars",
+        "features": [
+          "Momentum with disciplined risk",
+          "Adaptive targets and stops",
+          "Prop account scaling focus"
+        ]
+      },
+      "moon": {
+        "name": "Moon",
+        "features": [
+          "Trend capture with tight controls",
+          "High-quality signal filtering",
+          "Consistent performance characteristics"
+        ]
+      },
+      "pluto": {
+        "name": "Pluto",
+        "features": [
+          "Structured entries and exits",
+          "Volatility-aware position sizing",
+          "Prop firm objective alignment"
+        ]
+      }
     }
   }
 }

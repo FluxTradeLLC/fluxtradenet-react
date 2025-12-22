@@ -199,13 +199,353 @@
       "meanReversion": "Reversão à Média",
       "conservative": "Conservador",
       "propFirmSafe": "Seguro para empresas prop",
-      "trend": "Tendência"
+      "trend": "Tendência",
+      "scalping": "Scalping",
+      "momentum": "Momentum",
+      "volatility": "Volatilidade",
+      "levels": "Níveis",
+      "signals": "Sinais"
     },
     "videoLabels": {
       "previousLevels": "Níveis Anteriores",
       "fluxConfluence": "FluxConfluence",
       "fluxPivot": "Flux Pivot",
       "fluxSignal": "Flux Signal"
+    },
+    "indicators": {
+      "highLowBands": {
+        "name": "HighLowBands",
+        "features": [
+          "Detecção de bandas altas e baixas",
+          "Níveis dinâmicos de suporte e resistência",
+          "Excelente para operações de ruptura e reversão"
+        ]
+      },
+      "fluxTarget": {
+        "name": "FluxTarget",
+        "features": [
+          "Bandas de objetivo dinâmicas",
+          "Adaptável à volatilidade",
+          "Excelente para saídas"
+        ]
+      },
+      "marketPhase": {
+        "name": "Fase do Mercado",
+        "features": [
+          "Detecção visual da fase do mercado",
+          "Destaque de tendência e intervalo",
+          "Fácil de interpretar"
+        ]
+      },
+      "ttmSqueeze": {
+        "name": "TTM Squeeze",
+        "features": [
+          "Detecção de momentum e compressão",
+          "Excelente para operações de ruptura",
+          "Histograma visual"
+        ]
+      },
+      "volatilityCycle": {
+        "name": "Ciclo de Volatilidade",
+        "features": [
+          "Oscilador de ciclo de volatilidade",
+          "Detecta expansão e contração",
+          "Funciona bem com outros indicadores"
+        ]
+      },
+      "fluxConfluence": {
+        "name": "FluxConfluence",
+        "features": [
+          "Operar com a tendência",
+          "Obter múltiplas confluências",
+          "Sinais de compra e venda"
+        ]
+      },
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "features": [
+          "Pivô entre compra e venda",
+          "Adicionar a posições existentes",
+          "Detecção inteligente de pivôs"
+        ]
+      },
+      "fluxSignal": {
+        "name": "FluxSignal",
+        "features": [
+          "Entender mercados em mudança",
+          "Sinais de compra e venda",
+          "Capturar novas tendências quando começam"
+        ]
+      },
+      "marketRegime": {
+        "name": "Regime do Mercado",
+        "features": [
+          "Entender regimes de mercado",
+          "Alta e baixa volatilidade",
+          "Lateral ou com tendência"
+        ]
+      },
+      "parabolicRSI": {
+        "name": "RSI Parabólico",
+        "features": [
+          "SAR Parabólico + RSI",
+          "Emparelhado com Indicador de Entrada Ultimate",
+          "Áreas de sobrecompra e sobrevenda"
+        ]
+      },
+      "previousLevels": {
+        "name": "Níveis Anteriores",
+        "features": [
+          "Identificar máximos e mínimos anteriores",
+          "Operar reversões e rupturas",
+          "Ontem, pré-mercado e intervalo de abertura"
+        ]
+      }
+    },
+    "strategies": {
+      "averageBounce": {
+        "name": "AverageBounce",
+        "features": [
+          "Estratégia de reversão à média",
+          "Rebotes em níveis médios importantes",
+          "Entradas e saídas automatizadas"
+        ]
+      },
+      "megaBands": {
+        "name": "MegaBands",
+        "features": [
+          "Estratégia dinâmica baseada em bandas",
+          "Entradas adaptáveis à volatilidade",
+          "Seguimento de tendência com bandas"
+        ]
+      },
+      "stopHunter": {
+        "name": "StopHunter",
+        "features": [
+          "Direcionado a níveis de stop-loss",
+          "Detecção de varredura de liquidez",
+          "Sinais de entrada automatizados"
+        ]
+      },
+      "chatGPT": {
+        "name": "ChatGPT",
+        "features": [
+          "Sinais de estratégia alimentados por IA",
+          "Entradas baseadas em aprendizado de máquina",
+          "Adaptável às condições de mercado"
+        ]
+      },
+      "orms": {
+        "name": "ORMS",
+        "features": [
+          "Scalping de momentum ao redor do intervalo de abertura de NY",
+          "Usa mudanças de momentum do intervalo de abertura",
+          "Risco controlado com alvos rápidos"
+        ]
+      },
+      "liquiditySweep": {
+        "name": "Varredura de Liquidez",
+        "features": [
+          "Varrer liquidez ao redor de níveis importantes",
+          "Modos de fade e ruptura",
+          "Entradas com gestão de risco"
+        ]
+      },
+      "slowAndSteady": {
+        "name": "Lento e Constante",
+        "features": [
+          "Configurações de alta probabilidade e baixa frequência",
+          "Controles de risco rigorosos",
+          "Ideal para crescimento conservador"
+        ]
+      },
+      "superMomentum": {
+        "name": "Super Momentum",
+        "features": [
+          "Sinais de continuação de momentum",
+          "Alvos dinâmicos com stops trailing",
+          "Excelente em dias de tendência forte"
+        ]
+      },
+      "donchianTurtle": {
+        "name": "Donchian Turtle",
+        "features": [
+          "Estratégia de ruptura usando canais Donchian",
+          "Seguimento de tendência com piramidagem",
+          "Stops e dimensionamento de posição baseados em ATR"
+        ]
+      },
+      "ichimokoStrat": {
+        "name": "IchimokoStrat",
+        "features": [
+          "Entradas baseadas em Ichimoku Kinko Hyo",
+          "Nuvem, cruzamentos Tenkan/Kijun e span Chikou",
+          "Funciona em todos os regimes de mercado"
+        ]
+      },
+      "keltnerStrat": {
+        "name": "KeltnerStrat",
+        "features": [
+          "Rupturas e retrações do Canal Keltner",
+          "Alvos e stops adaptáveis à volatilidade",
+          "Funciona bem com filtros de momentum"
+        ]
+      },
+      "futurePredictionServer": {
+        "name": "Servidor de Predição Futura",
+        "features": [
+          "Usa aprendizado de máquina para rotulagem e predições",
+          "Chama um servidor remoto",
+          "Algoritmo de aprendizado por reforço"
+        ]
+      },
+      "quadConfluence": {
+        "name": "Quádrupla Confluência",
+        "features": [
+          "Múltiplos tipos de gatilhos de entrada",
+          "Procura múltiplas confluências",
+          "Alvos e stops dinâmicos"
+        ]
+      },
+      "holyGrailAdaptive": {
+        "name": "Santo Graal Adaptativo",
+        "features": [
+          "Seguimento de tendência adaptativo",
+          "Entradas e saídas automatizadas",
+          "Alvos e controles de risco"
+        ]
+      },
+      "elliotWave": {
+        "name": "ElliotWave",
+        "features": [
+          "Contagens automatizadas de Ondas de Elliott",
+          "Identifica ondas impulsivas e corretivas",
+          "Alvos de risco alinhados com a estrutura"
+        ]
+      },
+      "iccChoCh": {
+        "name": "ICC ChoCh",
+        "features": [
+          "Detecção inteligente de mudança de estrutura",
+          "Sinais ChoCh/BOS para reversões",
+          "Lógica de continuação e reversão de tendência"
+        ]
+      },
+      "lowVolatility": {
+        "name": "Baixa Volatilidade",
+        "features": [
+          "Reversão à média em regimes tranquilos",
+          "Filtros e bandas adaptativos",
+          "Captura expansões de compressão"
+        ]
+      },
+      "projectGamma": {
+        "name": "Projeto Gamma",
+        "features": [
+          "Detecção de padrões de engolfamento altista e baixista",
+          "Entradas e saídas conscientes da volatilidade",
+          "Excelente em índices e futuros"
+        ]
+      },
+      "trendCatcher": {
+        "name": "TrendCatcher",
+        "features": [
+          "Montar tendências sustentadas",
+          "Lógica de stop trailing dinâmica",
+          "Confirmação multi-timeframe"
+        ]
+      },
+      "orb": {
+        "name": "ORB (Ruptura do Intervalo de Abertura)",
+        "features": [
+          "Ruptura clássica do intervalo de abertura",
+          "Entradas e saídas automatizadas",
+          "Funciona em todos os timeframes",
+          "Excelente para volatilidade e momentum"
+        ]
+      },
+      "cointegratedPairs": {
+        "name": "CointegratedPairs",
+        "features": [
+          "Estratégia de trading de pares",
+          "Arbitragem estatística",
+          "Entradas e saídas dinâmicas de Z-Score"
+        ]
+      },
+      "rileySR": {
+        "name": "RileySR",
+        "features": [
+          "Ruptura de suporte/resistência",
+          "Filtros de indicadores múltiplos",
+          "Confirmação de volume e RSI"
+        ]
+      },
+      "fluxLightning": {
+        "name": "FluxLightning",
+        "features": [
+          "Estratégia totalmente automatizada",
+          "Excelente para mercados com tendência",
+          "Sinais longos e curtos"
+        ]
+      },
+      "fluxPivotStrategy": {
+        "name": "Estratégia FluxPivot",
+        "features": [
+          "Detecção automatizada de pivôs",
+          "Operar com níveis institucionais",
+          "Funciona muito bem com o indicador FluxPivot"
+        ]
+      },
+      "fluxSignalStrategy": {
+        "name": "Estratégia FluxSignal",
+        "features": [
+          "Usa Flux Signal para entradas",
+          "Captura tendências cedo",
+          "Simples de usar"
+        ]
+      },
+      "fluxTrident": {
+        "name": "FluxTrident",
+        "features": [
+          "Confirmação de tendência em três etapas",
+          "Estratégia de scalping poderosa",
+          "Identifica fortes continuações de tendência"
+        ]
+      }
+    },
+    "propFocusedStrategies": {
+      "centauri": {
+        "name": "Centauri",
+        "features": [
+          "Gestão de risco amigável para empresas prop",
+          "Projetada para baixo drawdown e consistência",
+          "Conformidade rigorosa com perdas diárias"
+        ]
+      },
+      "mars": {
+        "name": "Marte",
+        "features": [
+          "Momentum com risco disciplinado",
+          "Alvos e stops adaptativos",
+          "Foco em escalonamento de conta prop"
+        ]
+      },
+      "moon": {
+        "name": "Lua",
+        "features": [
+          "Captura de tendência com controles rigorosos",
+          "Filtragem de sinais de alta qualidade",
+          "Características de desempenho consistentes"
+        ]
+      },
+      "pluto": {
+        "name": "Plutão",
+        "features": [
+          "Entradas e saídas estruturadas",
+          "Dimensionamento de posição consciente da volatilidade",
+          "Alinhamento com objetivos de empresa prop"
+        ]
+      }
     }
   }
 }
