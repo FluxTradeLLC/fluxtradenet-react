@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import api from "../api/axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 export function SupportPage() {
+  const { t } = useTranslation();
   const [supportName, setSupportName] = useState("");
   const [supportEmail, setSupportEmail] = useState("");
   const [supportSubject, setSupportSubject] = useState("");
@@ -33,7 +35,7 @@ export function SupportPage() {
       setSupportMessage("");
       setTimeout(() => setSupportSuccess(false), 5000);
     } catch (err) {
-      setSupportError(err.response?.data?.error || "Failed to send support email");
+      setSupportError(err.response?.data?.error || t("support.error"));
     } finally {
       setSupportLoading(false);
     }
@@ -42,17 +44,16 @@ export function SupportPage() {
   return (
     <div className="bg-gray-900 text-white min-h-full">
       <div className="max-w-3xl mx-auto px-6 pt-12 pb-12">
-        <h1 className="text-5xl font-extrabold mb-4 text-center">Support</h1>
+        <h1 className="text-5xl font-extrabold mb-4 text-center">{t("support.title")}</h1>
         <p className="text-gray-300 mb-4">
-          For support inquiries, please email{" "}
+          {t("support.description")}{" "}
           <a href="mailto:grant@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">
             grant@fluxtrade.net
           </a>
-          &nbsp;or send a message with the form below.
+          &nbsp;{t("support.orSendMessage")}
         </p>
         <p className="text-gray-300 mb-8 flex items-center gap-2">
-          You can also join our Discord community for faster help and
-          announcements.
+          {t("support.discordHelp")}
 
           <a
             href="https://discord.gg/UTcxDRQ26U"
@@ -62,52 +63,52 @@ export function SupportPage() {
             style={{ textDecoration: "none" }}
           >
             <FontAwesomeIcon icon={faDiscord} size="sm" />
-            <span>Free Discord</span>
+            <span>{t("header.freeDiscord")}</span>
           </a>
         </p>
         
         {/* Additional Resources Section */}
         <div className="mb-8 bg-gray-800 rounded-lg shadow-lg p-6">
-          <h2 className="text-2xl font-bold mb-4 text-white">Additional Resources</h2>
+          <h2 className="text-2xl font-bold mb-4 text-white">{t("support.additionalResources")}</h2>
           <div className="space-y-3 text-gray-300">
             <p>
-              Before contacting support, you may find answers to common questions in our policies and terms:
+              {t("support.resourcesDescription")}
             </p>
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li>
-                For information about refunds, cancellations, and subscription management, visit our{" "}
+                {t("support.refundInfo")}{" "}
                 <Link to="/policies" className="underline text-blue-400 hover:text-blue-300">
-                  Refund and Cancellation Policies
+                  {t("footer.refundPolicies")}
                 </Link>
               </li>
               <li>
-                For terms of service, account responsibilities, and general terms, visit our{" "}
+                {t("support.termsInfo")}{" "}
                 <Link to="/terms" className="underline text-blue-400 hover:text-blue-300">
-                  Terms and Conditions
+                  {t("footer.terms")}
                 </Link>
               </li>
             </ul>
             <p className="mt-4">
-              If you still need assistance after reviewing these resources, please don't hesitate to reach out using the form below or <a href="mailto:grant@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">email us directly</a>.
+              {t("support.stillNeedHelp")} <a href="mailto:grant@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">{t("support.emailDirectly")}</a>.
             </p>
           </div>
         </div>
         
         <div className="mt-8 bg-gray-800 rounded-lg shadow-lg p-6">
-          <h2 className="text-2xl font-bold text-center mb-6">Send us a Message</h2>
+          <h2 className="text-2xl font-bold text-center mb-6">{t("support.sendMessage")}</h2>
           <form onSubmit={handleSupportSubmit} className="space-y-4">
             {supportError && (
               <p className="text-red-500 text-sm text-center">{supportError}</p>
             )}
             {supportSuccess && (
               <p className="text-green-500 text-sm text-center">
-                Support email sent successfully! We'll get back to you soon.
+                {t("support.success")}
               </p>
             )}
             <div>
               <input
                 type="text"
-                placeholder="Your Name"
+                placeholder={t("support.yourName")}
                 className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={supportName}
                 onChange={(e) => setSupportName(e.target.value)}
@@ -117,7 +118,7 @@ export function SupportPage() {
             <div>
               <input
                 type="email"
-                placeholder="Your Email"
+                placeholder={t("support.yourEmail")}
                 className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={supportEmail}
                 onChange={(e) => setSupportEmail(e.target.value)}
@@ -127,7 +128,7 @@ export function SupportPage() {
             <div>
               <input
                 type="text"
-                placeholder="Subject"
+                placeholder={t("support.subject")}
                 className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={supportSubject}
                 onChange={(e) => setSupportSubject(e.target.value)}
@@ -136,7 +137,7 @@ export function SupportPage() {
             </div>
             <div>
               <textarea
-                placeholder="Message"
+                placeholder={t("support.message")}
                 rows="6"
                 className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                 value={supportMessage}
@@ -149,7 +150,7 @@ export function SupportPage() {
               disabled={supportLoading}
               className="w-full bg-[#5865F2] hover:bg-[#4752C4] disabled:bg-gray-600 disabled:cursor-not-allowed disabled:hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
             >
-              {supportLoading ? "Sending..." : "Send Support Email"}
+              {supportLoading ? t("support.sending") : t("support.sendEmail")}
             </button>
           </form>
         </div>

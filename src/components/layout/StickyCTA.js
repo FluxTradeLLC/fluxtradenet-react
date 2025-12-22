@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import api from "../../api/axios";
 import { PRICING_IDS } from "../../constants";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 
 export const StickyCTA = () => {
+  const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
   const [activePlatform, setActivePlatform] = useState(() => {
     const savedPlatform = localStorage.getItem("stickyCTAActivePlatform");
@@ -74,7 +76,7 @@ export const StickyCTA = () => {
                   : "text-gray-300 hover:text-white hover:bg-gray-700"
               }`}
             >
-              NinjaTrader
+              {t("stickyCTA.ninjaTrader")}
             </button>
             <button
               onClick={() => setActivePlatform("TradingView")}
@@ -86,7 +88,7 @@ export const StickyCTA = () => {
                   : "text-gray-300 hover:text-white hover:bg-gray-700"
               }`}
             >
-              TradingView
+              {t("stickyCTA.tradingView")}
             </button>
             <button
               onClick={() => setActivePlatform("Both")}
@@ -98,7 +100,7 @@ export const StickyCTA = () => {
                   : "text-gray-300 hover:text-white hover:bg-gray-700"
               }`}
             >
-              Both Platforms
+              {t("stickyCTA.bothPlatforms")}
             </button>
           </div>
 
@@ -111,12 +113,12 @@ export const StickyCTA = () => {
               animation: prefersReducedMotion ? "none" : "soft-gradient-x 3s ease-in-out infinite",
             }}
             aria-label={isAuthenticated
-              ? `Start free 30 day trial for ${activePlatform}`
-              : `Sign up to start free 30 day trial for ${activePlatform}`}
+              ? t("stickyCTA.startTrialLabel", { platform: activePlatform })
+              : t("stickyCTA.signUpTrialLabel", { platform: activePlatform })}
           >
             {isAuthenticated
-              ? "Start Free Trial (30 days)"
-              : "Sign Up To Start Free Trial (30 days)"}
+              ? t("stickyCTA.startTrial")
+              : t("stickyCTA.signUpTrial")}
           </button>
         </div>
       </div>

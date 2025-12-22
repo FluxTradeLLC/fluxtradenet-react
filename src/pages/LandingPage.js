@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { TradingViewChart } from "../components/TradingViewChart";
 import { useReducedMotion } from "../hooks/useReducedMotion";
 import { SEO } from "../components/SEO";
@@ -215,6 +216,7 @@ const calculateMetrics = (csvData) => {
 };
 
 export function LandingPage() {
+  const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
   const [activeTab, setActiveTab] = useState(() => {
     const savedTab = localStorage.getItem("landingPageActiveTab");
@@ -1366,35 +1368,34 @@ export function LandingPage() {
           {/* Left side: Headline and CTA */}
           <div className="flex-1 text-center lg:text-left">
             <h1 className="pt-[20px] lg:text-[80px] md:text-[50px] text-[40px] font-bold mb-4">
-              Understand the{" "}
+              {t("landing.understandMarkets")}{" "}
               <span
                 className={`italic bg-gradient-to-tl from-red-600 via-gray-300 to-green-600 hover:bg-gradient-to-br hover:from-green-500 hover:via-green-200 hover:to-lime-500 text-transparent bg-clip-text bg-300 ${prefersReducedMotion ? "" : "animate-gradient-pan"} cursor-default`}
-                aria-label="markets"
+                aria-label={t("landing.markets")}
               >
-                markets
+                {t("landing.markets")}
               </span>
               .
             </h1>
             <h2 className="lg:text-[80px] md:text-[50px] text-[40px] font-bold mb-6">
-              Gain an{" "}
+              {t("landing.gainEdge")}{" "}
               <span
                 className={`italic bg-gradient-to-tl from-green-500 via-yellow-500 to-purple-800 hover:bg-gradient-to-br hover:from-purple-400 hover:via-indigo-400 hover:to-blue-400 text-transparent bg-clip-text bg-300 ${prefersReducedMotion ? "" : "animate-gradient-pan"} cursor-default`}
-                aria-label="edge"
+                aria-label={t("landing.edge")}
               >
-                edge
+                {t("landing.edge")}
               </span>
               .
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 font-medium">
-              Prop‑firm friendly systems built for consistency, <br />
-              risk management, and discipline.
+              {t("landing.subtitle")}
             </p>
             <Link
               to="/pricing"
               className={`inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg relative overflow-hidden ${prefersReducedMotion ? "" : "animate-pulse-glow"}`}
-              aria-label="See it trade in 60 seconds - Go to pricing page"
+              aria-label={`${t("landing.seeItTrade")} - Go to pricing page`}
             >
-              <span className="relative z-10">See it trade in 60s</span>
+              <span className="relative z-10">{t("landing.seeItTrade")}</span>
               {!prefersReducedMotion && (
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer bg-[length:200%_100%]"></span>
               )}

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faYoutube,
@@ -9,6 +10,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 export const Footer = () => {
+  const { t } = useTranslation();
   const handleClick = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
@@ -19,48 +21,48 @@ export const Footer = () => {
       role="contentinfo"
     >
       <nav className="mb-8" aria-label="Footer navigation">
-        <p className="mb-2 font-semibold text-center">Navigation</p>
+        <p className="mb-2 font-semibold text-center">{t("footer.navigation")}</p>
         <ul className="text-gray-300 flex gap-4 items-center justify-center flex-wrap">
           <li onClick={handleClick}>
             <Link to="/" className="hover:underline">
-              Home
+              {t("footer.home")}
             </Link>
           </li>
           <li onClick={handleClick}>
             <Link to="/pricing" className="hover:underline">
-              Pricing
+              {t("footer.pricing")}
             </Link>
           </li>
           <li onClick={handleClick}>
             <Link to="/account" className="hover:underline">
-              Account
+              {t("footer.account")}
             </Link>
           </li>
           <li onClick={handleClick}>
             <Link to="/policies" className="hover:underline">
-              Refund and Cancellation Policies
+              {t("footer.refundPolicies")}
             </Link>
           </li>
           <li onClick={handleClick}>
             <Link to="/affiliates" className="hover:underline">
-              Affiliates
+              {t("footer.affiliates")}
             </Link>
           </li>
           <li onClick={handleClick}>
             <Link to="/support" className="hover:underline">
-              Support
+              {t("footer.support")}
             </Link>
           </li>
           <li onClick={handleClick}>
             <Link to="/terms" className="hover:underline">
-              Terms and Conditions
+              {t("footer.terms")}
             </Link>
           </li>
         </ul>
       </nav>
 
       <div className="mb-8 mt-12">
-        <p className="mb-2 font-semibold text-center">Follow Us</p>
+        <p className="mb-2 font-semibold text-center">{t("footer.followUs")}</p>
         <ul className="flex gap-4 items-center justify-center">
           <li>
             <a
@@ -154,44 +156,19 @@ export const Footer = () => {
         </a>
       </div>
 
-      <p className="mb-4 mt-12">Disclaimers</p>
+      <p className="mb-4 mt-12">{t("footer.disclaimers")}</p>
       <p className="mb-4">
-        Futures and forex trading contains substantial risk and is not for every
-        investor. An investor could potentially lose all or more than the
-        initial investment. Risk capital is money that can be lost without
-        jeopardizing ones’ financial security or life style. Only risk capital
-        should be used for trading and only those with sufficient risk capital
-        should consider trading. Past performance is not necessarily indicative
-        of future results
+        {t("footer.disclaimer1")}
       </p>
       <p className="mb-4">
-        Hypothetical performance results have many inherent limitations, some of
-        which are described below. No representation is being made that any
-        account will or is likely to achieve profits or losses similar to those
-        shown; in fact, there are frequently sharp differences between
-        hypothetical performance results and the actual results subsequently
-        achieved by any particular trading program. One of the limitations of
-        hypothetical performance results is that they are generally prepared
-        with the benefit of hindsight. In addition, hypothetical trading does
-        not involve financial risk, and no hypothetical trading record can
-        completely account for the impact of financial risk of actual trading.
-        for example, the ability to withstand losses or to adhere to a
-        particular trading program in spite of trading losses are material
-        points which can also adversely affect actual trading results. There are
-        numerous other factors related to the markets in general or to the
-        implementation of any specific trading program which cannot be fully
-        accounted for in the preparation of hypothetical performance results and
-        all which can adversely affect trading results.
+        {t("footer.disclaimer2")}
       </p>
       <p>
-        Testimonials appearing on this website may not be representative of
-        other clients or customers and is not a guarantee of future performance
-        or success.{" "}
+        {t("footer.disclaimer3")}
       </p>
 
       <p className="text-center mt-12">
-        Copyright &copy; {new Date().getFullYear()}, FluxTrade, LLC. All rights
-        reserved.
+        {t("footer.copyright", { year: new Date().getFullYear() })}
       </p>
     </footer>
   );
