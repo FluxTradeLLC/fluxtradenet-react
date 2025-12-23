@@ -227,6 +227,14 @@
         ],
         "name": "FluxTarget"
       },
+      "dynamicTrend": {
+        "features": [
+          "Ligne de tendance dynamique",
+          "Support et résistance",
+          "Signaux lors des croisements"
+        ],
+        "name": "Tendance Dynamique"
+      },
       "highLowBands": {
         "features": [
           "Détection des bandes hautes et basses",

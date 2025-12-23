@@ -234,6 +234,14 @@
       "fluxSignal": "Flux Signal"
     },
     "indicators": {
+      "dynamicTrend": {
+        "name": "Динамический Тренд",
+        "features": [
+          "Динамическая линия тренда",
+          "Поддержка и сопротивление",
+          "Сигналы при пересечении"
+        ]
+      },
       "highLowBands": {
         "name": "HighLowBands",
         "features": [

@@ -1131,6 +1131,7 @@ export function LandingPage() {
   const tradingViewIndicators = [
     {
       name: "HighLowBands",
+      nameKey: "highLowBands",
       image: tvHighLowBands,
       features: getIndicatorByName("HighLowBands")?.features,
       categories: getIndicatorByName("HighLowBands")?.categories,
@@ -1138,6 +1139,7 @@ export function LandingPage() {
     },
     {
       name: "Dynamic Trend",
+      nameKey: "dynamicTrend",
       image: tvDynamicTrend,
       features: [
         "Dynamic trendline",
@@ -1148,60 +1150,70 @@ export function LandingPage() {
     },
     {
       name: "FluxConfluence",
+      nameKey: "fluxConfluence",
       image: tvFluxConfluence,
       features: getIndicatorByName("FluxConfluence")?.features,
       categories: getIndicatorByName("FluxConfluence")?.categories,
     },
     {
       name: "FluxPivot",
+      nameKey: "fluxPivot",
       image: tvFluxPivot,
       features: getIndicatorByName("FluxPivot")?.features,
       categories: getIndicatorByName("FluxPivot")?.categories,
     },
     {
       name: "FluxSignal",
+      nameKey: "fluxSignal",
       image: tvFluxSignal,
       features: getIndicatorByName("FluxSignal")?.features,
       categories: getIndicatorByName("FluxSignal")?.categories,
     },
     {
       name: "Parabolic RSI",
+      nameKey: "parabolicRSI",
       image: tvParabolicRSI,
       features: getIndicatorByName("Parabolic RSI")?.features,
       categories: getIndicatorByName("Parabolic RSI")?.categories,
     },
     {
       name: "TTM Squeeze",
+      nameKey: "ttmSqueeze",
       image: tvTtmSqueeze,
       features: getIndicatorByName("TTM Squeeze")?.features,
       categories: getIndicatorByName("TTM Squeeze")?.categories,
     },
     {
       name: "Volatility Cycle",
+      nameKey: "volatilityCycle",
       image: tvVolatilityCycle,
       features: getIndicatorByName("Volatility Cycle")?.features,
       categories: getIndicatorByName("Volatility Cycle")?.categories,
     },
     {
       name: "FluxTarget",
+      nameKey: "fluxTarget",
       image: tvFluxTarget,
       features: getIndicatorByName("FluxTarget")?.features,
       categories: getIndicatorByName("FluxTarget")?.categories,
     },
     {
       name: "Market Phase",
+      nameKey: "marketPhase",
       image: tvMarketPhase,
       features: getIndicatorByName("Market Phase")?.features,
       categories: getIndicatorByName("Market Phase")?.categories,
     },
     {
       name: "Market Regime",
+      nameKey: "marketRegime",
       image: tvMarketRegime,
       features: getIndicatorByName("Market Regime")?.features,
       categories: getIndicatorByName("Market Regime")?.categories,
     },
     {
       name: "Previous Levels",
+      nameKey: "previousLevels",
       image: tvPreviousLevels,
       features: getIndicatorByName("Previous Levels")?.features,
       categories: getIndicatorByName("Previous Levels")?.categories,
@@ -1211,6 +1223,7 @@ export function LandingPage() {
   const tradingViewStrategies = [
     {
       name: "AverageBounce",
+      nameKey: "averageBounce",
       images: [tvAverageBounce],
       features: getStrategyByName("AverageBounce")?.features,
       backtestUrl: getStrategyByName("AverageBounce")?.backtestUrl,
@@ -1219,6 +1232,7 @@ export function LandingPage() {
     },
     {
       name: "MegaBands",
+      nameKey: "megaBands",
       images: [tvMegaBands],
       features: getStrategyByName("MegaBands")?.features,
       backtestUrl: getStrategyByName("MegaBands")?.backtestUrl,
@@ -1227,6 +1241,7 @@ export function LandingPage() {
     },
     {
       name: "StopHunter",
+      nameKey: "stopHunter",
       images: [tvStopHunter],
       features: getStrategyByName("StopHunter")?.features,
       backtestUrl: getStrategyByName("StopHunter")?.backtestUrl,
@@ -1235,6 +1250,7 @@ export function LandingPage() {
     },
     {
       name: "ORMS",
+      nameKey: "orms",
       images: [tvOrms],
       features: getStrategyByName("ORMS")?.features,
       backtestUrl: getStrategyByName("ORMS")?.backtestUrl,
@@ -1242,6 +1258,7 @@ export function LandingPage() {
     },
     {
       name: "Donchian Turtle",
+      nameKey: "donchianTurtle",
       images: [tvDonchian],
       features: getStrategyByName("Donchian Turtle")?.features,
       backtestUrl: getStrategyByName("Donchian Turtle")?.backtestUrl,
@@ -1249,6 +1266,7 @@ export function LandingPage() {
     },
     {
       name: "FluxLightning",
+      nameKey: "fluxLightning",
       images: [tvFluxLightning],
       features: getStrategyByName("FluxLightning")?.features,
       backtestUrl: getStrategyByName("FluxLightning")?.backtestUrl,
@@ -1256,6 +1274,7 @@ export function LandingPage() {
     },
     {
       name: "FluxPivot Strategy",
+      nameKey: "fluxPivotStrategy",
       images: [tvFluxPivotStrat],
       features: getStrategyByName("FluxPivot Strategy")?.features,
       backtestUrl: getStrategyByName("FluxPivot Strategy")?.backtestUrl,
@@ -1263,6 +1282,7 @@ export function LandingPage() {
     },
     {
       name: "FluxSignal Strategy",
+      nameKey: "fluxSignalStrategy",
       images: [tvFluxSignalStrat],
       features: getStrategyByName("FluxSignal Strategy")?.features,
       backtestUrl: getStrategyByName("FluxSignal Strategy")?.backtestUrl,
@@ -1280,6 +1300,7 @@ export function LandingPage() {
     // },
     {
       name: "FluxTrident",
+      nameKey: "fluxTrident",
       images: [tvFluxTrident],
       features: getStrategyByName("FluxTrident")?.features,
       backtestUrl: getStrategyByName("FluxTrident")?.backtestUrl,
@@ -1287,6 +1308,7 @@ export function LandingPage() {
     },
     {
       name: "ICC ChoCh",
+      nameKey: "iccChoCh",
       images: [tvIccCoch],
       features: getStrategyByName("ICC ChoCh")?.features,
       backtestUrl: getStrategyByName("ICC ChoCh")?.backtestUrl,
@@ -1294,6 +1316,7 @@ export function LandingPage() {
     },
     {
       name: "IchimokoStrat",
+      nameKey: "ichimokoStrat",
       images: [tvIchimoko],
       features: getStrategyByName("IchimokoStrat")?.features,
       backtestUrl: getStrategyByName("IchimokoStrat")?.backtestUrl,
@@ -1301,6 +1324,7 @@ export function LandingPage() {
     },
     {
       name: "KeltnerStrat",
+      nameKey: "keltnerStrat",
       images: [tvKeltnerStrat],
       features: getStrategyByName("KeltnerStrat")?.features,
       backtestUrl: getStrategyByName("KeltnerStrat")?.backtestUrl,
@@ -1308,6 +1332,7 @@ export function LandingPage() {
     },
     {
       name: "Low Volatility",
+      nameKey: "lowVolatility",
       images: [tvLowVolatility],
       features: getStrategyByName("Low Volatility")?.features,
       backtestUrl: getStrategyByName("Low Volatility")?.backtestUrl,
@@ -1315,6 +1340,7 @@ export function LandingPage() {
     },
     {
       name: "ORB (Opening Range Break)",
+      nameKey: "orb",
       images: [tvOrb],
       features: getStrategyByName("ORB (Opening Range Break)")?.features,
       backtestUrl: getStrategyByName("ORB (Opening Range Break)")?.backtestUrl,
@@ -1322,6 +1348,7 @@ export function LandingPage() {
     },
     {
       name: "Project Gamma",
+      nameKey: "projectGamma",
       images: [tvProjectGamma],
       features: getStrategyByName("Project Gamma")?.features,
       backtestUrl: getStrategyByName("Project Gamma")?.backtestUrl,
@@ -1329,6 +1356,7 @@ export function LandingPage() {
     },
     {
       name: "RileySR",
+      nameKey: "rileySR",
       images: [tvRileySR],
       features: getStrategyByName("RileySR")?.features,
       backtestUrl: getStrategyByName("RileySR")?.backtestUrl,
@@ -1336,6 +1364,7 @@ export function LandingPage() {
     },
     {
       name: "Slow and Steady",
+      nameKey: "slowAndSteady",
       images: [tvSlowAndSteady],
       features: getStrategyByName("Slow and Steady")?.features,
       backtestUrl: getStrategyByName("Slow and Steady")?.backtestUrl,
@@ -1343,6 +1372,7 @@ export function LandingPage() {
     },
     {
       name: "Super Momentum",
+      nameKey: "superMomentum",
       images: [tvSuperMomentum],
       features: getStrategyByName("Super Momentum")?.features,
       backtestUrl: getStrategyByName("Super Momentum")?.backtestUrl,
@@ -1350,6 +1380,7 @@ export function LandingPage() {
     },
     {
       name: "Liquidity Sweep",
+      nameKey: "liquiditySweep",
       images: [liquiditySweep],
       features: getStrategyByName("Liquidity Sweep")?.features,
       backtestUrl: getStrategyByName("Liquidity Sweep")?.backtestUrl,
@@ -1357,6 +1388,7 @@ export function LandingPage() {
     },
     {
       name: "TrendCatcher",
+      nameKey: "trendCatcher",
       images: [tvTrendCatcher],
       features: getStrategyByName("TrendCatcher")?.features,
       backtestUrl: getStrategyByName("TrendCatcher")?.backtestUrl,
