@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "../../components/SEO";
+import { useBlogTranslation } from "../../i18n/blog/useBlogTranslation";
 
 export const BlogPostFluxTrident = () => {
+  const t = useBlogTranslation("fluxTrident");
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
@@ -10,14 +13,14 @@ export const BlogPostFluxTrident = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
       <SEO
-        title="Flux Trident Strategy - Multi-Timeframe Confluence Trading"
-        description="Flux Trident is a multi-timeframe confluence strategy that combines trend analysis with momentum indicators. Learn how this systematic approach identifies high-probability entries across various market conditions."
-        keywords="flux trident, trading strategy, multi-timeframe analysis, confluence trading, trend following, momentum indicators, automated trading"
+        title={t.seo.title}
+        description={t.seo.description}
+        keywords={t.seo.keywords}
         canonical="/blog/flux-trident-strategy"
         ogType="article"
         article={{
           datePublished: "2024-01-01",
-          dateModified: "2024-01-01"
+          dateModified: "2024-01-01",
         }}
       />
       <div className="max-w-4xl mx-auto">
@@ -38,88 +41,64 @@ export const BlogPostFluxTrident = () => {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Back to Blog
+          {t.backToBlog}
         </Link>
 
         <article className="bg-gray-800 rounded-lg p-8 mb-8">
           <div className="mb-4">
             <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-blue-600 text-white">
-              Strategy Intro
+              {t.category}
             </span>
           </div>
-          <h1 className="text-4xl font-extrabold mb-6">
-            Introduction to Flux Trident Strategy
-          </h1>
+          <h1 className="text-4xl font-extrabold mb-6">{t.title}</h1>
           <div className="prose prose-invert max-w-none">
-            <p className="text-xl text-gray-300 mb-6">
-              Flux Trident is a multi-timeframe confluence strategy that
-              combines trend analysis with momentum indicators. This systematic
-              approach identifies high-probability entries across various market
-              conditions.
+            <p className="text-xl text-gray-300 mb-6">{t.subtitle}</p>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">
+              {t.sections.whatIsFluxTrident.heading}
+            </h2>
+            <p className="text-gray-300 mb-4 leading-relaxed">
+              {t.sections.whatIsFluxTrident.content}
             </p>
 
             <h2 className="text-2xl font-bold mt-8 mb-4">
-              What is Flux Trident?
+              {t.sections.coreComponents.heading}
             </h2>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              The Flux Trident strategy is built on the principle of
-              confluence—combining multiple signals from different timeframes
-              and indicators to increase the probability of successful trades.
-              Unlike single-indicator strategies that can give false signals,
-              Flux Trident requires alignment across multiple factors before
-              entering a position.
-            </p>
-
-            <h2 className="text-2xl font-bold mt-8 mb-4">Core Components</h2>
-            <p className="text-gray-300 mb-4 leading-relaxed">
-              The strategy incorporates three main "prongs" of analysis:
+              {t.sections.coreComponents.intro}
             </p>
             <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2">
-              <li>
-                <strong>Trend Identification:</strong> Determines the overall
-                market direction using multiple timeframe analysis
-              </li>
-              <li>
-                <strong>Momentum Confirmation:</strong> Uses proprietary
-                momentum indicators to confirm entry timing
-              </li>
-              <li>
-                <strong>Entry Precision:</strong> Combines price action with
-                volume analysis for optimal entry points
-              </li>
+              {t.sections.coreComponents.points.map((point, index) => (
+                <li key={index}>
+                  <strong>{point.label}</strong> {point.text}
+                </li>
+              ))}
             </ul>
 
-            <h2 className="text-2xl font-bold mt-8 mb-4">Why It Works</h2>
+            <h2 className="text-2xl font-bold mt-8 mb-4">
+              {t.sections.whyItWorks.heading}
+            </h2>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              By requiring confluence across multiple timeframes and indicators,
-              Flux Trident filters out low-probability setups. This approach
-              reduces false signals and improves win rate while maintaining
-              favorable risk-reward ratios. The strategy adapts to different
-              market conditions, whether trending or ranging.
+              {t.sections.whyItWorks.content}
             </p>
 
-            <h2 className="text-2xl font-bold mt-8 mb-4">Key Advantages</h2>
+            <h2 className="text-2xl font-bold mt-8 mb-4">
+              {t.sections.keyAdvantages.heading}
+            </h2>
             <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2">
-              <li>Systematic approach reduces emotional trading decisions</li>
-              <li>Multi-timeframe analysis provides better entry timing</li>
-              <li>Works across various market conditions</li>
-              <li>Backtested performance shows consistent results</li>
+              {t.sections.keyAdvantages.points.map((point, index) => (
+                <li key={index}>{point}</li>
+              ))}
             </ul>
 
             <div className="bg-blue-900/30 border border-blue-700 rounded-lg p-6 mt-8">
-              <h3 className="text-xl font-bold mb-3">
-                Ready to See the Results?
-              </h3>
-              <p className="text-gray-300 mb-4">
-                Check out the comprehensive backtest results for Flux Trident to
-                see how this strategy performs across different market
-                conditions.
-              </p>
+              <h3 className="text-xl font-bold mb-3">{t.cta.heading}</h3>
+              <p className="text-gray-300 mb-4">{t.cta.description}</p>
               <Link
                 to="/backtests/explorer?strategy=fluxTrident"
                 className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
               >
-                View Backtest Results
+                {t.cta.button}
               </Link>
             </div>
           </div>

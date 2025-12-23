@@ -1,0 +1,54 @@
+{
+  "backToBlog": "返回博客",
+  "category": "策略介绍",
+  "cta": {
+    "button": "查看回测结果",
+    "description": "查看Flux Trident的全面回测结果，了解该策略在不同市场条件下的表现。",
+    "heading": "准备查看结果了吗？"
+  },
+  "sections": {
+    "whatIsFluxTrident": {
+      "content": "Flux Trident策略建立在汇合原则之上——结合来自不同时间框架和指标的多个信号，以提高成功交易的概率。与可能给出虚假信号的单一指标策略不同，Flux Trident在进入头寸之前需要多个因素的一致性。",
+      "heading": "什么是Flux Trident？"
+    },
+    "coreComponents": {
+      "heading": "核心组件",
+      "intro": "该策略包含三个主要的分析\"分支\"：",
+      "points": [
+        {
+          "label": "趋势识别：",
+          "text": "使用多时间框架分析确定整体市场方向"
+        },
+        {
+          "label": "动量确认：",
+          "text": "使用专有动量指标确认入场时机"
+        },
+        {
+          "label": "入场精度：",
+          "text": "结合价格行为和成交量分析以获得最佳入场点"
+        }
+      ]
+    },
+    "whyItWorks": {
+      "content": "通过要求多个时间框架和指标的汇合，Flux Trident过滤掉低概率的设置。这种方法减少了虚假信号，提高了胜率，同时保持了有利的风险回报比。该策略适应不同的市场条件，无论是趋势还是区间。",
+      "heading": "为什么有效"
+    },
+    "keyAdvantages": {
+      "heading": "主要优势",
+      "points": [
+        "系统化方法减少情绪化交易决策",
+        "多时间框架分析提供更好的入场时机",
+        "适用于各种市场条件",
+        "回测表现显示一致的结果"
+      ]
+    }
+  },
+  "seo": {
+    "description": "Flux Trident是一种多时间框架汇合策略，结合趋势分析和动量指标。了解这种系统化方法如何在不同市场条件下识别高概率入场点。",
+    "keywords": "flux trident, 交易策略, 多时间框架分析, 汇合交易, 趋势跟踪, 动量指标, 自动化交易",
+    "title": "Flux Trident策略 - 多时间框架汇合交易"
+  },
+  "subtitle": "Flux Trident是一种多时间框架汇合策略，结合趋势分析和动量指标。这种系统化方法在不同市场条件下识别高概率入场点。",
+  "title": "Flux Trident策略介绍"
+}
+

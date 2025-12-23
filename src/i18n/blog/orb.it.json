@@ -1,0 +1,96 @@
+{
+  "backToBlog": "Torna al Blog",
+  "category": "Introduzione alla Strategia",
+  "cta": {
+    "button": "Rivedere i Risultati del Backtest",
+    "description": "Vedi come la strategia ORB performa in diverse condizioni di mercato con la nostra analisi completa del backtest.",
+    "heading": "Rivedere i Risultati del Backtest"
+  },
+  "sections": {
+    "whatIsOpeningRange": {
+      "heading": "Cos'è il Range di Apertura?",
+      "content": "Il range di apertura è il prezzo massimo e minimo stabilito durante la prima ora (o i primi 30 minuti) di negoziazione. Questo range è significativo perché rappresenta la battaglia iniziale tra acquirenti e venditori dopo l'apertura del mercato. La prima ora spesso stabilisce il tono della giornata, rendendola un periodo critico per i trader."
+    },
+    "whyMatters": {
+      "heading": "Perché il Range di Apertura è Importante",
+      "intro": "Il range di apertura è importante per diverse ragioni:",
+      "points": {
+        "highVolatility": {
+          "label": "Alta Volatilità:",
+          "text": "La prima ora tipicamente ha il volume e la volatilità più alti"
+        },
+        "institutionalActivity": {
+          "label": "Attività Istituzionale:",
+          "text": "I grandi operatori spesso stabiliscono posizioni all'inizio della giornata"
+        },
+        "priceDiscovery": {
+          "label": "Scoperta del Prezzo:",
+          "text": "Il mercato sta scoprendo il valore equo dopo notizie ed eventi notturni"
+        },
+        "momentum": {
+          "label": "Momentum:",
+          "text": "Le rotture del range di apertura spesso continuano per tutta la giornata"
+        }
+      }
+    },
+    "howItWorks": {
+      "heading": "Come Funziona la Strategia ORB",
+      "intro": "La strategia ORB è semplice:",
+      "points": [
+        "Identificare il Range: Segna il massimo e il minimo della prima ora",
+        "Aspettare la Rottura: Aspetta che il prezzo rompa sopra il massimo o sotto il minimo",
+        "Entrare con Conferma: Entra quando la rottura è confermata con volume",
+        "Gestire il Rischio: Posiziona stop appena dentro il range di apertura",
+        "Prendere Profitti: Usa obiettivi basati sulla dimensione del range o supporti/resistenze chiave"
+      ]
+    },
+    "successFactors": {
+      "heading": "Fattori Chiave di Successo",
+      "intro": "Non tutte le rotture del range di apertura sono uguali. Le configurazioni ad alta probabilità hanno:",
+      "points": {
+        "volumeConfirmation": {
+          "label": "Conferma del Volume:",
+          "text": "Le rotture con alto volume hanno più probabilità di continuare"
+        },
+        "clearDirection": {
+          "label": "Direzione Chiara:",
+          "text": "Le rotture forti e decisive sono migliori dei movimenti deboli e irregolari"
+        },
+        "marketContext": {
+          "label": "Contesto di Mercato:",
+          "text": "Considera le notizie notturne e l'attività pre-mercato"
+        },
+        "timeOfBreakout": {
+          "label": "Momento della Rottura:",
+          "text": "Le rotture più precoci (entro la prima ora) tendono ad essere più forti"
+        }
+      }
+    },
+    "riskManagement": {
+      "heading": "Gestione del Rischio",
+      "content": "Il range di apertura fornisce livelli di stop-loss naturali. Se il prezzo rompe sopra il range e vai long, il tuo stop dovrebbe essere appena sotto il massimo del range. Se la rottura fallisce e il prezzo ritorna dentro il range, esci. Questo crea una configurazione chiara rischio-rendimento dove il tuo rischio è definito dalla dimensione del range."
+    },
+    "commonMistakes": {
+      "heading": "Errori Comuni",
+      "intro": "I trader spesso falliscono con ORB perché:",
+      "points": [
+        "Entrano prima della conferma, rimanendo intrappolati in false rotture",
+        "Usano range troppo ampi, portando a un cattivo rapporto rischio-rendimento",
+        "Ignorano il volume, negoziando configurazioni a bassa probabilità",
+        "Non tengono conto del contesto di mercato e delle notizie notturne"
+      ]
+    },
+    "adaptingToConditions": {
+      "heading": "Adattarsi alle Condizioni di Mercato",
+      "content": "La strategia ORB funziona meglio in mercati di tendenza con direzione chiara. In mercati irregolari e limitati da range, le rotture spesso falliscono. Comprendere le condizioni di mercato e adattare il tuo approccio—o saltare i trade quando le condizioni non sono favorevoli—è la chiave per il successo a lungo termine con questa strategia."
+    }
+  },
+  "seo": {
+    "description": "La strategia Opening Range Breakout (ORB) sfrutta la volatilità della prima ora. Questo articolo spiega come identificare rotture ad alta probabilità e gestire il rischio quando si negozia all'apertura del mercato.",
+    "keywords": "strategia ORB, rottura del range di apertura, strategia di trading, trading all'apertura del mercato, trading di volatilità, trading di rottura",
+    "title": "Strategia ORB: Negoziare la Rottura del Range di Apertura"
+  },
+  "subtitle": "La strategia Opening Range Breakout (ORB) sfrutta la volatilità della prima ora. Questo articolo spiega come identificare rotture ad alta probabilità e gestire il rischio quando si negozia all'apertura del mercato.",
+  "title": "Strategia ORB: Negoziare il Range di Apertura"
+}
+

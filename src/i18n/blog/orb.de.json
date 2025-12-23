@@ -1,0 +1,96 @@
+{
+  "backToBlog": "Zurück zum Blog",
+  "category": "Strategie-Einführung",
+  "cta": {
+    "button": "Backtest-Ergebnisse Überprüfen",
+    "description": "Sehen Sie, wie die ORB-Strategie unter verschiedenen Marktbedingungen in unserer umfassenden Backtest-Analyse abschneidet.",
+    "heading": "Backtest-Ergebnisse Überprüfen"
+  },
+  "sections": {
+    "whatIsOpeningRange": {
+      "heading": "Was ist der Eröffnungsbereich?",
+      "content": "Der Eröffnungsbereich ist der Höchst- und Tiefstpreis, der in der ersten Stunde (oder ersten 30 Minuten) des Handels festgelegt wird. Dieser Bereich ist bedeutsam, weil er den anfänglichen Kampf zwischen Käufern und Verkäufern nach der Markteröffnung darstellt. Die erste Stunde setzt oft den Ton für den Tag und ist daher eine kritische Phase für Händler."
+    },
+    "whyMatters": {
+      "heading": "Warum der Eröffnungsbereich Wichtig Ist",
+      "intro": "Der Eröffnungsbereich ist aus mehreren Gründen wichtig:",
+      "points": {
+        "highVolatility": {
+          "label": "Hohe Volatilität:",
+          "text": "Die erste Stunde hat typischerweise das höchste Volumen und die höchste Volatilität"
+        },
+        "institutionalActivity": {
+          "label": "Institutionelle Aktivität:",
+          "text": "Große Akteure eröffnen oft früh am Tag Positionen"
+        },
+        "priceDiscovery": {
+          "label": "Preisfindung:",
+          "text": "Der Markt findet den fairen Wert nach nächtlichen Nachrichten und Ereignissen"
+        },
+        "momentum": {
+          "label": "Momentum:",
+          "text": "Ausbrüche aus dem Eröffnungsbereich setzen sich oft den ganzen Tag fort"
+        }
+      }
+    },
+    "howItWorks": {
+      "heading": "Wie die ORB-Strategie Funktioniert",
+      "intro": "Die ORB-Strategie ist unkompliziert:",
+      "points": [
+        "Bereich Identifizieren: Markieren Sie das Hoch und Tief der ersten Stunde",
+        "Auf Ausbruch Warten: Warten Sie, bis der Preis über das Hoch oder unter das Tief bricht",
+        "Bei Bestätigung Einstieg: Steigen Sie ein, wenn der Ausbruch mit Volumen bestätigt wird",
+        "Risiko Verwalten: Platzieren Sie Stops knapp innerhalb des Eröffnungsbereichs",
+        "Gewinne Mitnehmen: Verwenden Sie Ziele basierend auf der Bereichsgröße oder wichtigen Unterstützungs-/Widerstandsniveaus"
+      ]
+    },
+    "successFactors": {
+      "heading": "Wichtige Erfolgsfaktoren",
+      "intro": "Nicht alle Eröffnungsbereich-Ausbrüche sind gleichwertig. Hochwahrscheinliche Setups haben:",
+      "points": {
+        "volumeConfirmation": {
+          "label": "Volumenbestätigung:",
+          "text": "Ausbrüche mit hohem Volumen setzen sich wahrscheinlicher fort"
+        },
+        "clearDirection": {
+          "label": "Klare Richtung:",
+          "text": "Starke, entschlossene Ausbrüche sind besser als schwache, zackige Bewegungen"
+        },
+        "marketContext": {
+          "label": "Marktkontext:",
+          "text": "Berücksichtigen Sie nächtliche Nachrichten und Vormarktaktivität"
+        },
+        "timeOfBreakout": {
+          "label": "Zeitpunkt des Ausbruchs:",
+          "text": "Frühere Ausbrüche (innerhalb der ersten Stunde) sind tendenziell stärker"
+        }
+      }
+    },
+    "riskManagement": {
+      "heading": "Risikomanagement",
+      "content": "Der Eröffnungsbereich bietet natürliche Stop-Loss-Niveaus. Wenn der Preis über den Bereich bricht und Sie long gehen, sollte Ihr Stop knapp unter dem Bereichshoch liegen. Wenn der Ausbruch fehlschlägt und der Preis in den Bereich zurückkehrt, steigen Sie aus. Dies schafft ein klares Risiko-Rendite-Setup, bei dem Ihr Risiko durch die Bereichsgröße definiert wird."
+    },
+    "commonMistakes": {
+      "heading": "Häufige Fehler",
+      "intro": "Händler scheitern oft mit ORB, weil sie:",
+      "points": [
+        "Vor der Bestätigung einsteigen und in falschen Ausbrüchen gefangen werden",
+        "Zu breite Bereiche verwenden, was zu schlechtem Risiko-Rendite-Verhältnis führt",
+        "Das Volumen ignorieren und niedrigwahrscheinliche Setups handeln",
+        "Den Marktkontext und nächtliche Nachrichten nicht berücksichtigen"
+      ]
+    },
+    "adaptingToConditions": {
+      "heading": "Anpassung an Marktbedingungen",
+      "content": "Die ORB-Strategie funktioniert am besten in Trendmärkten mit klarer Richtung. In zackigen, bereichsgebundenen Märkten schlagen Ausbrüche oft fehl. Das Verstehen der Marktbedingungen und die Anpassung Ihres Ansatzes—oder das Überspringen von Trades, wenn die Bedingungen nicht günstig sind—ist der Schlüssel zum langfristigen Erfolg mit dieser Strategie."
+    }
+  },
+  "seo": {
+    "description": "Die Opening Range Breakout (ORB) Strategie nutzt die Volatilität der ersten Stunde. Dieser Artikel erklärt, wie man hochwahrscheinliche Ausbrüche identifiziert und das Risiko beim Handel der Markteröffnung verwaltet.",
+    "keywords": "ORB Strategie, Eröffnungsbereich Ausbruch, Handelsstrategie, Markteröffnung Handel, Volatilitätshandel, Ausbruchshandel",
+    "title": "ORB Strategie: Handel mit dem Eröffnungsbereich Ausbruch"
+  },
+  "subtitle": "Die Opening Range Breakout (ORB) Strategie nutzt die Volatilität der ersten Stunde. Dieser Artikel erklärt, wie man hochwahrscheinliche Ausbrüche identifiziert und das Risiko beim Handel der Markteröffnung verwaltet.",
+  "title": "ORB Strategie: Handel mit dem Eröffnungsbereich"
+}
+

@@ -19,6 +19,36 @@ import fluxPivotPt from './fluxPivot.pt.json';
 import fluxPivotIt from './fluxPivot.it.json';
 import fluxPivotRu from './fluxPivot.ru.json';
 import fluxPivotKo from './fluxPivot.ko.json';
+import fluxSignalEn from './fluxSignal.en.json';
+import fluxSignalEs from './fluxSignal.es.json';
+import fluxSignalFr from './fluxSignal.fr.json';
+import fluxSignalDe from './fluxSignal.de.json';
+import fluxSignalZh from './fluxSignal.zh.json';
+import fluxSignalJa from './fluxSignal.ja.json';
+import fluxSignalPt from './fluxSignal.pt.json';
+import fluxSignalIt from './fluxSignal.it.json';
+import fluxSignalRu from './fluxSignal.ru.json';
+import fluxSignalKo from './fluxSignal.ko.json';
+import fluxTridentEn from './fluxTrident.en.json';
+import fluxTridentEs from './fluxTrident.es.json';
+import fluxTridentFr from './fluxTrident.fr.json';
+import fluxTridentDe from './fluxTrident.de.json';
+import fluxTridentZh from './fluxTrident.zh.json';
+import fluxTridentJa from './fluxTrident.ja.json';
+import fluxTridentPt from './fluxTrident.pt.json';
+import fluxTridentIt from './fluxTrident.it.json';
+import fluxTridentRu from './fluxTrident.ru.json';
+import fluxTridentKo from './fluxTrident.ko.json';
+import orbEn from './orb.en.json';
+import orbEs from './orb.es.json';
+import orbFr from './orb.fr.json';
+import orbDe from './orb.de.json';
+import orbZh from './orb.zh.json';
+import orbJa from './orb.ja.json';
+import orbPt from './orb.pt.json';
+import orbIt from './orb.it.json';
+import orbRu from './orb.ru.json';
+import orbKo from './orb.ko.json';
 
 const blogTranslations = {
   cointegratedPairs: {
@@ -44,6 +74,42 @@ const blogTranslations = {
     it: fluxPivotIt,
     ru: fluxPivotRu,
     ko: fluxPivotKo,
+  },
+  fluxSignal: {
+    en: fluxSignalEn,
+    es: fluxSignalEs,
+    fr: fluxSignalFr,
+    de: fluxSignalDe,
+    zh: fluxSignalZh,
+    ja: fluxSignalJa,
+    pt: fluxSignalPt,
+    it: fluxSignalIt,
+    ru: fluxSignalRu,
+    ko: fluxSignalKo,
+  },
+  fluxTrident: {
+    en: fluxTridentEn,
+    es: fluxTridentEs,
+    fr: fluxTridentFr,
+    de: fluxTridentDe,
+    zh: fluxTridentZh,
+    ja: fluxTridentJa,
+    pt: fluxTridentPt,
+    it: fluxTridentIt,
+    ru: fluxTridentRu,
+    ko: fluxTridentKo,
+  },
+  orb: {
+    en: orbEn,
+    es: orbEs,
+    fr: orbFr,
+    de: orbDe,
+    zh: orbZh,
+    ja: orbJa,
+    pt: orbPt,
+    it: orbIt,
+    ru: orbRu,
+    ko: orbKo,
   },
 };
 

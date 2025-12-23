@@ -1,0 +1,96 @@
+{
+  "backToBlog": "Retour au Blog",
+  "category": "Introduction à la Stratégie",
+  "cta": {
+    "button": "Examiner les Résultats de Backtest",
+    "description": "Découvrez comment la stratégie ORB performe dans différentes conditions de marché avec notre analyse complète de backtest.",
+    "heading": "Examiner les Résultats de Backtest"
+  },
+  "sections": {
+    "whatIsOpeningRange": {
+      "heading": "Qu'est-ce que la Fourchette d'Ouverture?",
+      "content": "La fourchette d'ouverture est le prix haut et bas établi pendant la première heure (ou les 30 premières minutes) de négociation. Cette fourchette est significative car elle représente la bataille initiale entre acheteurs et vendeurs après l'ouverture du marché. La première heure établit souvent le ton de la journée, ce qui en fait une période critique pour les traders."
+    },
+    "whyMatters": {
+      "heading": "Pourquoi la Fourchette d'Ouverture est Importante",
+      "intro": "La fourchette d'ouverture est importante pour plusieurs raisons:",
+      "points": {
+        "highVolatility": {
+          "label": "Haute Volatilité:",
+          "text": "La première heure a typiquement le plus haut volume et la plus haute volatilité"
+        },
+        "institutionalActivity": {
+          "label": "Activité Institutionnelle:",
+          "text": "Les grands acteurs établissent souvent des positions tôt dans la journée"
+        },
+        "priceDiscovery": {
+          "label": "Découverte du Prix:",
+          "text": "Le marché découvre la juste valeur après les nouvelles et événements de la nuit"
+        },
+        "momentum": {
+          "label": "Momentum:",
+          "text": "Les cassures de la fourchette d'ouverture se poursuivent souvent tout au long de la journée"
+        }
+      }
+    },
+    "howItWorks": {
+      "heading": "Comment Fonctionne la Stratégie ORB",
+      "intro": "La stratégie ORB est simple:",
+      "points": [
+        "Identifier la Fourchette: Marquez le haut et le bas de la première heure",
+        "Attendre la Cassure: Attendez que le prix casse au-dessus du haut ou en dessous du bas",
+        "Entrer sur Confirmation: Entrez lorsque la cassure est confirmée avec du volume",
+        "Gérer le Risque: Placez les stops juste à l'intérieur de la fourchette d'ouverture",
+        "Prendre les Profits: Utilisez des objectifs basés sur la taille de la fourchette ou les supports/résistances clés"
+      ]
+    },
+    "successFactors": {
+      "heading": "Facteurs Clés de Succès",
+      "intro": "Toutes les cassures de fourchette d'ouverture ne sont pas égales. Les configurations à haute probabilité ont:",
+      "points": {
+        "volumeConfirmation": {
+          "label": "Confirmation de Volume:",
+          "text": "Les cassures avec un volume élevé sont plus susceptibles de continuer"
+        },
+        "clearDirection": {
+          "label": "Direction Claire:",
+          "text": "Les cassures fortes et décisives sont meilleures que les mouvements faibles et erratiques"
+        },
+        "marketContext": {
+          "label": "Contexte du Marché:",
+          "text": "Considérez les nouvelles de la nuit et l'activité pré-marché"
+        },
+        "timeOfBreakout": {
+          "label": "Moment de la Cassure:",
+          "text": "Les cassures plus précoces (dans la première heure) ont tendance à être plus fortes"
+        }
+      }
+    },
+    "riskManagement": {
+      "heading": "Gestion des Risques",
+      "content": "La fourchette d'ouverture fournit des niveaux de stop-loss naturels. Si le prix casse au-dessus de la fourchette et que vous allez long, votre stop doit être juste en dessous du haut de la fourchette. Si la cassure échoue et que le prix revient dans la fourchette, vous sortez. Cela crée une configuration claire risque-récompense où votre risque est défini par la taille de la fourchette."
+    },
+    "commonMistakes": {
+      "heading": "Erreurs Courantes",
+      "intro": "Les traders échouent souvent avec ORB parce qu'ils:",
+      "points": [
+        "Entrent avant confirmation, se faisant prendre dans de fausses cassures",
+        "Utilisent des fourchettes trop larges, menant à un mauvais ratio risque-récompense",
+        "Ignorent le volume, tradant des configurations à faible probabilité",
+        "Ne tiennent pas compte du contexte du marché et des nouvelles de la nuit"
+      ]
+    },
+    "adaptingToConditions": {
+      "heading": "S'Adapter aux Conditions du Marché",
+      "content": "La stratégie ORB fonctionne mieux dans les marchés en tendance avec une direction claire. Dans les marchés erratiques et limités par des fourchettes, les cassures échouent souvent. Comprendre les conditions du marché et adapter votre approche—ou ignorer les trades lorsque les conditions ne sont pas favorables—est la clé du succès à long terme avec cette stratégie."
+    }
+  },
+  "seo": {
+    "description": "La stratégie Opening Range Breakout (ORB) capitalise sur la volatilité de la première heure. Cet article explique comment identifier les cassures à haute probabilité et gérer le risque lors du trading à l'ouverture du marché.",
+    "keywords": "stratégie ORB, cassure de fourchette d'ouverture, stratégie de trading, trading à l'ouverture du marché, trading de volatilité, trading de cassure",
+    "title": "Stratégie ORB: Trader la Cassure de Fourchette d'Ouverture"
+  },
+  "subtitle": "La stratégie Opening Range Breakout (ORB) capitalise sur la volatilité de la première heure. Cet article explique comment identifier les cassures à haute probabilité et gérer le risque lors du trading à l'ouverture du marché.",
+  "title": "Stratégie ORB: Trader la Fourchette d'Ouverture"
+}
+

@@ -1,0 +1,59 @@
+{
+  "backToBlog": "Torna al Blog",
+  "category": "Introduzione alla Strategia",
+  "cta": {
+    "button": "Esplora Dati di Performance",
+    "description": "Vedi come Flux Signal si comporta in diverse condizioni di mercato e timeframes nella nostra analisi completa di backtest.",
+    "heading": "Esplora Dati di Performance"
+  },
+  "sections": {
+    "foundation": {
+      "content": "Flux Signal è progettato per catturare i cambiamenti di tendenza in anticipo, dando ai trader un vantaggio entrando in posizioni prima che la maggior parte dei partecipanti al mercato riconosca il cambiamento. La strategia combina la generazione di segnali proprietari con i principi tradizionali dell'analisi tecnica.",
+      "heading": "Le Fondamenta di Flux Signal"
+    },
+    "howItIdentifies": {
+      "heading": "Come Identifica le Opportunità",
+      "intro": "La strategia monitora simultaneamente più fattori di mercato:",
+      "points": {
+        "earlyReversal": {
+          "label": "Segnali di Inversione Precoce:",
+          "text": "Rileva potenziali inversioni di tendenza prima che diventino ovvie"
+        },
+        "continuation": {
+          "label": "Pattern di Continuazione:",
+          "text": "Identifica quando è probabile che le tendenze continuino piuttosto che invertirsi"
+        },
+        "momentum": {
+          "label": "Cambiamenti di Momentum:",
+          "text": "Cattura i cambiamenti nel momentum del mercato che precedono i movimenti di prezzo"
+        },
+        "volume": {
+          "label": "Conferma del Volume:",
+          "text": "Utilizza l'analisi del volume per convalidare la forza del segnale"
+        }
+      }
+    },
+    "entryCriteria": {
+      "heading": "Criteri di Ingresso",
+      "intro": "Flux Signal non si affida a un singolo indicatore. Invece, richiede che più condizioni si allineino:",
+      "points": [
+        "L'indicatore di segnale proprietario deve mostrare un segnale chiaro",
+        "L'azione del prezzo deve confermare la direzione del segnale",
+        "Il volume dovrebbe supportare il movimento",
+        "Il rapporto rischio-rendimento deve soddisfare le soglie minime"
+      ]
+    },
+    "earlyDetection": {
+      "content": "Entrare nei trade presto significa prezzi di ingresso migliori e rapporti rischio-rendimento migliorati. La capacità di Flux Signal di identificare opportunità prima che diventino ovvie dà ai trader un vantaggio significativo, specialmente nei mercati in rapido movimento dove gli ingressi tardivi possono risultare in configurazioni rischio-rendimento scarse.",
+      "heading": "Perché la Rilevazione Precoce è Importante"
+    }
+  },
+  "seo": {
+    "description": "La strategia Flux Signal utilizza indicatori proprietari per identificare inversioni di tendenza precoci e pattern di continuazione. Impara i concetti fondamentali e i criteri di ingresso che rendono efficace questa strategia.",
+    "keywords": "flux signal, strategia di trading, inversione di tendenza, pattern di continuazione, segnali di trading, trading automatizzato, analisi tecnica",
+    "title": "Strategia Flux Signal - Rilevazione Precoce dell'Inversione di Tendenza"
+  },
+  "subtitle": "La strategia Flux Signal utilizza indicatori proprietari per identificare inversioni di tendenza precoci e pattern di continuazione. Questo articolo scompone i concetti fondamentali e i criteri di ingresso che rendono efficace questa strategia.",
+  "title": "Comprendere la Strategia Flux Signal"
+}
+
