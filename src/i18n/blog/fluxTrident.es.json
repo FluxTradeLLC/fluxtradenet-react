@@ -1,0 +1,54 @@
+{
+  "backToBlog": "Volver al Blog",
+  "category": "Introducción a la Estrategia",
+  "cta": {
+    "button": "Ver Resultados de Backtest",
+    "description": "Consulte los resultados completos de backtest para Flux Trident para ver cómo se desempeña esta estrategia en diferentes condiciones de mercado.",
+    "heading": "¿Listo para Ver los Resultados?"
+  },
+  "sections": {
+    "whatIsFluxTrident": {
+      "content": "La estrategia Flux Trident se basa en el principio de confluencia: combinar múltiples señales de diferentes marcos de tiempo e indicadores para aumentar la probabilidad de operaciones exitosas. A diferencia de las estrategias de un solo indicador que pueden dar señales falsas, Flux Trident requiere alineación entre múltiples factores antes de entrar en una posición.",
+      "heading": "¿Qué es Flux Trident?"
+    },
+    "coreComponents": {
+      "heading": "Componentes Principales",
+      "intro": "La estrategia incorpora tres \"puntas\" principales de análisis:",
+      "points": [
+        {
+          "label": "Identificación de Tendencia:",
+          "text": "Determina la dirección general del mercado utilizando análisis de múltiples marcos de tiempo"
+        },
+        {
+          "label": "Confirmación de Momentum:",
+          "text": "Utiliza indicadores de momentum propietarios para confirmar el momento de entrada"
+        },
+        {
+          "label": "Precisión de Entrada:",
+          "text": "Combina la acción del precio con el análisis de volumen para puntos de entrada óptimos"
+        }
+      ]
+    },
+    "whyItWorks": {
+      "content": "Al requerir confluencia en múltiples marcos de tiempo e indicadores, Flux Trident filtra configuraciones de baja probabilidad. Este enfoque reduce las señales falsas y mejora la tasa de aciertos mientras mantiene ratios de riesgo-recompensa favorables. La estrategia se adapta a diferentes condiciones de mercado, ya sea en tendencia o en rango.",
+      "heading": "Por Qué Funciona"
+    },
+    "keyAdvantages": {
+      "heading": "Ventajas Clave",
+      "points": [
+        "El enfoque sistemático reduce las decisiones de trading emocionales",
+        "El análisis de múltiples marcos de tiempo proporciona mejor momento de entrada",
+        "Funciona en diversas condiciones de mercado",
+        "El rendimiento backtested muestra resultados consistentes"
+      ]
+    }
+  },
+  "seo": {
+    "description": "Flux Trident es una estrategia de confluencia de múltiples marcos de tiempo que combina análisis de tendencia con indicadores de momentum. Aprenda cómo este enfoque sistemático identifica entradas de alta probabilidad en diversas condiciones de mercado.",
+    "keywords": "flux trident, estrategia de trading, análisis multi-marco de tiempo, trading de confluencia, seguimiento de tendencias, indicadores de momentum, trading automatizado",
+    "title": "Estrategia Flux Trident - Trading de Confluencia Multi-Marco de Tiempo"
+  },
+  "subtitle": "Flux Trident es una estrategia de confluencia de múltiples marcos de tiempo que combina análisis de tendencia con indicadores de momentum. Este enfoque sistemático identifica entradas de alta probabilidad en diversas condiciones de mercado.",
+  "title": "Introducción a la Estrategia Flux Trident"
+}
+

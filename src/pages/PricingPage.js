@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 import { PRICING, PRICING_IDS } from "../constants";
 import api from "../api/axios";
 import { useReducedMotion } from "../hooks/useReducedMotion";
@@ -30,6 +31,18 @@ const CURRENCY_SYMBOLS = {
   CNY: "¥",
 };
 
+// Currency flags
+const CURRENCY_FLAGS = {
+  USD: "🇺🇸",
+  EUR: "🇪🇺",
+  GBP: "🇬🇧",
+  JPY: "🇯🇵",
+  CAD: "🇨🇦",
+  AUD: "🇦🇺",
+  CHF: "🇨🇭",
+  CNY: "🇨🇳",
+};
+
 // Helper function to format number with commas
 const formatNumber = (num) => {
   if (num === null || num === undefined || isNaN(num)) return "0";
@@ -40,6 +53,7 @@ const formatNumber = (num) => {
 };
 
 export function PricingPage() {
+  const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isTestMode, setIsTestMode] = useState(false);
@@ -89,16 +103,12 @@ export function PricingPage() {
       console.error("Error creating checkout session:", error);
       // Check if it's a 401 Unauthorized error
       if (error.response?.status === 401) {
-        toast.error(
-          "Your session has expired. Please sign in again to continue."
-        );
+        toast.error(t("pricing.errors.sessionExpired"));
         localStorage.removeItem("userEmail");
         navigate("/account");
       } else {
         // Handle other errors, e.g., show a notification to the user
-        toast.error(
-          "An error occurred while creating your checkout session. Please try again."
-        );
+        toast.error(t("pricing.errors.checkoutError"));
       }
     }
   };
@@ -119,13 +129,13 @@ export function PricingPage() {
   const getBillingPeriodLabel = () => {
     switch (billingPeriod) {
       case "monthly":
-        return "/mo";
+        return t("pricing.billingPeriods.monthly");
       case "quarterly":
-        return "/qtr";
+        return t("pricing.billingPeriods.quarterly");
       case "yearly":
-        return "/yr";
+        return t("pricing.billingPeriods.yearly");
       default:
-        return "/mo";
+        return t("pricing.billingPeriods.monthly");
     }
   };
 
@@ -214,7 +224,7 @@ export function PricingPage() {
           </span>
         </div>
         <span className="text-sm font-semibold text-green-400 mt-1">
-          Save {discountPercent.toFixed(0)}%
+          {t("pricing.save")} {discountPercent.toFixed(0)}%
         </span>
       </div>
     );
@@ -224,61 +234,57 @@ export function PricingPage() {
   const getProductSchemas = () => {
     return [
       {
-        name: "Automated Strategies - Single Platform",
-        description:
-          "Access to all automated trading strategies for NinjaTrader or TradingView. Includes indicators for chosen platform.",
+        name: t("pricing.products.strategiesSingle.name"),
+        description: t("pricing.products.strategiesSingle.description"),
         price: getPriceForPlan(
           "STRATEGIES_SINGLE",
           PRICING.MONTHLY.STRATEGIES_SINGLE
         ),
         currency: "USD",
-        category: "Trading Software Subscription",
-        platform: "NinjaTrader or TradingView",
+        category: t("pricing.products.category"),
+        platform: t("pricing.products.platforms.single"),
         priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
           .toISOString()
           .split("T")[0],
       },
       {
-        name: "Automated Strategies - Both Platforms",
-        description:
-          "Access to all automated trading strategies for both NinjaTrader and TradingView. Includes indicators for both platforms with priority updates.",
+        name: t("pricing.products.strategiesBoth.name"),
+        description: t("pricing.products.strategiesBoth.description"),
         price: getPriceForPlan(
           "STRATEGIES_NT_AND_TV",
           PRICING.MONTHLY.STRATEGIES_NT_AND_TV
         ),
         currency: "USD",
-        category: "Trading Software Subscription",
-        platform: "NinjaTrader and TradingView",
+        category: t("pricing.products.category"),
+        platform: t("pricing.products.platforms.both"),
         priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
           .toISOString()
           .split("T")[0],
       },
       {
-        name: "Trading Indicators - Single Platform",
-        description:
-          "Access to all trading indicators for NinjaTrader or TradingView. Professional-grade technical analysis tools.",
+        name: t("pricing.products.indicatorsSingle.name"),
+        description: t("pricing.products.indicatorsSingle.description"),
         price: getPriceForPlan(
           "INDICATORS_SINGLE",
           PRICING.MONTHLY.INDICATORS_SINGLE
         ),
         currency: "USD",
-        category: "Trading Software Subscription",
-        platform: "NinjaTrader or TradingView",
+        category: t("pricing.products.category"),
+        platform: t("pricing.products.platforms.single"),
         priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
           .toISOString()
           .split("T")[0],
       },
       {
-        name: "Trading Indicators - Both Platforms",
-        description:
-          "Access to all trading indicators for both NinjaTrader and TradingView. Complete indicator suite for both platforms.",
+        name: t("pricing.products.indicatorsBoth.name"),
+        description: t("pricing.products.indicatorsBoth.description"),
         price: getPriceForPlan(
           "INDICATORS_NT_AND_TV",
           PRICING.MONTHLY.INDICATORS_NT_AND_TV
         ),
         currency: "USD",
-        category: "Trading Software Subscription",
-        platform: "NinjaTrader and TradingView",
+        category: t("pricing.products.category"),
+        platform: t("pricing.products.platforms.both"),
         priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
           .toISOString()
           .split("T")[0],
@@ -288,29 +294,29 @@ export function PricingPage() {
 
   // Breadcrumbs for GEO optimization
   const breadcrumbs = [
-    { name: "Home", url: "/" },
-    { name: "Pricing", url: "/pricing" },
+    { name: t("header.home"), url: "/" },
+    { name: t("header.pricing"), url: "/pricing" },
   ];
 
   return (
     <div className="bg-gray-900 text-white min-h-full">
       <SEO
-        title="Pricing - Trading Software Subscriptions"
-        description="Choose the perfect FluxTrade subscription plan for your trading needs. Access automated strategies, indicators, and professional trading tools for NinjaTrader and TradingView. Flexible monthly, quarterly, and yearly plans available."
-        keywords="trading software pricing, ninjatrader subscription, tradingview strategies pricing, automated trading subscription, prop firm trading tools pricing"
+        title={t("pricing.seo.title")}
+        description={t("pricing.seo.description")}
+        keywords={t("pricing.seo.keywords")}
         canonical="/pricing"
         products={getProductSchemas()}
         breadcrumbs={breadcrumbs}
       />
       <div className="text-center pt-12 pb-6">
         <h1 className="text-5xl font-extrabold mb-4 text-center">
-          Choose Your Plan
+          {t("pricing.title")}
         </h1>
         <p className="text-lg text-gray-400">
-          Unlock the full potential of FluxTrade with our tailored plans.{" "}
+          {t("pricing.subtitle")}{" "}
           {!hasExistingSubscription && (
             <span className="font-semibold text-indigo-400">
-              Monthly plans include a 30-day free trial!
+              {t("pricing.freeTrial")}
             </span>
           )}
         </p>
@@ -335,7 +341,7 @@ export function PricingPage() {
                   : "text-gray-400 hover:text-white"
               }`}
             >
-              Monthly
+              {t("pricing.billingPeriods.monthlyLabel")}
             </button>
             <button
               onClick={() => setBillingPeriod("quarterly")}
@@ -348,12 +354,12 @@ export function PricingPage() {
                   : "text-gray-400 hover:text-white"
               }`}
             >
-              Quarterly
+              {t("pricing.billingPeriods.quarterlyLabel")}
               <span
                 className={`bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                aria-label="Save 10 percent"
+                aria-label={t("pricing.save10Percent")}
               >
-                Save 10%
+                {t("pricing.save10")}
               </span>
             </button>
             <button
@@ -367,12 +373,12 @@ export function PricingPage() {
                   : "text-gray-400 hover:text-white"
               }`}
             >
-              Yearly
+              {t("pricing.billingPeriods.yearlyLabel")}
               <span
                 className={`bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                aria-label="Save 17 percent"
+                aria-label={t("pricing.save17Percent")}
               >
-                Save 17%
+                {t("pricing.save17")}
               </span>
             </button>
           </div>
@@ -390,7 +396,7 @@ export function PricingPage() {
           >
             {Object.keys(CURRENCY_RATES).map((currency) => (
               <option key={currency} value={currency}>
-                {currency}
+                {CURRENCY_FLAGS[currency]} {currency}
               </option>
             ))}
           </select>
@@ -403,14 +409,14 @@ export function PricingPage() {
           <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border-2 border-indigo-500 transform hover:scale-105 transition-transform duration-300 relative overflow-visible">
             <div className="absolute top-2 right-2 z-10">
               <span className="inline-block px-2.5 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-semibold border border-yellow-500/30 whitespace-nowrap">
-                Automated Strategies
+                {t("pricing.plans.strategiesSingle.badge")}
               </span>
             </div>
             <h2 className="text-2xl font-bold text-center mb-1 text-indigo-400 pt-1 mt-6">
-              Automated Strategies
+              {t("pricing.plans.strategiesSingle.title")}
             </h2>
             <h3 className="text-center text-sm text-gray-400 mb-4">
-              Single Platform
+              {t("pricing.plans.strategiesSingle.subtitle")}
             </h3>
             <p className="text-center text-4xl font-extrabold mb-6">
               {formatPriceDisplay(
@@ -434,7 +440,7 @@ export function PricingPage() {
                     d="M5 13l4 4L19 7"
                   ></path>
                 </svg>
-                <span>Includes indicators for chosen platform</span>
+                <span>{t("pricing.plans.strategiesSingle.features.includesIndicators")}</span>
               </li>
               <li className="flex items-center">
                 <svg
@@ -451,7 +457,7 @@ export function PricingPage() {
                     d="M5 13l4 4L19 7"
                   ></path>
                 </svg>
-                <span>Access to all automated strategies</span>
+                <span>{t("pricing.plans.strategiesSingle.features.allStrategies")}</span>
               </li>
               <li className="flex items-center">
                 <svg
@@ -468,7 +474,7 @@ export function PricingPage() {
                     d="M5 13l4 4L19 7"
                   ></path>
                 </svg>
-                <span>Direct access to new features</span>
+                <span>{t("pricing.plans.strategiesSingle.features.newFeatures")}</span>
               </li>
             </ul>
             {isAuthenticated ? (
@@ -481,13 +487,13 @@ export function PricingPage() {
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                     aria-label={
                       billingPeriod === "monthly" && !hasExistingSubscription
-                        ? "Start 30 day free trial on NinjaTrader"
-                        : "Subscribe on NinjaTrader"
+                        ? t("pricing.buttons.startTrialNinjaTrader")
+                        : t("pricing.buttons.subscribeNinjaTrader")
                     }
                   >
                     {billingPeriod === "monthly" && !hasExistingSubscription
-                      ? "Start 30‑day free trial on NinjaTrader"
-                      : "Subscribe on NinjaTrader"}
+                      ? t("pricing.buttons.startTrialNinjaTrader")
+                      : t("pricing.buttons.subscribeNinjaTrader")}
                   </button>
                   <button
                     onClick={() =>
@@ -496,17 +502,17 @@ export function PricingPage() {
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                     aria-label={
                       billingPeriod === "monthly" && !hasExistingSubscription
-                        ? "Start 30 day free trial on TradingView"
-                        : "Subscribe on TradingView"
+                        ? t("pricing.buttons.startTrialTradingView")
+                        : t("pricing.buttons.subscribeTradingView")
                     }
                   >
                     {billingPeriod === "monthly" && !hasExistingSubscription
-                      ? "Start 30‑day free trial on TradingView"
-                      : "Subscribe on TradingView"}
+                      ? t("pricing.buttons.startTrialTradingView")
+                      : t("pricing.buttons.subscribeTradingView")}
                   </button>
                 </div>
                 <p className="text-center text-sm text-gray-400">
-                  No commitment. Cancel anytime.
+                  {t("pricing.noCommitment")}
                 </p>
               </div>
             ) : (
@@ -544,24 +550,24 @@ export function PricingPage() {
               <div
                 className={`absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-[length:300%_300%] ${prefersReducedMotion ? "" : "animate-gradient-pan"} text-white text-sm font-bold px-4 py-1 rounded-full z-10`}
               >
-                MOST POPULAR
+                {t("pricing.plans.strategiesBoth.mostPopular")}
               </div>
               <div className="flex flex-wrap justify-center gap-2 mt-2 mb-4">
                 <span className="inline-block px-2.5 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-semibold border border-yellow-500/30 whitespace-nowrap">
-                  Automated Strategies
+                  {t("pricing.plans.strategiesBoth.badgeStrategies")}
                 </span>
                 <span className="inline-block px-2.5 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs font-semibold border border-indigo-500/30 whitespace-nowrap">
-                  Both Platforms
+                  {t("pricing.plans.strategiesBoth.badgeBothPlatforms")}
                 </span>
                 <span className="inline-block px-2.5 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs font-semibold border border-purple-500/30 whitespace-nowrap">
-                  Priority Updates
+                  {t("pricing.plans.strategiesBoth.badgePriority")}
                 </span>
               </div>
               <h2 className="text-2xl font-bold text-center mb-1 text-indigo-400">
-                Automated Strategies
+                {t("pricing.plans.strategiesBoth.title")}
               </h2>
               <h3 className="text-center text-sm text-gray-400 mb-4">
-                Both Platforms
+                {t("pricing.plans.strategiesBoth.subtitle")}
               </h3>
               <p className="text-center text-4xl font-extrabold mb-6">
                 {formatPriceDisplay(
@@ -585,7 +591,7 @@ export function PricingPage() {
                       d="M5 13l4 4L19 7"
                     ></path>
                   </svg>
-                  <span>Includes indicators for both platforms</span>
+                  <span>{t("pricing.plans.strategiesBoth.features.includesIndicators")}</span>
                 </li>
                 <li className="flex items-center">
                   <svg
@@ -602,7 +608,7 @@ export function PricingPage() {
                       d="M5 13l4 4L19 7"
                     ></path>
                   </svg>
-                  <span>NinjaTrader and TradingView</span>
+                  <span>{t("pricing.plans.strategiesBoth.features.platforms")}</span>
                 </li>
                 <li className="flex items-center">
                   <svg
@@ -619,7 +625,7 @@ export function PricingPage() {
                       d="M5 13l4 4L19 7"
                     ></path>
                   </svg>
-                  <span>Access to all automated strategies</span>
+                  <span>{t("pricing.plans.strategiesBoth.features.allStrategies")}</span>
                 </li>
               </ul>
               {isAuthenticated ? (
@@ -631,16 +637,16 @@ export function PricingPage() {
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                     aria-label={
                       billingPeriod === "monthly" && !hasExistingSubscription
-                        ? "Start 30 day free trial for both platforms"
-                        : "Subscribe now for both platforms"
+                        ? t("pricing.buttons.startTrialBoth")
+                        : t("pricing.buttons.subscribeNow")
                     }
                   >
                     {billingPeriod === "monthly" && !hasExistingSubscription
-                      ? "Start 30‑day free trial"
-                      : "Subscribe Now"}
+                      ? t("pricing.buttons.startTrial")
+                      : t("pricing.buttons.subscribeNow")}
                   </button>
                   <p className="text-center text-sm text-gray-400">
-                    No commitment. Cancel anytime.
+                    {t("pricing.noCommitment")}
                   </p>
                 </div>
               ) : (
@@ -650,11 +656,11 @@ export function PricingPage() {
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                   >
                     {billingPeriod === "monthly" && !hasExistingSubscription
-                      ? "Start 30‑day free trial"
-                      : "Subscribe Now"}
+                      ? t("pricing.buttons.startTrial")
+                      : t("pricing.buttons.subscribeNow")}
                   </button>
                   <p className="text-center text-sm text-gray-400">
-                    No commitment. Cancel anytime.
+                    {t("pricing.noCommitment")}
                   </p>
                 </div>
               )}
@@ -665,9 +671,9 @@ export function PricingPage() {
         {/* Indicators - Single (choose platform) */}
         <div className="flex gap-6 mt-8 flex-wrap md:flex-nowrap justify-center w-full">
           <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-gray-700 transform hover:scale-105 transition-transform duration-300 relative">
-            <h2 className="text-2xl font-bold text-center mb-1">Indicators</h2>
+            <h2 className="text-2xl font-bold text-center mb-1">{t("pricing.plans.indicatorsSingle.title")}</h2>
             <h3 className="text-center text-sm text-gray-400 mb-4">
-              Single Platform
+              {t("pricing.plans.indicatorsSingle.subtitle")}
             </h3>
             <p className="text-center text-4xl font-extrabold mb-6">
               {formatPriceDisplay(
@@ -691,7 +697,7 @@ export function PricingPage() {
                     d="M5 13l4 4L19 7"
                   ></path>
                 </svg>
-                <span>Access to all our indicators</span>
+                <span>{t("pricing.plans.indicatorsSingle.features.allIndicators")}</span>
               </li>
               <li className="flex items-center">
                 <svg
@@ -708,7 +714,7 @@ export function PricingPage() {
                     d="M5 13l4 4L19 7"
                   ></path>
                 </svg>
-                <span>24/7 customer support</span>
+                <span>{t("pricing.plans.indicatorsSingle.features.support")}</span>
               </li>
               <li className="flex items-center">
                 <svg
@@ -725,7 +731,7 @@ export function PricingPage() {
                     d="M5 13l4 4L19 7"
                   ></path>
                 </svg>
-                <span>Cancel anytime</span>
+                <span>{t("pricing.plans.indicatorsSingle.features.cancelAnytime")}</span>
               </li>
             </ul>
             {isAuthenticated ? (
@@ -738,8 +744,8 @@ export function PricingPage() {
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
                     {billingPeriod === "monthly" && !hasExistingSubscription
-                      ? "Start 30‑day free trial on NinjaTrader"
-                      : "Subscribe on NinjaTrader"}
+                      ? t("pricing.buttons.startTrialNinjaTrader")
+                      : t("pricing.buttons.subscribeNinjaTrader")}
                   </button>
                   <button
                     onClick={() =>
@@ -748,12 +754,12 @@ export function PricingPage() {
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
                     {billingPeriod === "monthly" && !hasExistingSubscription
-                      ? "Start 30‑day free trial on TradingView"
-                      : "Subscribe on TradingView"}
+                      ? t("pricing.buttons.startTrialTradingView")
+                      : t("pricing.buttons.subscribeTradingView")}
                   </button>
                 </div>
                 <p className="text-center text-sm text-gray-400">
-                  No commitment. Cancel anytime.
+                  {t("pricing.noCommitment")}
                 </p>
               </div>
             ) : (
@@ -764,20 +770,20 @@ export function PricingPage() {
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
                     {billingPeriod === "monthly" && !hasExistingSubscription
-                      ? "Start 30‑day free trial on NinjaTrader"
-                      : "Subscribe on NinjaTrader"}
+                      ? t("pricing.buttons.startTrialNinjaTrader")
+                      : t("pricing.buttons.subscribeNinjaTrader")}
                   </button>
                   <button
                     onClick={() => navigate("/account")}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
                   >
                     {billingPeriod === "monthly" && !hasExistingSubscription
-                      ? "Start 30‑day free trial on TradingView"
-                      : "Subscribe on TradingView"}
+                      ? t("pricing.buttons.startTrialTradingView")
+                      : t("pricing.buttons.subscribeTradingView")}
                   </button>
                 </div>
                 <p className="text-center text-sm text-gray-400">
-                  No commitment. Cancel anytime.
+                  {t("pricing.noCommitment")}
                 </p>
               </div>
             )}
@@ -787,14 +793,14 @@ export function PricingPage() {
           <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm border border-gray-700 transform hover:scale-105 transition-transform duration-300 relative overflow-visible">
             <div className="absolute top-2 right-2 z-10">
               <span className="inline-block px-2.5 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs font-semibold border border-indigo-500/30 whitespace-nowrap">
-                Both Platforms
+                {t("pricing.plans.indicatorsBoth.badge")}
               </span>
             </div>
             <h2 className="text-2xl font-bold text-center mb-1 pt-1 mt-4">
-              Indicators
+              {t("pricing.plans.indicatorsBoth.title")}
             </h2>
             <h3 className="text-center text-sm text-gray-400 mb-4">
-              Both Platforms
+              {t("pricing.plans.indicatorsBoth.subtitle")}
             </h3>
             <p className="text-center text-4xl font-extrabold mb-6">
               {formatPriceDisplay(
@@ -818,7 +824,7 @@ export function PricingPage() {
                     d="M5 13l4 4L19 7"
                   ></path>
                 </svg>
-                <span>Access to all our indicators</span>
+                <span>{t("pricing.plans.indicatorsBoth.features.allIndicators")}</span>
               </li>
               <li className="flex items-center">
                 <svg
@@ -835,7 +841,7 @@ export function PricingPage() {
                     d="M5 13l4 4L19 7"
                   ></path>
                 </svg>
-                <span>NinjaTrader and TradingView</span>
+                <span>{t("pricing.plans.indicatorsBoth.features.platforms")}</span>
               </li>
               <li className="flex items-center">
                 <svg
@@ -852,7 +858,7 @@ export function PricingPage() {
                     d="M5 13l4 4L19 7"
                   ></path>
                 </svg>
-                <span>Cancel anytime</span>
+                <span>{t("pricing.plans.indicatorsBoth.features.cancelAnytime")}</span>
               </li>
             </ul>
             {isAuthenticated ? (
@@ -878,11 +884,11 @@ export function PricingPage() {
                   className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                 >
                   {billingPeriod === "monthly" && !hasExistingSubscription
-                    ? "Start 30‑day free trial"
-                    : "Subscribe Now"}
+                    ? t("pricing.buttons.startTrial")
+                    : t("pricing.buttons.subscribeNow")}
                 </button>
                 <p className="text-center text-sm text-gray-400">
-                  No commitment. Cancel anytime.
+                  {t("pricing.noCommitment")}
                 </p>
               </div>
             )}
@@ -893,10 +899,10 @@ export function PricingPage() {
       {isTestMode && testPriceId ? (
         <div className="bg-gray-800 self-center m-auto mt-8 rounded-lg p-6 w-full max-w-sm border border-yellow-500 transform hover:scale-105 transition-transform duration-300">
           <h2 className="text-3xl font-bold text-center mb-4 text-yellow-400">
-            Test
+            {t("pricing.test.title")}
           </h2>
           <p className="text-center text-lg font-medium text-gray-400 mb-6">
-            Stripe test price
+            {t("pricing.test.subtitle")}
           </p>
           <ul className="space-y-4 text-gray-300 mb-8">
             <li className="flex items-center">
@@ -914,7 +920,7 @@ export function PricingPage() {
                   d="M5 13l4 4L19 7"
                 ></path>
               </svg>
-              <span>For testing checkout flows only</span>
+              <span>{t("pricing.test.description")}</span>
             </li>
           </ul>
           {isAuthenticated ? (
@@ -922,14 +928,14 @@ export function PricingPage() {
               onClick={() => handleCheckout(testPriceId)}
               className="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
             >
-              Use Test Checkout
+              {t("pricing.test.button")}
             </button>
           ) : (
             <button
               onClick={() => navigate("/account")}
               className="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
             >
-              Get Started
+              {t("pricing.test.getStarted")}
             </button>
           )}
         </div>
@@ -937,50 +943,50 @@ export function PricingPage() {
       {/* Features Comparison Table */}
       <div className="max-w-6xl mx-auto px-4 mt-12 mb-8">
         <h2 className="text-3xl font-bold text-center mb-8">
-          Compare Plans & Features
+          {t("pricing.comparison.title")}
         </h2>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse bg-gray-800 rounded-lg overflow-hidden">
             <thead>
               <tr className="bg-gray-700">
-                <th className="text-left p-4 font-semibold">Features</th>
+                <th className="text-left p-4 font-semibold">{t("pricing.comparison.features")}</th>
                 <th className="text-center p-4 font-semibold">
-                  Indicators
+                  {t("pricing.comparison.indicators")}
                   <br />
                   <span className="text-sm font-normal text-gray-400">
-                    Single Platform
+                    {t("pricing.comparison.singlePlatform")}
                   </span>
                 </th>
                 <th className="text-center p-4 font-semibold">
-                  Indicators
+                  {t("pricing.comparison.indicators")}
                   <br />
                   <span className="text-sm font-normal text-gray-400">
-                    Both Platforms
+                    {t("pricing.comparison.bothPlatforms")}
                   </span>
                 </th>
                 <th className="text-center p-4 font-semibold border-l-2 border-indigo-500">
-                  Automated Strategies
+                  {t("pricing.comparison.strategies")}
                   <br />
                   <span className="text-sm font-normal text-gray-400">
-                    Single Platform
+                    {t("pricing.comparison.singlePlatform")}
                   </span>
                 </th>
                 <th className="text-center p-4 font-semibold bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 border-l-2 border-indigo-500">
-                  Automated Strategies
+                  {t("pricing.comparison.strategies")}
                   <br />
                   <span className="text-sm font-normal text-gray-400">
-                    Both Platforms
+                    {t("pricing.comparison.bothPlatforms")}
                   </span>
                   <br />
                   <span className="text-xs font-bold text-indigo-400 mt-1 block">
-                    MOST POPULAR
+                    {t("pricing.comparison.mostPopular")}
                   </span>
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr className="border-b border-gray-700">
-                <td className="p-4 font-medium">Access to all indicators</td>
+                <td className="p-4 font-medium">{t("pricing.comparison.accessIndicators")}</td>
                 <td className="text-center p-4">
                   <svg
                     className="w-6 h-6 text-green-500 mx-auto"
@@ -1043,25 +1049,25 @@ export function PricingPage() {
                 </td>
               </tr>
               <tr className="border-b border-gray-700">
-                <td className="p-4 font-medium">Platform access</td>
-                <td className="text-center p-4 text-gray-400">Single</td>
+                <td className="p-4 font-medium">{t("pricing.comparison.platformAccess")}</td>
+                <td className="text-center p-4 text-gray-400">{t("pricing.comparison.single")}</td>
                 <td className="text-center p-4">
                   <span className="inline-block px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-sm font-semibold">
-                    Both Platforms
+                    {t("pricing.comparison.bothPlatforms")}
                   </span>
                 </td>
                 <td className="text-center p-4 text-gray-400 border-l-2 border-indigo-500">
-                  Single
+                  {t("pricing.comparison.single")}
                 </td>
                 <td className="text-center p-4 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border-l-2 border-indigo-500">
                   <span className="inline-block px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-sm font-semibold">
-                    Both Platforms
+                    {t("pricing.comparison.bothPlatforms")}
                   </span>
                 </td>
               </tr>
               <tr className="border-b border-gray-700">
                 <td className="p-4 font-medium">
-                  Access to automated strategies
+                  {t("pricing.comparison.accessStrategies")}
                 </td>
                 <td className="text-center p-4">
                   <svg
@@ -1095,17 +1101,17 @@ export function PricingPage() {
                 </td>
                 <td className="text-center p-4 border-l-2 border-indigo-500">
                   <span className="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-semibold">
-                    Automated Strategies
+                    {t("pricing.comparison.strategies")}
                   </span>
                 </td>
                 <td className="text-center p-4 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border-l-2 border-indigo-500">
                   <span className="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-semibold">
-                    Automated Strategies
+                    {t("pricing.comparison.strategies")}
                   </span>
                 </td>
               </tr>
               <tr className="border-b border-gray-700">
-                <td className="p-4 font-medium">24/7 customer support</td>
+                <td className="p-4 font-medium">{t("pricing.comparison.support")}</td>
                 <td className="text-center p-4">
                   <svg
                     className="w-6 h-6 text-green-500 mx-auto"
@@ -1169,7 +1175,7 @@ export function PricingPage() {
               </tr>
               <tr className="border-b border-gray-700">
                 <td className="p-4 font-medium">
-                  Direct access to new features
+                  {t("pricing.comparison.newFeatures")}
                 </td>
                 <td className="text-center p-4">
                   <svg
@@ -1233,7 +1239,7 @@ export function PricingPage() {
                 </td>
               </tr>
               <tr>
-                <td className="p-4 font-medium">Priority updates</td>
+                <td className="p-4 font-medium">{t("pricing.comparison.priorityUpdates")}</td>
                 <td className="text-center p-4">
                   <svg
                     className="w-6 h-6 text-gray-600 mx-auto"
@@ -1281,7 +1287,7 @@ export function PricingPage() {
                 </td>
                 <td className="text-center p-4 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border-l-2 border-indigo-500">
                   <span className="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm font-semibold">
-                    Priority Updates
+                    {t("pricing.comparison.priorityUpdates")}
                   </span>
                 </td>
               </tr>

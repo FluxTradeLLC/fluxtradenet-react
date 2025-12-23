@@ -1,0 +1,59 @@
+{
+  "backToBlog": "返回博客",
+  "category": "策略介绍",
+  "cta": {
+    "button": "探索性能数据",
+    "description": "在我们的全面回测分析中，了解Flux Signal在不同市场条件和时间框架下的表现。",
+    "heading": "探索性能数据"
+  },
+  "sections": {
+    "foundation": {
+      "content": "Flux Signal旨在及早捕捉趋势变化，通过在大多数市场参与者认识到转变之前进入头寸，为交易者提供优势。该策略将专有信号生成与传统技术分析原理相结合。",
+      "heading": "Flux Signal的基础"
+    },
+    "howItIdentifies": {
+      "heading": "如何识别机会",
+      "intro": "该策略同时监控多个市场因素：",
+      "points": {
+        "earlyReversal": {
+          "label": "早期反转信号：",
+          "text": "在潜在趋势反转变得明显之前检测它们"
+        },
+        "continuation": {
+          "label": "延续模式：",
+          "text": "识别趋势可能继续而非反转的时机"
+        },
+        "momentum": {
+          "label": "动量变化：",
+          "text": "捕捉先于价格变动的市场动量变化"
+        },
+        "volume": {
+          "label": "成交量确认：",
+          "text": "使用成交量分析来验证信号强度"
+        }
+      }
+    },
+    "entryCriteria": {
+      "heading": "入场标准",
+      "intro": "Flux Signal不依赖单一指标。相反，它需要多个条件对齐：",
+      "points": [
+        "专有信号指标必须显示明确信号",
+        "价格行为必须确认信号方向",
+        "成交量应支持该走势",
+        "风险回报比必须满足最低阈值"
+      ]
+    },
+    "earlyDetection": {
+      "content": "及早进入交易意味着更好的入场价格和改善的风险回报比。Flux Signal在机会变得明显之前识别它们的能力为交易者提供了显著优势，特别是在快速变化的市场中，延迟入场可能导致糟糕的风险回报设置。",
+      "heading": "为什么早期检测很重要"
+    }
+  },
+  "seo": {
+    "description": "Flux Signal策略使用专有指标来识别早期趋势反转和延续模式。了解使该策略有效的核心概念和入场标准。",
+    "keywords": "flux signal, 交易策略, 趋势反转, 延续模式, 交易信号, 自动化交易, 技术分析",
+    "title": "Flux Signal策略 - 早期趋势反转检测"
+  },
+  "subtitle": "Flux Signal策略使用专有指标来识别早期趋势反转和延续模式。本文分解了使该策略有效的核心概念和入场标准。",
+  "title": "理解Flux Signal策略"
+}
+

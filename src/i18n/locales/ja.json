@@ -1,0 +1,832 @@
+{
+  "header": {
+    "home": "ホーム",
+    "pricing": "価格",
+    "backtestExplorer": "バックテストエクスプローラー",
+    "blog": "ブログ",
+    "affiliates": "アフィリエイト",
+    "account": "アカウント",
+    "support": "サポート",
+    "liveStream": "ライブストリーム",
+    "freeDiscord": "無料Discord"
+  },
+  "language": {
+    "select": "言語を選択",
+    "english": "英語",
+    "spanish": "スペイン語",
+    "french": "フランス語",
+    "german": "ドイツ語",
+    "chinese": "中国語",
+    "japanese": "日本語",
+    "portuguese": "ポルトガル語",
+    "italian": "イタリア語",
+    "russian": "ロシア語",
+    "korean": "韓国語"
+  },
+  "footer": {
+    "navigation": "ナビゲーション",
+    "home": "ホーム",
+    "pricing": "価格",
+    "account": "アカウント",
+    "refundPolicies": "返金およびキャンセルポリシー",
+    "affiliates": "アフィリエイト",
+    "support": "サポート",
+    "terms": "利用規約",
+    "followUs": "フォローする",
+    "disclaimers": "免責事項",
+    "disclaimer1": "先物および外国為替取引には大きなリスクが含まれており、すべての投資家に適しているわけではありません。投資家は初期投資のすべてまたはそれ以上を失う可能性があります。リスク資本は、財務の安全性やライフスタイルを危険にさらすことなく失うことができるお金です。取引にはリスク資本のみを使用すべきであり、十分なリスク資本を持つ人だけが取引を検討すべきです。過去の実績は必ずしも将来の結果を示すものではありません",
+    "disclaimer2": "仮想的なパフォーマンス結果には多くの固有の制限があり、その一部は以下に説明されています。表示されたものと同様の利益または損失を達成する、または達成する可能性があるという表現は行われていません。実際、仮想的なパフォーマンス結果と、特定の取引プログラムによって後続に達成された実際の結果の間には、しばしば大きな違いがあります。仮想的なパフォーマンス結果の制限の1つは、一般的に後知恵の利点を持って準備されることです。さらに、仮想的な取引には金融リスクが含まれておらず、仮想的な取引記録は実際の取引の金融リスクの影響を完全に説明することはできません。たとえば、損失に耐える能力や、取引損失にもかかわらず特定の取引プログラムに固執する能力は、実際の取引結果に悪影響を与える可能性のある重要なポイントです。市場全般または特定の取引プログラムの実装に関連する他の多くの要因があり、これらは仮想的なパフォーマンス結果の準備で完全に考慮することができず、すべてが取引結果に悪影響を与える可能性があります。",
+    "disclaimer3": "このウェブサイトに表示される推薦文は、他のクライアントや顧客を代表するものではない場合があり、将来のパフォーマンスや成功の保証ではありません。",
+    "copyright": "著作権 © {{year}}, FluxTrade, LLC. 全著作権所有。"
+  },
+  "stickyCTA": {
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "bothPlatforms": "両方のプラットフォーム",
+    "startTrial": "無料トライアルを開始（30日）",
+    "signUpTrial": "無料トライアルを開始するために登録（30日）",
+    "startTrialLabel": "{{platform}}の30日間無料トライアルを開始",
+    "signUpTrialLabel": "{{platform}}の30日間無料トライアルを開始するために登録"
+  },
+  "support": {
+    "title": "サポート",
+    "description": "サポートのお問い合わせについては、メールでお問い合わせください",
+    "orSendMessage": "または下記のフォームからメッセージを送信してください。",
+    "discordHelp": "より迅速なヘルプとお知らせのために、Discordコミュニティに参加することもできます。",
+    "additionalResources": "追加リソース",
+    "resourcesDescription": "サポートに連絡する前に、ポリシーと規約でよくある質問への回答を見つけることができます：",
+    "refundInfo": "返金、キャンセル、サブスクリプション管理に関する情報については、以下をご覧ください",
+    "termsInfo": "サービス条件、アカウント責任、一般条件については、以下をご覧ください",
+    "stillNeedHelp": "これらのリソースを確認した後もまだサポートが必要な場合は、下記のフォームを使用してお気軽にお問い合わせください。または",
+    "emailDirectly": "直接メールでお問い合わせください",
+    "sendMessage": "メッセージを送信",
+    "yourName": "お名前",
+    "yourEmail": "メールアドレス",
+    "subject": "件名",
+    "message": "メッセージ",
+    "sending": "送信中...",
+    "sendEmail": "サポートメールを送信",
+    "success": "サポートメールが正常に送信されました！すぐにご連絡いたします。",
+    "error": "サポートメールの送信に失敗しました"
+  },
+  "affiliates": {
+    "title": "FluxTradeアフィリエイトプログラム",
+    "subtitle": "FluxTradeを宣伝して継続的な手数料を獲得しましょう。私たちのプログラムはシンプルで透明性があり、クリエイターに優しいです。",
+    "commission": "30%",
+    "commissionDesc": "紹介したすべてのサブスクリプション支払いに対する継続的な手数料。",
+    "payouts": "Net-60支払い",
+    "payoutsDesc": "Net-60スケジュールでPayPal経由で支払われます。",
+    "useAssets": "アセットを使用",
+    "useAssetsDesc": "プロモーションでロゴ、サイトメディア、動画を使用できます。",
+    "freeTrial": "無料トライアル",
+    "freeTrialDesc": "お客様に30日間の無料トライアルを提供しています",
+    "powerfulTools": "強力なツール",
+    "powerfulToolsDesc": "ツールスイートは一から構築されています",
+    "growingCommunity": "成長するコミュニティ",
+    "growingCommunityDesc": "無料のDiscordにより、トレーダーが共有し、協力できます",
+    "joinProgram": "アフィリエイトプログラムに参加",
+    "programDetails": "プログラム詳細",
+    "commissionLabel": "手数料：",
+    "commissionValue": "30%継続",
+    "commissionFull": "紹介したサブスクリプションに対して。",
+    "payoutTerms": "支払い条件：",
+    "payoutValue": "Net-60",
+    "payoutMethod": "PayPal経由。",
+    "attribution": "帰属はPromoteKitによって処理されます。紹介は自動的に追跡されます。",
+    "marketingAssets": "マーケティングアセット：サイトのあらゆる資料を使用できます。YouTubeチャンネルのロゴや動画を含む",
+    "marketingMaterials": "マーケティング資料",
+    "marketingMaterialsDesc": "使用できる動画を含む。",
+    "getStarted": "始めるには、ここでアフィリエイトアカウントを作成してください：",
+    "questions": "追加情報や質問については、メールでお問い合わせください"
+  },
+  "auth": {
+    "signIn": "サインイン",
+    "signUp": "サインアップ",
+    "email": "メール",
+    "password": "パスワード",
+    "signInFailed": "サインインに失敗しました",
+    "googleSignInFailed": "Googleサインインに失敗しました",
+    "registrationFailed": "登録に失敗しました",
+    "agreeTerms": "同意します",
+    "and": "および",
+    "signInWithGoogle": "Googleでサインイン",
+    "continueWithGoogle": "Googleで続行",
+    "or": "または",
+    "validEmail": "有効なメールアドレスを入力してください",
+    "byUsingService": "このサービスを使用することで、以下に同意したことになります"
+  },
+  "account": {
+    "title": "アカウント",
+    "loggedInAs": "ログイン中：{{email}}",
+    "signUpForPlan": "プランに登録",
+    "freeTrialOffer": "各プランには30日間の無料トライアルが含まれています！",
+    "selectPlan": "プランを選択",
+    "subscriptionSettings": "サブスクリプション設定",
+    "subscriptionSettingsDescription": "Stripeカスタマーポータルにログインして、サブスクリプションの管理、支払い方法の更新、またはサブスクリプションのキャンセルを行ってください。",
+    "subscriptionSettingsButton": "サブスクリプション設定",
+    "subscriptionSettingsAriaLabel": "Stripeカスタマーポータルでサブスクリプション設定を管理",
+    "signOut": "サインアウト",
+    "signIn": "サインイン",
+    "signUp": "サインアップ",
+    "accountAuthentication": "アカウント認証"
+  },
+  "blog": {
+    "title": "ブログ",
+    "subtitle": "取引戦略を理解し、プロップ会社の環境をナビゲートするのに役立つ教育コンテンツ",
+    "readFullArticle": "全文を読む",
+    "readyToStart": "取引を始める準備はできていますか？",
+    "readyDesc": "バックテスト済みの戦略を探索し、取引の旅に適したプランを見つけましょう",
+    "viewStrategies": "すべての戦略を表示",
+    "seePricing": "価格プランを表示",
+    "categories": {
+      "strategyIntro": "戦略紹介",
+      "propFirmPitfalls": "プロップ会社の落とし穴"
+    },
+    "articles": {
+      "fluxTrident": {
+        "title": "Flux Trident戦略の紹介",
+        "excerpt": "Flux Tridentは、トレンド分析とモメンタムインジケーターを組み合わせたマルチタイムフレームコンフルエンス戦略です。この体系的なアプローチが、さまざまな市場条件で高確率のエントリーをどのように識別するかを学びましょう。"
+      },
+      "fluxSignal": {
+        "title": "Flux Signal戦略の理解",
+        "excerpt": "Flux Signal戦略は、独自のインジケーターを使用して、早期のトレンド反転と継続パターンを識別します。この記事では、この戦略を効果的にするコアコンセプトとエントリー基準を分解します。"
+      },
+      "fluxPivot": {
+        "title": "Flux Pivot：サポートとレジスタンスの取引",
+        "excerpt": "Flux Pivotを使用して主要なピボットレベルを取引する技術をマスターしましょう。この戦略は、重要なサポートとレジスタンスゾーンを識別して取引することに焦点を当て、価格アクションとボリューム分析を組み合わせます。"
+      },
+      "propFirmHiddenCosts": {
+        "title": "プロップ会社チャレンジの隠れたコスト",
+        "excerpt": "多くのトレーダーは、手遅れになるまでプロップ会社チャレンジの真のコストを認識していません。隠れた手数料から非現実的な利益目標まで、資金提供されたアカウントの旅を台無しにする可能性のある一般的な落とし穴について学びましょう。"
+      },
+      "propFirmFailure": {
+        "title": "なぜほとんどのプロップ会社トレーダーが失敗するのか（そしてそれを避ける方法）",
+        "excerpt": "プロップ会社トレーダーの90％以上がチャレンジに失敗しています。失敗につながる心理的な罠、リスク管理の間違い、戦略の欠陥を発見し、実証済みのバックテスト戦略がどのように優位性を与えるかを学びましょう。"
+      },
+      "cointegratedPairs": {
+        "title": "共統合ペア取引の説明",
+        "excerpt": "ペア取引は機関専用ではありません。共統合ペア取引の仕組み、方向性取引よりもリスクが低い理由、先物市場で収益性の高いペアの機会を識別する方法を学びましょう。"
+      },
+      "propFirmDrawdown": {
+        "title": "プロップ会社ドローダウントラップ",
+        "excerpt": "プロップ会社は、紙面上では寛大に見えるが、実際には不意を突くように設計されたドローダウン制限を設定します。毎日のドローダウン、トレーリングドローダウン、隠れたルールがチャレンジを早期に終了させる方法を理解しましょう。"
+      },
+      "orb": {
+        "title": "ORB戦略：オープニングレンジの取引",
+        "excerpt": "オープニングレンジブレイクアウト（ORB）戦略は、最初の1時間のボラティリティを利用します。この記事では、高確率のブレイクアウトを識別し、市場オープンを取引する際にリスクを管理する方法を説明します。"
+      }
+    }
+  },
+  "landing": {
+    "understandMarkets": "市場を理解する",
+    "markets": "市場",
+    "gainEdge": "優位性を獲得する",
+    "edge": "優位性",
+    "subtitle": "一貫性、リスク管理、規律のために構築されたプロップ会社フレンドリーなシステム。",
+    "seeItTrade": "60秒で取引を見る",
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "new": "新着！",
+    "propFirmFocused": "プロップ会社重視戦略",
+    "propFirmSubtitle": "プロップ会社のルールと一貫性のために構築",
+    "clearFilters": "フィルターをクリア",
+    "viewBacktest": "バックテストを表示",
+    "exploreBacktest": "バックテストを探索",
+    "loadMoreStrategies": "より多くの戦略を読み込む",
+    "loadMoreIndicators": "より多くのインジケーターを読み込む",
+    "winRate": "勝率",
+    "profitFactor": "利益係数",
+    "ourIndicators": "私たちのインジケーター",
+    "indicatorsSubtitle": "インジケーターで構築された計画と戦略で手動取引する方法を学ぶ",
+    "ourAutomatedStrategies": "私たちの自動化戦略",
+    "strategiesSubtitle": "自動化されたエントリーとエグジットで高度にカスタマイズ可能",
+    "wins": "勝利",
+    "winsSubtitle": "Discordのメンバーのツールを使用した勝利",
+    "officialVendor": "公式NinjaTraderエコシステムベンダー",
+    "affiliateLink": "（アフィリエイトリンク*）",
+    "signUp": "登録",
+    "signUpAriaLabel": "NinjaTraderに登録（アフィリエイトリンク、新しいタブで開く）",
+    "ninjaTraderDescription": "NinjaTrader、最高のデスクトップ取引プラットフォームに登録して、今日からFluxTrade戦略のバックテストを開始しましょう。",
+    "ninjaTraderEndorsement": "*NinjaTraderはこの推奨に対してFluxTradeに報酬を支払っています。",
+    "playCarousel": "カルーセルを再生",
+    "pauseCarousel": "カルーセルを一時停止",
+    "previousVideo": "前の動画",
+    "nextVideo": "次の動画",
+    "videoCarousel": "動画カルーセル",
+    "videoCarouselNav": "動画カルーセルナビゲーション",
+    "goToVideo": "{{label}}の動画に移動",
+    "demonstrationVideo": "{{label}}のデモンストレーション動画。クリックして再生または一時停止。",
+    "filters": {
+      "meanReversion": "平均回帰",
+      "conservative": "保守的",
+      "propFirmSafe": "プロップ会社安全",
+      "trend": "トレンド",
+      "scalping": "スキャルピング",
+      "momentum": "モメンタム",
+      "volatility": "ボラティリティ",
+      "levels": "レベル",
+      "signals": "シグナル"
+    },
+    "videoLabels": {
+      "previousLevels": "以前のレベル",
+      "fluxConfluence": "FluxConfluence",
+      "fluxPivot": "Flux Pivot",
+      "fluxSignal": "Flux Signal"
+    },
+    "indicators": {
+      "dynamicTrend": {
+        "name": "ダイナミックトレンド",
+        "features": [
+          "動的なトレンドライン",
+          "サポートとレジスタンス",
+          "クロス時のシグナル"
+        ]
+      },
+      "highLowBands": {
+        "name": "HighLowBands",
+        "features": [
+          "高値と安値のバンド検出",
+          "動的なサポートとレジスタンスレベル",
+          "ブレイクアウトとリバーサル取引に最適"
+        ]
+      },
+      "fluxTarget": {
+        "name": "FluxTarget",
+        "features": [
+          "動的なターゲットバンド",
+          "ボラティリティに適応",
+          "エグジットに最適"
+        ]
+      },
+      "marketPhase": {
+        "name": "マーケットフェーズ",
+        "features": [
+          "視覚的なマーケットフェーズ検出",
+          "トレンドとレンジのハイライト",
+          "解釈が容易"
+        ]
+      },
+      "ttmSqueeze": {
+        "name": "TTM Squeeze",
+        "features": [
+          "モメンタムとスクイーズ検出",
+          "ブレイクアウト取引に最適",
+          "視覚的なヒストグラム"
+        ]
+      },
+      "volatilityCycle": {
+        "name": "ボラティリティサイクル",
+        "features": [
+          "ボラティリティサイクルオシレーター",
+          "拡張と収縮を検出",
+          "他のインジケーターとよく組み合わせられる"
+        ]
+      },
+      "fluxConfluence": {
+        "name": "FluxConfluence",
+        "features": [
+          "トレンドに沿って取引",
+          "複数のコンフルエンスを取得",
+          "買いと売りのシグナル"
+        ]
+      },
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "features": [
+          "買いと売りの間のピボット",
+          "既存のポジションに追加",
+          "スマートピボット検出"
+        ]
+      },
+      "fluxSignal": {
+        "name": "FluxSignal",
+        "features": [
+          "変化する市場を理解",
+          "買いと売りのシグナル",
+          "新しいトレンドを開始時にキャッチ"
+        ]
+      },
+      "marketRegime": {
+        "name": "マーケットレジーム",
+        "features": [
+          "マーケットレジームを理解",
+          "高ボラティリティと低ボラティリティ",
+          "横ばいまたはトレンド"
+        ]
+      },
+      "parabolicRSI": {
+        "name": "パラボリックRSI",
+        "features": [
+          "パラボリックSAR + RSI",
+          "Ultimate Entry Indicatorと組み合わせ",
+          "買われすぎと売られすぎの領域"
+        ]
+      },
+      "previousLevels": {
+        "name": "以前のレベル",
+        "features": [
+          "以前の高値と安値を識別",
+          "リバーサルとブレイクアウトを取引",
+          "昨日、プレマーケット、オープニングレンジ"
+        ]
+      }
+    },
+    "strategies": {
+      "averageBounce": {
+        "name": "AverageBounce",
+        "features": [
+          "平均回帰戦略",
+          "重要な平均レベルからのバウンス",
+          "自動化されたエントリーとエグジット"
+        ]
+      },
+      "megaBands": {
+        "name": "MegaBands",
+        "features": [
+          "動的なバンドベースの戦略",
+          "ボラティリティ適応型エントリー",
+          "バンドを使用したトレンドフォロー"
+        ]
+      },
+      "stopHunter": {
+        "name": "StopHunter",
+        "features": [
+          "ストップロスレベルのターゲット",
+          "流動性スイープ検出",
+          "自動化されたエントリーシグナル"
+        ]
+      },
+      "chatGPT": {
+        "name": "ChatGPT",
+        "features": [
+          "AI駆動の戦略シグナル",
+          "機械学習ベースのエントリー",
+          "市場状況に適応"
+        ]
+      },
+      "orms": {
+        "name": "ORMS",
+        "features": [
+          "NYオープンレンジ周辺のモメンタムスキャルピング",
+          "オープンレンジモメンタムシフトを使用",
+          "厳格なリスク管理と迅速なターゲット"
+        ]
+      },
+      "liquiditySweep": {
+        "name": "流動性スイープ",
+        "features": [
+          "重要なレベル周辺の流動性をスイープ",
+          "フェードとブレイクアウトモード",
+          "リスク管理されたエントリー"
+        ]
+      },
+      "slowAndSteady": {
+        "name": "スローアンドステディ",
+        "features": [
+          "高確率、低頻度のセットアップ",
+          "厳格なリスクコントロール",
+          "保守的な成長に理想的"
+        ]
+      },
+      "superMomentum": {
+        "name": "スーパーモメンタム",
+        "features": [
+          "モメンタム継続シグナル",
+          "トレーリングストップ付きの動的ターゲット",
+          "強いトレンド日に最適"
+        ]
+      },
+      "donchianTurtle": {
+        "name": "Donchian Turtle",
+        "features": [
+          "Donchianチャネルを使用したブレイクアウト戦略",
+          "ピラミディングによるトレンドフォロー",
+          "ATRベースのストップとポジションサイジング"
+        ]
+      },
+      "ichimokoStrat": {
+        "name": "IchimokoStrat",
+        "features": [
+          "一目均衡表ベースのエントリー",
+          "雲、転換線/基準線のクロス、遅行スパン",
+          "すべてのマーケットレジームで機能"
+        ]
+      },
+      "keltnerStrat": {
+        "name": "KeltnerStrat",
+        "features": [
+          "Keltnerチャネルのブレイクアウトとプルバック",
+          "ボラティリティ適応型ターゲットとストップ",
+          "モメンタムフィルターとよく組み合わせられる"
+        ]
+      },
+      "futurePredictionServer": {
+        "name": "未来予測サーバー",
+        "features": [
+          "ラベリングと予測に機械学習を使用",
+          "リモートサーバーに呼び出し",
+          "強化学習アルゴリズム"
+        ]
+      },
+      "quadConfluence": {
+        "name": "クワッドコンフルエンス",
+        "features": [
+          "複数のエントリートリガータイプ",
+          "複数のコンフルエンスを探す",
+          "動的なターゲットとストップ"
+        ]
+      },
+      "holyGrailAdaptive": {
+        "name": "ホーリーグレイル適応型",
+        "features": [
+          "適応型トレンドフォロー",
+          "自動化されたエントリーとエグジット",
+          "ターゲットとリスクコントロール"
+        ]
+      },
+      "elliotWave": {
+        "name": "ElliotWave",
+        "features": [
+          "自動化されたエリオット波動カウント",
+          "推進波と修正波を識別",
+          "構造に合わせたリスクターゲット"
+        ]
+      },
+      "iccChoCh": {
+        "name": "ICC ChoCh",
+        "features": [
+          "スマート構造シフト検出",
+          "リバーサルのためのChoCh/BOSシグナル",
+          "トレンド継続とリバーサルロジック"
+        ]
+      },
+      "lowVolatility": {
+        "name": "低ボラティリティ",
+        "features": [
+          "静かなレジームでの平均回帰",
+          "適応型フィルターとバンド",
+          "スクイーズ拡張をキャッチ"
+        ]
+      },
+      "projectGamma": {
+        "name": "プロジェクトガンマ",
+        "features": [
+          "強気と弱気の包み込みパターン検出",
+          "ボラティリティを意識したエントリーとエグジット",
+          "インデックスと先物で優れた性能"
+        ]
+      },
+      "trendCatcher": {
+        "name": "TrendCatcher",
+        "features": [
+          "持続的なトレンドに乗る",
+          "動的なトレーリングストップロジック",
+          "マルチタイムフレーム確認"
+        ]
+      },
+      "orb": {
+        "name": "ORB（オープニングレンジブレイク）",
+        "features": [
+          "クラシックなオープニングレンジブレイクアウト",
+          "自動化されたエントリーとエグジット",
+          "すべてのタイムフレームで機能",
+          "ボラティリティとモメンタムに最適"
+        ]
+      },
+      "cointegratedPairs": {
+        "name": "CointegratedPairs",
+        "features": [
+          "ペア取引戦略",
+          "統計的アービトラージ",
+          "動的Zスコアエントリーとエグジット"
+        ]
+      },
+      "rileySR": {
+        "name": "RileySR",
+        "features": [
+          "サポート/レジスタンスブレイクアウト",
+          "複数のインジケーターフィルター",
+          "出来高とRSIの確認"
+        ]
+      },
+      "fluxLightning": {
+        "name": "FluxLightning",
+        "features": [
+          "完全自動化戦略",
+          "トレンド市場に最適",
+          "ロングとショートシグナル"
+        ]
+      },
+      "fluxPivotStrategy": {
+        "name": "FluxPivot戦略",
+        "features": [
+          "自動化されたピボット検出",
+          "機関レベルでの取引",
+          "FluxPivotインジケーターと非常に良く機能"
+        ]
+      },
+      "fluxSignalStrategy": {
+        "name": "FluxSignal戦略",
+        "features": [
+          "エントリーにFlux Signalを使用",
+          "トレンドを早期にキャッチ",
+          "シンプルで使いやすい"
+        ]
+      },
+      "fluxTrident": {
+        "name": "FluxTrident",
+        "features": [
+          "3ステップトレンド確認",
+          "強力なスキャルピング戦略",
+          "強いトレンド継続を識別"
+        ]
+      }
+    },
+    "propFocusedStrategies": {
+      "centauri": {
+        "name": "Centauri",
+        "features": [
+          "プロップ会社に優しいリスク管理",
+          "低ドローダウンと一貫性のために設計",
+          "厳格な日次損失コンプライアンス"
+        ]
+      },
+      "mars": {
+        "name": "Mars",
+        "features": [
+          "規律あるリスク管理のモメンタム",
+          "適応型ターゲットとストップ",
+          "プロップアカウントスケーリングフォーカス"
+        ]
+      },
+      "moon": {
+        "name": "Moon",
+        "features": [
+          "厳格なコントロールでのトレンドキャプチャ",
+          "高品質なシグナルフィルタリング",
+          "一貫したパフォーマンス特性"
+        ]
+      },
+      "pluto": {
+        "name": "Pluto",
+        "features": [
+          "構造化されたエントリーとエグジット",
+          "ボラティリティを意識したポジションサイジング",
+          "プロップ会社目標との整合"
+        ]
+      }
+    }
+  },
+  "streaming": {
+    "title": "ライブストリーム",
+    "description": "Twitchでライブトレーディングストリームを視聴",
+    "followUs": "フォローする",
+    "followYouTube": "YouTubeでフォロー（新しいタブで開く）",
+    "followTwitch": "Twitchでフォロー（新しいタブで開く）",
+    "followInstagram": "Instagramでフォロー（新しいタブで開く）",
+    "followTikTok": "TikTokでフォロー（新しいタブで開く）",
+    "followFacebook": "Facebookでフォロー（新しいタブで開く）"
+  },
+  "backtestExplorer": {
+    "loading": "バックテストデータを読み込み中...",
+    "seoTitle": "バックテストエクスプローラー - 戦略パフォーマンス分析",
+    "seoDescription": "FluxTrade戦略の包括的なバックテスト結果を探索。さまざまな商品と市場条件におけるパフォーマンス指標、利益分布、戦略比較を分析。",
+    "seoKeywords": "バックテスト結果、トレーディング戦略パフォーマンス、戦略分析、トレーディング指標、バックテストエクスプローラー、戦略比較",
+    "title": "バックテストエクスプローラー",
+    "subtitle": "バックテスト結果のインタラクティブ分析。戦略、商品、セッションでフィルタリング。",
+    "strategy": "戦略",
+    "instrument": "商品",
+    "session": "セッション",
+    "currency": "通貨",
+    "all": "すべて",
+    "totalTrades": "総取引数",
+    "winRate": "勝率",
+    "totalProfit": "総利益",
+    "maxDrawdown": "最大ドローダウン",
+    "profitFactor": "プロフィットファクター",
+    "avgWin": "平均利益",
+    "avgLoss": "平均損失",
+    "largestWin": "最大利益",
+    "largestLoss": "最大損失",
+    "equityCurve": "エクイティカーブ",
+    "drawdown": "ドローダウン",
+    "profitDistribution": "利益分布",
+    "tradeCount": "取引数",
+    "tradeDetails": "取引詳細",
+    "tradeNumber": "取引 #",
+    "entryTime": "エントリー時間",
+    "profit": "利益",
+    "cumProfit": "累積利益",
+    "equityLabel": "エクイティ（{{currency}}）",
+    "drawdownLabel": "ドローダウン（{{currency}}）",
+    "showingTrades": "{{total}}件中最初の100件を表示",
+    "sessions": {
+      "Morning": "朝",
+      "Afternoon": "午後",
+      "Evening": "夕方",
+      "Night": "夜",
+      "Unknown": "不明"
+    }
+  },
+  "pricing": {
+    "title": "プランを選択",
+    "subtitle": "カスタマイズされたプランで FluxTrade の全機能を活用しましょう。",
+    "freeTrial": "月額プランには30日間の無料トライアルが含まれます！",
+    "save": "節約",
+    "save10": "10%節約",
+    "save17": "17%節約",
+    "save10Percent": "10%節約",
+    "save17Percent": "17%節約",
+    "noCommitment": "契約の縛りなし。いつでもキャンセル可能。",
+    "billingPeriods": {
+      "monthly": "/月",
+      "quarterly": "/四半期",
+      "yearly": "/年",
+      "monthlyLabel": "月額",
+      "quarterlyLabel": "四半期",
+      "yearlyLabel": "年額"
+    },
+    "buttons": {
+      "startTrial": "30日間の無料トライアルを開始",
+      "startTrialNinjaTrader": "NinjaTraderで30日間の無料トライアルを開始",
+      "startTrialTradingView": "TradingViewで30日間の無料トライアルを開始",
+      "startTrialBoth": "両プラットフォームで30日間の無料トライアルを開始",
+      "subscribeNow": "今すぐ購読",
+      "subscribeNinjaTrader": "NinjaTraderで購読",
+      "subscribeTradingView": "TradingViewで購読"
+    },
+    "errors": {
+      "sessionExpired": "セッションが期限切れです。続行するには再度サインインしてください。",
+      "checkoutError": "チェックアウトセッションの作成中にエラーが発生しました。もう一度お試しください。"
+    },
+    "seo": {
+      "title": "料金 - トレーディングソフトウェアサブスクリプション",
+      "description": "トレーディングニーズに最適な FluxTrade サブスクリプションプランを選択してください。NinjaTrader と TradingView 用の自動化された戦略、インジケーター、プロフェッショナルなトレーディングツールにアクセスできます。柔軟な月額、四半期、年間プランをご利用いただけます。",
+      "keywords": "トレーディングソフトウェア料金, ninjatrader サブスクリプション, tradingview 戦略料金, 自動化トレーディングサブスクリプション, プロップファームトレーディングツール料金"
+    },
+    "products": {
+      "category": "トレーディングソフトウェアサブスクリプション",
+      "platforms": {
+        "single": "NinjaTrader または TradingView",
+        "both": "NinjaTrader と TradingView"
+      },
+      "strategiesSingle": {
+        "name": "自動化戦略 - 単一プラットフォーム",
+        "description": "NinjaTrader または TradingView 用のすべての自動化トレーディング戦略にアクセス。選択したプラットフォーム用のインジケーターを含みます。"
+      },
+      "strategiesBoth": {
+        "name": "自動化戦略 - 両プラットフォーム",
+        "description": "NinjaTrader と TradingView 用のすべての自動化トレーディング戦略にアクセス。優先更新付きで両プラットフォーム用のインジケーターを含みます。"
+      },
+      "indicatorsSingle": {
+        "name": "トレーディングインジケーター - 単一プラットフォーム",
+        "description": "NinjaTrader または TradingView 用のすべてのトレーディングインジケーターにアクセス。プロフェッショナルレベルのテクニカル分析ツール。"
+      },
+      "indicatorsBoth": {
+        "name": "トレーディングインジケーター - 両プラットフォーム",
+        "description": "NinjaTrader と TradingView 用のすべてのトレーディングインジケーターにアクセス。両プラットフォーム用の完全なインジケータースイート。"
+      }
+    },
+    "plans": {
+      "strategiesSingle": {
+        "title": "自動化戦略",
+        "subtitle": "単一プラットフォーム",
+        "badge": "自動化戦略",
+        "features": {
+          "includesIndicators": "選択したプラットフォーム用のインジケーターを含む",
+          "allStrategies": "すべての自動化戦略にアクセス",
+          "newFeatures": "新機能への直接アクセス"
+        }
+      },
+      "strategiesBoth": {
+        "title": "自動化戦略",
+        "subtitle": "両プラットフォーム",
+        "mostPopular": "最も人気",
+        "badgeStrategies": "自動化戦略",
+        "badgeBothPlatforms": "両プラットフォーム",
+        "badgePriority": "優先更新",
+        "features": {
+          "includesIndicators": "両プラットフォーム用のインジケーターを含む",
+          "platforms": "NinjaTrader と TradingView",
+          "allStrategies": "すべての自動化戦略にアクセス"
+        }
+      },
+      "indicatorsSingle": {
+        "title": "インジケーター",
+        "subtitle": "単一プラットフォーム",
+        "features": {
+          "allIndicators": "すべてのインジケーターにアクセス",
+          "support": "24/7カスタマーサポート",
+          "cancelAnytime": "いつでもキャンセル可能"
+        }
+      },
+      "indicatorsBoth": {
+        "title": "インジケーター",
+        "subtitle": "両プラットフォーム",
+        "badge": "両プラットフォーム",
+        "features": {
+          "allIndicators": "すべてのインジケーターにアクセス",
+          "platforms": "NinjaTrader と TradingView",
+          "cancelAnytime": "いつでもキャンセル可能"
+        }
+      }
+    },
+    "test": {
+      "title": "テスト",
+      "subtitle": "Stripe テスト価格",
+      "description": "チェックアウトフローのテストのみ",
+      "button": "テストチェックアウトを使用",
+      "getStarted": "始める"
+    },
+    "comparison": {
+      "title": "プランと機能を比較",
+      "features": "機能",
+      "indicators": "インジケーター",
+      "strategies": "自動化戦略",
+      "singlePlatform": "単一プラットフォーム",
+      "bothPlatforms": "両プラットフォーム",
+      "mostPopular": "最も人気",
+      "accessIndicators": "すべてのインジケーターにアクセス",
+      "platformAccess": "プラットフォームアクセス",
+      "single": "単一",
+      "accessStrategies": "自動化戦略にアクセス",
+      "support": "24/7カスタマーサポート",
+      "newFeatures": "新機能への直接アクセス",
+      "priorityUpdates": "優先更新"
+    }
+  },
+  "tradingViewChart": {
+    "title": "サンプルチャート",
+    "subtitle": "インジケーターのオン/オフを切り替え、プリセットレイアウトを探索",
+    "presetLayouts": "プリセットレイアウト",
+    "hideIndicators": "インジケーターを非表示",
+    "showIndicators": "インジケーターを表示",
+    "custom": "カスタム",
+    "customLayout": "{{count}}個のインジケーターを含むカスタムレイアウト",
+    "customLayoutPlural": "{{count}}個のインジケーターを含むカスタムレイアウト",
+    "toggleIndicators": "インジケーターの切り替え",
+    "activeCount": "{{count}}個アクティブ",
+    "on": "ON",
+    "loadingChart": "チャートを読み込み中...",
+    "loadingMoreData": "さらにデータを読み込み中...",
+    "tip": "💡 ヒント：さまざまなプリセットレイアウトを試すか、独自のインジケーターの組み合わせをカスタマイズしてください！",
+    "footer": "チャートは Lightweight Charts で動作 • インジケーターは FluxTrade 提供",
+    "presets": {
+      "fluxTrade": {
+        "name": "FluxTrade",
+        "description": "ステップMAとシグナルを備えたFluxTradeのフラグシップインジケーター"
+      },
+      "trendFollowing": {
+        "name": "トレンドフォロー",
+        "description": "トレンドを早期に捉えるのに最適"
+      },
+      "momentum": {
+        "name": "モメンタム",
+        "description": "モメンタムシフトとブレイクアウトを発見"
+      },
+      "supportResistance": {
+        "name": "サポート/レジスタンス",
+        "description": "重要なレベルと反転を取引"
+      },
+      "allIndicators": {
+        "name": "すべてのインジケーター",
+        "description": "すべてを一度に表示"
+      },
+      "minimal": {
+        "name": "ミニマル",
+        "description": "クリーンでシンプル"
+      }
+    },
+    "indicators": {
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "description": "ステップMAとフリップ/追加シグナルを備えたFluxTrade FluxPivot"
+      },
+      "movingAverage14": {
+        "name": "移動平均 (14)",
+        "description": "14期間移動平均"
+      },
+      "movingAverage50": {
+        "name": "移動平均 (50)",
+        "description": "50期間移動平均"
+      },
+      "movingAverage200": {
+        "name": "移動平均 (200)",
+        "description": "200期間移動平均"
+      },
+      "ema12": {
+        "name": "EMA (12)",
+        "description": "12期間指数移動平均"
+      },
+      "ema26": {
+        "name": "EMA (26)",
+        "description": "26期間指数移動平均"
+      }
+    },
+    "directions": {
+      "long": "ロング",
+      "short": "ショート",
+      "flat": "フラット"
+    }
+  }
+}

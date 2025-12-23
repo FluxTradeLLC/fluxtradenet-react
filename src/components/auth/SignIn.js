@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 // import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import api from "../../api/axios";
 import Cookies from "js-cookie";
 
 export const SignIn = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -28,7 +30,7 @@ export const SignIn = () => {
       // alert('Signed in!');
       window.location.reload();
     } catch (err) {
-      setError(err.response?.data?.error || "Sign in failed");
+      setError(err.response?.data?.error || t("auth.signInFailed"));
     }
   };
 
@@ -38,14 +40,14 @@ export const SignIn = () => {
       const res = await api.get("/users/login/google");
       window.location.href = res.data.url;
     } catch (err) {
-      setError(err.response?.data?.error || "Google sign in failed");
+      setError(err.response?.data?.error || t("auth.googleSignInFailed"));
     }
   };
 
   return (
     <div className="max-w-md mx-auto p-8 bg-gray-800 rounded-lg shadow-lg">
       <h2 className="text-2xl font-bold text-center text-white mb-8">
-        Sign In
+        {t("auth.signIn")}
       </h2>
       {error && (
         <p
@@ -59,12 +61,12 @@ export const SignIn = () => {
       <form onSubmit={handleEmailSubmit} aria-label="Sign in form">
         <div className="mb-4">
           <label htmlFor="signin-email" className="sr-only">
-            Email
+            {t("auth.email")}
           </label>
           <input
             id="signin-email"
             type="email"
-            placeholder="Email"
+            placeholder={t("auth.email")}
             className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -74,12 +76,12 @@ export const SignIn = () => {
         </div>
         <div className="mb-6">
           <label htmlFor="signin-password" className="sr-only">
-            Password
+            {t("auth.password")}
           </label>
           <input
             id="signin-password"
             type="password"
-            placeholder="Password"
+            placeholder={t("auth.password")}
             className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -89,7 +91,7 @@ export const SignIn = () => {
         </div>
         <div className="mb-6">
           <p className="text-sm text-gray-300 text-center">
-            By using this service, you agree to the{" "}
+            {t("auth.byUsingService")}{" "}
             <Link
               to="/terms"
               onClick={(e) => {
@@ -98,9 +100,9 @@ export const SignIn = () => {
               }}
               className="text-blue-400 hover:text-blue-300 underline"
             >
-              Terms and Conditions
+              {t("footer.terms")}
             </Link>{" "}
-            and{" "}
+            {t("auth.and")}{" "}
             <Link
               to="/policies"
               onClick={(e) => {
@@ -109,7 +111,7 @@ export const SignIn = () => {
               }}
               className="text-blue-400 hover:text-blue-300 underline"
             >
-              Refund and Cancellation Policies
+              {t("footer.refundPolicies")}
             </Link>
           </p>
         </div>
@@ -117,24 +119,24 @@ export const SignIn = () => {
           type="submit"
           disabled={!email || !password}
           className="w-full bg-[#5865F2] hover:bg-[#4752C4] disabled:bg-gray-600 disabled:cursor-not-allowed disabled:hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-          aria-label="Sign in to your account"
+          aria-label={t("auth.signIn")}
         >
-          Sign In
+          {t("auth.signIn")}
         </button>
       </form>
       <div
         className="relative flex py-5 items-center"
         role="separator"
-        aria-label="Or"
+        aria-label={t("auth.or")}
       >
         <div className="flex-grow border-t border-gray-600"></div>
-        <span className="flex-shrink mx-4 text-gray-400">OR</span>
+        <span className="flex-shrink mx-4 text-gray-400">{t("auth.or")}</span>
         <div className="flex-grow border-t border-gray-600"></div>
       </div>
       <button
         onClick={handleGoogleSubmit}
         className="w-full bg-white hover:bg-gray-100 text-gray-900 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm flex items-center justify-center"
-        aria-label="Sign in with Google"
+        aria-label={t("auth.signInWithGoogle")}
       >
         <svg
           className="w-5 h-5 mr-2"
@@ -159,7 +161,7 @@ export const SignIn = () => {
             d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.089,5.571l6.19,5.238C42.022,34.627,44,29.692,44,24C44,22.659,43.862,21.35,43.611,20.083z"
           />
         </svg>
-        Sign In with Google
+        {t("auth.signInWithGoogle")}
       </button>
     </div>
   );

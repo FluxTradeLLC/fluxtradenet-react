@@ -1,0 +1,54 @@
+{
+  "backToBlog": "Retour au Blog",
+  "category": "Introduction à la Stratégie",
+  "cta": {
+    "button": "Voir les Résultats de Backtest",
+    "description": "Consultez les résultats complets de backtest pour Flux Trident pour voir comment cette stratégie performe dans différentes conditions de marché.",
+    "heading": "Prêt à Voir les Résultats?"
+  },
+  "sections": {
+    "whatIsFluxTrident": {
+      "content": "La stratégie Flux Trident est construite sur le principe de confluence—combiner plusieurs signaux de différentes périodes et indicateurs pour augmenter la probabilité de trades réussis. Contrairement aux stratégies à indicateur unique qui peuvent donner de faux signaux, Flux Trident nécessite un alignement entre plusieurs facteurs avant d'entrer en position.",
+      "heading": "Qu'est-ce que Flux Trident?"
+    },
+    "coreComponents": {
+      "heading": "Composants Principaux",
+      "intro": "La stratégie intègre trois \"branches\" principales d'analyse:",
+      "points": [
+        {
+          "label": "Identification de Tendance:",
+          "text": "Détermine la direction globale du marché en utilisant l'analyse multi-périodes"
+        },
+        {
+          "label": "Confirmation de Momentum:",
+          "text": "Utilise des indicateurs de momentum propriétaires pour confirmer le timing d'entrée"
+        },
+        {
+          "label": "Précision d'Entrée:",
+          "text": "Combine l'action des prix avec l'analyse du volume pour des points d'entrée optimaux"
+        }
+      ]
+    },
+    "whyItWorks": {
+      "content": "En exigeant une confluence sur plusieurs périodes et indicateurs, Flux Trident filtre les configurations à faible probabilité. Cette approche réduit les faux signaux et améliore le taux de réussite tout en maintenant des ratios risque-récompense favorables. La stratégie s'adapte à différentes conditions de marché, qu'elles soient en tendance ou en range.",
+      "heading": "Pourquoi Ça Fonctionne"
+    },
+    "keyAdvantages": {
+      "heading": "Avantages Clés",
+      "points": [
+        "L'approche systématique réduit les décisions de trading émotionnelles",
+        "L'analyse multi-périodes fournit un meilleur timing d'entrée",
+        "Fonctionne dans diverses conditions de marché",
+        "Les performances backtestées montrent des résultats cohérents"
+      ]
+    }
+  },
+  "seo": {
+    "description": "Flux Trident est une stratégie de confluence multi-périodes qui combine l'analyse de tendance avec des indicateurs de momentum. Découvrez comment cette approche systématique identifie des entrées à haute probabilité dans diverses conditions de marché.",
+    "keywords": "flux trident, stratégie de trading, analyse multi-périodes, trading de confluence, suivi de tendance, indicateurs de momentum, trading automatisé",
+    "title": "Stratégie Flux Trident - Trading de Confluence Multi-Périodes"
+  },
+  "subtitle": "Flux Trident est une stratégie de confluence multi-périodes qui combine l'analyse de tendance avec des indicateurs de momentum. Cette approche systématique identifie des entrées à haute probabilité dans diverses conditions de marché.",
+  "title": "Introduction à la Stratégie Flux Trident"
+}
+

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import fluxLogo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
+import { LanguageSelector } from "./LanguageSelector";
 
 export const Header = () => {
+  const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
   const location = useLocation();
   // const [hasSession, setHasSession] = useState(false);
@@ -38,50 +41,55 @@ export const Header = () => {
             FluxTrade
           </h1>
         </Link>
-        <button
-          aria-label={
-            isMenuOpen ? "Close navigation menu" : "Open navigation menu"
-          }
-          aria-expanded={isMenuOpen}
-          aria-controls="main-navigation"
-          className="xl:hidden absolute right-6 top-6 ml-auto mt-2 p-2 rounded-lg border border-gray-700 hover:bg-gray-800"
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-        >
-          {isMenuOpen ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"
-              />
-            </svg>
-          )}
-        </button>
+        <div className="xl:hidden absolute right-6 top-6 flex items-center space-x-2">
+          <LanguageSelector />
+          <button
+            aria-label={
+              isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
+            aria-expanded={isMenuOpen}
+            aria-controls="main-navigation"
+            className="ml-auto mt-2 p-2 rounded-lg border border-gray-700 hover:bg-gray-800"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+          >
+            {isMenuOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"
+                />
+              </svg>
+            )}
+          </button>
+        </div>
         <nav
           id="main-navigation"
-          className={`${isMenuOpen ? "flex" : "hidden"} xl:flex lg:flex-1 w-full flex-col lg:flex-row gap-2 md:flex-wrap justify-center lg:justify-end items-center space-y-2 md:space-y-0 lg:space-y-0 lg:gap-4 p-6 rounded-lg`}
+          className={`${
+            isMenuOpen ? "flex" : "hidden"
+          } xl:flex lg:flex-1 w-full flex-col lg:flex-row gap-2 md:flex-wrap justify-center lg:justify-end items-center space-y-2 md:space-y-0 lg:space-y-0 lg:gap-4 p-6 rounded-lg`}
           role="navigation"
           aria-label="Main navigation"
         >
@@ -89,11 +97,15 @@ export const Header = () => {
             <li>
               <Link
                 to="/"
-                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/" ? "border-white" : "border-transparent"}`}
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${
+                  location.pathname === "/"
+                    ? "border-white"
+                    : "border-transparent"
+                }`}
                 style={{ textDecoration: "none" }}
                 aria-current={location.pathname === "/" ? "page" : undefined}
               >
-                <span>Home</span>
+                <span>{t("header.home")}</span>
               </Link>
             </li>
           </ul>
@@ -101,7 +113,13 @@ export const Header = () => {
             <li>
               <Link
                 to="/pricing"
-                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600 ${prefersReducedMotion ? "" : "animate-soft-gradient"} text-w font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:bg-gradient-to-l border-2 ${location.pathname === "/pricing" ? "border-white" : "border-transparent"}`}
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600 ${
+                  prefersReducedMotion ? "" : "animate-soft-gradient"
+                } text-w font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:bg-gradient-to-l border-2 ${
+                  location.pathname === "/pricing"
+                    ? "border-white"
+                    : "border-transparent"
+                }`}
                 style={{
                   textDecoration: "none",
                   backgroundSize: "200% 200%",
@@ -113,7 +131,7 @@ export const Header = () => {
                   location.pathname === "/pricing" ? "page" : undefined
                 }
               >
-                <span>Pricing</span>
+                <span>{t("header.pricing")}</span>
               </Link>
             </li>
           </ul>
@@ -121,7 +139,11 @@ export const Header = () => {
             <li>
               <Link
                 to="/backtests/explorer"
-                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/backtests/explorer" ? "border-white" : "border-transparent"}`}
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${
+                  location.pathname === "/backtests/explorer"
+                    ? "border-white"
+                    : "border-transparent"
+                }`}
                 style={{ textDecoration: "none" }}
                 aria-current={
                   location.pathname === "/backtests/explorer"
@@ -129,7 +151,7 @@ export const Header = () => {
                     : undefined
                 }
               >
-                <span>Backtest Explorer</span>
+                <span>{t("header.backtestExplorer")}</span>
               </Link>
             </li>
           </ul>
@@ -137,13 +159,17 @@ export const Header = () => {
             <li>
               <Link
                 to="/blog"
-                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/blog" ? "border-white" : "border-transparent"}`}
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${
+                  location.pathname === "/blog"
+                    ? "border-white"
+                    : "border-transparent"
+                }`}
                 style={{ textDecoration: "none" }}
                 aria-current={
                   location.pathname === "/blog" ? "page" : undefined
                 }
               >
-                <span>Blog</span>
+                <span>{t("header.blog")}</span>
               </Link>
             </li>
           </ul>
@@ -151,13 +177,17 @@ export const Header = () => {
             <li>
               <Link
                 to="/affiliates"
-                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/affiliates" ? "border-white" : "border-transparent"}`}
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${
+                  location.pathname === "/affiliates"
+                    ? "border-white"
+                    : "border-transparent"
+                }`}
                 style={{ textDecoration: "none" }}
                 aria-current={
                   location.pathname === "/affiliates" ? "page" : undefined
                 }
               >
-                <span>Affiliates</span>
+                <span>{t("header.affiliates")}</span>
               </Link>
             </li>
           </ul>
@@ -165,13 +195,17 @@ export const Header = () => {
             <li>
               <Link
                 to="/account"
-                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/account" ? "border-white" : "border-transparent"}`}
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${
+                  location.pathname === "/account"
+                    ? "border-white"
+                    : "border-transparent"
+                }`}
                 style={{ textDecoration: "none" }}
                 aria-current={
                   location.pathname === "/account" ? "page" : undefined
                 }
               >
-                <span>Account</span>
+                <span>{t("header.account")}</span>
               </Link>
             </li>
           </ul>
@@ -179,13 +213,17 @@ export const Header = () => {
             <li>
               <Link
                 to="/support"
-                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/support" ? "border-white" : "border-transparent"}`}
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${
+                  location.pathname === "/support"
+                    ? "border-white"
+                    : "border-transparent"
+                }`}
                 style={{ textDecoration: "none" }}
                 aria-current={
                   location.pathname === "/support" ? "page" : undefined
                 }
               >
-                <span>Support</span>
+                <span>{t("header.support")}</span>
               </Link>
             </li>
           </ul>
@@ -193,13 +231,17 @@ export const Header = () => {
             <li>
               <Link
                 to="/stream"
-                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#9146FF] hover:bg-[#772CE8] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${location.pathname === "/stream" ? "border-white" : "border-transparent"}`}
+                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#9146FF] hover:bg-[#772CE8] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${
+                  location.pathname === "/stream"
+                    ? "border-white"
+                    : "border-transparent"
+                }`}
                 style={{ textDecoration: "none" }}
                 aria-current={
                   location.pathname === "/stream" ? "page" : undefined
                 }
               >
-                <span>Live Stream</span>
+                <span>{t("header.liveStream")}</span>
               </Link>
             </li>
           </ul>
@@ -209,7 +251,7 @@ export const Header = () => {
                 href="https://discord.gg/UTcxDRQ26U"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 text-gray-400 hover:text-gray-300 py-2 px-4 transition-colors duration-200 border border-gray-700 rounded-lg p-2"
+                className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 text-gray-400 hover:text-gray-300 font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 border-gray-700"
                 style={{ textDecoration: "none" }}
                 aria-label="Join FluxTrade Discord community (opens in new tab)"
               >
@@ -218,10 +260,13 @@ export const Header = () => {
                   size="sm"
                   aria-hidden="true"
                 />
-                <span>Free Discord</span>
+                <span>{t("header.freeDiscord")}</span>
               </a>
             </li>
           </ul>
+          <div className="w-full lg:w-auto max-w-[500px] flex justify-center lg:justify-start">
+            <LanguageSelector />
+          </div>
         </nav>
       </div>
     </header>

@@ -1,0 +1,832 @@
+{
+  "header": {
+    "home": "홈",
+    "pricing": "가격",
+    "backtestExplorer": "백테스트 탐색기",
+    "blog": "블로그",
+    "affiliates": "제휴사",
+    "account": "계정",
+    "support": "지원",
+    "liveStream": "라이브 스트림",
+    "freeDiscord": "무료 Discord"
+  },
+  "language": {
+    "select": "언어 선택",
+    "english": "영어",
+    "spanish": "스페인어",
+    "french": "프랑스어",
+    "german": "독일어",
+    "chinese": "중국어",
+    "japanese": "일본어",
+    "portuguese": "포르투갈어",
+    "italian": "이탈리아어",
+    "russian": "러시아어",
+    "korean": "한국어"
+  },
+  "footer": {
+    "navigation": "내비게이션",
+    "home": "홈",
+    "pricing": "가격",
+    "account": "계정",
+    "refundPolicies": "환불 및 취소 정책",
+    "affiliates": "제휴사",
+    "support": "지원",
+    "terms": "이용 약관",
+    "followUs": "팔로우하기",
+    "disclaimers": "면책 조항",
+    "disclaimer1": "선물 및 외환 거래에는 상당한 위험이 포함되어 있으며 모든 투자자에게 적합하지 않습니다. 투자자는 초기 투자 전액 또는 그 이상을 잃을 수 있습니다. 위험 자본은 재정적 안전이나 생활 방식을 위협하지 않고 잃을 수 있는 돈입니다. 거래에는 위험 자본만 사용해야 하며 충분한 위험 자본을 가진 사람만 거래를 고려해야 합니다. 과거 성과가 반드시 미래 결과를 나타내는 것은 아닙니다",
+    "disclaimer2": "가상 성과 결과에는 아래에 설명된 것과 같은 많은 고유한 제한 사항이 있습니다. 표시된 것과 유사한 수익이나 손실을 달성하거나 달성할 가능성이 있다는 표현은 없습니다. 실제로 가상 성과 결과와 특정 거래 프로그램에 의해 나중에 달성된 실제 결과 사이에는 종종 큰 차이가 있습니다. 가상 성과 결과의 제한 사항 중 하나는 일반적으로 후견의 이점으로 준비된다는 것입니다. 또한 가상 거래는 재정적 위험을 수반하지 않으며, 가상 거래 기록은 실제 거래의 재정적 위험 영향을 완전히 설명할 수 없습니다. 예를 들어, 손실을 견디거나 거래 손실에도 불구하고 특정 거래 프로그램을 고수하는 능력은 실제 거래 결과에 부정적인 영향을 미칠 수 있는 중요한 포인트입니다. 시장 전반 또는 특정 거래 프로그램의 구현과 관련된 수많은 다른 요인들이 있으며, 이들은 가상 성과 결과 준비에서 완전히 고려될 수 없으며 모두 거래 결과에 부정적인 영향을 미칠 수 있습니다.",
+    "disclaimer3": "이 웹사이트에 나타나는 증언은 다른 고객이나 고객을 대표하지 않을 수 있으며 미래 성과나 성공을 보장하지 않습니다.",
+    "copyright": "저작권 © {{year}}, FluxTrade, LLC. 모든 권리 보유."
+  },
+  "stickyCTA": {
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "bothPlatforms": "두 플랫폼 모두",
+    "startTrial": "무료 체험 시작 (30일)",
+    "signUpTrial": "무료 체험을 시작하려면 가입 (30일)",
+    "startTrialLabel": "{{platform}}의 30일 무료 체험 시작",
+    "signUpTrialLabel": "{{platform}}의 30일 무료 체험을 시작하려면 가입"
+  },
+  "support": {
+    "title": "지원",
+    "description": "지원 문의사항은 이메일로 보내주세요",
+    "orSendMessage": "또는 아래 양식을 사용하여 메시지를 보내주세요.",
+    "discordHelp": "더 빠른 도움과 공지를 위해 Discord 커뮤니티에 가입할 수도 있습니다.",
+    "additionalResources": "추가 리소스",
+    "resourcesDescription": "지원에 문의하기 전에 정책 및 약관에서 일반적인 질문에 대한 답변을 찾을 수 있습니다:",
+    "refundInfo": "환불, 취소 및 구독 관리에 대한 정보는 다음을 방문하세요",
+    "termsInfo": "서비스 약관, 계정 책임 및 일반 약관에 대한 정보는 다음을 방문하세요",
+    "stillNeedHelp": "이 리소스를 검토한 후에도 여전히 도움이 필요하시면 아래 양식을 사용하여 언제든지 문의하시거나",
+    "emailDirectly": "직접 이메일을 보내주세요",
+    "sendMessage": "메시지 보내기",
+    "yourName": "이름",
+    "yourEmail": "이메일",
+    "subject": "제목",
+    "message": "메시지",
+    "sending": "전송 중...",
+    "sendEmail": "지원 이메일 보내기",
+    "success": "지원 이메일이 성공적으로 전송되었습니다! 곧 연락드리겠습니다.",
+    "error": "지원 이메일 전송 실패"
+  },
+  "affiliates": {
+    "title": "FluxTrade 제휴 프로그램",
+    "subtitle": "FluxTrade를 홍보하여 반복 수수료를 획득하세요. 우리 프로그램은 간단하고 투명하며 크리에이터 친화적입니다.",
+    "commission": "30%",
+    "commissionDesc": "추천한 모든 구독 결제에 대한 반복 수수료.",
+    "payouts": "Net-60 지급",
+    "payoutsDesc": "Net-60 일정에 따라 PayPal을 통해 지급됩니다.",
+    "useAssets": "자산 사용",
+    "useAssetsDesc": "프로모션에서 로고, 사이트 미디어 및 비디오를 사용할 수 있습니다.",
+    "freeTrial": "무료 체험",
+    "freeTrialDesc": "고객에게 30일 무료 체험을 제공합니다",
+    "powerfulTools": "강력한 도구",
+    "powerfulToolsDesc": "도구 제품군은 처음부터 구축되었습니다",
+    "growingCommunity": "성장하는 커뮤니티",
+    "growingCommunityDesc": "무료 Discord를 통해 거래자가 공유하고 협업할 수 있습니다",
+    "joinProgram": "제휴 프로그램 가입",
+    "programDetails": "프로그램 세부 정보",
+    "commissionLabel": "수수료:",
+    "commissionValue": "30% 반복",
+    "commissionFull": "추천한 구독에 대해.",
+    "payoutTerms": "지급 조건:",
+    "payoutValue": "Net-60",
+    "payoutMethod": "PayPal을 통해.",
+    "attribution": "귀속은 PromoteKit에서 처리됩니다. 추천은 자동으로 추적됩니다.",
+    "marketingAssets": "마케팅 자산: YouTube 채널의 로고 및 비디오를 포함하여 사이트의 모든 자료를 사용할 수 있습니다",
+    "marketingMaterials": "마케팅 자료",
+    "marketingMaterialsDesc": "사용할 수 있는 비디오를 포함합니다.",
+    "getStarted": "시작하려면 여기에서 제휴 계정을 만드세요:",
+    "questions": "추가 정보나 질문이 있으시면 이메일로 연락주세요"
+  },
+  "auth": {
+    "signIn": "로그인",
+    "signUp": "가입",
+    "email": "이메일",
+    "password": "비밀번호",
+    "signInFailed": "로그인 실패",
+    "googleSignInFailed": "Google 로그인 실패",
+    "registrationFailed": "등록 실패",
+    "agreeTerms": "다음에 동의합니다",
+    "and": "및",
+    "signInWithGoogle": "Google로 로그인",
+    "continueWithGoogle": "Google로 계속",
+    "or": "또는",
+    "validEmail": "유효한 이메일 주소를 입력하세요",
+    "byUsingService": "이 서비스를 사용하면 다음에 동의하는 것입니다"
+  },
+  "account": {
+    "title": "계정",
+    "loggedInAs": "로그인됨: {{email}}",
+    "signUpForPlan": "플랜 가입하기",
+    "freeTrialOffer": "모든 플랜은 30일 무료 체험을 제공합니다!",
+    "selectPlan": "플랜 선택",
+    "subscriptionSettings": "구독 설정",
+    "subscriptionSettingsDescription": "Stripe 고객 포털에 로그인하여 구독을 관리하고, 결제 방법을 업데이트하거나 구독을 취소하세요.",
+    "subscriptionSettingsButton": "구독 설정",
+    "subscriptionSettingsAriaLabel": "Stripe 고객 포털에서 구독 설정 관리",
+    "signOut": "로그아웃",
+    "signIn": "로그인",
+    "signUp": "가입",
+    "accountAuthentication": "계정 인증"
+  },
+  "blog": {
+    "title": "블로그",
+    "subtitle": "거래 전략을 이해하고 프로프 회사 환경을 탐색하는 데 도움이 되는 교육 콘텐츠",
+    "readFullArticle": "전체 기사 읽기",
+    "readyToStart": "거래를 시작할 준비가 되셨나요?",
+    "readyDesc": "백테스트된 전략을 탐색하고 거래 여정에 적합한 계획을 찾으세요",
+    "viewStrategies": "모든 전략 보기",
+    "seePricing": "가격 계획 보기",
+    "categories": {
+      "strategyIntro": "전략 소개",
+      "propFirmPitfalls": "프로프 회사 함정"
+    },
+    "articles": {
+      "fluxTrident": {
+        "title": "Flux Trident 전략 소개",
+        "excerpt": "Flux Trident는 추세 분석과 모멘텀 지표를 결합한 다중 시간대 합류 전략입니다. 이 체계적인 접근 방식이 다양한 시장 조건에서 높은 확률의 진입점을 식별하는 방법을 알아보세요."
+      },
+      "fluxSignal": {
+        "title": "Flux Signal 전략 이해하기",
+        "excerpt": "Flux Signal 전략은 독점 지표를 사용하여 초기 추세 반전 및 지속 패턴을 식별합니다. 이 기사는 이 전략을 효과적으로 만드는 핵심 개념과 진입 기준을 분석합니다."
+      },
+      "fluxPivot": {
+        "title": "Flux Pivot: 지지 및 저항 거래",
+        "excerpt": "Flux Pivot를 사용하여 주요 피벗 레벨을 거래하는 기술을 마스터하세요. 이 전략은 중요한 지지 및 저항 영역을 식별하고 거래하는 데 중점을 두며 가격 행동과 거래량 분석을 결합합니다."
+      },
+      "propFirmHiddenCosts": {
+        "title": "프로프 회사 챌린지의 숨겨진 비용",
+        "excerpt": "많은 거래자는 너무 늦을 때까지 프로프 회사 챌린지의 실제 비용을 깨닫지 못합니다. 숨겨진 수수료부터 비현실적인 수익 목표까지, 자금 조달된 계정 여정을 방해할 수 있는 일반적인 함정에 대해 알아보세요."
+      },
+      "propFirmFailure": {
+        "title": "대부분의 프로프 회사 거래자가 실패하는 이유 (그리고 피하는 방법)",
+        "excerpt": "프로프 회사 거래자의 90% 이상이 챌린지에 실패합니다. 실패로 이어지는 심리적 함정, 위험 관리 실수 및 전략 결함을 발견하고 검증된 백테스트 전략이 어떻게 우위를 제공할 수 있는지 알아보세요."
+      },
+      "cointegratedPairs": {
+        "title": "공적분 쌍 거래 설명",
+        "excerpt": "쌍 거래는 기관 전용이 아닙니다. 공적분 쌍 거래가 어떻게 작동하는지, 방향성 거래보다 위험이 적은 이유, 선물 시장에서 수익성 있는 쌍 기회를 식별하는 방법을 알아보세요."
+      },
+      "propFirmDrawdown": {
+        "title": "프로프 회사 드로다운 함정",
+        "excerpt": "프로프 회사는 종이상으로는 관대해 보이지만 실제로는 당신을 방심하게 하도록 설계된 드로다운 제한을 설정합니다. 일일 드로다운, 추적 드로다운 및 숨겨진 규칙이 챌린지를 조기에 종료할 수 있는 방법을 이해하세요."
+      },
+      "orb": {
+        "title": "ORB 전략: 시작 범위 거래",
+        "excerpt": "시작 범위 돌파(ORB) 전략은 첫 시간의 변동성을 활용합니다. 이 기사는 높은 확률의 돌파를 식별하고 시장 시작을 거래할 때 위험을 관리하는 방법을 설명합니다."
+      }
+    }
+  },
+  "landing": {
+    "understandMarkets": "시장을 이해하세요",
+    "markets": "시장",
+    "gainEdge": "우위를 얻으세요",
+    "edge": "우위",
+    "subtitle": "일관성, 위험 관리 및 규율을 위해 구축된 프로프 회사 친화적 시스템.",
+    "seeItTrade": "60초 안에 거래 보기",
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "new": "신규!",
+    "propFirmFocused": "프로프 회사 중심 전략",
+    "propFirmSubtitle": "프로프 회사 규칙과 일관성을 위해 구축",
+    "clearFilters": "필터 지우기",
+    "viewBacktest": "백테스트 보기",
+    "exploreBacktest": "백테스트 탐색",
+    "loadMoreStrategies": "더 많은 전략 로드",
+    "loadMoreIndicators": "더 많은 지표 로드",
+    "winRate": "승률",
+    "profitFactor": "수익 계수",
+    "ourIndicators": "우리의 지표",
+    "indicatorsSubtitle": "지표로 구축된 계획과 전략으로 수동 거래하는 방법 배우기",
+    "ourAutomatedStrategies": "우리의 자동화 전략",
+    "strategiesSubtitle": "자동화된 진입 및 청산으로 높은 수준의 맞춤 설정 가능",
+    "wins": "승리",
+    "winsSubtitle": "Discord 회원의 도구를 사용한 승리",
+    "officialVendor": "공식 NinjaTrader 생태계 공급업체",
+    "affiliateLink": "(제휴 링크*)",
+    "signUp": "가입하기",
+    "signUpAriaLabel": "NinjaTrader 가입하기 (제휴 링크, 새 탭에서 열림)",
+    "ninjaTraderDescription": "NinjaTrader, 최고의 데스크톱 거래 플랫폼에 가입하여 오늘부터 FluxTrade 전략의 백테스팅을 시작하세요.",
+    "ninjaTraderEndorsement": "*NinjaTrader는 이 추천에 대해 FluxTrade에 보상을 지급하고 있습니다.",
+    "playCarousel": "캐러셀 재생",
+    "pauseCarousel": "캐러셀 일시 정지",
+    "previousVideo": "이전 비디오",
+    "nextVideo": "다음 비디오",
+    "videoCarousel": "비디오 캐러셀",
+    "videoCarouselNav": "비디오 캐러셀 내비게이션",
+    "goToVideo": "{{label}} 비디오로 이동",
+    "demonstrationVideo": "{{label}} 데모 비디오. 재생 또는 일시 정지를 클릭하세요.",
+    "filters": {
+      "meanReversion": "평균 회귀",
+      "conservative": "보수적",
+      "propFirmSafe": "프로프 회사 안전",
+      "trend": "추세",
+      "scalping": "스캘핑",
+      "momentum": "모멘텀",
+      "volatility": "변동성",
+      "levels": "레벨",
+      "signals": "신호"
+    },
+    "videoLabels": {
+      "previousLevels": "이전 레벨",
+      "fluxConfluence": "FluxConfluence",
+      "fluxPivot": "Flux Pivot",
+      "fluxSignal": "Flux Signal"
+    },
+    "indicators": {
+      "dynamicTrend": {
+        "name": "동적 트렌드",
+        "features": [
+          "동적 트렌드라인",
+          "지지 및 저항",
+          "교차 시 신호"
+        ]
+      },
+      "highLowBands": {
+        "name": "HighLowBands",
+        "features": [
+          "고가 및 저가 밴드 감지",
+          "동적 지지 및 저항 수준",
+          "돌파 및 반전 거래에 최적"
+        ]
+      },
+      "fluxTarget": {
+        "name": "FluxTarget",
+        "features": [
+          "동적 목표 밴드",
+          "변동성에 적응",
+          "청산에 최적"
+        ]
+      },
+      "marketPhase": {
+        "name": "시장 단계",
+        "features": [
+          "시각적 시장 단계 감지",
+          "추세 및 범위 강조",
+          "해석이 쉬움"
+        ]
+      },
+      "ttmSqueeze": {
+        "name": "TTM Squeeze",
+        "features": [
+          "모멘텀 및 스퀴즈 감지",
+          "돌파 거래에 최적",
+          "시각적 히스토그램"
+        ]
+      },
+      "volatilityCycle": {
+        "name": "변동성 사이클",
+        "features": [
+          "변동성 사이클 오실레이터",
+          "확장 및 수축 감지",
+          "다른 지표와 잘 어울림"
+        ]
+      },
+      "fluxConfluence": {
+        "name": "FluxConfluence",
+        "features": [
+          "추세에 따른 거래",
+          "다중 합류점 획득",
+          "매수 및 매도 신호"
+        ]
+      },
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "features": [
+          "매수와 매도 사이의 피벗",
+          "기존 포지션에 추가",
+          "스마트 피벗 감지"
+        ]
+      },
+      "fluxSignal": {
+        "name": "FluxSignal",
+        "features": [
+          "변화하는 시장 이해",
+          "매수 및 매도 신호",
+          "새로운 추세를 시작할 때 포착"
+        ]
+      },
+      "marketRegime": {
+        "name": "시장 체제",
+        "features": [
+          "시장 체제 이해",
+          "높은 변동성과 낮은 변동성",
+          "횡보 또는 추세"
+        ]
+      },
+      "parabolicRSI": {
+        "name": "포물선 RSI",
+        "features": [
+          "포물선 SAR + RSI",
+          "Ultimate Entry Indicator와 페어링",
+          "과매수 및 과매도 영역"
+        ]
+      },
+      "previousLevels": {
+        "name": "이전 레벨",
+        "features": [
+          "이전 고점 및 저점 식별",
+          "반전 및 돌파 거래",
+          "어제, 프리마켓 및 개장 범위"
+        ]
+      }
+    },
+    "strategies": {
+      "averageBounce": {
+        "name": "AverageBounce",
+        "features": [
+          "평균 회귀 전략",
+          "주요 평균 수준에서 반등",
+          "자동화된 진입 및 청산"
+        ]
+      },
+      "megaBands": {
+        "name": "MegaBands",
+        "features": [
+          "동적 밴드 기반 전략",
+          "변동성 적응형 진입",
+          "밴드를 사용한 추세 추종"
+        ]
+      },
+      "stopHunter": {
+        "name": "StopHunter",
+        "features": [
+          "손절매 수준 타겟팅",
+          "유동성 스위프 감지",
+          "자동화된 진입 신호"
+        ]
+      },
+      "chatGPT": {
+        "name": "ChatGPT",
+        "features": [
+          "AI 기반 전략 신호",
+          "머신러닝 기반 진입",
+          "시장 조건에 적응"
+        ]
+      },
+      "orms": {
+        "name": "ORMS",
+        "features": [
+          "NY 개장 범위 주변 모멘텀 스캘핑",
+          "개장 범위 모멘텀 변화 사용",
+          "빠른 목표와 엄격한 리스크 관리"
+        ]
+      },
+      "liquiditySweep": {
+        "name": "유동성 스위프",
+        "features": [
+          "주요 수준 주변 유동성 스위프",
+          "페이드 및 돌파 모드",
+          "리스크 관리된 진입"
+        ]
+      },
+      "slowAndSteady": {
+        "name": "느리고 꾸준하게",
+        "features": [
+          "높은 확률, 낮은 빈도 설정",
+          "엄격한 리스크 제어",
+          "보수적 성장에 이상적"
+        ]
+      },
+      "superMomentum": {
+        "name": "슈퍼 모멘텀",
+        "features": [
+          "모멘텀 지속 신호",
+          "트레일링 스톱이 있는 동적 목표",
+          "강한 추세일에 최적"
+        ]
+      },
+      "donchianTurtle": {
+        "name": "Donchian Turtle",
+        "features": [
+          "Donchian 채널을 사용한 돌파 전략",
+          "피라미딩을 통한 추세 추종",
+          "ATR 기반 스톱 및 포지션 크기 조정"
+        ]
+      },
+      "ichimokoStrat": {
+        "name": "IchimokoStrat",
+        "features": [
+          "일목균형표 기반 진입",
+          "구름, 전환선/기준선 교차, 지표선",
+          "모든 시장 체제에서 작동"
+        ]
+      },
+      "keltnerStrat": {
+        "name": "KeltnerStrat",
+        "features": [
+          "Keltner 채널 돌파 및 되돌림",
+          "변동성 적응형 목표 및 스톱",
+          "모멘텀 필터와 잘 어울림"
+        ]
+      },
+      "futurePredictionServer": {
+        "name": "미래 예측 서버",
+        "features": [
+          "라벨링 및 예측을 위한 머신러닝 사용",
+          "원격 서버 호출",
+          "강화 학습 알고리즘"
+        ]
+      },
+      "quadConfluence": {
+        "name": "쿼드 합류점",
+        "features": [
+          "다중 진입 트리거 유형",
+          "다중 합류점 찾기",
+          "동적 목표 및 스톱"
+        ]
+      },
+      "holyGrailAdaptive": {
+        "name": "성배 적응형",
+        "features": [
+          "적응형 추세 추종",
+          "자동화된 진입 및 청산",
+          "목표 및 리스크 제어"
+        ]
+      },
+      "elliotWave": {
+        "name": "ElliotWave",
+        "features": [
+          "자동화된 엘리엇 파동 카운트",
+          "충격파 및 수정파 식별",
+          "구조에 정렬된 리스크 목표"
+        ]
+      },
+      "iccChoCh": {
+        "name": "ICC ChoCh",
+        "features": [
+          "스마트 구조 변화 감지",
+          "반전을 위한 ChoCh/BOS 신호",
+          "추세 지속 및 반전 로직"
+        ]
+      },
+      "lowVolatility": {
+        "name": "낮은 변동성",
+        "features": [
+          "조용한 체제에서의 평균 회귀",
+          "적응형 필터 및 밴드",
+          "스퀴즈 확장 포착"
+        ]
+      },
+      "projectGamma": {
+        "name": "프로젝트 감마",
+        "features": [
+          "강세 및 약세 엔걸핑 패턴 감지",
+          "변동성을 고려한 진입 및 청산",
+          "지수 및 선물에서 우수한 성능"
+        ]
+      },
+      "trendCatcher": {
+        "name": "TrendCatcher",
+        "features": [
+          "지속적인 추세 타기",
+          "동적 트레일링 스톱 로직",
+          "다중 타임프레임 확인"
+        ]
+      },
+      "orb": {
+        "name": "ORB (개장 범위 돌파)",
+        "features": [
+          "클래식 개장 범위 돌파",
+          "자동화된 진입 및 청산",
+          "모든 타임프레임에서 작동",
+          "변동성 및 모멘텀에 최적"
+        ]
+      },
+      "cointegratedPairs": {
+        "name": "CointegratedPairs",
+        "features": [
+          "페어 거래 전략",
+          "통계적 차익거래",
+          "동적 Z-Score 진입 및 청산"
+        ]
+      },
+      "rileySR": {
+        "name": "RileySR",
+        "features": [
+          "지지/저항 돌파",
+          "다중 지표 필터",
+          "거래량 및 RSI 확인"
+        ]
+      },
+      "fluxLightning": {
+        "name": "FluxLightning",
+        "features": [
+          "완전 자동화 전략",
+          "추세 시장에 최적",
+          "롱 및 숏 신호"
+        ]
+      },
+      "fluxPivotStrategy": {
+        "name": "FluxPivot 전략",
+        "features": [
+          "자동화된 피벗 감지",
+          "기관 수준에서 거래",
+          "FluxPivot 지표와 매우 잘 작동"
+        ]
+      },
+      "fluxSignalStrategy": {
+        "name": "FluxSignal 전략",
+        "features": [
+          "진입에 Flux Signal 사용",
+          "추세를 일찍 포착",
+          "사용하기 쉬움"
+        ]
+      },
+      "fluxTrident": {
+        "name": "FluxTrident",
+        "features": [
+          "3단계 추세 확인",
+          "강력한 스캘핑 전략",
+          "강한 추세 지속 식별"
+        ]
+      }
+    },
+    "propFocusedStrategies": {
+      "centauri": {
+        "name": "Centauri",
+        "features": [
+          "프로프 회사 친화적 리스크 관리",
+          "낮은 드로다운과 일관성을 위해 설계",
+          "엄격한 일일 손실 준수"
+        ]
+      },
+      "mars": {
+        "name": "Mars",
+        "features": [
+          "규율 있는 리스크의 모멘텀",
+          "적응형 목표 및 스톱",
+          "프로프 계정 확장 집중"
+        ]
+      },
+      "moon": {
+        "name": "Moon",
+        "features": [
+          "엄격한 제어로 추세 포착",
+          "고품질 신호 필터링",
+          "일관된 성능 특성"
+        ]
+      },
+      "pluto": {
+        "name": "Pluto",
+        "features": [
+          "구조화된 진입 및 청산",
+          "변동성을 고려한 포지션 크기 조정",
+          "프로프 회사 목표 정렬"
+        ]
+      }
+    }
+  },
+  "streaming": {
+    "title": "라이브 스트리밍",
+    "description": "Twitch에서 라이브 트레이딩 스트림 시청",
+    "followUs": "팔로우하기",
+    "followYouTube": "YouTube에서 팔로우하기 (새 탭에서 열림)",
+    "followTwitch": "Twitch에서 팔로우하기 (새 탭에서 열림)",
+    "followInstagram": "Instagram에서 팔로우하기 (새 탭에서 열림)",
+    "followTikTok": "TikTok에서 팔로우하기 (새 탭에서 열림)",
+    "followFacebook": "Facebook에서 팔로우하기 (새 탭에서 열림)"
+  },
+  "backtestExplorer": {
+    "loading": "백테스트 데이터 로딩 중...",
+    "seoTitle": "백테스트 탐색기 - 전략 성능 분석",
+    "seoDescription": "FluxTrade 전략의 포괄적인 백테스트 결과를 탐색하세요. 다양한 도구와 시장 조건에서 성능 지표, 수익 분포 및 전략 비교를 분석합니다.",
+    "seoKeywords": "백테스트 결과, 트레이딩 전략 성능, 전략 분석, 트레이딩 지표, 백테스트 탐색기, 전략 비교",
+    "title": "백테스트 탐색기",
+    "subtitle": "백테스트 결과의 대화형 분석. 전략, 도구 및 세션별로 필터링합니다.",
+    "strategy": "전략",
+    "instrument": "도구",
+    "session": "세션",
+    "currency": "통화",
+    "all": "전체",
+    "totalTrades": "총 거래 수",
+    "winRate": "승률",
+    "totalProfit": "총 수익",
+    "maxDrawdown": "최대 낙폭",
+    "profitFactor": "수익 팩터",
+    "avgWin": "평균 수익",
+    "avgLoss": "평균 손실",
+    "largestWin": "최대 수익",
+    "largestLoss": "최대 손실",
+    "equityCurve": "자산 곡선",
+    "drawdown": "낙폭",
+    "profitDistribution": "수익 분포",
+    "tradeCount": "거래 수",
+    "tradeDetails": "거래 세부 정보",
+    "tradeNumber": "거래 #",
+    "entryTime": "진입 시간",
+    "profit": "수익",
+    "cumProfit": "누적 수익",
+    "equityLabel": "자산 ({{currency}})",
+    "drawdownLabel": "낙폭 ({{currency}})",
+    "showingTrades": "{{total}}개 거래 중 처음 100개 표시",
+    "sessions": {
+      "Morning": "아침",
+      "Afternoon": "오후",
+      "Evening": "저녁",
+      "Night": "밤",
+      "Unknown": "알 수 없음"
+    }
+  },
+  "pricing": {
+    "title": "플랜 선택",
+    "subtitle": "맞춤형 플랜으로 FluxTrade의 모든 잠재력을 발휘하세요.",
+    "freeTrial": "월간 플랜에는 30일 무료 체험이 포함됩니다!",
+    "save": "절약",
+    "save10": "10% 절약",
+    "save17": "17% 절약",
+    "save10Percent": "10% 절약",
+    "save17Percent": "17% 절약",
+    "noCommitment": "약정 없음. 언제든지 취소 가능합니다.",
+    "billingPeriods": {
+      "monthly": "/월",
+      "quarterly": "/분기",
+      "yearly": "/년",
+      "monthlyLabel": "월간",
+      "quarterlyLabel": "분기",
+      "yearlyLabel": "연간"
+    },
+    "buttons": {
+      "startTrial": "30일 무료 체험 시작",
+      "startTrialNinjaTrader": "NinjaTrader에서 30일 무료 체험 시작",
+      "startTrialTradingView": "TradingView에서 30일 무료 체험 시작",
+      "startTrialBoth": "두 플랫폼 모두에서 30일 무료 체험 시작",
+      "subscribeNow": "지금 구독",
+      "subscribeNinjaTrader": "NinjaTrader에서 구독",
+      "subscribeTradingView": "TradingView에서 구독"
+    },
+    "errors": {
+      "sessionExpired": "세션이 만료되었습니다. 계속하려면 다시 로그인해 주세요.",
+      "checkoutError": "결제 세션을 생성하는 중 오류가 발생했습니다. 다시 시도해 주세요."
+    },
+    "seo": {
+      "title": "가격 - 트레이딩 소프트웨어 구독",
+      "description": "트레이딩 요구사항에 맞는 완벽한 FluxTrade 구독 플랜을 선택하세요. NinjaTrader 및 TradingView용 자동화된 전략, 지표 및 전문 트레이딩 도구에 액세스할 수 있습니다. 유연한 월간, 분기 및 연간 플랜을 이용할 수 있습니다.",
+      "keywords": "트레이딩 소프트웨어 가격, ninjatrader 구독, tradingview 전략 가격, 자동화 트레이딩 구독, 프로프 펌 트레이딩 도구 가격"
+    },
+    "products": {
+      "category": "트레이딩 소프트웨어 구독",
+      "platforms": {
+        "single": "NinjaTrader 또는 TradingView",
+        "both": "NinjaTrader 및 TradingView"
+      },
+      "strategiesSingle": {
+        "name": "자동화 전략 - 단일 플랫폼",
+        "description": "NinjaTrader 또는 TradingView용 모든 자동화 트레이딩 전략에 액세스. 선택한 플랫폼용 지표 포함."
+      },
+      "strategiesBoth": {
+        "name": "자동화 전략 - 두 플랫폼",
+        "description": "NinjaTrader 및 TradingView용 모든 자동화 트레이딩 전략에 액세스. 우선 업데이트가 포함된 두 플랫폼용 지표 포함."
+      },
+      "indicatorsSingle": {
+        "name": "트레이딩 지표 - 단일 플랫폼",
+        "description": "NinjaTrader 또는 TradingView용 모든 트레이딩 지표에 액세스. 전문가 수준의 기술 분석 도구."
+      },
+      "indicatorsBoth": {
+        "name": "트레이딩 지표 - 두 플랫폼",
+        "description": "NinjaTrader 및 TradingView용 모든 트레이딩 지표에 액세스. 두 플랫폼용 완전한 지표 세트."
+      }
+    },
+    "plans": {
+      "strategiesSingle": {
+        "title": "자동화 전략",
+        "subtitle": "단일 플랫폼",
+        "badge": "자동화 전략",
+        "features": {
+          "includesIndicators": "선택한 플랫폼용 지표 포함",
+          "allStrategies": "모든 자동화 전략에 액세스",
+          "newFeatures": "새 기능에 직접 액세스"
+        }
+      },
+      "strategiesBoth": {
+        "title": "자동화 전략",
+        "subtitle": "두 플랫폼",
+        "mostPopular": "가장 인기",
+        "badgeStrategies": "자동화 전략",
+        "badgeBothPlatforms": "두 플랫폼",
+        "badgePriority": "우선 업데이트",
+        "features": {
+          "includesIndicators": "두 플랫폼용 지표 포함",
+          "platforms": "NinjaTrader 및 TradingView",
+          "allStrategies": "모든 자동화 전략에 액세스"
+        }
+      },
+      "indicatorsSingle": {
+        "title": "지표",
+        "subtitle": "단일 플랫폼",
+        "features": {
+          "allIndicators": "모든 지표에 액세스",
+          "support": "24/7 고객 지원",
+          "cancelAnytime": "언제든지 취소 가능"
+        }
+      },
+      "indicatorsBoth": {
+        "title": "지표",
+        "subtitle": "두 플랫폼",
+        "badge": "두 플랫폼",
+        "features": {
+          "allIndicators": "모든 지표에 액세스",
+          "platforms": "NinjaTrader 및 TradingView",
+          "cancelAnytime": "언제든지 취소 가능"
+        }
+      }
+    },
+    "test": {
+      "title": "테스트",
+      "subtitle": "Stripe 테스트 가격",
+      "description": "결제 흐름 테스트 전용",
+      "button": "테스트 결제 사용",
+      "getStarted": "시작하기"
+    },
+    "comparison": {
+      "title": "플랜 및 기능 비교",
+      "features": "기능",
+      "indicators": "지표",
+      "strategies": "자동화 전략",
+      "singlePlatform": "단일 플랫폼",
+      "bothPlatforms": "두 플랫폼",
+      "mostPopular": "가장 인기",
+      "accessIndicators": "모든 지표에 액세스",
+      "platformAccess": "플랫폼 액세스",
+      "single": "단일",
+      "accessStrategies": "자동화 전략에 액세스",
+      "support": "24/7 고객 지원",
+      "newFeatures": "새 기능에 직접 액세스",
+      "priorityUpdates": "우선 업데이트"
+    }
+  },
+  "tradingViewChart": {
+    "title": "샘플 차트",
+    "subtitle": "지표를 켜고 끄고 사전 설정된 레이아웃을 탐색하세요",
+    "presetLayouts": "사전 설정된 레이아웃",
+    "hideIndicators": "지표 숨기기",
+    "showIndicators": "지표 표시",
+    "custom": "사용자 정의",
+    "customLayout": "{{count}}개의 지표가 있는 사용자 정의 레이아웃",
+    "customLayoutPlural": "{{count}}개의 지표가 있는 사용자 정의 레이아웃",
+    "toggleIndicators": "지표 전환",
+    "activeCount": "{{count}}개 활성",
+    "on": "켜짐",
+    "loadingChart": "차트 로딩 중...",
+    "loadingMoreData": "더 많은 데이터 로딩 중...",
+    "tip": "💡 팁: 다양한 사전 설정된 레이아웃을 시도하거나 자신만의 지표 조합을 사용자 정의하세요!",
+    "footer": "차트는 Lightweight Charts로 구동 • 지표는 FluxTrade 제공",
+    "presets": {
+      "fluxTrade": {
+        "name": "FluxTrade",
+        "description": "단계별 MA 및 신호가 있는 FluxTrade의 주력 지표"
+      },
+      "trendFollowing": {
+        "name": "추세 추종",
+        "description": "추세를 일찍 포착하는 데 완벽합니다"
+      },
+      "momentum": {
+        "name": "모멘텀",
+        "description": "모멘텀 변화 및 돌파를 발견하세요"
+      },
+      "supportResistance": {
+        "name": "지지/저항",
+        "description": "주요 수준과 반전을 거래하세요"
+      },
+      "allIndicators": {
+        "name": "모든 지표",
+        "description": "한 번에 모든 것을 보기"
+      },
+      "minimal": {
+        "name": "최소",
+        "description": "깔끔하고 간단함"
+      }
+    },
+    "indicators": {
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "description": "단계별 MA 및 플립/추가 신호가 있는 FluxTrade FluxPivot"
+      },
+      "movingAverage14": {
+        "name": "이동 평균 (14)",
+        "description": "14기간 이동 평균"
+      },
+      "movingAverage50": {
+        "name": "이동 평균 (50)",
+        "description": "50기간 이동 평균"
+      },
+      "movingAverage200": {
+        "name": "이동 평균 (200)",
+        "description": "200기간 이동 평균"
+      },
+      "ema12": {
+        "name": "EMA (12)",
+        "description": "12기간 지수 이동 평균"
+      },
+      "ema26": {
+        "name": "EMA (26)",
+        "description": "26기간 지수 이동 평균"
+      }
+    },
+    "directions": {
+      "long": "롱",
+      "short": "숏",
+      "flat": "플랫"
+    }
+  }
+}

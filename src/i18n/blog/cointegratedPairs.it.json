@@ -1,0 +1,85 @@
+{
+  "seo": {
+    "title": "Trading di Coppie Cointegrate Spiegato",
+    "description": "Il trading di coppie non è solo per le istituzioni. Scopri come funziona il trading di coppie cointegrate, perché è meno rischioso del trading direzionale e come identificare opportunità di coppie redditizie nei mercati futures.",
+    "keywords": "trading di coppie, coppie cointegrate, arbitraggio statistico, strategia di trading di coppie, trading neutrale al mercato, trading futures"
+  },
+  "backToBlog": "Torna al Blog",
+  "category": "Introduzione alla Strategia",
+  "title": "Trading di Coppie Cointegrate Spiegato",
+  "subtitle": "Il trading di coppie non è solo per le istituzioni. Scopri come funziona il trading di coppie cointegrate, perché è meno rischioso del trading direzionale e come identificare opportunità di coppie redditizie nei mercati futures.",
+  "sections": {
+    "whatIsPairsTrading": {
+      "heading": "Cos'è il Trading di Coppie?",
+      "content": "Il trading di coppie è una strategia neutrale al mercato che prevede l'acquisto di un'attività mentre si vende simultaneamente un'altra attività correlata. L'obiettivo non è trarre profitto dalla direzione di una delle attività individualmente, ma dalla relazione tra esse. Quando due attività sono cointegrate, si muovono insieme nel tempo, ma i loro prezzi possono divergere temporaneamente."
+    },
+    "understandingCointegration": {
+      "heading": "Comprendere la Cointégration",
+      "content": "La cointégration significa che due attività hanno una relazione di equilibrio a lungo termine. Anche se i loro prezzi si allontanano temporaneamente, tendono a tornare alla loro relazione storica. Questo crea opportunità di trading quando lo spread tra le due attività diventa troppo ampio—puoi scommettere che tornerà alla media."
+    },
+    "whyLessRisky": {
+      "heading": "Perché è Meno Rischioso",
+      "intro": "Il trading di coppie offre diversi vantaggi rispetto al trading direzionale:",
+      "points": {
+        "marketNeutral": {
+          "label": "Neutrale al Mercato:",
+          "text": "I profitti derivano dalla relazione, non dalla direzione del mercato"
+        },
+        "reducedVolatility": {
+          "label": "Volatilità Ridotta:",
+          "text": "Le posizioni long e short si compensano a vicenda"
+        },
+        "lowerCorrelation": {
+          "label": "Correlazione Inferiore al Mercato:",
+          "text": "Funziona in mercati rialzisti, ribassisti e laterali"
+        },
+        "statisticalEdge": {
+          "label": "Vantaggio Statistico:",
+          "text": "Basato sulla reversione alla media, un fenomeno di mercato provato"
+        }
+      }
+    },
+    "howToIdentifyPairs": {
+      "heading": "Come Identificare le Coppie",
+      "intro": "Non tutte le coppie di attività sono adatte al trading. Le buone coppie hanno:",
+      "points": [
+        "Alta correlazione storica (tipicamente superiore a 0,7)",
+        "Cointégration confermata da test statistici",
+        "Comportamento regolare di reversione alla media",
+        "Liquidità sufficiente per entrambe le attività",
+        "Dimensioni di contratto simili o rapporti di copertura appropriati"
+      ]
+    },
+    "tradingProcess": {
+      "heading": "Il Processo di Trading",
+      "intro": "Quando lo spread tra due attività cointegrate si allarga oltre le norme storiche, tu:",
+      "steps": [
+        "Acquisti l'attività sottoperformante (è probabile che recuperi)",
+        "Vendi allo scoperto l'attività sovraperformante (è probabile che arretri)",
+        "Aspetti che lo spread torni alla sua media",
+        "Chiudi entrambe le posizioni quando la relazione si normalizza"
+      ]
+    },
+    "commonPairs": {
+      "heading": "Coppie Comuni nei Futures",
+      "intro": "Alcune coppie di futures popolari includono:",
+      "pairs": [
+        "Petrolio greggio vs. Gas naturale",
+        "Oro vs. Argento",
+        "Diversi futures su indici azionari",
+        "Materie prime agricole correlate",
+        "Coppie di valute con relazioni economiche"
+      ]
+    },
+    "riskManagement": {
+      "heading": "Gestione del Rischio",
+      "content": "Sebbene il trading di coppie sia meno rischioso del trading direzionale, non è privo di rischi. Il rischio principale è che la relazione si rompa permanentemente—ciò che una volta era cointegrato potrebbe non esserlo più. Il dimensionamento appropriato delle posizioni, gli stop loss e il monitoraggio della relazione sono essenziali."
+    }
+  },
+  "cta": {
+    "heading": "Verifica le Prestazioni della Strategia",
+    "description": "Vedi come si comporta la nostra strategia di coppie cointegrate con risultati dettagliati di backtest in diverse condizioni di mercato.",
+    "button": "Verifica le Prestazioni della Strategia"
+  }
+}
+

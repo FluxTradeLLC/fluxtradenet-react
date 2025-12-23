@@ -1,0 +1,832 @@
+{
+  "header": {
+    "home": "Home",
+    "pricing": "Prezzi",
+    "backtestExplorer": "Esploratore Backtest",
+    "blog": "Blog",
+    "affiliates": "Affiliati",
+    "account": "Account",
+    "support": "Supporto",
+    "liveStream": "Streaming Live",
+    "freeDiscord": "Discord Gratuito"
+  },
+  "language": {
+    "select": "Seleziona Lingua",
+    "english": "Inglese",
+    "spanish": "Spagnolo",
+    "french": "Francese",
+    "german": "Tedesco",
+    "chinese": "Cinese",
+    "japanese": "Giapponese",
+    "portuguese": "Portoghese",
+    "italian": "Italiano",
+    "russian": "Russo",
+    "korean": "Coreano"
+  },
+  "footer": {
+    "navigation": "Navigazione",
+    "home": "Home",
+    "pricing": "Prezzi",
+    "account": "Account",
+    "refundPolicies": "Politiche di Rimborso e Cancellazione",
+    "affiliates": "Affiliati",
+    "support": "Supporto",
+    "terms": "Termini e Condizioni",
+    "followUs": "Seguici",
+    "disclaimers": "Disclaimer",
+    "disclaimer1": "Il trading di futures e forex comporta rischi sostanziali e non è adatto a tutti gli investitori. Un investitore potrebbe potenzialmente perdere tutto o più dell'investimento iniziale. Il capitale a rischio è denaro che può essere perso senza compromettere la sicurezza finanziaria o lo stile di vita. Solo il capitale a rischio dovrebbe essere utilizzato per il trading e solo coloro con capitale a rischio sufficiente dovrebbero considerare il trading. La performance passata non è necessariamente indicativa di risultati futuri",
+    "disclaimer2": "I risultati di performance ipotetici hanno molte limitazioni intrinseche, alcune delle quali sono descritte di seguito. Non viene fatta alcuna rappresentazione che qualsiasi account raggiungerà o probabilmente raggiungerà profitti o perdite simili a quelli mostrati; in effetti, ci sono spesso differenze nette tra i risultati di performance ipotetici e i risultati effettivi successivamente raggiunti da qualsiasi programma di trading particolare. Una delle limitazioni dei risultati di performance ipotetici è che sono generalmente preparati con il vantaggio del senno di poi. Inoltre, il trading ipotetico non comporta rischi finanziari e nessun record di trading ipotetico può tenere completamente conto dell'impatto del rischio finanziario del trading reale. ad esempio, la capacità di resistere alle perdite o di aderire a un particolare programma di trading nonostante le perdite di trading sono punti materiali che possono anche influire negativamente sui risultati di trading reali. Ci sono numerosi altri fattori relativi ai mercati in generale o all'implementazione di qualsiasi programma di trading specifico che non possono essere pienamente considerati nella preparazione dei risultati di performance ipotetici e tutti possono influire negativamente sui risultati di trading.",
+    "disclaimer3": "Le testimonianze che appaiono su questo sito web potrebbero non essere rappresentative di altri clienti o clienti e non sono una garanzia di performance o successo futuro.",
+    "copyright": "Copyright © {{year}}, FluxTrade, LLC. Tutti i diritti riservati."
+  },
+  "stickyCTA": {
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "bothPlatforms": "Entrambe le Piattaforme",
+    "startTrial": "Inizia Prova Gratuita (30 giorni)",
+    "signUpTrial": "Iscriviti Per Iniziare Prova Gratuita (30 giorni)",
+    "startTrialLabel": "Inizia prova gratuita di 30 giorni per {{platform}}",
+    "signUpTrialLabel": "Iscriviti per iniziare prova gratuita di 30 giorni per {{platform}}"
+  },
+  "support": {
+    "title": "Supporto",
+    "description": "Per richieste di supporto, invia un'email a",
+    "orSendMessage": "o invia un messaggio con il modulo sottostante.",
+    "discordHelp": "Puoi anche unirti alla nostra community Discord per aiuto più veloce e annunci.",
+    "additionalResources": "Risorse Aggiuntive",
+    "resourcesDescription": "Prima di contattare il supporto, potresti trovare risposte a domande comuni nelle nostre politiche e termini:",
+    "refundInfo": "Per informazioni su rimborsi, cancellazioni e gestione abbonamenti, visita le nostre",
+    "termsInfo": "Per termini di servizio, responsabilità dell'account e termini generali, visita i nostri",
+    "stillNeedHelp": "Se hai ancora bisogno di assistenza dopo aver esaminato queste risorse, non esitare a contattarci utilizzando il modulo sottostante o",
+    "emailDirectly": "inviaci un'email direttamente",
+    "sendMessage": "Inviaci un Messaggio",
+    "yourName": "Il Tuo Nome",
+    "yourEmail": "La Tua Email",
+    "subject": "Oggetto",
+    "message": "Messaggio",
+    "sending": "Invio...",
+    "sendEmail": "Invia Email di Supporto",
+    "success": "Email di supporto inviata con successo! Ti risponderemo presto.",
+    "error": "Invio email di supporto fallito"
+  },
+  "affiliates": {
+    "title": "Programma di Affiliazione FluxTrade",
+    "subtitle": "Guadagna commissioni ricorrenti promuovendo FluxTrade. Il nostro programma è semplice, trasparente e creator-friendly.",
+    "commission": "30%",
+    "commissionDesc": "Commissione ricorrente su tutti i pagamenti di abbonamento che indirizzi.",
+    "payouts": "Pagamenti Net-60",
+    "payoutsDesc": "Pagati tramite PayPal su un programma net-60.",
+    "useAssets": "Usa le Nostre Risorse",
+    "useAssetsDesc": "Usa il nostro logo, media del sito e video nelle tue promozioni.",
+    "freeTrial": "Prova gratuita",
+    "freeTrialDesc": "Offriamo una prova gratuita di 30 giorni ai nostri clienti",
+    "powerfulTools": "Strumenti potenti",
+    "powerfulToolsDesc": "La nostra suite di strumenti è stata costruita da zero",
+    "growingCommunity": "Comunità in crescita",
+    "growingCommunityDesc": "Il nostro Discord gratuito consente ai trader di condividere e collaborare",
+    "joinProgram": "Unisciti al Programma di Affiliazione",
+    "programDetails": "Dettagli del Programma",
+    "commissionLabel": "Commissione:",
+    "commissionValue": "30% ricorrente",
+    "commissionFull": "sugli abbonamenti che indirizzi.",
+    "payoutTerms": "Termini di pagamento:",
+    "payoutValue": "Net-60",
+    "payoutMethod": "tramite PayPal.",
+    "attribution": "Attribuzione gestita da PromoteKit; i tuoi referral sono tracciati automaticamente.",
+    "marketingAssets": "Risorse di marketing: Puoi utilizzare qualsiasi materiale dal nostro sito, incluso il nostro logo e video sul nostro canale YouTube",
+    "marketingMaterials": "Materiali di Marketing",
+    "marketingMaterialsDesc": "inclusi video che puoi utilizzare.",
+    "getStarted": "Per iniziare, crea il tuo account affiliato qui:",
+    "questions": "Per informazioni aggiuntive o domande, inviami un'email a"
+  },
+  "auth": {
+    "signIn": "Accedi",
+    "signUp": "Registrati",
+    "email": "Email",
+    "password": "Password",
+    "signInFailed": "Accesso fallito",
+    "googleSignInFailed": "Accesso Google fallito",
+    "registrationFailed": "Registrazione fallita",
+    "agreeTerms": "Accetto i",
+    "and": "e",
+    "signInWithGoogle": "Accedi con Google",
+    "continueWithGoogle": "Continua con Google",
+    "or": "O",
+    "validEmail": "Inserisci un indirizzo email valido",
+    "byUsingService": "Utilizzando questo servizio, accetti i"
+  },
+  "account": {
+    "title": "Account",
+    "loggedInAs": "Accesso effettuato come: {{email}}",
+    "signUpForPlan": "Iscriviti a un piano",
+    "freeTrialOffer": "Ogni piano offre una prova gratuita di 30 giorni!",
+    "selectPlan": "Seleziona un Piano",
+    "subscriptionSettings": "Impostazioni Abbonamento",
+    "subscriptionSettingsDescription": "Accedi al portale clienti Stripe per gestire il tuo abbonamento, aggiornare il metodo di pagamento o cancellare l'abbonamento.",
+    "subscriptionSettingsButton": "Impostazioni Abbonamento",
+    "subscriptionSettingsAriaLabel": "Gestisci le impostazioni dell'abbonamento nel portale clienti Stripe",
+    "signOut": "Esci",
+    "signIn": "Accedi",
+    "signUp": "Registrati",
+    "accountAuthentication": "Autenticazione account"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Contenuti educativi per aiutarti a comprendere le strategie di trading e navigare nel panorama delle prop firm",
+    "readFullArticle": "Leggi Articolo Completo",
+    "readyToStart": "Pronto ad Iniziare a Fare Trading?",
+    "readyDesc": "Esplora le nostre strategie con backtest e trova il piano giusto per il tuo viaggio di trading",
+    "viewStrategies": "Visualizza Tutte le Strategie",
+    "seePricing": "Vedi Piani di Prezzo",
+    "categories": {
+      "strategyIntro": "Introduzione Strategia",
+      "propFirmPitfalls": "Trappole delle Prop Firm"
+    },
+    "articles": {
+      "fluxTrident": {
+        "title": "Introduzione alla Strategia Flux Trident",
+        "excerpt": "Flux Trident è una strategia di confluenza multi-timeframe che combina l'analisi di tendenza con indicatori di momentum. Scopri come questo approccio sistematico identifica ingressi ad alta probabilità in varie condizioni di mercato."
+      },
+      "fluxSignal": {
+        "title": "Comprendere la Strategia Flux Signal",
+        "excerpt": "La strategia Flux Signal utilizza indicatori proprietari per identificare inversioni di tendenza precoci e pattern di continuazione. Questo articolo analizza i concetti chiave e i criteri di ingresso che rendono efficace questa strategia."
+      },
+      "fluxPivot": {
+        "title": "Flux Pivot: Trading di Supporto e Resistenza",
+        "excerpt": "Padroneggia l'arte del trading dei livelli pivot chiave con Flux Pivot. Questa strategia si concentra sull'identificazione e il trading di zone significative di supporto e resistenza, combinando l'azione dei prezzi con l'analisi del volume."
+      },
+      "propFirmHiddenCosts": {
+        "title": "I Costi Nascosti delle Sfide delle Prop Firm",
+        "excerpt": "Molti trader non si rendono conto del vero costo delle sfide delle prop firm fino a quando non è troppo tardi. Dalle commissioni nascoste agli obiettivi di profitto irrealistici, scopri le trappole comuni che possono far deragliare il tuo viaggio verso un account finanziato."
+      },
+      "propFirmFailure": {
+        "title": "Perché la Maggior Parte dei Trader delle Prop Firm Fallisce (E Come Evitarlo)",
+        "excerpt": "Oltre il 90% dei trader delle prop firm fallisce le proprie sfide. Scopri le trappole psicologiche, gli errori di gestione del rischio e i difetti strategici che portano al fallimento—e come strategie comprovate con backtest possono darti un vantaggio."
+      },
+      "cointegratedPairs": {
+        "title": "Trading di Coppie Cointegrate Spiegato",
+        "excerpt": "Il trading di coppie non è solo per le istituzioni. Scopri come funziona il trading di coppie cointegrate, perché è meno rischioso del trading direzionale e come identificare opportunità di coppie redditizie nei mercati futures."
+      },
+      "propFirmDrawdown": {
+        "title": "La Trappola del Drawdown delle Prop Firm",
+        "excerpt": "Le prop firm stabiliscono limiti di drawdown che sembrano generosi sulla carta ma sono in realtà progettati per coglierti alla sprovvista. Comprendi come i drawdown giornalieri, i drawdown trailing e le regole nascoste possono porre fine alla tua sfida prematuramente."
+      },
+      "orb": {
+        "title": "Strategia ORB: Trading della Fascia di Apertura",
+        "excerpt": "La strategia di Rottura della Fascia di Apertura (ORB) capitalizza la volatilità della prima ora. Questo articolo spiega come identificare rotture ad alta probabilità e gestire il rischio quando si fa trading all'apertura del mercato."
+      }
+    }
+  },
+  "landing": {
+    "understandMarkets": "Comprendi i",
+    "markets": "mercati",
+    "gainEdge": "Ottieni un",
+    "edge": "vantaggio",
+    "subtitle": "Sistemi friendly per prop firm costruiti per coerenza, gestione del rischio e disciplina.",
+    "seeItTrade": "Vedilo fare trading in 60s",
+    "ninjaTrader": "NinjaTrader",
+    "tradingView": "TradingView",
+    "new": "NUOVO!",
+    "propFirmFocused": "Strategie Focalizzate sulle Prop Firm",
+    "propFirmSubtitle": "Costruite per regole delle prop firm e coerenza",
+    "clearFilters": "Cancella Filtri",
+    "viewBacktest": "Visualizza Backtest",
+    "exploreBacktest": "Esplora Backtest",
+    "loadMoreStrategies": "Carica Più Strategie",
+    "loadMoreIndicators": "Carica Più Indicatori",
+    "winRate": "Tasso di vincita",
+    "profitFactor": "Fattore di profitto",
+    "ourIndicators": "I Nostri Indicatori",
+    "indicatorsSubtitle": "Impara a fare trading manualmente con un piano e una strategia costruiti con indicatori",
+    "ourAutomatedStrategies": "Le Nostre Strategie Automatizzate",
+    "strategiesSubtitle": "Altamente personalizzabili con entrate e uscite automatizzate",
+    "wins": "Vittorie",
+    "winsSubtitle": "Vittorie utilizzando gli strumenti dei membri nel Discord",
+    "officialVendor": "Fornitore Ufficiale dell'Ecosistema NinjaTrader",
+    "affiliateLink": "(Link di affiliazione*)",
+    "signUp": "Registrati",
+    "signUpAriaLabel": "Registrati per NinjaTrader (link di affiliazione, si apre in una nuova scheda)",
+    "ninjaTraderDescription": "per NinjaTrader, la migliore piattaforma di trading desktop, per iniziare a fare backtest delle strategie FluxTrade oggi.",
+    "ninjaTraderEndorsement": "*NinjaTrader sta compensando FluxTrade per questo endorsement.",
+    "playCarousel": "Riproduci carosello",
+    "pauseCarousel": "Metti in pausa carosello",
+    "previousVideo": "Video precedente",
+    "nextVideo": "Video successivo",
+    "videoCarousel": "Carosello video",
+    "videoCarouselNav": "Navigazione carosello video",
+    "goToVideo": "Vai al video {{label}}",
+    "demonstrationVideo": "Video dimostrativo {{label}}. Clicca per riprodurre o mettere in pausa.",
+    "filters": {
+      "meanReversion": "Ritorno alla Media",
+      "conservative": "Conservatore",
+      "propFirmSafe": "Sicuro per prop firm",
+      "trend": "Tendenza",
+      "scalping": "Scalping",
+      "momentum": "Momentum",
+      "volatility": "Volatilità",
+      "levels": "Livelli",
+      "signals": "Segnali"
+    },
+    "videoLabels": {
+      "previousLevels": "Livelli Precedenti",
+      "fluxConfluence": "FluxConfluence",
+      "fluxPivot": "Flux Pivot",
+      "fluxSignal": "Flux Signal"
+    },
+    "indicators": {
+      "dynamicTrend": {
+        "name": "Trend Dinamico",
+        "features": [
+          "Linea di tendenza dinamica",
+          "Supporto e resistenza",
+          "Segnali al momento dei crossover"
+        ]
+      },
+      "highLowBands": {
+        "name": "HighLowBands",
+        "features": [
+          "Rilevamento bande alte e basse",
+          "Livelli dinamici di supporto e resistenza",
+          "Ottimo per operazioni di breakout e inversione"
+        ]
+      },
+      "fluxTarget": {
+        "name": "FluxTarget",
+        "features": [
+          "Bande target dinamiche",
+          "Adattivo alla volatilità",
+          "Ottimo per le uscite"
+        ]
+      },
+      "marketPhase": {
+        "name": "Fase del Mercato",
+        "features": [
+          "Rilevamento visivo della fase del mercato",
+          "Evidenziazione di tendenza e range",
+          "Facile da interpretare"
+        ]
+      },
+      "ttmSqueeze": {
+        "name": "TTM Squeeze",
+        "features": [
+          "Rilevamento momentum e compressione",
+          "Ottimo per operazioni di breakout",
+          "Istogramma visivo"
+        ]
+      },
+      "volatilityCycle": {
+        "name": "Ciclo di Volatilità",
+        "features": [
+          "Oscillatore ciclo di volatilità",
+          "Rileva espansione e contrazione",
+          "Funziona bene con altri indicatori"
+        ]
+      },
+      "fluxConfluence": {
+        "name": "FluxConfluence",
+        "features": [
+          "Trading con la tendenza",
+          "Ottieni multiple confluenze",
+          "Segnali di acquisto e vendita"
+        ]
+      },
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "features": [
+          "Pivot tra acquisto e vendita",
+          "Aggiungi a posizioni esistenti",
+          "Rilevamento pivot intelligente"
+        ]
+      },
+      "fluxSignal": {
+        "name": "FluxSignal",
+        "features": [
+          "Comprendi i mercati che cambiano",
+          "Segnali di acquisto e vendita",
+          "Cattura nuove tendenze all'inizio"
+        ]
+      },
+      "marketRegime": {
+        "name": "Regime di Mercato",
+        "features": [
+          "Comprendi i regimi di mercato",
+          "Alta e bassa volatilità",
+          "Laterale o in tendenza"
+        ]
+      },
+      "parabolicRSI": {
+        "name": "RSI Parabolico",
+        "features": [
+          "SAR Parabolico + RSI",
+          "Abbinato all'Indicatore di Entrata Ultimate",
+          "Aree di ipercomprato e ipervenduto"
+        ]
+      },
+      "previousLevels": {
+        "name": "Livelli Precedenti",
+        "features": [
+          "Identifica massimi e minimi precedenti",
+          "Trading di inversioni e breakout",
+          "Ieri, pre-mercato e range di apertura"
+        ]
+      }
+    },
+    "strategies": {
+      "averageBounce": {
+        "name": "AverageBounce",
+        "features": [
+          "Strategia di ritorno alla media",
+          "Rimbalzi dai livelli medi chiave",
+          "Entrate e uscite automatizzate"
+        ]
+      },
+      "megaBands": {
+        "name": "MegaBands",
+        "features": [
+          "Strategia dinamica basata su bande",
+          "Entrate adattive alla volatilità",
+          "Seguimento trend con bande"
+        ]
+      },
+      "stopHunter": {
+        "name": "StopHunter",
+        "features": [
+          "Mira ai livelli di stop-loss",
+          "Rilevamento sweep di liquidità",
+          "Segnali di entrata automatizzati"
+        ]
+      },
+      "chatGPT": {
+        "name": "ChatGPT",
+        "features": [
+          "Segnali di strategia alimentati da IA",
+          "Entrate basate su machine learning",
+          "Adattivo alle condizioni di mercato"
+        ]
+      },
+      "orms": {
+        "name": "ORMS",
+        "features": [
+          "Scalping momentum intorno al range di apertura NY",
+          "Usa cambiamenti momentum del range di apertura",
+          "Rischio stretto con obiettivi rapidi"
+        ]
+      },
+      "liquiditySweep": {
+        "name": "Sweep di Liquidità",
+        "features": [
+          "Spazza liquidità intorno a livelli chiave",
+          "Modalità fade e breakout",
+          "Entrate con gestione del rischio"
+        ]
+      },
+      "slowAndSteady": {
+        "name": "Lento e Costante",
+        "features": [
+          "Setup ad alta probabilità, bassa frequenza",
+          "Controlli di rischio rigorosi",
+          "Ideale per crescita conservativa"
+        ]
+      },
+      "superMomentum": {
+        "name": "Super Momentum",
+        "features": [
+          "Segnali di continuazione momentum",
+          "Obiettivi dinamici con stop trailing",
+          "Ottimo nei giorni di trend forte"
+        ]
+      },
+      "donchianTurtle": {
+        "name": "Donchian Turtle",
+        "features": [
+          "Strategia breakout usando canali Donchian",
+          "Seguimento trend con piramidazione",
+          "Stop e dimensionamento posizione basati su ATR"
+        ]
+      },
+      "ichimokoStrat": {
+        "name": "IchimokoStrat",
+        "features": [
+          "Entrate basate su Ichimoku Kinko Hyo",
+          "Nuvola, incroci Tenkan/Kijun e span Chikou",
+          "Funziona in tutti i regimi di mercato"
+        ]
+      },
+      "keltnerStrat": {
+        "name": "KeltnerStrat",
+        "features": [
+          "Breakout e pullback del Canale Keltner",
+          "Obiettivi e stop adattivi alla volatilità",
+          "Funziona bene con filtri momentum"
+        ]
+      },
+      "futurePredictionServer": {
+        "name": "Server di Predizione Futura",
+        "features": [
+          "Usa machine learning per etichettatura e predizioni",
+          "Chiama un server remoto",
+          "Algoritmo di apprendimento per rinforzo"
+        ]
+      },
+      "quadConfluence": {
+        "name": "Quadrupla Confluenza",
+        "features": [
+          "Tipi multipli di trigger di entrata",
+          "Cerca multiple confluenze",
+          "Obiettivi e stop dinamici"
+        ]
+      },
+      "holyGrailAdaptive": {
+        "name": "Santo Graal Adattivo",
+        "features": [
+          "Seguimento trend adattivo",
+          "Entrate e uscite automatizzate",
+          "Obiettivi e controlli di rischio"
+        ]
+      },
+      "elliotWave": {
+        "name": "ElliotWave",
+        "features": [
+          "Conteggi automatizzati delle Onde di Elliott",
+          "Identifica onde impulsive e correttive",
+          "Obiettivi di rischio allineati con la struttura"
+        ]
+      },
+      "iccChoCh": {
+        "name": "ICC ChoCh",
+        "features": [
+          "Rilevamento intelligente cambio struttura",
+          "Segnali ChoCh/BOS per inversioni",
+          "Logica continuazione e inversione trend"
+        ]
+      },
+      "lowVolatility": {
+        "name": "Bassa Volatilità",
+        "features": [
+          "Ritorno alla media in regimi tranquilli",
+          "Filtri e bande adattivi",
+          "Cattura espansioni di compressione"
+        ]
+      },
+      "projectGamma": {
+        "name": "Progetto Gamma",
+        "features": [
+          "Rilevamento pattern engulfing rialzista e ribassista",
+          "Entrate e uscite consapevoli della volatilità",
+          "Ottimo su indici e futures"
+        ]
+      },
+      "trendCatcher": {
+        "name": "TrendCatcher",
+        "features": [
+          "Cavalca trend sostenuti",
+          "Logica stop trailing dinamica",
+          "Conferma multi-timeframe"
+        ]
+      },
+      "orb": {
+        "name": "ORB (Rottura Range di Apertura)",
+        "features": [
+          "Breakout classico del range di apertura",
+          "Entrate e uscite automatizzate",
+          "Funziona su tutti i timeframe",
+          "Ottimo per volatilità e momentum"
+        ]
+      },
+      "cointegratedPairs": {
+        "name": "CointegratedPairs",
+        "features": [
+          "Strategia di trading di coppie",
+          "Arbitraggio statistico",
+          "Entrate e uscite dinamiche Z-Score"
+        ]
+      },
+      "rileySR": {
+        "name": "RileySR",
+        "features": [
+          "Breakout supporto/resistenza",
+          "Filtri indicatori multipli",
+          "Conferma volume e RSI"
+        ]
+      },
+      "fluxLightning": {
+        "name": "FluxLightning",
+        "features": [
+          "Strategia completamente automatizzata",
+          "Ottimo per mercati in trend",
+          "Segnali long e short"
+        ]
+      },
+      "fluxPivotStrategy": {
+        "name": "Strategia FluxPivot",
+        "features": [
+          "Rilevamento pivot automatizzato",
+          "Trading con livelli istituzionali",
+          "Funziona molto bene con l'indicatore FluxPivot"
+        ]
+      },
+      "fluxSignalStrategy": {
+        "name": "Strategia FluxSignal",
+        "features": [
+          "Usa Flux Signal per le entrate",
+          "Cattura trend presto",
+          "Semplice da usare"
+        ]
+      },
+      "fluxTrident": {
+        "name": "FluxTrident",
+        "features": [
+          "Conferma trend in tre passi",
+          "Potente strategia di scalping",
+          "Identifica forti continuazioni di trend"
+        ]
+      }
+    },
+    "propFocusedStrategies": {
+      "centauri": {
+        "name": "Centauri",
+        "features": [
+          "Gestione del rischio friendly per prop firm",
+          "Progettata per basso drawdown e consistenza",
+          "Conformità rigorosa alle perdite giornaliere"
+        ]
+      },
+      "mars": {
+        "name": "Marte",
+        "features": [
+          "Momentum con rischio disciplinato",
+          "Obiettivi e stop adattivi",
+          "Focus su scaling account prop"
+        ]
+      },
+      "moon": {
+        "name": "Luna",
+        "features": [
+          "Cattura trend con controlli rigorosi",
+          "Filtraggio segnali di alta qualità",
+          "Caratteristiche di performance consistenti"
+        ]
+      },
+      "pluto": {
+        "name": "Plutone",
+        "features": [
+          "Entrate e uscite strutturate",
+          "Dimensionamento posizione consapevole della volatilità",
+          "Allineamento con obiettivi prop firm"
+        ]
+      }
+    }
+  },
+  "streaming": {
+    "title": "Streaming Live",
+    "description": "Guarda i nostri stream di trading live su Twitch",
+    "followUs": "Seguici",
+    "followYouTube": "Seguici su YouTube (si apre in una nuova scheda)",
+    "followTwitch": "Seguici su Twitch (si apre in una nuova scheda)",
+    "followInstagram": "Seguici su Instagram (si apre in una nuova scheda)",
+    "followTikTok": "Seguici su TikTok (si apre in una nuova scheda)",
+    "followFacebook": "Seguici su Facebook (si apre in una nuova scheda)"
+  },
+  "backtestExplorer": {
+    "loading": "Caricamento dati di backtest...",
+    "seoTitle": "Esploratore Backtest - Analisi delle Prestazioni delle Strategie",
+    "seoDescription": "Esplora risultati completi di backtest per le strategie FluxTrade. Analizza metriche di prestazione, distribuzioni di profitto e confronti di strategie su diversi strumenti e condizioni di mercato.",
+    "seoKeywords": "risultati backtest, prestazioni strategie di trading, analisi strategie, metriche di trading, esploratore backtest, confronto strategie",
+    "title": "Esploratore Backtest",
+    "subtitle": "Analisi interattiva dei risultati di backtest. Filtra per strategia, strumento e sessione.",
+    "strategy": "Strategia",
+    "instrument": "Strumento",
+    "session": "Sessione",
+    "currency": "Valuta",
+    "all": "Tutti",
+    "totalTrades": "Totale Operazioni",
+    "winRate": "Tasso di Vincita",
+    "totalProfit": "Profitto Totale",
+    "maxDrawdown": "Drawdown Massimo",
+    "profitFactor": "Fattore di Profitto",
+    "avgWin": "Vincita Media",
+    "avgLoss": "Perdita Media",
+    "largestWin": "Vincita Maggiore",
+    "largestLoss": "Perdita Maggiore",
+    "equityCurve": "Curva del Capitale",
+    "drawdown": "Drawdown",
+    "profitDistribution": "Distribuzione dei Profitti",
+    "tradeCount": "Numero di Operazioni",
+    "tradeDetails": "Dettagli delle Operazioni",
+    "tradeNumber": "Operazione #",
+    "entryTime": "Ora di Entrata",
+    "profit": "Profitto",
+    "cumProfit": "Profitto Cum.",
+    "equityLabel": "Capitale ({{currency}})",
+    "drawdownLabel": "Drawdown ({{currency}})",
+    "showingTrades": "Mostra le prime 100 di {{total}} operazioni",
+    "sessions": {
+      "Morning": "Mattina",
+      "Afternoon": "Pomeriggio",
+      "Evening": "Sera",
+      "Night": "Notte",
+      "Unknown": "Sconosciuto"
+    }
+  },
+  "pricing": {
+    "title": "Scegli Il Tuo Piano",
+    "subtitle": "Sblocca tutto il potenziale di FluxTrade con i nostri piani personalizzati.",
+    "freeTrial": "I piani mensili includono una prova gratuita di 30 giorni!",
+    "save": "Risparmia",
+    "save10": "Risparmia 10%",
+    "save17": "Risparmia 17%",
+    "save10Percent": "Risparmia 10 percento",
+    "save17Percent": "Risparmia 17 percento",
+    "noCommitment": "Nessun impegno. Cancella in qualsiasi momento.",
+    "billingPeriods": {
+      "monthly": "/mese",
+      "quarterly": "/trim",
+      "yearly": "/anno",
+      "monthlyLabel": "Mensile",
+      "quarterlyLabel": "Trimestrale",
+      "yearlyLabel": "Annuale"
+    },
+    "buttons": {
+      "startTrial": "Inizia la prova gratuita di 30 giorni",
+      "startTrialNinjaTrader": "Inizia la prova gratuita di 30 giorni su NinjaTrader",
+      "startTrialTradingView": "Inizia la prova gratuita di 30 giorni su TradingView",
+      "startTrialBoth": "Inizia la prova gratuita di 30 giorni per entrambe le piattaforme",
+      "subscribeNow": "Abbonati Ora",
+      "subscribeNinjaTrader": "Abbonati su NinjaTrader",
+      "subscribeTradingView": "Abbonati su TradingView"
+    },
+    "errors": {
+      "sessionExpired": "La tua sessione è scaduta. Per favore, accedi di nuovo per continuare.",
+      "checkoutError": "Si è verificato un errore durante la creazione della sessione di checkout. Per favore, riprova."
+    },
+    "seo": {
+      "title": "Prezzi - Abbonamenti Software di Trading",
+      "description": "Scegli il piano di abbonamento FluxTrade perfetto per le tue esigenze di trading. Accedi a strategie automatizzate, indicatori e strumenti professionali di trading per NinjaTrader e TradingView. Piani flessibili mensili, trimestrali e annuali disponibili.",
+      "keywords": "prezzi software di trading, abbonamento ninjatrader, prezzi strategie tradingview, abbonamento trading automatizzato, prezzi strumenti trading prop firm"
+    },
+    "products": {
+      "category": "Abbonamento Software di Trading",
+      "platforms": {
+        "single": "NinjaTrader o TradingView",
+        "both": "NinjaTrader e TradingView"
+      },
+      "strategiesSingle": {
+        "name": "Strategie Automatizzate - Piattaforma Singola",
+        "description": "Accesso a tutte le strategie di trading automatizzate per NinjaTrader o TradingView. Include indicatori per la piattaforma scelta."
+      },
+      "strategiesBoth": {
+        "name": "Strategie Automatizzate - Entrambe le Piattaforme",
+        "description": "Accesso a tutte le strategie di trading automatizzate per NinjaTrader e TradingView. Include indicatori per entrambe le piattaforme con aggiornamenti prioritari."
+      },
+      "indicatorsSingle": {
+        "name": "Indicatori di Trading - Piattaforma Singola",
+        "description": "Accesso a tutti gli indicatori di trading per NinjaTrader o TradingView. Strumenti di analisi tecnica di livello professionale."
+      },
+      "indicatorsBoth": {
+        "name": "Indicatori di Trading - Entrambe le Piattaforme",
+        "description": "Accesso a tutti gli indicatori di trading per NinjaTrader e TradingView. Suite completa di indicatori per entrambe le piattaforme."
+      }
+    },
+    "plans": {
+      "strategiesSingle": {
+        "title": "Strategie Automatizzate",
+        "subtitle": "Piattaforma Singola",
+        "badge": "Strategie Automatizzate",
+        "features": {
+          "includesIndicators": "Include indicatori per la piattaforma scelta",
+          "allStrategies": "Accesso a tutte le strategie automatizzate",
+          "newFeatures": "Accesso diretto alle nuove funzionalità"
+        }
+      },
+      "strategiesBoth": {
+        "title": "Strategie Automatizzate",
+        "subtitle": "Entrambe le Piattaforme",
+        "mostPopular": "PIÙ POPOLARE",
+        "badgeStrategies": "Strategie Automatizzate",
+        "badgeBothPlatforms": "Entrambe le Piattaforme",
+        "badgePriority": "Aggiornamenti Prioritari",
+        "features": {
+          "includesIndicators": "Include indicatori per entrambe le piattaforme",
+          "platforms": "NinjaTrader e TradingView",
+          "allStrategies": "Accesso a tutte le strategie automatizzate"
+        }
+      },
+      "indicatorsSingle": {
+        "title": "Indicatori",
+        "subtitle": "Piattaforma Singola",
+        "features": {
+          "allIndicators": "Accesso a tutti i nostri indicatori",
+          "support": "Supporto clienti 24/7",
+          "cancelAnytime": "Cancella in qualsiasi momento"
+        }
+      },
+      "indicatorsBoth": {
+        "title": "Indicatori",
+        "subtitle": "Entrambe le Piattaforme",
+        "badge": "Entrambe le Piattaforme",
+        "features": {
+          "allIndicators": "Accesso a tutti i nostri indicatori",
+          "platforms": "NinjaTrader e TradingView",
+          "cancelAnytime": "Cancella in qualsiasi momento"
+        }
+      }
+    },
+    "test": {
+      "title": "Test",
+      "subtitle": "Prezzo di test Stripe",
+      "description": "Solo per testare i flussi di checkout",
+      "button": "Usa Checkout di Test",
+      "getStarted": "Inizia"
+    },
+    "comparison": {
+      "title": "Confronta Piani e Caratteristiche",
+      "features": "Caratteristiche",
+      "indicators": "Indicatori",
+      "strategies": "Strategie Automatizzate",
+      "singlePlatform": "Piattaforma Singola",
+      "bothPlatforms": "Entrambe le Piattaforme",
+      "mostPopular": "PIÙ POPOLARE",
+      "accessIndicators": "Accesso a tutti gli indicatori",
+      "platformAccess": "Accesso alla piattaforma",
+      "single": "Singola",
+      "accessStrategies": "Accesso alle strategie automatizzate",
+      "support": "Supporto clienti 24/7",
+      "newFeatures": "Accesso diretto alle nuove funzionalità",
+      "priorityUpdates": "Aggiornamenti prioritari"
+    }
+  },
+  "tradingViewChart": {
+    "title": "Grafico di Esempio",
+    "subtitle": "Attiva/disattiva gli indicatori ed esplora i layout predefiniti",
+    "presetLayouts": "Layout Predefiniti",
+    "hideIndicators": "Nascondi Indicatori",
+    "showIndicators": "Mostra Indicatori",
+    "custom": "Personalizzato",
+    "customLayout": "Layout personalizzato con {{count}} indicatore",
+    "customLayoutPlural": "Layout personalizzato con {{count}} indicatori",
+    "toggleIndicators": "Attiva/Disattiva Indicatori",
+    "activeCount": "{{count}} attivo",
+    "on": "ATTIVO",
+    "loadingChart": "Caricamento grafico...",
+    "loadingMoreData": "Caricamento di più dati...",
+    "tip": "💡 Suggerimento: Prova diversi layout predefiniti o personalizza la tua combinazione di indicatori!",
+    "footer": "Grafico powered by Lightweight Charts • Indicatori di FluxTrade",
+    "presets": {
+      "fluxTrade": {
+        "name": "FluxTrade",
+        "description": "Indicatore principale di FluxTrade con MA a gradini e segnali"
+      },
+      "trendFollowing": {
+        "name": "Seguimento di Tendenza",
+        "description": "Perfetto per catturare le tendenze in anticipo"
+      },
+      "momentum": {
+        "name": "Momentum",
+        "description": "Rileva cambiamenti di momentum e breakout"
+      },
+      "supportResistance": {
+        "name": "Supporto/Resistenza",
+        "description": "Trading di livelli chiave e inversioni"
+      },
+      "allIndicators": {
+        "name": "Tutti gli Indicatori",
+        "description": "Vedi tutto in una volta"
+      },
+      "minimal": {
+        "name": "Minimale",
+        "description": "Pulito e semplice"
+      }
+    },
+    "indicators": {
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "description": "FluxTrade FluxPivot con MA a gradini e segnali di inversione/aggiunta"
+      },
+      "movingAverage14": {
+        "name": "Media Mobile (14)",
+        "description": "Media mobile a 14 periodi"
+      },
+      "movingAverage50": {
+        "name": "Media Mobile (50)",
+        "description": "Media mobile a 50 periodi"
+      },
+      "movingAverage200": {
+        "name": "Media Mobile (200)",
+        "description": "Media mobile a 200 periodi"
+      },
+      "ema12": {
+        "name": "EMA (12)",
+        "description": "Media mobile esponenziale a 12 periodi"
+      },
+      "ema26": {
+        "name": "EMA (26)",
+        "description": "Media mobile esponenziale a 26 periodi"
+      }
+    },
+    "directions": {
+      "long": "Long",
+      "short": "Short",
+      "flat": "Piatto"
+    }
+  }
+}

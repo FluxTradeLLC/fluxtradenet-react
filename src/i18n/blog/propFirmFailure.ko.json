@@ -1,0 +1,91 @@
+{
+  "backToBlog": "블로그로 돌아가기",
+  "category": "Prop Firm 함정",
+  "cta": {
+    "button": "모든 전략 보기",
+    "description": "백테스트된 전략의 포괄적인 라이브러리를 탐색하세요. 각 전략에는 상세한 성능 지표와 명확한 거래 규칙이 포함되어 있습니다.",
+    "heading": "모든 전략 보기"
+  },
+  "sections": {
+    "shockingFailureRate": {
+      "heading": "충격적인 실패율",
+      "content": "업계 데이터에 따르면 90-95%의 트레이더가 prop firm 챌린지에서 실패합니다. 이것은 우연이 아닙니다—prop firms는 실패율을 극대화하기 위해 규칙을 설계합니다. 그들은 성공한 트레이더가 아닌 챌린지 수수료에서 이익을 얻습니다. 트레이더가 실패하는 이유를 이해하는 것은 이러한 함정을 피하는 첫 번째 단계입니다."
+    },
+    "psychologicalTraps": {
+      "heading": "심리적 함정",
+      "intro": "prop firm 챌린지의 압력은 여러 심리적 함정을 만듭니다:",
+      "points": {
+        "timePressure": {
+          "label": "시간 압박:",
+          "text": "엄격한 마감일은 트레이더가 일반적으로 하지 않을 거래를 강제합니다"
+        },
+        "fearOfFailure": {
+          "label": "실패에 대한 두려움:",
+          "text": "실패의 비용이 불안을 만들어 나쁜 결정으로 이어집니다"
+        },
+        "overtrading": {
+          "label": "과도한 거래:",
+          "text": "트레이더는 수익 목표를 달성하기 위해 지속적으로 거래해야 한다고 느낍니다"
+        },
+        "revengeTrading": {
+          "label": "복수 거래:",
+          "text": "손실 후 트레이더는 빠르게 \"되찾으려\" 시도하여 더 큰 손실로 이어집니다"
+        }
+      }
+    },
+    "riskManagementMistakes": {
+      "heading": "리스크 관리 실수",
+      "intro": "prop firm 규칙은 종종 나쁜 리스크 관리를 장려합니다:",
+      "points": {
+        "dailyLossLimits": {
+          "label": "일일 손실 제한:",
+          "text": "작은 손실 후 거래를 중단하도록 강제하여 회복을 방해합니다"
+        },
+        "trailingDrawdowns": {
+          "label": "트레일링 드로다운:",
+          "text": "수익을 얻을 때 불리하게 움직여 움직이는 목표를 만듭니다"
+        },
+        "profitTargetPressure": {
+          "label": "수익 목표 압박:",
+          "text": "목표를 달성하기 위해 트레이더가 해야 할 것보다 더 많이 위험을 감수하도록 강제합니다"
+        },
+        "noFlexibility": {
+          "label": "유연성 부족:",
+          "text": "경직된 규칙은 시장 조건을 고려하지 않습니다"
+        }
+      }
+    },
+    "strategyFlaws": {
+      "heading": "전략의 결함",
+      "intro": "많은 트레이더가 검증된 전략 없이 prop firm 챌린지에 참가합니다. 그들은 다음에 의존합니다:",
+      "points": {
+        "untestedMethods": "YouTube에서 본 테스트되지 않은 거래 방법",
+        "indicators": "좋아 보이지만 백테스트되지 않은 지표",
+        "conditionalStrategies": "일부 조건에서는 작동하지만 다른 조건에서는 실패하는 전략",
+        "noClearRules": "명확한 진입 및 퇴장 규칙 없음"
+      }
+    },
+    "howToAvoidFailure": {
+      "heading": "실패를 피하는 방법",
+      "intro": "성공의 열쇠는 명확한 규칙을 가진 검증된, 백테스트된 전략을 사용하는 것입니다. 무엇이 작동할지 추측하는 대신, 수천 건의 거래와 다양한 시장 조건에서 테스트된 전략을 사용하세요. 이것은 다음을 제공합니다:",
+      "points": {
+        "realisticExpectations": "승률과 수익 요인에 대한 현실적인 기대",
+        "clearCriteria": "명확한 진입 및 퇴장 기준",
+        "provenRiskManagement": "검증된 리스크 관리 규칙",
+        "confidence": "당신의 접근 방식에 대한 자신감"
+      }
+    },
+    "backtestAdvantage": {
+      "heading": "백테스트의 장점",
+      "content": "백테스트된 전략은 추측을 제거합니다. 실제 돈을 위험하기 전에 전략이 어떻게 수행되는지 정확히 알 수 있습니다. 승률, 평균 승/패, 최대 드로다운 및 수익 요인을 이해합니다. 이 지식은 드로다운 중에 전략을 고수할 수 있는 자신감과 규칙을 따를 수 있는 훈련을 제공합니다."
+    }
+  },
+  "seo": {
+    "description": "90% 이상의 prop firm 트레이더가 챌린지에서 실패합니다. 실패로 이어지는 심리적 함정, 리스크 관리 실수 및 전략 결함을 발견하세요—그리고 검증된 백테스트된 전략이 어떻게 당신에게 우위를 제공할 수 있는지.",
+    "keywords": "prop firm 실패, prop firm 트레이더, 거래 챌린지, prop firm 성공, 거래 심리학, 리스크 관리",
+    "title": "왜 대부분의 Prop Firm 트레이더가 실패하는가 (그리고 그것을 피하는 방법)"
+  },
+  "subtitle": "90% 이상의 prop firm 트레이더가 챌린지에서 실패합니다. 실패로 이어지는 심리적 함정, 리스크 관리 실수 및 전략 결함을 발견하세요—그리고 검증된 백테스트된 전략이 어떻게 당신에게 우위를 제공할 수 있는지.",
+  "title": "왜 대부분의 Prop Firm 트레이더가 실패하는가 (그리고 그것을 피하는 방법)"
+}
+

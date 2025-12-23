@@ -1,52 +1,53 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export function AffiliatesPage() {
+  const { t } = useTranslation();
   return (
     <div className="bg-gray-900 text-white min-h-full">
       <div className="max-w-5xl mx-auto px-6 pt-12 pb-16">
         <h1 className="text-5xl font-extrabold mb-4 text-center">
-          FluxTrade Affiliate Program
+          {t("affiliates.title")}
         </h1>
         <p className="text-lg text-gray-300 mb-10 text-center max-w-3xl mx-auto">
-          Earn recurring commissions by promoting FluxTrade. Our program is
-          simple, transparent, and creator-friendly.
+          {t("affiliates.subtitle")}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-            <p className="text-4xl font-extrabold text-indigo-400 mb-2">30%</p>
+            <p className="text-4xl font-extrabold text-indigo-400 mb-2">{t("affiliates.commission")}</p>
             <p className="text-gray-300">
-              Recurring commission on all subscription payments you refer.
+              {t("affiliates.commissionDesc")}
             </p>
           </div>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-            <p className="text-2xl font-bold mb-2">Net-60 Payouts</p>
+            <p className="text-2xl font-bold mb-2">{t("affiliates.payouts")}</p>
             <p className="text-gray-300">
-              Paid out via PayPal on a net-60 schedule.
+              {t("affiliates.payoutsDesc")}
             </p>
           </div>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-            <p className="text-2xl font-bold mb-2">Use Our Assets</p>
+            <p className="text-2xl font-bold mb-2">{t("affiliates.useAssets")}</p>
             <p className="text-gray-300">
-              Use our logo, site media, and videos in your promos.
+              {t("affiliates.useAssetsDesc")}
             </p>
           </div>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-            <p className="text-2xl font-bold mb-2">Free trial</p>
+            <p className="text-2xl font-bold mb-2">{t("affiliates.freeTrial")}</p>
             <p className="text-gray-300">
-              We offer a free 30-day trial to our customers
+              {t("affiliates.freeTrialDesc")}
             </p>
           </div>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-            <p className="text-2xl font-bold mb-2">Powerful tools</p>
+            <p className="text-2xl font-bold mb-2">{t("affiliates.powerfulTools")}</p>
             <p className="text-gray-300">
-              Our suite of tools has been built from the ground up
+              {t("affiliates.powerfulToolsDesc")}
             </p>
           </div>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-            <p className="text-2xl font-bold mb-2">Growing community</p>
+            <p className="text-2xl font-bold mb-2">{t("affiliates.growingCommunity")}</p>
             <p className="text-gray-300">
-              Our free Discord allows traders to share and collaborate
+              {t("affiliates.growingCommunityDesc")}
             </p>
           </div>
         </div>
@@ -58,7 +59,7 @@ export function AffiliatesPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-colors duration-300"
           >
-            Join the Affiliate Program
+            {t("affiliates.joinProgram")}
             <svg
               className="w-5 h-5"
               fill="none"
@@ -77,25 +78,21 @@ export function AffiliatesPage() {
         </div>
 
         <div className="bg-gray-800 border border-gray-700 rounded-lg p-6 space-y-4">
-          <h2 className="text-2xl font-bold">Program Details</h2>
+          <h2 className="text-2xl font-bold">{t("affiliates.programDetails")}</h2>
           <ul className="list-disc list-inside text-gray-300 space-y-2">
             <li>
-              Commission:{" "}
-              <span className="font-semibold text-white">30% recurring</span> on
-              subscriptions you refer.
+              {t("affiliates.commissionLabel")}{" "}
+              <span className="font-semibold text-white">{t("affiliates.commissionValue")}</span> {t("affiliates.commissionFull")}
             </li>
             <li>
-              Payout terms:{" "}
-              <span className="font-semibold text-white">Net-60</span> via
-              PayPal.
+              {t("affiliates.payoutTerms")}{" "}
+              <span className="font-semibold text-white">{t("affiliates.payoutValue")}</span> {t("affiliates.payoutMethod")}
             </li>
             <li>
-              Attribution handled by PromoteKit; your referrals are tracked
-              automatically.
+              {t("affiliates.attribution")}
             </li>
             <li>
-              Marketing assets: You may use any materials from our site,
-              including our logo and videos on our YouTube channel
+              {t("affiliates.marketingAssets")}
               <a
                 className="text-indigo-400 hover:text-indigo-300 ml-1"
                 href="https://www.youtube.com/@FluxTradeLLC"
@@ -104,17 +101,17 @@ export function AffiliatesPage() {
               >
                 @FluxTradeLLC
               </a>
-              . We've also created a folder of{" "}
+              . {t("affiliates.marketingMaterialsDesc")}{" "}
               <a
                 href="https://drive.google.com/drive/folders/1uWxQeNQLEhiq8swh375AQVEkOc_mEn8Z?usp=sharing"
                 className="text-indigo-400 hover:text-indigo-300"
               >
-                Marketing Materials
+                {t("affiliates.marketingMaterials")}
               </a>{" "}
-              including videos you can use.
+              {t("affiliates.marketingMaterialsDesc")}
             </li>
             <li>
-              To get started, create your affiliate account here:
+              {t("affiliates.getStarted")}
               <a
                 className="text-indigo-400 hover:text-indigo-300 ml-1"
                 href="https://fluxtrade.promotekit.com"
@@ -126,7 +123,7 @@ export function AffiliatesPage() {
               .
             </li>
             <li>
-              For additional information or questions, please email me at{" "}
+              {t("affiliates.questions")}{" "}
               <a
                 className="text-indigo-400 hover:text-indigo-300"
                 href="mailto:grant@fluxtrade.net"

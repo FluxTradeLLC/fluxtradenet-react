@@ -1,0 +1,96 @@
+{
+  "backToBlog": "Voltar ao Blog",
+  "category": "Introdução à Estratégia",
+  "cta": {
+    "button": "Revisar Resultados do Backtest",
+    "description": "Veja como a estratégia ORB performa em diferentes condições de mercado com nossa análise abrangente de backtest.",
+    "heading": "Revisar Resultados do Backtest"
+  },
+  "sections": {
+    "whatIsOpeningRange": {
+      "heading": "O que é a Faixa de Abertura?",
+      "content": "A faixa de abertura é o preço máximo e mínimo estabelecido durante a primeira hora (ou primeiros 30 minutos) de negociação. Essa faixa é significativa porque representa a batalha inicial entre compradores e vendedores após a abertura do mercado. A primeira hora frequentemente estabelece o tom do dia, tornando-a um período crítico para traders."
+    },
+    "whyMatters": {
+      "heading": "Por Que a Faixa de Abertura é Importante",
+      "intro": "A faixa de abertura é importante por várias razões:",
+      "points": {
+        "highVolatility": {
+          "label": "Alta Volatilidade:",
+          "text": "A primeira hora tipicamente tem o maior volume e volatilidade"
+        },
+        "institutionalActivity": {
+          "label": "Atividade Institucional:",
+          "text": "Grandes participantes frequentemente estabelecem posições no início do dia"
+        },
+        "priceDiscovery": {
+          "label": "Descoberta de Preço:",
+          "text": "O mercado está descobrindo o valor justo após notícias e eventos noturnos"
+        },
+        "momentum": {
+          "label": "Momentum:",
+          "text": "Rompimentos da faixa de abertura frequentemente continuam ao longo do dia"
+        }
+      }
+    },
+    "howItWorks": {
+      "heading": "Como a Estratégia ORB Funciona",
+      "intro": "A estratégia ORB é direta:",
+      "points": [
+        "Identificar a Faixa: Marque o máximo e mínimo da primeira hora",
+        "Aguardar o Rompimento: Aguarde o preço romper acima do máximo ou abaixo do mínimo",
+        "Entrar com Confirmação: Entre quando o rompimento for confirmado com volume",
+        "Gerenciar Risco: Coloque stops logo dentro da faixa de abertura",
+        "Realizar Lucros: Use alvos baseados no tamanho da faixa ou suporte/resistência chave"
+      ]
+    },
+    "successFactors": {
+      "heading": "Fatores Chave de Sucesso",
+      "intro": "Nem todos os rompimentos da faixa de abertura são iguais. Configurações de alta probabilidade têm:",
+      "points": {
+        "volumeConfirmation": {
+          "label": "Confirmação de Volume:",
+          "text": "Rompimentos com alto volume têm maior probabilidade de continuar"
+        },
+        "clearDirection": {
+          "label": "Direção Clara:",
+          "text": "Rompimentos fortes e decisivos são melhores que movimentos fracos e erráticos"
+        },
+        "marketContext": {
+          "label": "Contexto de Mercado:",
+          "text": "Considere notícias noturnas e atividade pré-mercado"
+        },
+        "timeOfBreakout": {
+          "label": "Momento do Rompimento:",
+          "text": "Rompimentos mais precoces (dentro da primeira hora) tendem a ser mais fortes"
+        }
+      }
+    },
+    "riskManagement": {
+      "heading": "Gestão de Risco",
+      "content": "A faixa de abertura fornece níveis naturais de stop-loss. Se o preço romper acima da faixa e você entrar em compra, seu stop deve estar logo abaixo do máximo da faixa. Se o rompimento falhar e o preço retornar dentro da faixa, você sai. Isso cria uma configuração clara de risco-recompensa onde seu risco é definido pelo tamanho da faixa."
+    },
+    "commonMistakes": {
+      "heading": "Erros Comuns",
+      "intro": "Traders frequentemente falham com ORB porque:",
+      "points": [
+        "Entram antes da confirmação, ficando presos em rompimentos falsos",
+        "Usam faixas muito amplas, levando a uma relação risco-recompensa ruim",
+        "Ignoram o volume, negociando configurações de baixa probabilidade",
+        "Não consideram o contexto de mercado e notícias noturnas"
+      ]
+    },
+    "adaptingToConditions": {
+      "heading": "Adaptação às Condições de Mercado",
+      "content": "A estratégia ORB funciona melhor em mercados de tendência com direção clara. Em mercados erráticos e limitados por faixas, rompimentos frequentemente falham. Entender as condições de mercado e adaptar sua abordagem—ou pular negociações quando as condições não são favoráveis—é a chave para o sucesso de longo prazo com esta estratégia."
+    }
+  },
+  "seo": {
+    "description": "A estratégia Opening Range Breakout (ORB) capitaliza na volatilidade da primeira hora. Este artigo explica como identificar rompimentos de alta probabilidade e gerenciar risco ao negociar na abertura do mercado.",
+    "keywords": "estratégia ORB, rompimento de faixa de abertura, estratégia de trading, negociação na abertura do mercado, trading de volatilidade, trading de rompimento",
+    "title": "Estratégia ORB: Negociando o Rompimento da Faixa de Abertura"
+  },
+  "subtitle": "A estratégia Opening Range Breakout (ORB) capitaliza na volatilidade da primeira hora. Este artigo explica como identificar rompimentos de alta probabilidade e gerenciar risco ao negociar na abertura do mercado.",
+  "title": "Estratégia ORB: Negociando a Faixa de Abertura"
+}
+

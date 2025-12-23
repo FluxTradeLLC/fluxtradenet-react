@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { createChart, CandlestickSeries, LineSeries } from "lightweight-charts";
 import { calculateFluxPivot } from "../assets/javascriptIndicators/fluxPivot";
+import { useTranslation } from "react-i18next";
 
 // Simplified indicator configurations for lightweight-charts
 const FLUX_INDICATORS = {
@@ -61,38 +62,14 @@ const FLUX_INDICATORS = {
   },
 };
 
-// Preset layouts
-const PRESET_LAYOUTS = {
-  "FluxTrade": {
-    name: "FluxTrade",
-    indicators: ["FluxPivot"],
-    description: "FluxTrade's flagship indicator with stepped MA and signals",
-  },
-  "Trend Following": {
-    name: "Trend Following",
-    indicators: ["Moving Average (14)", "Moving Average (50)", "Moving Average (200)"],
-    description: "Perfect for catching trends early",
-  },
-  "Momentum": {
-    name: "Momentum",
-    indicators: ["EMA (12)", "EMA (26)"],
-    description: "Spot momentum shifts and breakouts",
-  },
-  "Support/Resistance": {
-    name: "Support/Resistance",
-    indicators: ["Moving Average (50)", "Moving Average (200)"],
-    description: "Trade key levels and reversals",
-  },
-  "All Indicators": {
-    name: "All Indicators",
-    indicators: Object.keys(FLUX_INDICATORS),
-    description: "See everything at once",
-  },
-  "Minimal": {
-    name: "Minimal",
-    indicators: ["Moving Average (14)"],
-    description: "Clean and simple",
-  },
+// Indicator name keys for translation
+const INDICATOR_NAME_KEYS = {
+  "FluxPivot": "fluxPivot",
+  "Moving Average (14)": "movingAverage14",
+  "Moving Average (50)": "movingAverage50",
+  "Moving Average (200)": "movingAverage200",
+  "EMA (12)": "ema12",
+  "EMA (26)": "ema26",
 };
 
 // Helper function to calculate moving average
@@ -199,6 +176,7 @@ const validateAndNormalizeData = (data) => {
 };
 
 export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => {
+  const { t } = useTranslation();
   const chartContainerRef = useRef(null);
   const chartRef = useRef(null);
   const candleSeriesRef = useRef(null);
@@ -219,6 +197,42 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
   const loadMoreTimeoutRef = useRef(null);
   const subscriptionTimeoutRef = useRef(null);
   const chartReadyForSubscriptionRef = useRef(false);
+
+  // Get preset layouts with translations
+  const getPresetLayouts = () => {
+    return {
+      "FluxTrade": {
+        name: t("tradingViewChart.presets.fluxTrade.name"),
+        indicators: ["FluxPivot"],
+        description: t("tradingViewChart.presets.fluxTrade.description"),
+      },
+      "Trend Following": {
+        name: t("tradingViewChart.presets.trendFollowing.name"),
+        indicators: ["Moving Average (14)", "Moving Average (50)", "Moving Average (200)"],
+        description: t("tradingViewChart.presets.trendFollowing.description"),
+      },
+      "Momentum": {
+        name: t("tradingViewChart.presets.momentum.name"),
+        indicators: ["EMA (12)", "EMA (26)"],
+        description: t("tradingViewChart.presets.momentum.description"),
+      },
+      "Support/Resistance": {
+        name: t("tradingViewChart.presets.supportResistance.name"),
+        indicators: ["Moving Average (50)", "Moving Average (200)"],
+        description: t("tradingViewChart.presets.supportResistance.description"),
+      },
+      "All Indicators": {
+        name: t("tradingViewChart.presets.allIndicators.name"),
+        indicators: Object.keys(FLUX_INDICATORS),
+        description: t("tradingViewChart.presets.allIndicators.description"),
+      },
+      "Minimal": {
+        name: t("tradingViewChart.presets.minimal.name"),
+        indicators: ["Moving Average (14)"],
+        description: t("tradingViewChart.presets.minimal.description"),
+      },
+    };
+  };
 
   // Update dataUrlRef when dataUrl changes
   useEffect(() => {
@@ -800,6 +814,23 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
     }
   }, [chartData]);
 
+  const getIndicatorName = useCallback((indicatorName) => {
+    const key = INDICATOR_NAME_KEYS[indicatorName];
+    if (key) {
+      return t(`tradingViewChart.indicators.${key}.name`);
+    }
+    return indicatorName;
+  }, [t]);
+
+  const getIndicatorDescription = useCallback((indicatorName) => {
+    const key = INDICATOR_NAME_KEYS[indicatorName];
+    if (key) {
+      return t(`tradingViewChart.indicators.${key}.description`);
+    }
+    const indicator = FLUX_INDICATORS[indicatorName];
+    return indicator ? indicator.description : "";
+  }, [t]);
+
   // Update indicators when activeIndicators changes
   useEffect(() => {
     if (!chartRef.current || !candleSeriesRef.current || chartData.length === 0) return;
@@ -921,10 +952,16 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
           
           // Create a series for each segment
           segments.forEach((segment, idx) => {
+            const directionLabel = segment.direction === 1 
+              ? t("tradingViewChart.directions.long")
+              : segment.direction === -1 
+              ? t("tradingViewChart.directions.short")
+              : t("tradingViewChart.directions.flat");
+            const indicatorDisplayName = getIndicatorName(indicatorName);
             const series = chartRef.current.addSeries(LineSeries, {
               color: segment.color,
               lineWidth: 2,
-              title: idx === 0 ? indicator.name : `${indicator.name} (${segment.direction === 1 ? 'Long' : segment.direction === -1 ? 'Short' : 'Flat'})`,
+              title: idx === 0 ? indicatorDisplayName : `${indicatorDisplayName} (${directionLabel})`,
             });
             series.setData(segment.data);
             indicatorSeriesRef.current[`${indicatorName}_${idx}`] = series;
@@ -944,7 +981,7 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
         const lineSeries = chartRef.current.addSeries(LineSeries, {
           color: indicator.color,
           lineWidth: 2,
-          title: indicator.name,
+          title: getIndicatorName(indicatorName),
         });
 
         lineSeries.setData(validData);
@@ -956,7 +993,7 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
     if (candleSeriesRef.current && typeof candleSeriesRef.current.setMarkers === 'function') {
       candleSeriesRef.current.setMarkers(allMarkers);
     }
-  }, [activeIndicators, chartData]);
+  }, [activeIndicators, chartData, t, getIndicatorName]);
 
   const toggleIndicator = (indicatorName) => {
     setActiveIndicators((prev) => {
@@ -965,7 +1002,8 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
         : [...prev, indicatorName];
 
       // Update preset to Custom if it doesn't match any preset
-      const matchesPreset = Object.values(PRESET_LAYOUTS).some(
+      const presetLayouts = getPresetLayouts();
+      const matchesPreset = Object.values(presetLayouts).some(
         (preset) => JSON.stringify(preset.indicators.sort()) === JSON.stringify(newIndicators.sort())
       );
       if (!matchesPreset) {
@@ -977,12 +1015,15 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
   };
 
   const applyPreset = (presetName) => {
-    const preset = PRESET_LAYOUTS[presetName];
+    const presetLayouts = getPresetLayouts();
+    const preset = presetLayouts[presetName];
     if (preset) {
       setActiveIndicators(preset.indicators);
       setSelectedPreset(presetName);
     }
   };
+
+  const presetLayouts = getPresetLayouts();
 
   return (
     <div className="w-full bg-gray-900 rounded-lg p-6 shadow-2xl">
@@ -990,28 +1031,28 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
       <div className="mb-6">
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-            Sample Chart
+            {t("tradingViewChart.title")}
           </h2>
         </div>
         <p className="text-gray-400">
-          Toggle indicators on/off and explore preset layouts
+          {t("tradingViewChart.subtitle")}
         </p>
       </div>
 
       {/* Preset Layouts */}
       <div className="mb-4">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-lg font-semibold text-gray-300">Preset Layouts</h3>
+          <h3 className="text-lg font-semibold text-gray-300">{t("tradingViewChart.presetLayouts")}</h3>
           <button
             type="button"
             onClick={() => setShowIndicators((prev) => !prev)}
             className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer px-2 py-1 rounded hover:bg-gray-800"
           >
-            {showIndicators ? "Hide Indicators" : "Show Indicators"}
+            {showIndicators ? t("tradingViewChart.hideIndicators") : t("tradingViewChart.showIndicators")}
           </button>
         </div>
         <div className="flex flex-wrap gap-2">
-          {Object.keys(PRESET_LAYOUTS).map((presetName) => {
+          {Object.keys(presetLayouts).map((presetName) => {
             const isActive = selectedPreset === presetName;
             return (
               <button
@@ -1023,25 +1064,27 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
                     : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white hover:scale-105"
                 }`}
               >
-                {presetName}
+                {presetLayouts[presetName].name}
                 {isActive && <span className="ml-1 text-xs">✓</span>}
               </button>
             );
           })}
           {selectedPreset === "Custom" && (
             <button className="px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-gradient-to-r from-green-600 to-blue-600 text-white shadow-lg scale-105">
-              Custom ✓
+              {t("tradingViewChart.custom")} ✓
             </button>
           )}
         </div>
-        {selectedPreset !== "Custom" && PRESET_LAYOUTS[selectedPreset] && (
+        {selectedPreset !== "Custom" && presetLayouts[selectedPreset] && (
           <p className="mt-2 text-xs text-gray-400 italic">
-            {PRESET_LAYOUTS[selectedPreset].description}
+            {presetLayouts[selectedPreset].description}
           </p>
         )}
         {selectedPreset === "Custom" && (
           <p className="mt-2 text-xs text-gray-400 italic">
-            Custom layout with {activeIndicators.length} indicator{activeIndicators.length !== 1 ? "s" : ""}
+            {activeIndicators.length === 1 
+              ? t("tradingViewChart.customLayout", { count: activeIndicators.length })
+              : t("tradingViewChart.customLayoutPlural", { count: activeIndicators.length })}
           </p>
         )}
       </div>
@@ -1050,11 +1093,10 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
       {showIndicators && (
         <div className="mb-4">
           <h3 className="text-lg font-semibold mb-3 text-gray-300">
-            Toggle Indicators ({activeIndicators.length} active)
+            {t("tradingViewChart.toggleIndicators")} ({t("tradingViewChart.activeCount", { count: activeIndicators.length })})
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
             {Object.keys(FLUX_INDICATORS).map((indicatorName) => {
-              const indicator = FLUX_INDICATORS[indicatorName];
               const isActive = activeIndicators.includes(indicatorName);
               return (
                 <button
@@ -1067,14 +1109,14 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-medium text-xs">{indicatorName}</span>
+                    <span className="font-medium text-xs">{getIndicatorName(indicatorName)}</span>
                     {isActive && (
                       <span className="text-xs bg-white bg-opacity-20 px-1.5 py-0.5 rounded">
-                        ON
+                        {t("tradingViewChart.on")}
                       </span>
                     )}
                   </div>
-                  <p className="text-xs mt-0.5 opacity-80 line-clamp-1">{indicator.description}</p>
+                  <p className="text-xs mt-0.5 opacity-80 line-clamp-1">{getIndicatorDescription(indicatorName)}</p>
                 </button>
               );
             })}
@@ -1088,14 +1130,14 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
           <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-90 z-10">
             <div className="text-center">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
-              <p className="text-gray-400">Loading chart...</p>
+              <p className="text-gray-400">{t("tradingViewChart.loadingChart")}</p>
             </div>
           </div>
         )}
         {isLoadingMore && (
           <div className="absolute top-2 left-2 z-10 bg-blue-600 bg-opacity-90 text-white px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-2">
             <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
-            <span className="text-xs font-medium">Loading more data...</span>
+            <span className="text-xs font-medium">{t("tradingViewChart.loadingMoreData")}</span>
           </div>
         )}
         <div
@@ -1107,8 +1149,8 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
 
       {/* Info Footer */}
       <div className="mt-4 text-xs text-gray-500 text-center">
-        <p>💡 Tip: Try different preset layouts or customize your own indicator combination!</p>
-        <p className="mt-1">Chart powered by Lightweight Charts • Indicators by FluxTrade</p>
+        <p>{t("tradingViewChart.tip")}</p>
+        <p className="mt-1">{t("tradingViewChart.footer")}</p>
       </div>
     </div>
   );

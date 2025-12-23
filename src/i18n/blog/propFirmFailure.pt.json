@@ -1,0 +1,91 @@
+{
+  "backToBlog": "Voltar ao Blog",
+  "category": "Armadilhas das Prop Firms",
+  "cta": {
+    "button": "Ver Todas as Estratégias",
+    "description": "Explore nossa biblioteca abrangente de estratégias backtestadas. Cada estratégia inclui métricas de desempenho detalhadas e regras de negociação claras.",
+    "heading": "Ver Todas as Estratégias"
+  },
+  "sections": {
+    "shockingFailureRate": {
+      "heading": "A Taxa de Falha Chocante",
+      "content": "Dados da indústria mostram que 90-95% dos traders falham nos desafios das prop firms. Isso não é por acidente—as prop firms projetam suas regras para maximizar as taxas de falha. Elas lucram com taxas de desafio, não com traders bem-sucedidos. Entender por que os traders falham é o primeiro passo para evitar essas armadilhas."
+    },
+    "psychologicalTraps": {
+      "heading": "Armadilhas Psicológicas",
+      "intro": "A pressão dos desafios das prop firms cria várias armadilhas psicológicas:",
+      "points": {
+        "timePressure": {
+          "label": "Pressão de Tempo:",
+          "text": "Prazos rigorosos forçam traders a fazer negociações que normalmente não fariam"
+        },
+        "fearOfFailure": {
+          "label": "Medo do Fracasso:",
+          "text": "O custo de falhar cria ansiedade que leva a más decisões"
+        },
+        "overtrading": {
+          "label": "Sobrenegociação:",
+          "text": "Traders sentem que devem negociar constantemente para atingir metas de lucro"
+        },
+        "revengeTrading": {
+          "label": "Negociação de Vingança:",
+          "text": "Após perdas, traders tentam \"recuperar\" rapidamente, levando a perdas maiores"
+        }
+      }
+    },
+    "riskManagementMistakes": {
+      "heading": "Erros de Gestão de Risco",
+      "intro": "As regras das prop firms frequentemente encorajam má gestão de risco:",
+      "points": {
+        "dailyLossLimits": {
+          "label": "Limites de Perda Diária:",
+          "text": "Forçam traders a parar de negociar após pequenas perdas, impedindo recuperação"
+        },
+        "trailingDrawdowns": {
+          "label": "Drawdowns Trailing:",
+          "text": "Movem-se contra você conforme você lucra, criando um alvo móvel"
+        },
+        "profitTargetPressure": {
+          "label": "Pressão de Meta de Lucro:",
+          "text": "Força traders a arriscar mais do que deveriam para atingir metas"
+        },
+        "noFlexibility": {
+          "label": "Sem Flexibilidade:",
+          "text": "Regras rígidas não levam em conta condições de mercado"
+        }
+      }
+    },
+    "strategyFlaws": {
+      "heading": "Defeitos de Estratégia",
+      "intro": "Muitos traders entram em desafios de prop firms sem estratégias comprovadas. Eles confiam em:",
+      "points": {
+        "untestedMethods": "Métodos de negociação não testados que viram no YouTube",
+        "indicators": "Indicadores que parecem bons mas não foram backtestados",
+        "conditionalStrategies": "Estratégias que funcionam em algumas condições mas falham em outras",
+        "noClearRules": "Sem regras claras de entrada e saída"
+      }
+    },
+    "howToAvoidFailure": {
+      "heading": "Como Evitar o Fracasso",
+      "intro": "A chave para o sucesso é usar estratégias comprovadas e backtestadas com regras claras. Em vez de adivinhar o que pode funcionar, use estratégias que foram testadas em milhares de negociações e várias condições de mercado. Isso lhe dá:",
+      "points": {
+        "realisticExpectations": "Expectativas realistas sobre taxas de vitória e fatores de lucro",
+        "clearCriteria": "Critérios claros de entrada e saída",
+        "provenRiskManagement": "Regras comprovadas de gestão de risco",
+        "confidence": "Confiança na sua abordagem"
+      }
+    },
+    "backtestAdvantage": {
+      "heading": "A Vantagem do Backtest",
+      "content": "Estratégias backtestadas eliminam as suposições. Você sabe exatamente como uma estratégia se desempenha antes de arriscar dinheiro real. Você entende sua taxa de vitória, ganho/perda médio, drawdown máximo e fator de lucro. Esse conhecimento lhe dá a confiança para manter a estratégia durante drawdowns e a disciplina para seguir as regras."
+    }
+  },
+  "seo": {
+    "description": "Mais de 90% dos traders de prop firms falham em seus desafios. Descubra as armadilhas psicológicas, erros de gestão de risco e defeitos de estratégia que levam ao fracasso—e como estratégias backtestadas comprovadas podem lhe dar uma vantagem.",
+    "keywords": "fracasso prop firm, traders prop firm, desafios de negociação, sucesso prop firm, psicologia de negociação, gestão de risco",
+    "title": "Por Que a Maioria dos Traders de Prop Firms Falha (E Como Evitar)"
+  },
+  "subtitle": "Mais de 90% dos traders de prop firms falham em seus desafios. Descubra as armadilhas psicológicas, erros de gestão de risco e defeitos de estratégia que levam ao fracasso—e como estratégias backtestadas comprovadas podem lhe dar uma vantagem.",
+  "title": "Por Que a Maioria dos Traders de Prop Firms Falha (E Como Evitar)"
+}
+
