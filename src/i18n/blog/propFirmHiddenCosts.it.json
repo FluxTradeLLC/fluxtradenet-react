@@ -1,0 +1,65 @@
+{
+  "backToBlog": "Torna al Blog",
+  "category": "Trappole delle Prop Firm",
+  "cta": {
+    "button": "Confronta le Opzioni di Prezzo",
+    "description": "Vedi come i nostri prezzi si confrontano con le sfide delle prop firm. Ottieni accesso a strategie comprovate senza commissioni nascoste e divisioni degli utili.",
+    "heading": "Confronta le Opzioni di Prezzo"
+  },
+  "sections": {
+    "challengeFeeTrap": {
+      "heading": "La Trappola della Commissione di Sfida",
+      "content": "La maggior parte delle prop firm addebita una commissione anticipata per le loro sfide—tipicamente da $50 a $500 o più. Quello che molti trader non si rendono conto è che se fallisci la sfida, perdi completamente questa commissione. Alcune aziende offrono \"ripetizioni\" a prezzo scontato, ma questi costi si accumulano rapidamente. Dopo più tentativi falliti, potresti spendere migliaia prima di ottenere finanziamenti."
+    },
+    "hiddenFees": {
+      "heading": "Commissioni Nascoste che Non Conoscevi",
+      "intro": "Oltre alla commissione di sfida, molte prop firm hanno costi aggiuntivi:",
+      "points": {
+        "platformFees": {
+          "label": "Commissioni di Piattaforma:",
+          "text": "Addebiti mensili per utilizzare la loro piattaforma di trading"
+        },
+        "dataFees": {
+          "label": "Commissioni Dati:",
+          "text": "Costi per i feed di dati di mercato in tempo reale"
+        },
+        "withdrawalFees": {
+          "label": "Commissioni di Prelievo:",
+          "text": "Addebiti quando vuoi prelevare profitti"
+        },
+        "inactivityFees": {
+          "label": "Commissioni di Inattività:",
+          "text": "Penalità per non negoziare abbastanza"
+        },
+        "accountMaintenance": {
+          "label": "Manutenzione Account:",
+          "text": "Costi continui solo per mantenere attivo il tuo account"
+        }
+      }
+    },
+    "profitSplitReality": {
+      "heading": "La Realtà della Divisione degli Utili",
+      "content": "Anche quando superi la sfida e ottieni finanziamenti, le prop firm prendono una parte significativa dei tuoi profitti—tipicamente dal 50% all'80%. Ciò significa che se guadagni $10.000, potresti vedere solo $2.000 a $5.000. Quando consideri tutte le commissioni e la divisione degli utili, il costo effettivo del trading con le prop firm può essere molto più alto di quanto pubblicizzato."
+    },
+    "unrealisticProfitTargets": {
+      "heading": "Obiettivi di Profitto Irrealistici",
+      "content": "Molte sfide delle prop firm richiedono di raggiungere obiettivi di profitto entro scadenze rigorose—spesso dall'8% al 10% in 30 giorni. Anche se questo sembra raggiungibile, in realtà è un obiettivo aggressivo che costringe i trader ad assumere rischi eccessivi. Questa pressione spesso porta a overtrading e cattiva decisione, che è esattamente ciò che la prop firm vuole—traggono profitto dai tuoi fallimenti."
+    },
+    "trueCostCalculation": {
+      "heading": "Il Calcolo del Vero Costo",
+      "content": "Supponiamo che paghi $300 per una sfida e fallisci tre volte prima di superarla. Sono $900 in commissioni di sfida. Poi paghi $100/mese in commissioni di piattaforma e dati. Dopo un anno, hai speso $2.100 solo per negoziare. Se guadagni $20.000 di profitti ma l'azienda prende il 70%, tieni $6.000. Il tuo profitto netto è $3.900—ma hai anche speso innumerevoli ore ed energia emotiva."
+    },
+    "betterAlternatives": {
+      "heading": "Alternative Migliori",
+      "content": "Invece di pagare le prop firm per il privilegio di negoziare il loro capitale, considera alternative che ti danno più controllo e migliore economia. Con strategie comprovate e una gestione del rischio appropriata, puoi costruire il tuo account di trading senza i costi nascosti e le restrizioni delle prop firm."
+    }
+  },
+  "seo": {
+    "description": "Molti trader non si rendono conto del vero costo delle sfide delle prop firm fino a quando non è troppo tardi. Dalle commissioni nascoste agli obiettivi di profitto irrealistici, scopri le trappole comuni che possono far deragliare il tuo viaggio verso un account finanziato.",
+    "keywords": "sfide prop firm, commissioni prop firm, trading finanziato, costi nascosti prop firm, sfide trading, trappole prop firm",
+    "title": "I Costi Nascosti delle Sfide delle Prop Firm"
+  },
+  "subtitle": "Molti trader non si rendono conto del vero costo delle sfide delle prop firm fino a quando non è troppo tardi. Dalle commissioni nascoste agli obiettivi di profitto irrealistici, scopri le trappole comuni che possono far deragliare il tuo viaggio verso un account finanziato.",
+  "title": "I Costi Nascosti delle Sfide delle Prop Firm"
+}
+

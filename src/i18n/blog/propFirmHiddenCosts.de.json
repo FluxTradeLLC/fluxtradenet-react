@@ -1,0 +1,65 @@
+{
+  "backToBlog": "Zurück zum Blog",
+  "category": "Prop Firm Fallstricke",
+  "cta": {
+    "button": "Preisoptionen Vergleichen",
+    "description": "Sehen Sie, wie sich unsere Preise mit Prop Firm Challenges vergleichen. Erhalten Sie Zugang zu bewährten Strategien ohne versteckte Gebühren und Gewinnaufteilungen.",
+    "heading": "Preisoptionen Vergleichen"
+  },
+  "sections": {
+    "challengeFeeTrap": {
+      "heading": "Die Challenge-Gebühren-Falle",
+      "content": "Die meisten Prop Firms erheben eine Vorauszahlung für ihre Challenges—typischerweise 50 $ bis 500 $ oder mehr. Was viele Trader nicht erkennen, ist, dass Sie diese Gebühr vollständig verlieren, wenn Sie die Challenge nicht bestehen. Einige Firmen bieten \"Wiederholungen\" mit Rabatt an, aber diese Kosten summieren sich schnell. Nach mehreren gescheiterten Versuchen könnten Sie Tausende ausgeben, bevor Sie jemals finanziert werden."
+    },
+    "hiddenFees": {
+      "heading": "Versteckte Gebühren, die Sie nicht kannten",
+      "intro": "Neben der Challenge-Gebühr haben viele Prop Firms zusätzliche Kosten:",
+      "points": {
+        "platformFees": {
+          "label": "Plattformgebühren:",
+          "text": "Monatliche Gebühren für die Nutzung ihrer Trading-Plattform"
+        },
+        "dataFees": {
+          "label": "Datengebühren:",
+          "text": "Kosten für Echtzeit-Marktdatenfeeds"
+        },
+        "withdrawalFees": {
+          "label": "Auszahlungsgebühren:",
+          "text": "Gebühren, wenn Sie Gewinne abheben möchten"
+        },
+        "inactivityFees": {
+          "label": "Inaktivitätsgebühren:",
+          "text": "Strafen für unzureichendes Trading"
+        },
+        "accountMaintenance": {
+          "label": "Kontopflege:",
+          "text": "Laufende Kosten nur, um Ihr Konto aktiv zu halten"
+        }
+      }
+    },
+    "profitSplitReality": {
+      "heading": "Die Realität der Gewinnaufteilung",
+      "content": "Selbst wenn Sie die Challenge bestehen und finanziert werden, nehmen Prop Firms einen erheblichen Anteil Ihrer Gewinne—typischerweise 50% bis 80%. Das bedeutet, wenn Sie 10.000 $ verdienen, sehen Sie möglicherweise nur 2.000 $ bis 5.000 $. Wenn Sie alle Gebühren und die Gewinnaufteilung berücksichtigen, können die effektiven Kosten des Tradings mit Prop Firms viel höher sein als beworben."
+    },
+    "unrealisticProfitTargets": {
+      "heading": "Unrealistische Gewinnziele",
+      "content": "Viele Prop Firm Challenges erfordern, dass Sie Gewinnziele innerhalb strenger Zeitrahmen erreichen—oft 8% bis 10% in 30 Tagen. Während dies erreichbar klingt, ist es tatsächlich ein aggressives Ziel, das Trader zwingt, übermäßige Risiken einzugehen. Dieser Druck führt oft zu Overtrading und schlechter Entscheidungsfindung, was genau das ist, was die Prop Firm will—sie profitieren von Ihren Fehlschlägen."
+    },
+    "trueCostCalculation": {
+      "heading": "Die Berechnung der wahren Kosten",
+      "content": "Nehmen wir an, Sie zahlen 300 $ für eine Challenge und scheitern dreimal, bevor Sie bestehen. Das sind 900 $ an Challenge-Gebühren. Dann zahlen Sie 100 $/Monat für Plattform- und Datengebühren. Nach einem Jahr haben Sie 2.100 $ nur für das Trading ausgegeben. Wenn Sie 20.000 $ Gewinn machen, aber die Firma 70% nimmt, behalten Sie 6.000 $. Ihr Nettogewinn beträgt 3.900 $—aber Sie haben auch unzählige Stunden und emotionale Energie aufgewendet."
+    },
+    "betterAlternatives": {
+      "heading": "Bessere Alternativen",
+      "content": "Anstatt Prop Firms für das Privileg zu zahlen, mit ihrem Kapital zu handeln, sollten Sie Alternativen in Betracht ziehen, die Ihnen mehr Kontrolle und bessere Wirtschaftlichkeit bieten. Mit bewährten Strategien und angemessenem Risikomanagement können Sie Ihr eigenes Trading-Konto aufbauen, ohne die versteckten Kosten und Einschränkungen von Prop Firms."
+    }
+  },
+  "seo": {
+    "description": "Viele Trader erkennen die wahren Kosten von Prop Firm Challenges erst, wenn es zu spät ist. Von versteckten Gebühren bis hin zu unrealistischen Gewinnzielen erfahren Sie mehr über die häufigen Fallstricke, die Ihre Reise zu einem finanzierten Konto zum Scheitern bringen können.",
+    "keywords": "Prop Firm Challenges, Prop Firm Gebühren, finanziertes Trading, versteckte Kosten von Prop Firms, Trading Challenges, Prop Firm Fallstricke",
+    "title": "Die Versteckten Kosten von Prop Firm Challenges"
+  },
+  "subtitle": "Viele Trader erkennen die wahren Kosten von Prop Firm Challenges erst, wenn es zu spät ist. Von versteckten Gebühren bis hin zu unrealistischen Gewinnzielen erfahren Sie mehr über die häufigen Fallstricke, die Ihre Reise zu einem finanzierten Konto zum Scheitern bringen können.",
+  "title": "Die Versteckten Kosten von Prop Firm Challenges"
+}
+

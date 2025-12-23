@@ -1,0 +1,91 @@
+{
+  "backToBlog": "Retour au Blog",
+  "category": "Pièges des Prop Firms",
+  "cta": {
+    "button": "Voir Toutes les Stratégies",
+    "description": "Explorez notre bibliothèque complète de stratégies backtestées. Chaque stratégie comprend des métriques de performance détaillées et des règles de trading claires.",
+    "heading": "Voir Toutes les Stratégies"
+  },
+  "sections": {
+    "shockingFailureRate": {
+      "heading": "Le Taux d'Échec Choquant",
+      "content": "Les données de l'industrie montrent que 90 à 95% des traders échouent aux défis des prop firms. Ce n'est pas un accident—les prop firms conçoivent leurs règles pour maximiser les taux d'échec. Elles profitent des frais de défi, pas des traders réussis. Comprendre pourquoi les traders échouent est la première étape pour éviter ces pièges."
+    },
+    "psychologicalTraps": {
+      "heading": "Pièges Psychologiques",
+      "intro": "La pression des défis des prop firms crée plusieurs pièges psychologiques :",
+      "points": {
+        "timePressure": {
+          "label": "Pression Temporelle :",
+          "text": "Les délais stricts forcent les traders à prendre des trades qu'ils ne prendraient normalement pas"
+        },
+        "fearOfFailure": {
+          "label": "Peur de l'Échec :",
+          "text": "Le coût de l'échec crée de l'anxiété qui mène à de mauvaises décisions"
+        },
+        "overtrading": {
+          "label": "Sur-trading :",
+          "text": "Les traders sentent qu'ils doivent trader constamment pour atteindre les objectifs de profit"
+        },
+        "revengeTrading": {
+          "label": "Trading de Vengeance :",
+          "text": "Après les pertes, les traders essaient de \"récupérer\" rapidement, menant à de plus grandes pertes"
+        }
+      }
+    },
+    "riskManagementMistakes": {
+      "heading": "Erreurs de Gestion des Risques",
+      "intro": "Les règles des prop firms encouragent souvent une mauvaise gestion des risques :",
+      "points": {
+        "dailyLossLimits": {
+          "label": "Limites de Perte Quotidienne :",
+          "text": "Forcent les traders à arrêter de trader après de petites pertes, empêchant la récupération"
+        },
+        "trailingDrawdowns": {
+          "label": "Drawdowns Trailing :",
+          "text": "Se déplacent contre vous lorsque vous réalisez des profits, créant une cible mobile"
+        },
+        "profitTargetPressure": {
+          "label": "Pression des Objectifs de Profit :",
+          "text": "Force les traders à risquer plus qu'ils ne devraient pour atteindre les objectifs"
+        },
+        "noFlexibility": {
+          "label": "Aucune Flexibilité :",
+          "text": "Les règles rigides ne tiennent pas compte des conditions du marché"
+        }
+      }
+    },
+    "strategyFlaws": {
+      "heading": "Défauts de Stratégie",
+      "intro": "De nombreux traders entrent dans les défis des prop firms sans stratégies éprouvées. Ils s'appuient sur :",
+      "points": {
+        "untestedMethods": "Des méthodes de trading non testées qu'ils ont vues sur YouTube",
+        "indicators": "Des indicateurs qui ont l'air bien mais qui n'ont pas été backtestés",
+        "conditionalStrategies": "Des stratégies qui fonctionnent dans certaines conditions mais échouent dans d'autres",
+        "noClearRules": "Aucune règle claire d'entrée et de sortie"
+      }
+    },
+    "howToAvoidFailure": {
+      "heading": "Comment Éviter l'Échec",
+      "intro": "La clé du succès est d'utiliser des stratégies éprouvées et backtestées avec des règles claires. Au lieu de deviner ce qui pourrait fonctionner, utilisez des stratégies qui ont été testées sur des milliers de trades et diverses conditions de marché. Cela vous donne :",
+      "points": {
+        "realisticExpectations": "Des attentes réalistes sur les taux de réussite et les facteurs de profit",
+        "clearCriteria": "Des critères clairs d'entrée et de sortie",
+        "provenRiskManagement": "Des règles de gestion des risques éprouvées",
+        "confidence": "Confiance en votre approche"
+      }
+    },
+    "backtestAdvantage": {
+      "heading": "L'Avantage du Backtest",
+      "content": "Les stratégies backtestées éliminent les conjectures. Vous savez exactement comment une stratégie performe avant de risquer de l'argent réel. Vous comprenez son taux de réussite, gain/perte moyen, drawdown maximum et facteur de profit. Cette connaissance vous donne la confiance pour rester fidèle à la stratégie pendant les drawdowns et la discipline pour suivre les règles."
+    }
+  },
+  "seo": {
+    "description": "Plus de 90% des traders de prop firms échouent à leurs défis. Découvrez les pièges psychologiques, les erreurs de gestion des risques et les défauts de stratégie qui mènent à l'échec—et comment les stratégies backtestées éprouvées peuvent vous donner un avantage.",
+    "keywords": "échec prop firm, traders prop firm, défis trading, succès prop firm, psychologie trading, gestion risques",
+    "title": "Pourquoi la Majorité des Traders de Prop Firms Échouent (Et Comment l'Éviter)"
+  },
+  "subtitle": "Plus de 90% des traders de prop firms échouent à leurs défis. Découvrez les pièges psychologiques, les erreurs de gestion des risques et les défauts de stratégie qui mènent à l'échec—et comment les stratégies backtestées éprouvées peuvent vous donner un avantage.",
+  "title": "Pourquoi la Majorité des Traders de Prop Firms Échouent (Et Comment l'Éviter)"
+}
+

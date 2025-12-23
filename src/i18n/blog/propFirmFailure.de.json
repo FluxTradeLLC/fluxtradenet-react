@@ -1,0 +1,91 @@
+{
+  "backToBlog": "Zurück zum Blog",
+  "category": "Prop Firm Fallstricke",
+  "cta": {
+    "button": "Alle Strategien Anzeigen",
+    "description": "Erkunden Sie unsere umfassende Bibliothek von backgetesteten Strategien. Jede Strategie enthält detaillierte Leistungsmetriken und klare Handelsregeln.",
+    "heading": "Alle Strategien Anzeigen"
+  },
+  "sections": {
+    "shockingFailureRate": {
+      "heading": "Die Schockierende Ausfallrate",
+      "content": "Branchendaten zeigen, dass 90-95% der Trader bei Prop Firm Challenges scheitern. Das ist kein Zufall—Prop Firms entwerfen ihre Regeln, um Ausfallraten zu maximieren. Sie profitieren von Challenge-Gebühren, nicht von erfolgreichen Tradern. Zu verstehen, warum Trader scheitern, ist der erste Schritt, um diese Fallstricke zu vermeiden."
+    },
+    "psychologicalTraps": {
+      "heading": "Psychologische Fallen",
+      "intro": "Der Druck von Prop Firm Challenges schafft mehrere psychologische Fallen:",
+      "points": {
+        "timePressure": {
+          "label": "Zeitdruck:",
+          "text": "Strenge Fristen zwingen Trader dazu, Trades zu machen, die sie normalerweise nicht machen würden"
+        },
+        "fearOfFailure": {
+          "label": "Angst vor Versagen:",
+          "text": "Die Kosten des Scheiterns schaffen Angst, die zu schlechten Entscheidungen führt"
+        },
+        "overtrading": {
+          "label": "Überhandeln:",
+          "text": "Trader haben das Gefühl, dass sie ständig handeln müssen, um Gewinnziele zu erreichen"
+        },
+        "revengeTrading": {
+          "label": "Rache-Trading:",
+          "text": "Nach Verlusten versuchen Trader schnell, es \"zurückzuholen\", was zu größeren Verlusten führt"
+        }
+      }
+    },
+    "riskManagementMistakes": {
+      "heading": "Risikomanagement-Fehler",
+      "intro": "Prop Firm Regeln fördern oft schlechtes Risikomanagement:",
+      "points": {
+        "dailyLossLimits": {
+          "label": "Tägliche Verlustlimits:",
+          "text": "Zwingen Trader dazu, nach kleinen Verlusten mit dem Handel aufzuhören, was die Erholung verhindert"
+        },
+        "trailingDrawdowns": {
+          "label": "Trailing-Drawdowns:",
+          "text": "Bewegen sich gegen Sie, wenn Sie profitieren, und schaffen ein bewegliches Ziel"
+        },
+        "profitTargetPressure": {
+          "label": "Gewinnziel-Druck:",
+          "text": "Zwingt Trader dazu, mehr zu riskieren als sie sollten, um Ziele zu erreichen"
+        },
+        "noFlexibility": {
+          "label": "Keine Flexibilität:",
+          "text": "Starre Regeln berücksichtigen keine Marktbedingungen"
+        }
+      }
+    },
+    "strategyFlaws": {
+      "heading": "Strategiefehler",
+      "intro": "Viele Trader betreten Prop Firm Challenges ohne bewährte Strategien. Sie verlassen sich auf:",
+      "points": {
+        "untestedMethods": "Ungetestete Handelsmethoden, die sie auf YouTube gesehen haben",
+        "indicators": "Indikatoren, die gut aussehen, aber nicht backgetestet wurden",
+        "conditionalStrategies": "Strategien, die unter einigen Bedingungen funktionieren, aber unter anderen scheitern",
+        "noClearRules": "Keine klaren Ein- und Ausstiegsregeln"
+      }
+    },
+    "howToAvoidFailure": {
+      "heading": "Wie Man Versagen Vermeidet",
+      "intro": "Der Schlüssel zum Erfolg ist die Verwendung von bewährten, backgetesteten Strategien mit klaren Regeln. Anstatt zu raten, was funktionieren könnte, verwenden Sie Strategien, die über Tausende von Trades und verschiedene Marktbedingungen getestet wurden. Das gibt Ihnen:",
+      "points": {
+        "realisticExpectations": "Realistische Erwartungen an Gewinnraten und Gewinnfaktoren",
+        "clearCriteria": "Klare Ein- und Ausstiegskriterien",
+        "provenRiskManagement": "Bewährte Risikomanagement-Regeln",
+        "confidence": "Vertrauen in Ihren Ansatz"
+      }
+    },
+    "backtestAdvantage": {
+      "heading": "Der Backtest-Vorteil",
+      "content": "Backgetestete Strategien eliminieren das Raten. Sie wissen genau, wie eine Strategie abschneidet, bevor Sie echtes Geld riskieren. Sie verstehen ihre Gewinnrate, durchschnittlichen Gewinn/Verlust, maximalen Drawdown und Gewinnfaktor. Dieses Wissen gibt Ihnen das Vertrauen, während Drawdowns bei der Strategie zu bleiben und die Disziplin, den Regeln zu folgen."
+    }
+  },
+  "seo": {
+    "description": "Über 90% der Prop Firm Trader scheitern bei ihren Challenges. Entdecken Sie die psychologischen Fallen, Risikomanagement-Fehler und Strategiefehler, die zum Versagen führen—und wie bewährte backgetestete Strategien Ihnen einen Vorteil verschaffen können.",
+    "keywords": "Prop Firm Versagen, Prop Firm Trader, Trading Challenges, Prop Firm Erfolg, Trading Psychologie, Risikomanagement",
+    "title": "Warum die Meisten Prop Firm Trader Scheitern (Und Wie Man Es Vermeidet)"
+  },
+  "subtitle": "Über 90% der Prop Firm Trader scheitern bei ihren Challenges. Entdecken Sie die psychologischen Fallen, Risikomanagement-Fehler und Strategiefehler, die zum Versagen führen—und wie bewährte backgetestete Strategien Ihnen einen Vorteil verschaffen können.",
+  "title": "Warum die Meisten Prop Firm Trader Scheitern (Und Wie Man Es Vermeidet)"
+}
+

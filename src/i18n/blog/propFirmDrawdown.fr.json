@@ -1,0 +1,65 @@
+{
+  "backToBlog": "Retour au Blog",
+  "category": "Pièges des Prop Firms",
+  "cta": {
+    "button": "Trouver de Meilleures Alternatives",
+    "description": "Explorez nos options de tarification qui vous donnent accès à des stratégies éprouvées sans les règles restrictives de drawdown et les partages de profits des prop firms.",
+    "heading": "Trouver de Meilleures Alternatives"
+  },
+  "sections": {
+    "drawdownIllusion": {
+      "heading": "L'Illusion du Drawdown",
+      "content": "Les prop firms annoncent des limites de drawdown comme \"5% de drawdown maximum\" ou \"10% de drawdown trailing,\" ce qui semble raisonnable. Mais ces limites sont calculées de manière à les rendre beaucoup plus restrictives qu'elles n'y paraissent. Comprendre comment les drawdowns sont calculés est crucial pour éviter ce piège."
+    },
+    "dailyDrawdownLimits": {
+      "heading": "Limites de Drawdown Quotidien",
+      "content": "De nombreuses prop firms ont des limites de drawdown quotidien—si votre compte baisse d'un certain pourcentage en une seule journée, vous êtes exclu. Cela semble juste, mais considérez ce scénario : Vous commencez la journée avec un compte de 10 000 $. Vous gagnez 500 $ le matin, portant votre solde à 10 500 $. Ensuite, vous perdez 600 $ l'après-midi. Votre compte est maintenant de 9 900 $—toujours au-dessus de votre solde de départ—mais de nombreuses firms calculent le drawdown quotidien depuis le pic de la journée, pas le solde de départ. Cette perte de 600 $ depuis 10 500 $ pourrait violer votre limite quotidienne même si vous êtes toujours rentable."
+    },
+    "trailingDrawdowns": {
+      "heading": "Drawdowns Trailing : La Cible Mobile",
+      "content": "Les drawdowns trailing sont encore plus insidieux. Au fur et à mesure que vous réalisez des profits, votre limite de drawdown se déplace vers le haut avec le solde de votre compte. Par exemple, si vous commencez avec un compte de 10 000 $ et un drawdown trailing de 10%, votre limite commence à 9 000 $. Mais si vous réalisez des profits jusqu'à 11 000 $, votre nouvelle limite devient 9 900 $. Si vous retombez ensuite à 10 000 $, vous avez violé le drawdown trailing même si vous êtes toujours rentable globalement."
+    },
+    "hiddenRules": {
+      "heading": "Les Règles Cachées",
+      "intro": "Les prop firms ont souvent des règles de drawdown supplémentaires enfouies dans leurs conditions :",
+      "points": {
+        "openingBalance": {
+          "label": "Drawdown du Solde d'Ouverture :",
+          "text": "Certaines calculent depuis votre solde d'ouverture chaque jour, pas depuis votre pic"
+        },
+        "equityVsBalance": {
+          "label": "Capitaux propres vs. Solde :",
+          "text": "Drawdowns calculés sur les capitaux propres (y compris les positions ouvertes) vs. solde"
+        },
+        "weekendGaps": {
+          "label": "Écarts de Week-end :",
+          "text": "Les écarts pendant les week-ends peuvent déclencher des violations de drawdown"
+        },
+        "multipleAccounts": {
+          "label": "Règles de Comptes Multiples :",
+          "text": "Si vous avez plusieurs comptes, les pertes sur un peuvent affecter les autres"
+        }
+      }
+    },
+    "whyDesignExists": {
+      "heading": "Pourquoi Ce Design Existe",
+      "content": "Les prop firms conçoivent ces règles pour maximiser les taux d'échec. Elles profitent des frais de défi, pas des traders réussis. Plus les traders échouent, plus elles gagnent d'argent. Les drawdowns trailing sont particulièrement efficaces à cet égard—ils créent une cible mobile qui devient plus difficile à atteindre au fur et à mesure que vous réalisez des profits, garantissant que la plupart des traders finissent par échouer."
+    },
+    "realWorldExample": {
+      "heading": "Exemple du Monde Réel",
+      "content": "Imaginez que vous commencez un défi de 10 000 $ avec un drawdown trailing de 10%. Vous tradez bien et atteignez 12 000 $. Votre limite de drawdown trailing est maintenant de 10 800 $. Vous avez une mauvaise journée et tombez à 10 500 $. Vous êtes toujours en hausse de 500 $ depuis votre départ, mais vous avez violé le drawdown trailing et échoué le défi. C'est ainsi que les drawdowns trailing attrapent même les traders rentables."
+    },
+    "howToProtect": {
+      "heading": "Comment Vous Protéger",
+      "content": "La meilleure protection est de comprendre exactement comment votre drawdown est calculé. Lisez attentivement les petits caractères. Mais même alors, ces règles sont conçues pour être restrictives. Considérez des alternatives qui n'ont pas ces pièges—des options qui vous donnent plus de contrôle sur votre trading et une meilleure économie."
+    }
+  },
+  "seo": {
+    "description": "Les prop firms fixent des limites de drawdown qui semblent généreuses sur le papier mais sont en fait conçues pour vous prendre au dépourvu. Comprenez comment les drawdowns quotidiens, les drawdowns trailing et les règles cachées peuvent mettre fin à votre défi prématurément.",
+    "keywords": "drawdown prop firm, drawdown trailing, drawdown quotidien, règles prop firm, limites drawdown, défis prop firm",
+    "title": "Le Piège du Drawdown des Prop Firms"
+  },
+  "subtitle": "Les prop firms fixent des limites de drawdown qui semblent généreuses sur le papier mais sont en fait conçues pour vous prendre au dépourvu. Comprenez comment les drawdowns quotidiens, les drawdowns trailing et les règles cachées peuvent mettre fin à votre défi prématurément.",
+  "title": "Le Piège du Drawdown des Prop Firms"
+}
+

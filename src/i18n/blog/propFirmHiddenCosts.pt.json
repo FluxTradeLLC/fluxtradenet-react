@@ -1,0 +1,65 @@
+{
+  "backToBlog": "Voltar ao Blog",
+  "category": "Armadilhas das Prop Firms",
+  "cta": {
+    "button": "Comparar Opções de Preços",
+    "description": "Veja como nossos preços se comparam aos desafios das prop firms. Obtenha acesso a estratégias comprovadas sem taxas ocultas e divisões de lucros.",
+    "heading": "Comparar Opções de Preços"
+  },
+  "sections": {
+    "challengeFeeTrap": {
+      "heading": "A Armadilha da Taxa de Desafio",
+      "content": "A maioria das prop firms cobra uma taxa antecipada por seus desafios—tipicamente de $50 a $500 ou mais. O que muitos traders não percebem é que se você falhar no desafio, perde essa taxa completamente. Algumas empresas oferecem \"refazidas\" com desconto, mas esses custos se acumulam rapidamente. Após múltiplas tentativas falhas, você poderia gastar milhares antes de obter financiamento."
+    },
+    "hiddenFees": {
+      "heading": "Taxas Ocultas que Você Não Conhecia",
+      "intro": "Além da taxa de desafio, muitas prop firms têm custos adicionais:",
+      "points": {
+        "platformFees": {
+          "label": "Taxas de Plataforma:",
+          "text": "Cobranças mensais para usar sua plataforma de trading"
+        },
+        "dataFees": {
+          "label": "Taxas de Dados:",
+          "text": "Custos para feeds de dados de mercado em tempo real"
+        },
+        "withdrawalFees": {
+          "label": "Taxas de Saque:",
+          "text": "Cobranças quando você quer sacar lucros"
+        },
+        "inactivityFees": {
+          "label": "Taxas de Inatividade:",
+          "text": "Penalidades por não negociar o suficiente"
+        },
+        "accountMaintenance": {
+          "label": "Manutenção de Conta:",
+          "text": "Custos contínuos apenas para manter sua conta ativa"
+        }
+      }
+    },
+    "profitSplitReality": {
+      "heading": "A Realidade da Divisão de Lucros",
+      "content": "Mesmo quando você passa no desafio e obtém financiamento, as prop firms tomam uma parte significativa de seus lucros—tipicamente de 50% a 80%. Isso significa que se você ganha $10.000, pode ver apenas $2.000 a $5.000. Quando você considera todas as taxas e a divisão de lucros, o custo efetivo de negociar com prop firms pode ser muito maior do que o anunciado."
+    },
+    "unrealisticProfitTargets": {
+      "heading": "Metas de Lucro Irreais",
+      "content": "Muitos desafios de prop firms exigem que você atinja metas de lucro dentro de prazos rigorosos—frequentemente de 8% a 10% em 30 dias. Embora isso pareça alcançável, na verdade é uma meta agressiva que força os traders a assumir riscos excessivos. Essa pressão frequentemente leva a excesso de negociação e má tomada de decisão, que é exatamente o que a prop firm quer—elas lucram com seus fracassos."
+    },
+    "trueCostCalculation": {
+      "heading": "O Cálculo do Custo Real",
+      "content": "Digamos que você pague $300 por um desafio e falhe três vezes antes de passar. Isso são $900 em taxas de desafio. Então você paga $100/mês em taxas de plataforma e dados. Após um ano, você gastou $2.100 apenas para negociar. Se você ganha $20.000 em lucros, mas a empresa toma 70%, você fica com $6.000. Seu lucro líquido é $3.900—mas você também gastou incontáveis horas e energia emocional."
+    },
+    "betterAlternatives": {
+      "heading": "Melhores Alternativas",
+      "content": "Em vez de pagar prop firms pelo privilégio de negociar seu capital, considere alternativas que oferecem mais controle e melhor economia. Com estratégias comprovadas e gerenciamento adequado de riscos, você pode construir sua própria conta de trading sem os custos ocultos e restrições das prop firms."
+    }
+  },
+  "seo": {
+    "description": "Muitos traders não percebem o custo real dos desafios de prop firms até que seja tarde demais. De taxas ocultas a metas de lucro irreais, aprenda sobre as armadilhas comuns que podem descarrilar sua jornada para uma conta financiada.",
+    "keywords": "desafios de prop firms, taxas de prop firms, trading financiado, custos ocultos de prop firms, desafios de trading, armadilhas de prop firms",
+    "title": "Os Custos Ocultos dos Desafios de Prop Firms"
+  },
+  "subtitle": "Muitos traders não percebem o custo real dos desafios de prop firms até que seja tarde demais. De taxas ocultas a metas de lucro irreais, aprenda sobre as armadilhas comuns que podem descarrilar sua jornada para uma conta financiada.",
+  "title": "Os Custos Ocultos dos Desafios de Prop Firms"
+}
+

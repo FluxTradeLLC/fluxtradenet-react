@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "../../components/SEO";
+import { useBlogTranslation } from "../../i18n/blog/useBlogTranslation";
 
 export const BlogPostPropFirmFailure = () => {
+  const t = useBlogTranslation("propFirmFailure");
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
@@ -10,14 +13,14 @@ export const BlogPostPropFirmFailure = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 sm:px-8 pt-12 pb-4 sm:pb-8">
       <SEO
-        title="Why Most Prop Firm Traders Fail (And How to Avoid It)"
-        description="Over 90% of prop firm traders fail their challenges. Discover the psychological traps, risk management mistakes, and strategy flaws that lead to failure—and how proven backtested strategies can give you an edge."
-        keywords="prop firm failure, prop firm traders, trading challenges, prop firm success, trading psychology, risk management"
+        title={t.seo.title}
+        description={t.seo.description}
+        keywords={t.seo.keywords}
         canonical="/blog/prop-firm-failure"
         ogType="article"
         article={{
           datePublished: "2024-01-01",
-          dateModified: "2024-01-01"
+          dateModified: "2024-01-01",
         }}
       />
       <div className="max-w-4xl mx-auto">
@@ -38,87 +41,152 @@ export const BlogPostPropFirmFailure = () => {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Back to Blog
+          {t.backToBlog}
         </Link>
 
         <article className="bg-gray-800 rounded-lg p-8 mb-8">
           <div className="mb-4">
             <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-red-600 text-white">
-              Prop Firm Pitfalls
+              {t.category}
             </span>
           </div>
-          <h1 className="text-4xl font-extrabold mb-6">
-            Why Most Prop Firm Traders Fail (And How to Avoid It)
-          </h1>
+          <h1 className="text-4xl font-extrabold mb-6">{t.title}</h1>
           <div className="prose prose-invert max-w-none">
-            <p className="text-xl text-gray-300 mb-6">
-              Over 90% of prop firm traders fail their challenges. Discover the psychological traps, risk management mistakes, and strategy flaws that lead to failure—and how proven backtested strategies can give you an edge.
+            <p className="text-xl text-gray-300 mb-6">{t.subtitle}</p>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">
+              {t.sections.shockingFailureRate.heading}
+            </h2>
+            <p className="text-gray-300 mb-4 leading-relaxed">
+              {t.sections.shockingFailureRate.content}
             </p>
 
-            <h2 className="text-2xl font-bold mt-8 mb-4">The Shocking Failure Rate</h2>
+            <h2 className="text-2xl font-bold mt-8 mb-4">
+              {t.sections.psychologicalTraps.heading}
+            </h2>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Industry data shows that 90-95% of traders fail prop firm challenges. This isn't by accident—prop firms design their rules to maximize failure rates. They profit from challenge fees, not from successful traders. Understanding why traders fail is the first step to avoiding these pitfalls.
-            </p>
-
-            <h2 className="text-2xl font-bold mt-8 mb-4">Psychological Traps</h2>
-            <p className="text-gray-300 mb-4 leading-relaxed">
-              The pressure of prop firm challenges creates several psychological traps:
-            </p>
-            <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2">
-              <li><strong>Time Pressure:</strong> Strict deadlines force traders to take trades they wouldn't normally take</li>
-              <li><strong>Fear of Failure:</strong> The cost of failing creates anxiety that leads to poor decisions</li>
-              <li><strong>Overtrading:</strong> Traders feel they must trade constantly to hit profit targets</li>
-              <li><strong>Revenge Trading:</strong> After losses, traders try to "make it back" quickly, leading to bigger losses</li>
-            </ul>
-
-            <h2 className="text-2xl font-bold mt-8 mb-4">Risk Management Mistakes</h2>
-            <p className="text-gray-300 mb-4 leading-relaxed">
-              Prop firm rules often encourage poor risk management:
+              {t.sections.psychologicalTraps.intro}
             </p>
             <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2">
-              <li><strong>Daily Loss Limits:</strong> Force traders to stop trading after small losses, preventing recovery</li>
-              <li><strong>Trailing Drawdowns:</strong> Move against you as you profit, creating a moving target</li>
-              <li><strong>Profit Target Pressure:</strong> Forces traders to risk more than they should to hit targets</li>
-              <li><strong>No Flexibility:</strong> Rigid rules don't account for market conditions</li>
+              <li>
+                <strong>
+                  {t.sections.psychologicalTraps.points.timePressure.label}
+                </strong>{" "}
+                {t.sections.psychologicalTraps.points.timePressure.text}
+              </li>
+              <li>
+                <strong>
+                  {t.sections.psychologicalTraps.points.fearOfFailure.label}
+                </strong>{" "}
+                {t.sections.psychologicalTraps.points.fearOfFailure.text}
+              </li>
+              <li>
+                <strong>
+                  {t.sections.psychologicalTraps.points.overtrading.label}
+                </strong>{" "}
+                {t.sections.psychologicalTraps.points.overtrading.text}
+              </li>
+              <li>
+                <strong>
+                  {t.sections.psychologicalTraps.points.revengeTrading.label}
+                </strong>{" "}
+                {t.sections.psychologicalTraps.points.revengeTrading.text}
+              </li>
             </ul>
 
-            <h2 className="text-2xl font-bold mt-8 mb-4">Strategy Flaws</h2>
+            <h2 className="text-2xl font-bold mt-8 mb-4">
+              {t.sections.riskManagementMistakes.heading}
+            </h2>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Many traders enter prop firm challenges without proven strategies. They rely on:
+              {t.sections.riskManagementMistakes.intro}
             </p>
             <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2">
-              <li>Untested trading methods they saw on YouTube</li>
-              <li>Indicators that look good but haven't been backtested</li>
-              <li>Strategies that work in some conditions but fail in others</li>
-              <li>No clear entry and exit rules</li>
+              <li>
+                <strong>
+                  {
+                    t.sections.riskManagementMistakes.points.dailyLossLimits
+                      .label
+                  }
+                </strong>{" "}
+                {t.sections.riskManagementMistakes.points.dailyLossLimits.text}
+              </li>
+              <li>
+                <strong>
+                  {
+                    t.sections.riskManagementMistakes.points.trailingDrawdowns
+                      .label
+                  }
+                </strong>{" "}
+                {
+                  t.sections.riskManagementMistakes.points.trailingDrawdowns
+                    .text
+                }
+              </li>
+              <li>
+                <strong>
+                  {
+                    t.sections.riskManagementMistakes.points
+                      .profitTargetPressure.label
+                  }
+                </strong>{" "}
+                {
+                  t.sections.riskManagementMistakes.points.profitTargetPressure
+                    .text
+                }
+              </li>
+              <li>
+                <strong>
+                  {t.sections.riskManagementMistakes.points.noFlexibility.label}
+                </strong>{" "}
+                {t.sections.riskManagementMistakes.points.noFlexibility.text}
+              </li>
             </ul>
 
-            <h2 className="text-2xl font-bold mt-8 mb-4">How to Avoid Failure</h2>
+            <h2 className="text-2xl font-bold mt-8 mb-4">
+              {t.sections.strategyFlaws.heading}
+            </h2>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              The key to success is using proven, backtested strategies with clear rules. Instead of guessing what might work, use strategies that have been tested across thousands of trades and various market conditions. This gives you:
+              {t.sections.strategyFlaws.intro}
             </p>
             <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2">
-              <li>Realistic expectations about win rates and profit factors</li>
-              <li>Clear entry and exit criteria</li>
-              <li>Proven risk management rules</li>
-              <li>Confidence in your approach</li>
+              <li>{t.sections.strategyFlaws.points.untestedMethods}</li>
+              <li>{t.sections.strategyFlaws.points.indicators}</li>
+              <li>{t.sections.strategyFlaws.points.conditionalStrategies}</li>
+              <li>{t.sections.strategyFlaws.points.noClearRules}</li>
             </ul>
 
-            <h2 className="text-2xl font-bold mt-8 mb-4">The Backtest Advantage</h2>
+            <h2 className="text-2xl font-bold mt-8 mb-4">
+              {t.sections.howToAvoidFailure.heading}
+            </h2>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Backtested strategies remove the guesswork. You know exactly how a strategy performs before risking real money. You understand its win rate, average win/loss, maximum drawdown, and profit factor. This knowledge gives you the confidence to stick with the strategy during drawdowns and the discipline to follow the rules.
+              {t.sections.howToAvoidFailure.intro}
+            </p>
+            <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2">
+              <li>
+                {t.sections.howToAvoidFailure.points.realisticExpectations}
+              </li>
+              <li>{t.sections.howToAvoidFailure.points.clearCriteria}</li>
+              <li>
+                {t.sections.howToAvoidFailure.points.provenRiskManagement}
+              </li>
+              <li>{t.sections.howToAvoidFailure.points.confidence}</li>
+            </ul>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">
+              {t.sections.backtestAdvantage.heading}
+            </h2>
+            <p className="text-gray-300 mb-4 leading-relaxed">
+              {t.sections.backtestAdvantage.content}
             </p>
 
             <div className="bg-blue-900/30 border border-blue-700 rounded-lg p-6 mt-8">
-              <h3 className="text-xl font-bold mb-3">View All Strategies</h3>
-              <p className="text-gray-300 mb-4">
-                Explore our comprehensive library of backtested strategies. Each strategy includes detailed performance metrics and clear trading rules.
-              </p>
+              <h3 className="text-xl font-bold mb-3">{t.cta.heading}</h3>
+              <p className="text-gray-300 mb-4">{t.cta.description}</p>
               <Link
                 to="/backtests/explorer"
                 className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
               >
-                View All Strategies
+                {t.cta.button}
               </Link>
             </div>
           </div>
@@ -127,4 +195,3 @@ export const BlogPostPropFirmFailure = () => {
     </div>
   );
 };
-

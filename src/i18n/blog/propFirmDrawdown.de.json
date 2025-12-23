@@ -1,0 +1,65 @@
+{
+  "backToBlog": "Zurück zum Blog",
+  "category": "Prop Firm Fallstricke",
+  "cta": {
+    "button": "Bessere Alternativen Finden",
+    "description": "Erkunden Sie unsere Preisoptionen, die Ihnen Zugang zu bewährten Strategien ohne die restriktiven Drawdown-Regeln und Gewinnaufteilungen von Prop Firms geben.",
+    "heading": "Bessere Alternativen Finden"
+  },
+  "sections": {
+    "drawdownIllusion": {
+      "heading": "Die Drawdown-Illusion",
+      "content": "Prop Firms werben mit Drawdown-Limits wie \"5% maximaler Drawdown\" oder \"10% Trailing-Drawdown,\" was vernünftig klingt. Aber diese Limits werden so berechnet, dass sie viel restriktiver sind, als sie erscheinen. Zu verstehen, wie Drawdowns berechnet werden, ist entscheidend, um dieser Falle zu entgehen."
+    },
+    "dailyDrawdownLimits": {
+      "heading": "Tägliche Drawdown-Limits",
+      "content": "Viele Prop Firms haben tägliche Drawdown-Limits—wenn Ihr Konto an einem einzigen Tag um einen bestimmten Prozentsatz fällt, sind Sie raus. Das klingt fair, aber bedenken Sie dieses Szenario: Sie beginnen den Tag mit einem 10.000 $ Konto. Sie machen morgens 500 $ Gewinn, wodurch Ihr Saldo auf 10.500 $ steigt. Dann verlieren Sie nachmittags 600 $. Ihr Konto ist jetzt 9.900 $—immer noch über Ihrem Startsaldo—aber viele Firms berechnen den täglichen Drawdown vom Tageshöchststand, nicht vom Startsaldo. Dieser 600 $ Verlust von 10.500 $ könnte Ihr tägliches Limit verletzen, obwohl Sie immer noch profitabel sind."
+    },
+    "trailingDrawdowns": {
+      "heading": "Trailing-Drawdowns: Das Bewegliche Ziel",
+      "content": "Trailing-Drawdowns sind noch hinterhältiger. Wenn Sie Gewinne machen, bewegt sich Ihr Drawdown-Limit mit Ihrem Kontostand nach oben. Wenn Sie beispielsweise mit einem 10.000 $ Konto und einem 10% Trailing-Drawdown beginnen, beginnt Ihr Limit bei 9.000 $. Aber wenn Sie auf 11.000 $ profitieren, wird Ihr neues Limit 9.900 $. Wenn Sie dann auf 10.000 $ zurückfallen, haben Sie den Trailing-Drawdown verletzt, obwohl Sie insgesamt immer noch profitabel sind."
+    },
+    "hiddenRules": {
+      "heading": "Die Versteckten Regeln",
+      "intro": "Prop Firms haben oft zusätzliche Drawdown-Regeln in ihren Bedingungen versteckt:",
+      "points": {
+        "openingBalance": {
+          "label": "Eröffnungssaldo-Drawdown:",
+          "text": "Einige berechnen von Ihrem Eröffnungssaldo jeden Tag, nicht von Ihrem Höchststand"
+        },
+        "equityVsBalance": {
+          "label": "Eigenkapital vs. Saldo:",
+          "text": "Drawdowns berechnet auf Eigenkapital (einschließlich offener Positionen) vs. Saldo"
+        },
+        "weekendGaps": {
+          "label": "Wochenend-Gaps:",
+          "text": "Gaps über Wochenenden können Drawdown-Verletzungen auslösen"
+        },
+        "multipleAccounts": {
+          "label": "Mehrfachkonten-Regeln:",
+          "text": "Wenn Sie mehrere Konten haben, können Verluste auf einem andere beeinflussen"
+        }
+      }
+    },
+    "whyDesignExists": {
+      "heading": "Warum Dieses Design Existiert",
+      "content": "Prop Firms entwerfen diese Regeln, um Ausfallraten zu maximieren. Sie profitieren von Challenge-Gebühren, nicht von erfolgreichen Tradern. Je mehr Trader scheitern, desto mehr Geld verdienen sie. Trailing-Drawdowns sind dabei besonders effektiv—sie schaffen ein bewegliches Ziel, das schwerer zu treffen wird, wenn Sie profitieren, und stellen sicher, dass die meisten Trader letztendlich scheitern."
+    },
+    "realWorldExample": {
+      "heading": "Beispiel aus der Praxis",
+      "content": "Stellen Sie sich vor, Sie beginnen eine 10.000 $ Challenge mit einem 10% Trailing-Drawdown. Sie handeln gut und erreichen 12.000 $. Ihr Trailing-Drawdown-Limit ist jetzt 10.800 $. Sie haben einen schlechten Tag und fallen auf 10.500 $. Sie sind immer noch 500 $ über Ihrem Start, aber Sie haben den Trailing-Drawdown verletzt und die Challenge nicht bestanden. So fangen Trailing-Drawdowns sogar profitable Trader."
+    },
+    "howToProtect": {
+      "heading": "Wie Sie Sich Schützen",
+      "content": "Der beste Schutz ist zu verstehen, wie genau Ihr Drawdown berechnet wird. Lesen Sie das Kleingedruckte sorgfältig. Aber selbst dann sind diese Regeln darauf ausgelegt, restriktiv zu sein. Erwägen Sie Alternativen, die diese Fallstricke nicht haben—Optionen, die Ihnen mehr Kontrolle über Ihr Trading und bessere Wirtschaftlichkeit geben."
+    }
+  },
+  "seo": {
+    "description": "Prop Firms setzen Drawdown-Limits, die auf dem Papier großzügig erscheinen, aber tatsächlich darauf ausgelegt sind, Sie zu überraschen. Verstehen Sie, wie tägliche Drawdowns, Trailing-Drawdowns und versteckte Regeln Ihre Challenge vorzeitig beenden können.",
+    "keywords": "Prop Firm Drawdown, Trailing-Drawdown, täglicher Drawdown, Prop Firm Regeln, Drawdown-Limits, Prop Firm Challenges",
+    "title": "Die Prop Firm Drawdown-Falle"
+  },
+  "subtitle": "Prop Firms setzen Drawdown-Limits, die auf dem Papier großzügig erscheinen, aber tatsächlich darauf ausgelegt sind, Sie zu überraschen. Verstehen Sie, wie tägliche Drawdowns, Trailing-Drawdowns und versteckte Regeln Ihre Challenge vorzeitig beenden können.",
+  "title": "Die Prop Firm Drawdown-Falle"
+}
+

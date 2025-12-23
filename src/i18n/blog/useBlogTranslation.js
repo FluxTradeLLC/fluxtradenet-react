@@ -49,6 +49,36 @@ import orbPt from './orb.pt.json';
 import orbIt from './orb.it.json';
 import orbRu from './orb.ru.json';
 import orbKo from './orb.ko.json';
+import propFirmDrawdownEn from './propFirmDrawdown.en.json';
+import propFirmDrawdownEs from './propFirmDrawdown.es.json';
+import propFirmDrawdownFr from './propFirmDrawdown.fr.json';
+import propFirmDrawdownDe from './propFirmDrawdown.de.json';
+import propFirmDrawdownZh from './propFirmDrawdown.zh.json';
+import propFirmDrawdownJa from './propFirmDrawdown.ja.json';
+import propFirmDrawdownPt from './propFirmDrawdown.pt.json';
+import propFirmDrawdownIt from './propFirmDrawdown.it.json';
+import propFirmDrawdownRu from './propFirmDrawdown.ru.json';
+import propFirmDrawdownKo from './propFirmDrawdown.ko.json';
+import propFirmFailureEn from './propFirmFailure.en.json';
+import propFirmFailureEs from './propFirmFailure.es.json';
+import propFirmFailureFr from './propFirmFailure.fr.json';
+import propFirmFailureDe from './propFirmFailure.de.json';
+import propFirmFailureZh from './propFirmFailure.zh.json';
+import propFirmFailureJa from './propFirmFailure.ja.json';
+import propFirmFailurePt from './propFirmFailure.pt.json';
+import propFirmFailureIt from './propFirmFailure.it.json';
+import propFirmFailureRu from './propFirmFailure.ru.json';
+import propFirmFailureKo from './propFirmFailure.ko.json';
+import propFirmHiddenCostsEn from './propFirmHiddenCosts.en.json';
+import propFirmHiddenCostsEs from './propFirmHiddenCosts.es.json';
+import propFirmHiddenCostsFr from './propFirmHiddenCosts.fr.json';
+import propFirmHiddenCostsDe from './propFirmHiddenCosts.de.json';
+import propFirmHiddenCostsZh from './propFirmHiddenCosts.zh.json';
+import propFirmHiddenCostsJa from './propFirmHiddenCosts.ja.json';
+import propFirmHiddenCostsPt from './propFirmHiddenCosts.pt.json';
+import propFirmHiddenCostsIt from './propFirmHiddenCosts.it.json';
+import propFirmHiddenCostsRu from './propFirmHiddenCosts.ru.json';
+import propFirmHiddenCostsKo from './propFirmHiddenCosts.ko.json';
 
 const blogTranslations = {
   cointegratedPairs: {
@@ -110,6 +140,42 @@ const blogTranslations = {
     it: orbIt,
     ru: orbRu,
     ko: orbKo,
+  },
+  propFirmDrawdown: {
+    en: propFirmDrawdownEn,
+    es: propFirmDrawdownEs,
+    fr: propFirmDrawdownFr,
+    de: propFirmDrawdownDe,
+    zh: propFirmDrawdownZh,
+    ja: propFirmDrawdownJa,
+    pt: propFirmDrawdownPt,
+    it: propFirmDrawdownIt,
+    ru: propFirmDrawdownRu,
+    ko: propFirmDrawdownKo,
+  },
+  propFirmFailure: {
+    en: propFirmFailureEn,
+    es: propFirmFailureEs,
+    fr: propFirmFailureFr,
+    de: propFirmFailureDe,
+    zh: propFirmFailureZh,
+    ja: propFirmFailureJa,
+    pt: propFirmFailurePt,
+    it: propFirmFailureIt,
+    ru: propFirmFailureRu,
+    ko: propFirmFailureKo,
+  },
+  propFirmHiddenCosts: {
+    en: propFirmHiddenCostsEn,
+    es: propFirmHiddenCostsEs,
+    fr: propFirmHiddenCostsFr,
+    de: propFirmHiddenCostsDe,
+    zh: propFirmHiddenCostsZh,
+    ja: propFirmHiddenCostsJa,
+    pt: propFirmHiddenCostsPt,
+    it: propFirmHiddenCostsIt,
+    ru: propFirmHiddenCostsRu,
+    ko: propFirmHiddenCostsKo,
   },
 };
 

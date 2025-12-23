@@ -1,0 +1,65 @@
+{
+  "backToBlog": "Retour au Blog",
+  "category": "Pièges des Prop Firms",
+  "cta": {
+    "button": "Comparer les Options de Tarification",
+    "description": "Découvrez comment nos tarifs se comparent aux défis des prop firms. Accédez à des stratégies éprouvées sans les frais cachés et les partages de profits.",
+    "heading": "Comparer les Options de Tarification"
+  },
+  "sections": {
+    "challengeFeeTrap": {
+      "heading": "Le Piège des Frais de Défi",
+      "content": "La plupart des prop firms facturent des frais initiaux pour leurs défis—généralement de 50 $ à 500 $ ou plus. Ce que beaucoup de traders ne réalisent pas, c'est que si vous échouez au défi, vous perdez ces frais entièrement. Certaines entreprises offrent des \"repassages\" à prix réduit, mais ces coûts s'accumulent rapidement. Après plusieurs tentatives échouées, vous pourriez dépenser des milliers avant d'obtenir un financement."
+    },
+    "hiddenFees": {
+      "heading": "Frais Cachés que Vous Ne Connaissiez Pas",
+      "intro": "Au-delà des frais de défi, de nombreuses prop firms ont des coûts supplémentaires :",
+      "points": {
+        "platformFees": {
+          "label": "Frais de Plateforme :",
+          "text": "Frais mensuels pour utiliser leur plateforme de trading"
+        },
+        "dataFees": {
+          "label": "Frais de Données :",
+          "text": "Coûts pour les flux de données de marché en temps réel"
+        },
+        "withdrawalFees": {
+          "label": "Frais de Retrait :",
+          "text": "Frais lorsque vous souhaitez retirer des profits"
+        },
+        "inactivityFees": {
+          "label": "Frais d'Inactivité :",
+          "text": "Pénalités pour ne pas trader suffisamment"
+        },
+        "accountMaintenance": {
+          "label": "Maintenance du Compte :",
+          "text": "Coûts continus juste pour garder votre compte actif"
+        }
+      }
+    },
+    "profitSplitReality": {
+      "heading": "La Réalité du Partage des Profits",
+      "content": "Même lorsque vous réussissez le défi et obtenez un financement, les prop firms prennent une part importante de vos profits—généralement de 50% à 80%. Cela signifie que si vous gagnez 10 000 $, vous pourriez ne voir que 2 000 $ à 5 000 $. Lorsque vous prenez en compte tous les frais et le partage des profits, le coût effectif du trading avec les prop firms peut être beaucoup plus élevé qu'annoncé."
+    },
+    "unrealisticProfitTargets": {
+      "heading": "Objectifs de Profit Irréalistes",
+      "content": "De nombreux défis de prop firms vous obligent à atteindre des objectifs de profit dans des délais stricts—souvent de 8% à 10% en 30 jours. Bien que cela semble réalisable, c'est en fait un objectif agressif qui force les traders à prendre des risques excessifs. Cette pression conduit souvent à un surtrading et à une mauvaise prise de décision, ce qui est exactement ce que la prop firm veut—elles profitent de vos échecs."
+    },
+    "trueCostCalculation": {
+      "heading": "Le Calcul du Vrai Coût",
+      "content": "Disons que vous payez 300 $ pour un défi et échouez trois fois avant de réussir. C'est 900 $ en frais de défi. Ensuite, vous payez 100 $/mois en frais de plateforme et de données. Après un an, vous avez dépensé 2 100 $ juste pour trader. Si vous gagnez 20 000 $ de profits mais que l'entreprise prend 70%, vous gardez 6 000 $. Votre profit net est de 3 900 $—mais vous avez aussi dépensé d'innombrables heures et de l'énergie émotionnelle."
+    },
+    "betterAlternatives": {
+      "heading": "Meilleures Alternatives",
+      "content": "Au lieu de payer les prop firms pour le privilège de trader leur capital, envisagez des alternatives qui vous donnent plus de contrôle et une meilleure économie. Avec des stratégies éprouvées et une gestion des risques appropriée, vous pouvez construire votre propre compte de trading sans les coûts cachés et les restrictions des prop firms."
+    }
+  },
+  "seo": {
+    "description": "Beaucoup de traders ne réalisent pas le vrai coût des défis de prop firms jusqu'à ce qu'il soit trop tard. Des frais cachés aux objectifs de profit irréalistes, découvrez les pièges courants qui peuvent faire dérailler votre parcours vers un compte financé.",
+    "keywords": "défis de prop firms, frais de prop firms, trading financé, coûts cachés des prop firms, défis de trading, pièges des prop firms",
+    "title": "Les Coûts Cachés des Défis de Prop Firms"
+  },
+  "subtitle": "Beaucoup de traders ne réalisent pas le vrai coût des défis de prop firms jusqu'à ce qu'il soit trop tard. Des frais cachés aux objectifs de profit irréalistes, découvrez les pièges courants qui peuvent faire dérailler votre parcours vers un compte financé.",
+  "title": "Les Coûts Cachés des Défis de Prop Firms"
+}
+
