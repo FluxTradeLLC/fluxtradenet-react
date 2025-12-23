@@ -1083,6 +1083,7 @@ export function LandingPage() {
   const tvPropFocusedStrategies = [
     {
       name: "Centauri",
+      nameKey: "centauri",
       images: [tvCentauri],
       features: propFocusedStrategies.find((s) => s.name === "Centauri")
         ?.features,
@@ -1094,6 +1095,7 @@ export function LandingPage() {
     },
     {
       name: "Mars",
+      nameKey: "mars",
       images: [tvMars],
       features: propFocusedStrategies.find((s) => s.name === "Mars")?.features,
       backtestUrl: propFocusedStrategies.find((s) => s.name === "Mars")
@@ -1104,6 +1106,7 @@ export function LandingPage() {
     },
     {
       name: "Moon",
+      nameKey: "moon",
       images: [tvMoon],
       features: propFocusedStrategies.find((s) => s.name === "Moon")?.features,
       backtestUrl: propFocusedStrategies.find((s) => s.name === "Moon")
@@ -1114,6 +1117,7 @@ export function LandingPage() {
     },
     {
       name: "Pluto",
+      nameKey: "pluto",
       images: [tvPluto],
       features: propFocusedStrategies.find((s) => s.name === "Pluto")?.features,
       backtestUrl: propFocusedStrategies.find((s) => s.name === "Pluto")
@@ -1863,27 +1867,27 @@ export function LandingPage() {
                                         className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded transition-colors duration-300 inline-block"
                                         aria-label={`View backtest results for ${strategy.name}`}
                                       >
-                                        View Backtest
+                                        {t("landing.viewBacktest")}
                                       </Link>
                                       <Link
                                         to={`/backtests/explorer?strategy=${getStrategyNameForExplorer(strategy.backtestUrl)}`}
                                         className="bg-[#10b981] hover:bg-[#059669] text-white font-bold py-2 px-4 rounded transition-colors duration-300 inline-block"
                                         aria-label={`Explore backtest results for ${strategy.name}`}
                                       >
-                                        Explore Backtest
+                                        {t("landing.exploreBacktest")}
                                       </Link>
                                     </div>
                                     {strategy?.backtestUrl &&
                                       strategyMetrics[strategy.backtestUrl] && (
                                         <div className="mt-2 text-xs text-gray-400 text-center">
                                           <span>
-                                            Win rate{" "}
+                                            {t("landing.winRate")}{" "}
                                             {
                                               strategyMetrics[
                                                 strategy.backtestUrl
                                               ].winRate
                                             }{" "}
-                                            | Profit Factor{" "}
+                                            | {t("landing.profitFactor")}{" "}
                                             {strategyMetrics[
                                               strategy.backtestUrl
                                             ].profitFactor || "N/A"}
@@ -1957,10 +1961,10 @@ export function LandingPage() {
                   >
                     <div className="text-center">
                       <h2 className="text-3xl font-bold mb-2">
-                        Prop Firm Focused Strategies
+                        {t("landing.propFirmFocused")}
                       </h2>
                       <h3 className="text-2xl">
-                        Built for prop firm rules and consistency
+                        {t("landing.propFirmSubtitle")}
                       </h3>
                     </div>
                     <svg
@@ -2055,27 +2059,27 @@ export function LandingPage() {
                                         className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded transition-colors duration-300 inline-block"
                                         aria-label={`View backtest results for ${strategy.name}`}
                                       >
-                                        View Backtest
+                                        {t("landing.viewBacktest")}
                                       </Link>
                                       <Link
                                         to={`/backtests/explorer?strategy=${getStrategyNameForExplorer(strategy.backtestUrl)}`}
                                         className="bg-[#10b981] hover:bg-[#059669] text-white font-bold py-2 px-4 rounded transition-colors duration-300 inline-block"
                                         aria-label={`Explore backtest results for ${strategy.name}`}
                                       >
-                                        Explore Backtest
+                                        {t("landing.exploreBacktest")}
                                       </Link>
                                     </div>
                                     {strategy?.backtestUrl &&
                                       strategyMetrics[strategy.backtestUrl] && (
                                         <div className="mt-2 text-xs text-gray-400 text-center">
                                           <span>
-                                            Win rate{" "}
+                                            {t("landing.winRate")}{" "}
                                             {
                                               strategyMetrics[
                                                 strategy.backtestUrl
                                               ].winRate
                                             }{" "}
-                                            | Profit Factor{" "}
+                                            | {t("landing.profitFactor")}{" "}
                                             {strategyMetrics[
                                               strategy.backtestUrl
                                             ].profitFactor || "N/A"}
@@ -2245,25 +2249,25 @@ export function LandingPage() {
                                       className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded transition-colors duration-300"
                                       aria-label={`View backtest results for ${strategy.name}`}
                                     >
-                                      View Backtest
+                                      {t("landing.viewBacktest")}
                                     </Link>
                                     <Link
                                       to={`/backtests/explorer?strategy=${getStrategyNameForExplorer(strategy.backtestUrl)}`}
                                       className="bg-[#10b981] hover:bg-[#059669] text-white font-bold py-2 px-4 rounded transition-colors duration-300"
                                       aria-label={`Explore backtest results for ${strategy.name}`}
                                     >
-                                      Explore Backtest
+                                      {t("landing.exploreBacktest")}
                                     </Link>
                                   </div>
                                   {strategyMetrics[strategy.backtestUrl] && (
                                     <div className="mt-2 text-xs text-gray-400 text-center">
                                       <span>
-                                        Win rate{" "}
+                                        {t("landing.winRate")}{" "}
                                         {
                                           strategyMetrics[strategy.backtestUrl]
                                             .winRate
                                         }{" "}
-                                        | Profit Factor{" "}
+                                        | {t("landing.profitFactor")}{" "}
                                         {
                                           strategyMetrics[strategy.backtestUrl]
                                             .profitFactor
