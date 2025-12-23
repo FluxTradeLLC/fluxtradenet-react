@@ -115,6 +115,21 @@
     "validEmail": "请输入有效的电子邮件地址",
     "byUsingService": "使用此服务即表示您同意"
   },
+  "account": {
+    "title": "账户",
+    "loggedInAs": "已登录为：{{email}}",
+    "signUpForPlan": "注册计划",
+    "freeTrialOffer": "每个计划都提供30天免费试用！",
+    "selectPlan": "选择计划",
+    "subscriptionSettings": "订阅设置",
+    "subscriptionSettingsDescription": "登录Stripe客户门户以管理您的订阅、更新付款方式或取消订阅。",
+    "subscriptionSettingsButton": "订阅设置",
+    "subscriptionSettingsAriaLabel": "在Stripe客户门户中管理订阅设置",
+    "signOut": "退出登录",
+    "signIn": "登录",
+    "signUp": "注册",
+    "accountAuthentication": "账户身份验证"
+  },
   "blog": {
     "title": "博客",
     "subtitle": "教育内容，帮助您了解交易策略并驾驭 prop 公司环境",
@@ -730,6 +745,80 @@
       "support": "24/7 客户支持",
       "newFeatures": "直接访问新功能",
       "priorityUpdates": "优先更新"
+    }
+  },
+  "tradingViewChart": {
+    "title": "示例图表",
+    "subtitle": "切换指标的开关并探索预设布局",
+    "presetLayouts": "预设布局",
+    "hideIndicators": "隐藏指标",
+    "showIndicators": "显示指标",
+    "custom": "自定义",
+    "customLayout": "自定义布局，包含 {{count}} 个指标",
+    "customLayoutPlural": "自定义布局，包含 {{count}} 个指标",
+    "toggleIndicators": "切换指标",
+    "activeCount": "{{count}} 个活动",
+    "on": "开启",
+    "loadingChart": "正在加载图表...",
+    "loadingMoreData": "正在加载更多数据...",
+    "tip": "💡 提示：尝试不同的预设布局或自定义您自己的指标组合！",
+    "footer": "图表由 Lightweight Charts 提供支持 • 指标由 FluxTrade 提供",
+    "presets": {
+      "fluxTrade": {
+        "name": "FluxTrade",
+        "description": "FluxTrade 的旗舰指标，带有阶梯式均线和信号"
+      },
+      "trendFollowing": {
+        "name": "趋势跟踪",
+        "description": "非常适合及早捕捉趋势"
+      },
+      "momentum": {
+        "name": "动量",
+        "description": "发现动量变化和突破"
+      },
+      "supportResistance": {
+        "name": "支撑/阻力",
+        "description": "交易关键水平和反转"
+      },
+      "allIndicators": {
+        "name": "所有指标",
+        "description": "一次性查看所有内容"
+      },
+      "minimal": {
+        "name": "极简",
+        "description": "简洁明了"
+      }
+    },
+    "indicators": {
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "description": "FluxTrade FluxPivot，带有阶梯式均线和翻转/添加信号"
+      },
+      "movingAverage14": {
+        "name": "移动平均线 (14)",
+        "description": "14周期移动平均线"
+      },
+      "movingAverage50": {
+        "name": "移动平均线 (50)",
+        "description": "50周期移动平均线"
+      },
+      "movingAverage200": {
+        "name": "移动平均线 (200)",
+        "description": "200周期移动平均线"
+      },
+      "ema12": {
+        "name": "EMA (12)",
+        "description": "12周期指数移动平均线"
+      },
+      "ema26": {
+        "name": "EMA (26)",
+        "description": "26周期指数移动平均线"
+      }
+    },
+    "directions": {
+      "long": "做多",
+      "short": "做空",
+      "flat": "持平"
     }
   }
 }

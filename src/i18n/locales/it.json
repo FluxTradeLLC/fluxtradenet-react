@@ -115,6 +115,21 @@
     "validEmail": "Inserisci un indirizzo email valido",
     "byUsingService": "Utilizzando questo servizio, accetti i"
   },
+  "account": {
+    "title": "Account",
+    "loggedInAs": "Accesso effettuato come: {{email}}",
+    "signUpForPlan": "Iscriviti a un piano",
+    "freeTrialOffer": "Ogni piano offre una prova gratuita di 30 giorni!",
+    "selectPlan": "Seleziona un Piano",
+    "subscriptionSettings": "Impostazioni Abbonamento",
+    "subscriptionSettingsDescription": "Accedi al portale clienti Stripe per gestire il tuo abbonamento, aggiornare il metodo di pagamento o cancellare l'abbonamento.",
+    "subscriptionSettingsButton": "Impostazioni Abbonamento",
+    "subscriptionSettingsAriaLabel": "Gestisci le impostazioni dell'abbonamento nel portale clienti Stripe",
+    "signOut": "Esci",
+    "signIn": "Accedi",
+    "signUp": "Registrati",
+    "accountAuthentication": "Autenticazione account"
+  },
   "blog": {
     "title": "Blog",
     "subtitle": "Contenuti educativi per aiutarti a comprendere le strategie di trading e navigare nel panorama delle prop firm",
@@ -730,6 +745,80 @@
       "support": "Supporto clienti 24/7",
       "newFeatures": "Accesso diretto alle nuove funzionalità",
       "priorityUpdates": "Aggiornamenti prioritari"
+    }
+  },
+  "tradingViewChart": {
+    "title": "Grafico di Esempio",
+    "subtitle": "Attiva/disattiva gli indicatori ed esplora i layout predefiniti",
+    "presetLayouts": "Layout Predefiniti",
+    "hideIndicators": "Nascondi Indicatori",
+    "showIndicators": "Mostra Indicatori",
+    "custom": "Personalizzato",
+    "customLayout": "Layout personalizzato con {{count}} indicatore",
+    "customLayoutPlural": "Layout personalizzato con {{count}} indicatori",
+    "toggleIndicators": "Attiva/Disattiva Indicatori",
+    "activeCount": "{{count}} attivo",
+    "on": "ATTIVO",
+    "loadingChart": "Caricamento grafico...",
+    "loadingMoreData": "Caricamento di più dati...",
+    "tip": "💡 Suggerimento: Prova diversi layout predefiniti o personalizza la tua combinazione di indicatori!",
+    "footer": "Grafico powered by Lightweight Charts • Indicatori di FluxTrade",
+    "presets": {
+      "fluxTrade": {
+        "name": "FluxTrade",
+        "description": "Indicatore principale di FluxTrade con MA a gradini e segnali"
+      },
+      "trendFollowing": {
+        "name": "Seguimento di Tendenza",
+        "description": "Perfetto per catturare le tendenze in anticipo"
+      },
+      "momentum": {
+        "name": "Momentum",
+        "description": "Rileva cambiamenti di momentum e breakout"
+      },
+      "supportResistance": {
+        "name": "Supporto/Resistenza",
+        "description": "Trading di livelli chiave e inversioni"
+      },
+      "allIndicators": {
+        "name": "Tutti gli Indicatori",
+        "description": "Vedi tutto in una volta"
+      },
+      "minimal": {
+        "name": "Minimale",
+        "description": "Pulito e semplice"
+      }
+    },
+    "indicators": {
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "description": "FluxTrade FluxPivot con MA a gradini e segnali di inversione/aggiunta"
+      },
+      "movingAverage14": {
+        "name": "Media Mobile (14)",
+        "description": "Media mobile a 14 periodi"
+      },
+      "movingAverage50": {
+        "name": "Media Mobile (50)",
+        "description": "Media mobile a 50 periodi"
+      },
+      "movingAverage200": {
+        "name": "Media Mobile (200)",
+        "description": "Media mobile a 200 periodi"
+      },
+      "ema12": {
+        "name": "EMA (12)",
+        "description": "Media mobile esponenziale a 12 periodi"
+      },
+      "ema26": {
+        "name": "EMA (26)",
+        "description": "Media mobile esponenziale a 26 periodi"
+      }
+    },
+    "directions": {
+      "long": "Long",
+      "short": "Short",
+      "flat": "Piatto"
     }
   }
 }

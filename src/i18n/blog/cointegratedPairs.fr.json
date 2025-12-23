@@ -1,0 +1,85 @@
+{
+  "seo": {
+    "title": "Le Trading de Paires Cointégrées Expliqué",
+    "description": "Le trading de paires n'est pas seulement pour les institutions. Apprenez comment fonctionne le trading de paires cointégrées, pourquoi il est moins risqué que le trading directionnel, et comment identifier les opportunités de paires rentables sur les marchés à terme.",
+    "keywords": "trading de paires, paires cointégrées, arbitrage statistique, stratégie de trading de paires, trading neutre au marché, trading de futurs"
+  },
+  "backToBlog": "Retour au Blog",
+  "category": "Introduction à la Stratégie",
+  "title": "Le Trading de Paires Cointégrées Expliqué",
+  "subtitle": "Le trading de paires n'est pas seulement pour les institutions. Apprenez comment fonctionne le trading de paires cointégrées, pourquoi il est moins risqué que le trading directionnel, et comment identifier les opportunités de paires rentables sur les marchés à terme.",
+  "sections": {
+    "whatIsPairsTrading": {
+      "heading": "Qu'est-ce que le Trading de Paires ?",
+      "content": "Le trading de paires est une stratégie neutre au marché qui consiste à acheter un actif tout en vendant simultanément un autre actif lié. L'objectif n'est pas de profiter de la direction de l'un ou l'autre actif individuellement, mais de la relation entre eux. Lorsque deux actifs sont cointégrés, ils évoluent ensemble dans le temps, mais leurs prix peuvent diverger temporairement."
+    },
+    "understandingCointegration": {
+      "heading": "Comprendre la Cointégration",
+      "content": "La cointégration signifie que deux actifs ont une relation d'équilibre à long terme. Même si leurs prix s'écartent temporairement, ils ont tendance à revenir à leur relation historique. Cela crée des opportunités de trading lorsque l'écart entre les deux actifs devient trop large—vous pouvez parier qu'il reviendra à la moyenne."
+    },
+    "whyLessRisky": {
+      "heading": "Pourquoi C'est Moins Risqué",
+      "intro": "Le trading de paires offre plusieurs avantages par rapport au trading directionnel :",
+      "points": {
+        "marketNeutral": {
+          "label": "Neutre au Marché :",
+          "text": "Les profits proviennent de la relation, pas de la direction du marché"
+        },
+        "reducedVolatility": {
+          "label": "Volatilité Réduite :",
+          "text": "Les positions longues et courtes se compensent mutuellement"
+        },
+        "lowerCorrelation": {
+          "label": "Corrélation Plus Faible avec le Marché :",
+          "text": "Fonctionne dans les marchés haussiers, baissiers et latéraux"
+        },
+        "statisticalEdge": {
+          "label": "Avantage Statistique :",
+          "text": "Basé sur la réversion à la moyenne, un phénomène de marché éprouvé"
+        }
+      }
+    },
+    "howToIdentifyPairs": {
+      "heading": "Comment Identifier les Paires",
+      "intro": "Toutes les paires d'actifs ne sont pas adaptées au trading. Les bonnes paires ont :",
+      "points": [
+        "Une corrélation historique élevée (généralement supérieure à 0,7)",
+        "Une cointégration confirmée par des tests statistiques",
+        "Un comportement régulier de réversion à la moyenne",
+        "Une liquidité suffisante pour les deux actifs",
+        "Des tailles de contrat similaires ou des ratios de couverture appropriés"
+      ]
+    },
+    "tradingProcess": {
+      "heading": "Le Processus de Trading",
+      "intro": "Lorsque l'écart entre deux actifs cointégrés s'élargit au-delà des normes historiques, vous :",
+      "steps": [
+        "Achetez l'actif sous-performant (il est susceptible de rattraper)",
+        "Vendez à découvert l'actif surperformant (il est susceptible de reculer)",
+        "Attendez que l'écart revienne à sa moyenne",
+        "Fermez les deux positions lorsque la relation se normalise"
+      ]
+    },
+    "commonPairs": {
+      "heading": "Paires Courantes sur les Futurs",
+      "intro": "Quelques paires de futurs populaires incluent :",
+      "pairs": [
+        "Pétrole brut vs. Gaz naturel",
+        "Or vs. Argent",
+        "Différents futurs d'indices boursiers",
+        "Produits agricoles connexes",
+        "Paires de devises avec des relations économiques"
+      ]
+    },
+    "riskManagement": {
+      "heading": "Gestion des Risques",
+      "content": "Bien que le trading de paires soit moins risqué que le trading directionnel, il n'est pas sans risque. Le risque principal est que la relation se brise définitivement—ce qui était autrefois cointégré peut ne plus l'être. Un dimensionnement approprié des positions, des stops de perte et la surveillance de la relation sont essentiels."
+    }
+  },
+  "cta": {
+    "heading": "Vérifier les Performances de la Stratégie",
+    "description": "Découvrez comment notre stratégie de paires cointégrées fonctionne avec des résultats de backtest détaillés dans différentes conditions de marché.",
+    "button": "Vérifier les Performances de la Stratégie"
+  }
+}
+

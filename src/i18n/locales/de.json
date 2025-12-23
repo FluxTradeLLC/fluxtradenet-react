@@ -115,6 +115,21 @@
     "validEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
     "byUsingService": "Durch die Nutzung dieses Dienstes stimmen Sie den"
   },
+  "account": {
+    "title": "Konto",
+    "loggedInAs": "Angemeldet als: {{email}}",
+    "signUpForPlan": "Für einen Plan anmelden",
+    "freeTrialOffer": "Jeder Plan bietet eine 30-tägige kostenlose Testversion!",
+    "selectPlan": "Plan Auswählen",
+    "subscriptionSettings": "Abonnementeinstellungen",
+    "subscriptionSettingsDescription": "Melden Sie sich im Stripe-Kundenportal an, um Ihr Abonnement zu verwalten, Ihre Zahlungsmethode zu aktualisieren oder Ihr Abonnement zu kündigen.",
+    "subscriptionSettingsButton": "Abonnementeinstellungen",
+    "subscriptionSettingsAriaLabel": "Abonnementeinstellungen im Stripe-Kundenportal verwalten",
+    "signOut": "Abmelden",
+    "signIn": "Anmelden",
+    "signUp": "Registrieren",
+    "accountAuthentication": "Kontoauthentifizierung"
+  },
   "blog": {
     "title": "Blog",
     "subtitle": "Bildungsinhalte, die Ihnen helfen, Handelsstrategien zu verstehen und sich im Prop-Firm-Umfeld zurechtzufinden",
@@ -730,6 +745,80 @@
       "support": "24/7 Kundensupport",
       "newFeatures": "Direkter Zugang zu neuen Funktionen",
       "priorityUpdates": "Prioritäts-Updates"
+    }
+  },
+  "tradingViewChart": {
+    "title": "Beispiel-Diagramm",
+    "subtitle": "Indikatoren ein/ausschalten und vordefinierte Layouts erkunden",
+    "presetLayouts": "Vordefinierte Layouts",
+    "hideIndicators": "Indikatoren Ausblenden",
+    "showIndicators": "Indikatoren Anzeigen",
+    "custom": "Benutzerdefiniert",
+    "customLayout": "Benutzerdefiniertes Layout mit {{count}} Indikator",
+    "customLayoutPlural": "Benutzerdefiniertes Layout mit {{count}} Indikatoren",
+    "toggleIndicators": "Indikatoren Ein/Ausschalten",
+    "activeCount": "{{count}} aktiv",
+    "on": "AN",
+    "loadingChart": "Diagramm wird geladen...",
+    "loadingMoreData": "Weitere Daten werden geladen...",
+    "tip": "💡 Tipp: Probieren Sie verschiedene vordefinierte Layouts aus oder erstellen Sie Ihre eigene Indikatorenkombination!",
+    "footer": "Diagramm powered by Lightweight Charts • Indikatoren von FluxTrade",
+    "presets": {
+      "fluxTrade": {
+        "name": "FluxTrade",
+        "description": "Flaggschiff-Indikator von FluxTrade mit gestufter MA und Signalen"
+      },
+      "trendFollowing": {
+        "name": "Trendfolge",
+        "description": "Perfekt zum frühen Erkennen von Trends"
+      },
+      "momentum": {
+        "name": "Momentum",
+        "description": "Momentumverschiebungen und Ausbrüche erkennen"
+      },
+      "supportResistance": {
+        "name": "Support/Widerstand",
+        "description": "Handeln Sie wichtige Ebenen und Umkehrungen"
+      },
+      "allIndicators": {
+        "name": "Alle Indikatoren",
+        "description": "Alles auf einmal sehen"
+      },
+      "minimal": {
+        "name": "Minimal",
+        "description": "Sauber und einfach"
+      }
+    },
+    "indicators": {
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "description": "FluxTrade FluxPivot mit gestufter MA und Flip/Add-Signalen"
+      },
+      "movingAverage14": {
+        "name": "Gleitender Durchschnitt (14)",
+        "description": "14-Perioden gleitender Durchschnitt"
+      },
+      "movingAverage50": {
+        "name": "Gleitender Durchschnitt (50)",
+        "description": "50-Perioden gleitender Durchschnitt"
+      },
+      "movingAverage200": {
+        "name": "Gleitender Durchschnitt (200)",
+        "description": "200-Perioden gleitender Durchschnitt"
+      },
+      "ema12": {
+        "name": "EMA (12)",
+        "description": "12-Perioden exponentieller gleitender Durchschnitt"
+      },
+      "ema26": {
+        "name": "EMA (26)",
+        "description": "26-Perioden exponentieller gleitender Durchschnitt"
+      }
+    },
+    "directions": {
+      "long": "Long",
+      "short": "Short",
+      "flat": "Flach"
     }
   }
 }

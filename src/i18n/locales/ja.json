@@ -115,6 +115,21 @@
     "validEmail": "有効なメールアドレスを入力してください",
     "byUsingService": "このサービスを使用することで、以下に同意したことになります"
   },
+  "account": {
+    "title": "アカウント",
+    "loggedInAs": "ログイン中：{{email}}",
+    "signUpForPlan": "プランに登録",
+    "freeTrialOffer": "各プランには30日間の無料トライアルが含まれています！",
+    "selectPlan": "プランを選択",
+    "subscriptionSettings": "サブスクリプション設定",
+    "subscriptionSettingsDescription": "Stripeカスタマーポータルにログインして、サブスクリプションの管理、支払い方法の更新、またはサブスクリプションのキャンセルを行ってください。",
+    "subscriptionSettingsButton": "サブスクリプション設定",
+    "subscriptionSettingsAriaLabel": "Stripeカスタマーポータルでサブスクリプション設定を管理",
+    "signOut": "サインアウト",
+    "signIn": "サインイン",
+    "signUp": "サインアップ",
+    "accountAuthentication": "アカウント認証"
+  },
   "blog": {
     "title": "ブログ",
     "subtitle": "取引戦略を理解し、プロップ会社の環境をナビゲートするのに役立つ教育コンテンツ",
@@ -730,6 +745,80 @@
       "support": "24/7カスタマーサポート",
       "newFeatures": "新機能への直接アクセス",
       "priorityUpdates": "優先更新"
+    }
+  },
+  "tradingViewChart": {
+    "title": "サンプルチャート",
+    "subtitle": "インジケーターのオン/オフを切り替え、プリセットレイアウトを探索",
+    "presetLayouts": "プリセットレイアウト",
+    "hideIndicators": "インジケーターを非表示",
+    "showIndicators": "インジケーターを表示",
+    "custom": "カスタム",
+    "customLayout": "{{count}}個のインジケーターを含むカスタムレイアウト",
+    "customLayoutPlural": "{{count}}個のインジケーターを含むカスタムレイアウト",
+    "toggleIndicators": "インジケーターの切り替え",
+    "activeCount": "{{count}}個アクティブ",
+    "on": "ON",
+    "loadingChart": "チャートを読み込み中...",
+    "loadingMoreData": "さらにデータを読み込み中...",
+    "tip": "💡 ヒント：さまざまなプリセットレイアウトを試すか、独自のインジケーターの組み合わせをカスタマイズしてください！",
+    "footer": "チャートは Lightweight Charts で動作 • インジケーターは FluxTrade 提供",
+    "presets": {
+      "fluxTrade": {
+        "name": "FluxTrade",
+        "description": "ステップMAとシグナルを備えたFluxTradeのフラグシップインジケーター"
+      },
+      "trendFollowing": {
+        "name": "トレンドフォロー",
+        "description": "トレンドを早期に捉えるのに最適"
+      },
+      "momentum": {
+        "name": "モメンタム",
+        "description": "モメンタムシフトとブレイクアウトを発見"
+      },
+      "supportResistance": {
+        "name": "サポート/レジスタンス",
+        "description": "重要なレベルと反転を取引"
+      },
+      "allIndicators": {
+        "name": "すべてのインジケーター",
+        "description": "すべてを一度に表示"
+      },
+      "minimal": {
+        "name": "ミニマル",
+        "description": "クリーンでシンプル"
+      }
+    },
+    "indicators": {
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "description": "ステップMAとフリップ/追加シグナルを備えたFluxTrade FluxPivot"
+      },
+      "movingAverage14": {
+        "name": "移動平均 (14)",
+        "description": "14期間移動平均"
+      },
+      "movingAverage50": {
+        "name": "移動平均 (50)",
+        "description": "50期間移動平均"
+      },
+      "movingAverage200": {
+        "name": "移動平均 (200)",
+        "description": "200期間移動平均"
+      },
+      "ema12": {
+        "name": "EMA (12)",
+        "description": "12期間指数移動平均"
+      },
+      "ema26": {
+        "name": "EMA (26)",
+        "description": "26期間指数移動平均"
+      }
+    },
+    "directions": {
+      "long": "ロング",
+      "short": "ショート",
+      "flat": "フラット"
     }
   }
 }

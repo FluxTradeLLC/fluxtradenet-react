@@ -1,0 +1,85 @@
+{
+  "seo": {
+    "title": "Cointegrierte Paarhandel Erklärt",
+    "description": "Paarhandel ist nicht nur für Institutionen. Lernen Sie, wie cointegrierter Paarhandel funktioniert, warum er weniger riskant ist als Richtungshandel und wie Sie profitable Paarhandelsmöglichkeiten an Terminmärkten identifizieren.",
+    "keywords": "Paarhandel, cointegrierte Paare, statistische Arbitrage, Paarhandelsstrategie, marktneutraler Handel, Terminhandel"
+  },
+  "backToBlog": "Zurück zum Blog",
+  "category": "Strategie-Einführung",
+  "title": "Cointegrierte Paarhandel Erklärt",
+  "subtitle": "Paarhandel ist nicht nur für Institutionen. Lernen Sie, wie cointegrierter Paarhandel funktioniert, warum er weniger riskant ist als Richtungshandel und wie Sie profitable Paarhandelsmöglichkeiten an Terminmärkten identifizieren.",
+  "sections": {
+    "whatIsPairsTrading": {
+      "heading": "Was ist Paarhandel?",
+      "content": "Paarhandel ist eine marktneutrale Strategie, bei der ein Vermögenswert gekauft wird, während gleichzeitig ein anderer verwandter Vermögenswert verkauft wird. Das Ziel ist nicht, von der Richtung eines der Vermögenswerte einzeln zu profitieren, sondern von der Beziehung zwischen ihnen. Wenn zwei Vermögenswerte cointegriert sind, bewegen sie sich im Laufe der Zeit zusammen, aber ihre Preise können vorübergehend auseinanderlaufen."
+    },
+    "understandingCointegration": {
+      "heading": "Cointégration Verstehen",
+      "content": "Cointégration bedeutet, dass zwei Vermögenswerte eine langfristige Gleichgewichtsbeziehung haben. Auch wenn sich ihre Preise vorübergehend auseinanderbewegen, neigen sie dazu, zu ihrer historischen Beziehung zurückzukehren. Dies schafft Handelsmöglichkeiten, wenn die Spanne zwischen den beiden Vermögenswerten zu groß wird—Sie können darauf wetten, dass sie zum Mittelwert zurückkehrt."
+    },
+    "whyLessRisky": {
+      "heading": "Warum Es Weniger Riskant Ist",
+      "intro": "Paarhandel bietet mehrere Vorteile gegenüber Richtungshandel:",
+      "points": {
+        "marketNeutral": {
+          "label": "Marktneutral:",
+          "text": "Gewinne kommen aus der Beziehung, nicht aus der Marktrichtung"
+        },
+        "reducedVolatility": {
+          "label": "Reduzierte Volatilität:",
+          "text": "Long- und Short-Positionen gleichen sich gegenseitig aus"
+        },
+        "lowerCorrelation": {
+          "label": "Geringere Korrelation zum Markt:",
+          "text": "Funktioniert in steigenden, fallenden und seitwärts gerichteten Märkten"
+        },
+        "statisticalEdge": {
+          "label": "Statistischer Vorteil:",
+          "text": "Basiert auf Mean-Reversion, einem bewährten Marktphänomen"
+        }
+      }
+    },
+    "howToIdentifyPairs": {
+      "heading": "Wie Man Paare Identifiziert",
+      "intro": "Nicht alle Vermögenswertpaare sind für den Handel geeignet. Gute Paare haben:",
+      "points": [
+        "Hohe historische Korrelation (typischerweise über 0,7)",
+        "Cointégration durch statistische Tests bestätigt",
+        "Regelmäßiges Mean-Reversion-Verhalten",
+        "Ausreichende Liquidität für beide Vermögenswerte",
+        "Ähnliche Kontraktgrößen oder angemessene Hedge-Verhältnisse"
+      ]
+    },
+    "tradingProcess": {
+      "heading": "Der Handelsprozess",
+      "intro": "Wenn sich die Spanne zwischen zwei cointegrierten Vermögenswerten über historische Normen hinaus ausweitet, tun Sie Folgendes:",
+      "steps": [
+        "Kaufen Sie den unterperformenden Vermögenswert (er wird wahrscheinlich aufholen)",
+        "Leerverkauf des überperformenden Vermögenswerts (er wird wahrscheinlich zurückfallen)",
+        "Warten Sie, bis die Spanne zu ihrem Mittelwert zurückkehrt",
+        "Schließen Sie beide Positionen, wenn sich die Beziehung normalisiert"
+      ]
+    },
+    "commonPairs": {
+      "heading": "Häufige Paare bei Termingeschäften",
+      "intro": "Einige beliebte Terminpaare umfassen:",
+      "pairs": [
+        "Rohöl vs. Erdgas",
+        "Gold vs. Silber",
+        "Verschiedene Aktienindex-Futures",
+        "Verwandte landwirtschaftliche Rohstoffe",
+        "Währungspaare mit wirtschaftlichen Beziehungen"
+      ]
+    },
+    "riskManagement": {
+      "heading": "Risikomanagement",
+      "content": "Obwohl Paarhandel weniger riskant ist als Richtungshandel, ist er nicht risikofrei. Das Hauptrisiko besteht darin, dass die Beziehung dauerhaft zusammenbricht—was einst cointegriert war, ist es möglicherweise nicht mehr. Angemessene Positionsgrößen, Stop-Losses und die Überwachung der Beziehung sind unerlässlich."
+    }
+  },
+  "cta": {
+    "heading": "Strategieleistung Überprüfen",
+    "description": "Sehen Sie, wie unsere cointegrierte Paarhandelsstrategie mit detaillierten Backtest-Ergebnissen unter verschiedenen Marktbedingungen abschneidet.",
+    "button": "Strategieleistung Überprüfen"
+  }
+}
+

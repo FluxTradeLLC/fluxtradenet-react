@@ -115,6 +115,21 @@
     "validEmail": "Please enter a valid email address",
     "byUsingService": "By using this service, you agree to the"
   },
+  "account": {
+    "title": "Account",
+    "loggedInAs": "Logged in as: {{email}}",
+    "signUpForPlan": "Sign up for a plan",
+    "freeTrialOffer": "Each plan offers a 30 day free trial!",
+    "selectPlan": "Select a Plan",
+    "subscriptionSettings": "Subscription Settings",
+    "subscriptionSettingsDescription": "Log into the Stripe customer portal to manage your subscription, update your payment method, or cancel your subscription.",
+    "subscriptionSettingsButton": "Subscription Settings",
+    "subscriptionSettingsAriaLabel": "Manage subscription settings in Stripe customer portal",
+    "signOut": "Sign Out",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "accountAuthentication": "Account authentication"
+  },
   "blog": {
     "title": "Blog",
     "subtitle": "Educational content to help you understand trading strategies and navigate the prop firm landscape",
@@ -730,6 +745,80 @@
       "support": "24/7 customer support",
       "newFeatures": "Direct access to new features",
       "priorityUpdates": "Priority updates"
+    }
+  },
+  "tradingViewChart": {
+    "title": "Sample Chart",
+    "subtitle": "Toggle indicators on/off and explore preset layouts",
+    "presetLayouts": "Preset Layouts",
+    "hideIndicators": "Hide Indicators",
+    "showIndicators": "Show Indicators",
+    "custom": "Custom",
+    "customLayout": "Custom layout with {{count}} indicator",
+    "customLayoutPlural": "Custom layout with {{count}} indicators",
+    "toggleIndicators": "Toggle Indicators",
+    "activeCount": "{{count}} active",
+    "on": "ON",
+    "loadingChart": "Loading chart...",
+    "loadingMoreData": "Loading more data...",
+    "tip": "💡 Tip: Try different preset layouts or customize your own indicator combination!",
+    "footer": "Chart powered by Lightweight Charts • Indicators by FluxTrade",
+    "presets": {
+      "fluxTrade": {
+        "name": "FluxTrade",
+        "description": "FluxTrade's flagship indicator with stepped MA and signals"
+      },
+      "trendFollowing": {
+        "name": "Trend Following",
+        "description": "Perfect for catching trends early"
+      },
+      "momentum": {
+        "name": "Momentum",
+        "description": "Spot momentum shifts and breakouts"
+      },
+      "supportResistance": {
+        "name": "Support/Resistance",
+        "description": "Trade key levels and reversals"
+      },
+      "allIndicators": {
+        "name": "All Indicators",
+        "description": "See everything at once"
+      },
+      "minimal": {
+        "name": "Minimal",
+        "description": "Clean and simple"
+      }
+    },
+    "indicators": {
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "description": "FluxTrade FluxPivot with stepped MA and flip/add signals"
+      },
+      "movingAverage14": {
+        "name": "Moving Average (14)",
+        "description": "14-period moving average"
+      },
+      "movingAverage50": {
+        "name": "Moving Average (50)",
+        "description": "50-period moving average"
+      },
+      "movingAverage200": {
+        "name": "Moving Average (200)",
+        "description": "200-period moving average"
+      },
+      "ema12": {
+        "name": "EMA (12)",
+        "description": "12-period exponential moving average"
+      },
+      "ema26": {
+        "name": "EMA (26)",
+        "description": "26-period exponential moving average"
+      }
+    },
+    "directions": {
+      "long": "Long",
+      "short": "Short",
+      "flat": "Flat"
     }
   }
 }

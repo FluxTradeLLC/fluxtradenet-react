@@ -45,6 +45,21 @@
     "signUp": "S'inscrire",
     "validEmail": "Veuillez entrer une adresse e-mail valide"
   },
+  "account": {
+    "title": "Compte",
+    "loggedInAs": "Connecté en tant que : {{email}}",
+    "signUpForPlan": "S'inscrire à un plan",
+    "freeTrialOffer": "Chaque plan offre un essai gratuit de 30 jours !",
+    "selectPlan": "Sélectionner un Plan",
+    "subscriptionSettings": "Paramètres d'Abonnement",
+    "subscriptionSettingsDescription": "Connectez-vous au portail client Stripe pour gérer votre abonnement, mettre à jour votre méthode de paiement ou annuler votre abonnement.",
+    "subscriptionSettingsButton": "Paramètres d'Abonnement",
+    "subscriptionSettingsAriaLabel": "Gérer les paramètres d'abonnement dans le portail client Stripe",
+    "signOut": "Se Déconnecter",
+    "signIn": "Se Connecter",
+    "signUp": "S'inscrire",
+    "accountAuthentication": "Authentification du compte"
+  },
   "backtestExplorer": {
     "all": "Tous",
     "avgLoss": "Perte Moyenne",
@@ -731,5 +746,79 @@
     "title": "Support",
     "yourEmail": "Votre E-mail",
     "yourName": "Votre Nom"
+  },
+  "tradingViewChart": {
+    "title": "Graphique d'Exemple",
+    "subtitle": "Activez/désactivez les indicateurs et explorez les mises en page prédéfinies",
+    "presetLayouts": "Mises en Page Prédéfinies",
+    "hideIndicators": "Masquer les Indicateurs",
+    "showIndicators": "Afficher les Indicateurs",
+    "custom": "Personnalisé",
+    "customLayout": "Mise en page personnalisée avec {{count}} indicateur",
+    "customLayoutPlural": "Mise en page personnalisée avec {{count}} indicateurs",
+    "toggleIndicators": "Activer/Désactiver les Indicateurs",
+    "activeCount": "{{count}} actif",
+    "on": "ON",
+    "loadingChart": "Chargement du graphique...",
+    "loadingMoreData": "Chargement de plus de données...",
+    "tip": "💡 Astuce : Essayez différentes mises en page prédéfinies ou personnalisez votre propre combinaison d'indicateurs !",
+    "footer": "Graphique propulsé par Lightweight Charts • Indicateurs par FluxTrade",
+    "presets": {
+      "fluxTrade": {
+        "name": "FluxTrade",
+        "description": "Indicateur phare de FluxTrade avec MA par paliers et signaux"
+      },
+      "trendFollowing": {
+        "name": "Suivi de Tendance",
+        "description": "Parfait pour capturer les tendances tôt"
+      },
+      "momentum": {
+        "name": "Momentum",
+        "description": "Repérez les changements de momentum et les ruptures"
+      },
+      "supportResistance": {
+        "name": "Support/Résistance",
+        "description": "Tradez les niveaux clés et les inversions"
+      },
+      "allIndicators": {
+        "name": "Tous les Indicateurs",
+        "description": "Voir tout en même temps"
+      },
+      "minimal": {
+        "name": "Minimal",
+        "description": "Propre et simple"
+      }
+    },
+    "indicators": {
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "description": "FluxTrade FluxPivot avec MA par paliers et signaux de retournement/ajout"
+      },
+      "movingAverage14": {
+        "name": "Moyenne Mobile (14)",
+        "description": "Moyenne mobile sur 14 périodes"
+      },
+      "movingAverage50": {
+        "name": "Moyenne Mobile (50)",
+        "description": "Moyenne mobile sur 50 périodes"
+      },
+      "movingAverage200": {
+        "name": "Moyenne Mobile (200)",
+        "description": "Moyenne mobile sur 200 périodes"
+      },
+      "ema12": {
+        "name": "EMA (12)",
+        "description": "Moyenne mobile exponentielle sur 12 périodes"
+      },
+      "ema26": {
+        "name": "EMA (26)",
+        "description": "Moyenne mobile exponentielle sur 26 périodes"
+      }
+    },
+    "directions": {
+      "long": "Long",
+      "short": "Court",
+      "flat": "Plat"
+    }
   }
 }

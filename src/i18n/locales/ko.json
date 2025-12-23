@@ -115,6 +115,21 @@
     "validEmail": "유효한 이메일 주소를 입력하세요",
     "byUsingService": "이 서비스를 사용하면 다음에 동의하는 것입니다"
   },
+  "account": {
+    "title": "계정",
+    "loggedInAs": "로그인됨: {{email}}",
+    "signUpForPlan": "플랜 가입하기",
+    "freeTrialOffer": "모든 플랜은 30일 무료 체험을 제공합니다!",
+    "selectPlan": "플랜 선택",
+    "subscriptionSettings": "구독 설정",
+    "subscriptionSettingsDescription": "Stripe 고객 포털에 로그인하여 구독을 관리하고, 결제 방법을 업데이트하거나 구독을 취소하세요.",
+    "subscriptionSettingsButton": "구독 설정",
+    "subscriptionSettingsAriaLabel": "Stripe 고객 포털에서 구독 설정 관리",
+    "signOut": "로그아웃",
+    "signIn": "로그인",
+    "signUp": "가입",
+    "accountAuthentication": "계정 인증"
+  },
   "blog": {
     "title": "블로그",
     "subtitle": "거래 전략을 이해하고 프로프 회사 환경을 탐색하는 데 도움이 되는 교육 콘텐츠",
@@ -730,6 +745,80 @@
       "support": "24/7 고객 지원",
       "newFeatures": "새 기능에 직접 액세스",
       "priorityUpdates": "우선 업데이트"
+    }
+  },
+  "tradingViewChart": {
+    "title": "샘플 차트",
+    "subtitle": "지표를 켜고 끄고 사전 설정된 레이아웃을 탐색하세요",
+    "presetLayouts": "사전 설정된 레이아웃",
+    "hideIndicators": "지표 숨기기",
+    "showIndicators": "지표 표시",
+    "custom": "사용자 정의",
+    "customLayout": "{{count}}개의 지표가 있는 사용자 정의 레이아웃",
+    "customLayoutPlural": "{{count}}개의 지표가 있는 사용자 정의 레이아웃",
+    "toggleIndicators": "지표 전환",
+    "activeCount": "{{count}}개 활성",
+    "on": "켜짐",
+    "loadingChart": "차트 로딩 중...",
+    "loadingMoreData": "더 많은 데이터 로딩 중...",
+    "tip": "💡 팁: 다양한 사전 설정된 레이아웃을 시도하거나 자신만의 지표 조합을 사용자 정의하세요!",
+    "footer": "차트는 Lightweight Charts로 구동 • 지표는 FluxTrade 제공",
+    "presets": {
+      "fluxTrade": {
+        "name": "FluxTrade",
+        "description": "단계별 MA 및 신호가 있는 FluxTrade의 주력 지표"
+      },
+      "trendFollowing": {
+        "name": "추세 추종",
+        "description": "추세를 일찍 포착하는 데 완벽합니다"
+      },
+      "momentum": {
+        "name": "모멘텀",
+        "description": "모멘텀 변화 및 돌파를 발견하세요"
+      },
+      "supportResistance": {
+        "name": "지지/저항",
+        "description": "주요 수준과 반전을 거래하세요"
+      },
+      "allIndicators": {
+        "name": "모든 지표",
+        "description": "한 번에 모든 것을 보기"
+      },
+      "minimal": {
+        "name": "최소",
+        "description": "깔끔하고 간단함"
+      }
+    },
+    "indicators": {
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "description": "단계별 MA 및 플립/추가 신호가 있는 FluxTrade FluxPivot"
+      },
+      "movingAverage14": {
+        "name": "이동 평균 (14)",
+        "description": "14기간 이동 평균"
+      },
+      "movingAverage50": {
+        "name": "이동 평균 (50)",
+        "description": "50기간 이동 평균"
+      },
+      "movingAverage200": {
+        "name": "이동 평균 (200)",
+        "description": "200기간 이동 평균"
+      },
+      "ema12": {
+        "name": "EMA (12)",
+        "description": "12기간 지수 이동 평균"
+      },
+      "ema26": {
+        "name": "EMA (26)",
+        "description": "26기간 지수 이동 평균"
+      }
+    },
+    "directions": {
+      "long": "롱",
+      "short": "숏",
+      "flat": "플랫"
     }
   }
 }

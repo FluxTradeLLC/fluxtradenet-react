@@ -1,0 +1,62 @@
+{
+  "backToBlog": "返回博客",
+  "category": "策略介绍",
+  "cta": {
+    "button": "查看回测分析",
+    "description": "查看Flux Pivot的全面回测结果，了解该策略在不同市场条件下的表现。",
+    "heading": "查看回测分析"
+  },
+  "sections": {
+    "commonMistakes": {
+      "content": "许多交易者在使用枢轴策略时失败，因为他们交易看到的每个级别。Flux Pivot过滤掉弱设置，只专注于高概率机会。该策略还强调适当的风险管理—即使是最好的枢轴级别也可能失败，因此头寸规模和止损放置至关重要。",
+      "heading": "要避免的常见错误"
+    },
+    "howItWorks": {
+      "heading": "Flux Pivot如何工作",
+      "intro": "该策略结合了几个关键要素：",
+      "points": {
+        "dynamicLevel": {
+          "label": "动态级别计算：",
+          "text": "使用专有算法识别最重要的枢轴级别"
+        },
+        "priceAction": {
+          "label": "价格行为确认：",
+          "text": "在这些级别等待明确的价格行为信号"
+        },
+        "volumeAnalysis": {
+          "label": "成交量分析：",
+          "text": "用表明机构兴趣的成交量模式确认交易"
+        },
+        "riskManagement": {
+          "label": "风险管理：",
+          "text": "根据枢轴级别的强度和重要性放置止损"
+        }
+      }
+    },
+    "keyAdvantages": {
+      "heading": "关键优势",
+      "points": [
+        "基于客观级别的明确入场和出场点",
+        "在趋势和区间市场中都能工作",
+        "具有有利风险回报比的高概率设置",
+        "系统化方法减少猜测"
+      ]
+    },
+    "supportResistance": {
+      "content": "支撑和阻力级别是技术分析的基础，但并非所有级别都是平等的。Flux Pivot区分容易突破的弱级别和提供可靠交易机会的强级别。该策略专注于后者，提高胜率和风险回报比。",
+      "heading": "交易支撑和阻力"
+    },
+    "understandingPivots": {
+      "content": "枢轴点是市场历史上显示显著反应的价格级别。这些级别像磁铁一样—价格倾向于向它们靠拢，当价格达到它们时，往往会反弹或突破。Flux Pivot使用专有计算方法识别这些关键级别。",
+      "heading": "理解枢轴点"
+    }
+  },
+  "seo": {
+    "description": "掌握使用Flux Pivot交易关键枢轴级别的艺术。该策略专注于识别和交易重要的支撑和阻力区域，结合价格行为和成交量分析。",
+    "keywords": "flux pivot, 交易策略, 支撑和阻力, 枢轴点, 价格行为交易, 成交量分析, 交易级别",
+    "title": "Flux Pivot策略 - 交易支撑和阻力级别"
+  },
+  "subtitle": "掌握使用Flux Pivot交易关键枢轴级别的艺术。该策略专注于识别和交易重要的支撑和阻力区域，结合价格行为和成交量分析。",
+  "title": "Flux Pivot：交易支撑和阻力"
+}
+

@@ -115,6 +115,21 @@
     "validEmail": "Por favor ingrese una dirección de correo electrónico válida",
     "byUsingService": "Al usar este servicio, acepta los"
   },
+  "account": {
+    "title": "Cuenta",
+    "loggedInAs": "Conectado como: {{email}}",
+    "signUpForPlan": "Regístrese en un plan",
+    "freeTrialOffer": "¡Cada plan ofrece una prueba gratuita de 30 días!",
+    "selectPlan": "Seleccionar un Plan",
+    "subscriptionSettings": "Configuración de Suscripción",
+    "subscriptionSettingsDescription": "Inicie sesión en el portal de clientes de Stripe para administrar su suscripción, actualizar su método de pago o cancelar su suscripción.",
+    "subscriptionSettingsButton": "Configuración de Suscripción",
+    "subscriptionSettingsAriaLabel": "Administrar configuración de suscripción en el portal de clientes de Stripe",
+    "signOut": "Cerrar Sesión",
+    "signIn": "Iniciar Sesión",
+    "signUp": "Registrarse",
+    "accountAuthentication": "Autenticación de cuenta"
+  },
   "blog": {
     "title": "Blog",
     "subtitle": "Contenido educativo para ayudarle a entender las estrategias de trading y navegar el panorama de las empresas prop",
@@ -730,6 +745,80 @@
       "support": "Soporte al cliente 24/7",
       "newFeatures": "Acceso directo a nuevas funciones",
       "priorityUpdates": "Actualizaciones prioritarias"
+    }
+  },
+  "tradingViewChart": {
+    "title": "Gráfico de Ejemplo",
+    "subtitle": "Activa/desactiva indicadores y explora diseños preestablecidos",
+    "presetLayouts": "Diseños Preestablecidos",
+    "hideIndicators": "Ocultar Indicadores",
+    "showIndicators": "Mostrar Indicadores",
+    "custom": "Personalizado",
+    "customLayout": "Diseño personalizado con {{count}} indicador",
+    "customLayoutPlural": "Diseño personalizado con {{count}} indicadores",
+    "toggleIndicators": "Activar/Desactivar Indicadores",
+    "activeCount": "{{count}} activo",
+    "on": "ON",
+    "loadingChart": "Cargando gráfico...",
+    "loadingMoreData": "Cargando más datos...",
+    "tip": "💡 Consejo: ¡Prueba diferentes diseños preestablecidos o personaliza tu propia combinación de indicadores!",
+    "footer": "Gráfico impulsado por Lightweight Charts • Indicadores por FluxTrade",
+    "presets": {
+      "fluxTrade": {
+        "name": "FluxTrade",
+        "description": "Indicador insignia de FluxTrade con MA escalonada y señales"
+      },
+      "trendFollowing": {
+        "name": "Seguimiento de Tendencia",
+        "description": "Perfecto para capturar tendencias temprano"
+      },
+      "momentum": {
+        "name": "Momentum",
+        "description": "Detecta cambios de momentum y rupturas"
+      },
+      "supportResistance": {
+        "name": "Soporte/Resistencia",
+        "description": "Opera niveles clave y reversiones"
+      },
+      "allIndicators": {
+        "name": "Todos los Indicadores",
+        "description": "Ver todo a la vez"
+      },
+      "minimal": {
+        "name": "Mínimo",
+        "description": "Limpio y simple"
+      }
+    },
+    "indicators": {
+      "fluxPivot": {
+        "name": "FluxPivot",
+        "description": "FluxTrade FluxPivot con MA escalonada y señales de cambio/añadir"
+      },
+      "movingAverage14": {
+        "name": "Media Móvil (14)",
+        "description": "Media móvil de 14 períodos"
+      },
+      "movingAverage50": {
+        "name": "Media Móvil (50)",
+        "description": "Media móvil de 50 períodos"
+      },
+      "movingAverage200": {
+        "name": "Media Móvil (200)",
+        "description": "Media móvil de 200 períodos"
+      },
+      "ema12": {
+        "name": "EMA (12)",
+        "description": "Media móvil exponencial de 12 períodos"
+      },
+      "ema26": {
+        "name": "EMA (26)",
+        "description": "Media móvil exponencial de 26 períodos"
+      }
+    },
+    "directions": {
+      "long": "Largo",
+      "short": "Corto",
+      "flat": "Plano"
     }
   }
 }

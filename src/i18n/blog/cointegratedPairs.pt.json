@@ -1,0 +1,85 @@
+{
+  "seo": {
+    "title": "Trading de Pares Cointegrados Explicado",
+    "description": "O trading de pares não é apenas para instituições. Aprenda como funciona o trading de pares cointegrados, por que é menos arriscado que o trading direcional e como identificar oportunidades de pares lucrativos nos mercados futuros.",
+    "keywords": "trading de pares, pares cointegrados, arbitragem estatística, estratégia de trading de pares, trading neutro ao mercado, trading de futuros"
+  },
+  "backToBlog": "Voltar ao Blog",
+  "category": "Introdução à Estratégia",
+  "title": "Trading de Pares Cointegrados Explicado",
+  "subtitle": "O trading de pares não é apenas para instituições. Aprenda como funciona o trading de pares cointegrados, por que é menos arriscado que o trading direcional e como identificar oportunidades de pares lucrativos nos mercados futuros.",
+  "sections": {
+    "whatIsPairsTrading": {
+      "heading": "O que é Trading de Pares?",
+      "content": "O trading de pares é uma estratégia neutra ao mercado que envolve comprar um ativo enquanto vende simultaneamente outro ativo relacionado. O objetivo não é lucrar com a direção de qualquer um dos ativos individualmente, mas com a relação entre eles. Quando dois ativos estão cointegrados, eles se movem juntos ao longo do tempo, mas seus preços podem divergir temporariamente."
+    },
+    "understandingCointegration": {
+      "heading": "Entendendo a Cointégration",
+      "content": "Cointégration significa que dois ativos têm uma relação de equilíbrio de longo prazo. Mesmo que seus preços se afastem temporariamente, eles tendem a retornar à sua relação histórica. Isso cria oportunidades de trading quando o spread entre os dois ativos se torna muito amplo—você pode apostar que ele reverterá à média."
+    },
+    "whyLessRisky": {
+      "heading": "Por Que é Menos Arriscado",
+      "intro": "O trading de pares oferece várias vantagens sobre o trading direcional:",
+      "points": {
+        "marketNeutral": {
+          "label": "Neutro ao Mercado:",
+          "text": "Os lucros vêm da relação, não da direção do mercado"
+        },
+        "reducedVolatility": {
+          "label": "Volatilidade Reduzida:",
+          "text": "Posições longas e curtas se compensam mutuamente"
+        },
+        "lowerCorrelation": {
+          "label": "Menor Correlação com o Mercado:",
+          "text": "Funciona em mercados de alta, baixa e lateral"
+        },
+        "statisticalEdge": {
+          "label": "Vantagem Estatística:",
+          "text": "Baseado na reversão à média, um fenômeno de mercado comprovado"
+        }
+      }
+    },
+    "howToIdentifyPairs": {
+      "heading": "Como Identificar Pares",
+      "intro": "Nem todos os pares de ativos são adequados para trading. Bons pares têm:",
+      "points": [
+        "Alta correlação histórica (tipicamente acima de 0,7)",
+        "Cointégration confirmada por testes estatísticos",
+        "Comportamento regular de reversão à média",
+        "Liquidez suficiente para ambos os ativos",
+        "Tamanhos de contrato semelhantes ou razões de hedge adequadas"
+      ]
+    },
+    "tradingProcess": {
+      "heading": "O Processo de Trading",
+      "intro": "Quando o spread entre dois ativos cointegrados se amplia além das normas históricas, você:",
+      "steps": [
+        "Compra o ativo com baixo desempenho (é provável que recupere)",
+        "Vende a descoberto o ativo com alto desempenho (é provável que recue)",
+        "Aguarda o spread reverter à sua média",
+        "Fecha ambas as posições quando a relação se normaliza"
+      ]
+    },
+    "commonPairs": {
+      "heading": "Pares Comuns em Futuros",
+      "intro": "Alguns pares de futuros populares incluem:",
+      "pairs": [
+        "Petróleo bruto vs. Gás natural",
+        "Ouro vs. Prata",
+        "Diferentes futuros de índices de ações",
+        "Commodities agrícolas relacionadas",
+        "Pares de moedas com relações econômicas"
+      ]
+    },
+    "riskManagement": {
+      "heading": "Gestão de Risco",
+      "content": "Embora o trading de pares seja menos arriscado que o trading direcional, não é livre de riscos. O principal risco é que a relação se quebre permanentemente—o que antes estava cointegrado pode não estar mais. O dimensionamento adequado das posições, stops de perda e o monitoramento da relação são essenciais."
+    }
+  },
+  "cta": {
+    "heading": "Verificar Desempenho da Estratégia",
+    "description": "Veja como nossa estratégia de pares cointegrados se desempenha com resultados detalhados de backtest em diferentes condições de mercado.",
+    "button": "Verificar Desempenho da Estratégia"
+  }
+}
+

@@ -1,0 +1,62 @@
+{
+  "backToBlog": "Voltar ao Blog",
+  "category": "Introdução à Estratégia",
+  "cta": {
+    "button": "Ver Análise de Backtest",
+    "description": "Revise os resultados abrangentes de backtest para Flux Pivot para ver como esta estratégia se desempenha em diferentes condições de mercado.",
+    "heading": "Ver Análise de Backtest"
+  },
+  "sections": {
+    "commonMistakes": {
+      "content": "Muitos traders falham com estratégias de pivô porque negociam cada nível que veem. O Flux Pivot filtra configurações fracas e se concentra apenas em oportunidades de alta probabilidade. A estratégia também enfatiza o gerenciamento adequado de riscos—mesmo os melhores níveis de pivô podem falhar, então o dimensionamento de posições e a colocação de stops são cruciais.",
+      "heading": "Erros Comuns a Evitar"
+    },
+    "howItWorks": {
+      "heading": "Como o Flux Pivot Funciona",
+      "intro": "A estratégia combina vários elementos-chave:",
+      "points": {
+        "dynamicLevel": {
+          "label": "Cálculo Dinâmico de Níveis:",
+          "text": "Usa algoritmos proprietários para identificar os níveis de pivô mais significativos"
+        },
+        "priceAction": {
+          "label": "Confirmação de Ação de Preço:",
+          "text": "Aguarda sinais claros de ação de preço nesses níveis"
+        },
+        "volumeAnalysis": {
+          "label": "Análise de Volume:",
+          "text": "Confirma negociações com padrões de volume que sugerem interesse institucional"
+        },
+        "riskManagement": {
+          "label": "Gerenciamento de Risco:",
+          "text": "Coloca stops com base na força e significância do nível de pivô"
+        }
+      }
+    },
+    "keyAdvantages": {
+      "heading": "Vantagens Principais",
+      "points": [
+        "Pontos de entrada e saída claros baseados em níveis objetivos",
+        "Funciona tanto em mercados de tendência quanto em faixas",
+        "Configurações de alta probabilidade com risco-recompensa favorável",
+        "Abordagem sistemática reduz suposições"
+      ]
+    },
+    "supportResistance": {
+      "content": "Os níveis de suporte e resistência são a base da análise técnica, mas nem todos os níveis são criados iguais. O Flux Pivot distingue entre níveis fracos que quebram facilmente e níveis fortes que fornecem oportunidades de negociação confiáveis. A estratégia se concentra nestes últimos, melhorando a taxa de ganhos e os índices de risco-recompensa.",
+      "heading": "Negociação de Suporte e Resistência"
+    },
+    "understandingPivots": {
+      "content": "Pontos de pivô são níveis de preço onde o mercado historicamente mostrou reações significativas. Esses níveis atuam como ímãs—o preço tende a gravitar em direção a eles, e quando os atinge, frequentemente ricocheteia ou rompe com impulso. O Flux Pivot identifica esses níveis críticos usando um método de cálculo proprietário.",
+      "heading": "Entendendo Pontos de Pivô"
+    }
+  },
+  "seo": {
+    "description": "Domine a arte de negociar níveis de pivô-chave com Flux Pivot. Esta estratégia se concentra em identificar e negociar zonas significativas de suporte e resistência, combinando ação de preço com análise de volume.",
+    "keywords": "flux pivot, estratégia de trading, suporte e resistência, pontos de pivô, trading de ação de preço, análise de volume, níveis de trading",
+    "title": "Estratégia Flux Pivot - Negociação de Níveis de Suporte e Resistência"
+  },
+  "subtitle": "Domine a arte de negociar níveis de pivô-chave com Flux Pivot. Esta estratégia se concentra em identificar e negociar zonas significativas de suporte e resistência, combinando ação de preço com análise de volume.",
+  "title": "Flux Pivot: Negociação de Suporte e Resistência"
+}
+

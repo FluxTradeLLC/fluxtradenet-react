@@ -1,0 +1,62 @@
+{
+  "backToBlog": "Retour au Blog",
+  "category": "Introduction à la Stratégie",
+  "cta": {
+    "button": "Voir l'Analyse de Backtest",
+    "description": "Examinez les résultats complets de backtest pour Flux Pivot pour voir comment cette stratégie fonctionne dans différentes conditions de marché.",
+    "heading": "Voir l'Analyse de Backtest"
+  },
+  "sections": {
+    "commonMistakes": {
+      "content": "De nombreux traders échouent avec les stratégies de pivot car ils tradent chaque niveau qu'ils voient. Flux Pivot filtre les configurations faibles et se concentre uniquement sur les opportunités à haute probabilité. La stratégie met également l'accent sur une gestion des risques appropriée—même les meilleurs niveaux de pivot peuvent échouer, donc le dimensionnement des positions et le placement des stops sont cruciaux.",
+      "heading": "Erreurs Courantes à Éviter"
+    },
+    "howItWorks": {
+      "heading": "Comment Fonctionne Flux Pivot",
+      "intro": "La stratégie combine plusieurs éléments clés :",
+      "points": {
+        "dynamicLevel": {
+          "label": "Calcul Dynamique des Niveaux :",
+          "text": "Utilise des algorithmes propriétaires pour identifier les niveaux de pivot les plus significatifs"
+        },
+        "priceAction": {
+          "label": "Confirmation de l'Action des Prix :",
+          "text": "Attend des signaux clairs d'action des prix à ces niveaux"
+        },
+        "volumeAnalysis": {
+          "label": "Analyse du Volume :",
+          "text": "Confirme les trades avec des modèles de volume qui suggèrent un intérêt institutionnel"
+        },
+        "riskManagement": {
+          "label": "Gestion des Risques :",
+          "text": "Place les stops en fonction de la force et de l'importance du niveau de pivot"
+        }
+      }
+    },
+    "keyAdvantages": {
+      "heading": "Avantages Clés",
+      "points": [
+        "Points d'entrée et de sortie clairs basés sur des niveaux objectifs",
+        "Fonctionne dans les marchés en tendance et en range",
+        "Configurations à haute probabilité avec un ratio risque-récompense favorable",
+        "Approche systématique réduit les suppositions"
+      ]
+    },
+    "supportResistance": {
+      "content": "Les niveaux de support et de résistance sont la base de l'analyse technique, mais tous les niveaux ne sont pas égaux. Flux Pivot distingue les niveaux faibles qui se cassent facilement des niveaux forts qui offrent des opportunités de trading fiables. La stratégie se concentre sur ces derniers, améliorant le taux de réussite et les ratios risque-récompense.",
+      "heading": "Trading de Support et Résistance"
+    },
+    "understandingPivots": {
+      "content": "Les points de pivot sont des niveaux de prix où le marché a historiquement montré des réactions significatives. Ces niveaux agissent comme des aimants—le prix a tendance à graviter vers eux, et lorsqu'il les atteint, il rebondit souvent ou les traverse avec élan. Flux Pivot identifie ces niveaux critiques en utilisant une méthode de calcul propriétaire.",
+      "heading": "Comprendre les Points de Pivot"
+    }
+  },
+  "seo": {
+    "description": "Maîtrisez l'art du trading des niveaux de pivot clés avec Flux Pivot. Cette stratégie se concentre sur l'identification et le trading des zones significatives de support et résistance, combinant l'action des prix avec l'analyse du volume.",
+    "keywords": "flux pivot, stratégie de trading, support et résistance, points de pivot, trading d'action des prix, analyse du volume, niveaux de trading",
+    "title": "Stratégie Flux Pivot - Trading des Niveaux de Support et Résistance"
+  },
+  "subtitle": "Maîtrisez l'art du trading des niveaux de pivot clés avec Flux Pivot. Cette stratégie se concentre sur l'identification et le trading des zones significatives de support et résistance, combinant l'action des prix avec l'analyse du volume.",
+  "title": "Flux Pivot : Trading de Support et Résistance"
+}
+
