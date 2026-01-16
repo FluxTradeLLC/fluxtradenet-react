@@ -1909,57 +1909,14 @@ export function LandingPage() {
                                         {t("landing.exploreBacktest")}
                                       </Link>
                                     </div>
-                                    {strategy?.backtestUrl &&
-                                      strategyMetrics[strategy.backtestUrl] && (
-                                        <div className="mt-2 text-xs text-gray-400 text-center">
-                                          <span>
-                                            {t("landing.winRate")}{" "}
-                                            {
-                                              strategyMetrics[
-                                                strategy.backtestUrl
-                                              ].winRate
-                                            }{" "}
-                                            | {t("landing.profitFactor")}{" "}
-                                            {strategyMetrics[
-                                              strategy.backtestUrl
-                                            ].profitFactor || "N/A"}
-                                          </span>
-                                        </div>
-                                      )}
+                                    {/* Hide win rate and profit factor for NinjaTrader strategies */}
                                   </div>
                                 )}
                                 <div className="flex flex-col w-full relative">
                                   {Array.isArray(strategy.images) &&
                                     strategy.images.map((imgSrc, idx) => {
-                                      // Comment out second image (idx === 1) for NinjaTrader strategies
-                                      if (idx === 1) return null;
-                                      const imageId = `prop-${strategy.name}-${idx}`;
-                                      const isImageLoaded =
-                                        imageLoadedStates[imageId];
-                                      return (
-                                        <div
-                                          key={`${strategy.name}-${idx}`}
-                                          className="relative w-full"
-                                        >
-                                          {/* LQIP placeholder */}
-                                          {!isImageLoaded && (
-                                            <div className="absolute inset-0 bg-gray-700 rounded-lg mb-4 animate-pulse" />
-                                          )}
-                                          <img
-                                            src={imgSrc}
-                                            alt={`Screenshot of ${strategy.name} strategy interface showing trading indicators and signals`}
-                                            className={`w-full h-auto rounded-lg mb-4 transition-opacity duration-300 ${
-                                              isImageLoaded
-                                                ? "opacity-100"
-                                                : "opacity-0"
-                                            }`}
-                                            loading="lazy"
-                                            onLoad={() =>
-                                              handleImageLoad(imageId)
-                                            }
-                                          />
-                                        </div>
-                                      );
+                                      // Hide all images for NinjaTrader strategies
+                                      return null;
                                     })}
                                 </div>
                               </div>
@@ -2291,32 +2248,31 @@ export function LandingPage() {
                                       {t("landing.exploreBacktest")}
                                     </Link>
                                   </div>
-                                  {strategyMetrics[strategy.backtestUrl] && (
-                                    <div className="mt-2 text-xs text-gray-400 text-center">
-                                      <span>
-                                        {t("landing.winRate")}{" "}
-                                        {
-                                          strategyMetrics[strategy.backtestUrl]
-                                            .winRate
-                                        }{" "}
-                                        | {t("landing.profitFactor")}{" "}
-                                        {
-                                          strategyMetrics[strategy.backtestUrl]
-                                            .profitFactor
-                                        }
-                                      </span>
-                                    </div>
-                                  )}
+                                  {/* Hide win rate and profit factor for NinjaTrader strategies */}
+                                  {activeTab !== "NinjaTrader" &&
+                                    strategyMetrics[strategy.backtestUrl] && (
+                                      <div className="mt-2 text-xs text-gray-400 text-center">
+                                        <span>
+                                          {t("landing.winRate")}{" "}
+                                          {
+                                            strategyMetrics[strategy.backtestUrl]
+                                              .winRate
+                                          }{" "}
+                                          | {t("landing.profitFactor")}{" "}
+                                          {
+                                            strategyMetrics[strategy.backtestUrl]
+                                              .profitFactor
+                                          }
+                                        </span>
+                                      </div>
+                                    )}
                                 </div>
                               )}
                               <div className="flex flex-col w-full relative">
                                 {Array.isArray(strategy.images) &&
                                   strategy.images.map((imgSrc, idx) => {
-                                    // Comment out second image (idx === 1) for NinjaTrader strategies
-                                    if (
-                                      activeTab === "NinjaTrader" &&
-                                      idx === 1
-                                    )
+                                    // Hide all images for NinjaTrader strategies
+                                    if (activeTab === "NinjaTrader")
                                       return null;
                                     const uniqueImageId = `${imageId}-${idx}`;
                                     const isImgLoaded =

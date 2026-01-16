@@ -129,6 +129,48 @@ const parseDate = (timeStr) => {
   }
 };
 
+// Helper function to parse price (handles various formats)
+const parsePrice = (str) => {
+  if (!str || str === "") return null;
+  const cleaned = str.replace(/[$,()]/g, "");
+  const num = parseFloat(cleaned);
+  return isNaN(num) ? null : num;
+};
+
+// Helper function to parse quantity/contracts
+const parseQuantity = (str) => {
+  if (!str || str === "") return null;
+  const num = parseFloat(str);
+  return isNaN(num) ? null : num;
+};
+
+// Helper function to determine trade direction from market position
+const getTradeDirection = (marketPos) => {
+  if (!marketPos) return null;
+  const pos = marketPos.toString().toLowerCase();
+  if (pos.includes("long")) return "Long";
+  if (pos.includes("short")) return "Short";
+  return marketPos; // Return as-is if not recognized
+};
+
+// Helper function to format timestamp with date and time
+const formatTimestamp = (date) => {
+  if (!date) return "";
+  try {
+    return date.toLocaleString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true,
+    });
+  } catch {
+    return "";
+  }
+};
+
 // Helper function to convert strategy name to title case
 // Handles camelCase, snake_case, and other formats
 const toTitleCase = (str) => {
@@ -195,6 +237,19 @@ export const BacktestExplorerPage = () => {
                     entryTime: parseDate(
                       row["Entry time"] || row["Entry Time"]
                     ),
+                    exitTime: parseDate(
+                      row["Exit time"] || row["Exit Time"]
+                    ),
+                    entryPrice: parsePrice(
+                      row["Entry price"] || row["Entry Price"]
+                    ),
+                    exitPrice: parsePrice(
+                      row["Exit price"] || row["Exit Price"]
+                    ),
+                    quantity: parseQuantity(row.Qty || row["Qty"]),
+                    direction: getTradeDirection(
+                      row["Market pos."] || row["Market pos"] || row["Market position"]
+                    ),
                     session: getSession(row["Entry time"] || row["Entry Time"]),
                     instrument: row.Instrument || row["Instrument"],
                   }));
@@ -224,6 +279,15 @@ export const BacktestExplorerPage = () => {
     const converted = usdAmount * CURRENCY_RATES[selectedCurrency];
     const formatted = formatNumber(converted);
     return `${CURRENCY_SYMBOLS[selectedCurrency]}${formatted}`;
+  };
+
+  // Helper function to format price (not currency, just number formatting)
+  const formatPrice = (price) => {
+    if (price === null || price === undefined || isNaN(price)) return "N/A";
+    return price.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 4,
+    });
   };
 
   // Get unique values for filters
@@ -719,7 +783,22 @@ export const BacktestExplorerPage = () => {
                     {t("backtestExplorer.instrument")}
                   </th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
+                    {t("backtestExplorer.direction")}
+                  </th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
+                    {t("backtestExplorer.quantity")}
+                  </th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
                     {t("backtestExplorer.entryTime")}
+                  </th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
+                    {t("backtestExplorer.exitTime")}
+                  </th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
+                    {t("backtestExplorer.entryPrice")}
+                  </th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
+                    {t("backtestExplorer.exitPrice")}
                   </th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
                     {t("backtestExplorer.session")}
@@ -745,10 +824,37 @@ export const BacktestExplorerPage = () => {
                       {toTitleCase(row.strategy)}
                     </td>
                     <td className="py-3 px-4 text-sm">{row.instrument}</td>
+                    <td className={`py-3 px-4 text-sm font-medium ${
+                      row.direction === "Long" ? "text-green-400" : 
+                      row.direction === "Short" ? "text-red-400" : 
+                      "text-gray-400"
+                    }`}>
+                      {row.direction || "N/A"}
+                    </td>
+                    <td className="py-3 px-4 text-sm">
+                      {row.quantity !== null && row.quantity !== undefined 
+                        ? row.quantity.toLocaleString() 
+                        : "N/A"}
+                    </td>
                     <td className="py-3 px-4 text-sm">
                       {row.entryTime
-                        ? row.entryTime.toLocaleDateString()
-                        : row["Entry time"]}
+                        ? formatTimestamp(row.entryTime)
+                        : row["Entry time"] || "N/A"}
+                    </td>
+                    <td className="py-3 px-4 text-sm">
+                      {row.exitTime
+                        ? formatTimestamp(row.exitTime)
+                        : row["Exit time"] || "N/A"}
+                    </td>
+                    <td className="py-3 px-4 text-sm">
+                      {row.entryPrice !== null && row.entryPrice !== undefined
+                        ? formatPrice(row.entryPrice)
+                        : "N/A"}
+                    </td>
+                    <td className="py-3 px-4 text-sm">
+                      {row.exitPrice !== null && row.exitPrice !== undefined
+                        ? formatPrice(row.exitPrice)
+                        : "N/A"}
                     </td>
                     <td className="py-3 px-4 text-sm">{t(`backtestExplorer.sessions.${row.session}`, row.session)}</td>
                     <td

@@ -99,6 +99,11 @@
     "tradeCount": "Nombre d'Opérations",
     "tradeDetails": "Détails des Opérations",
     "tradeNumber": "Opération #",
+    "exitTime": "Heure de Sortie",
+    "entryPrice": "Prix d'Entrée",
+    "exitPrice": "Prix de Sortie",
+    "quantity": "Quantité",
+    "direction": "Direction",
     "winRate": "Taux de Réussite"
   },
   "blog": {
