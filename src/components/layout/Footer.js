@@ -156,7 +156,7 @@ export const Footer = () => {
         </a>
       </div>
 
-      <p className="mb-4 mt-12">{t("footer.disclaimers")}</p>
+      <p className="mb-4 mt-12" id="disclaimers">{t("footer.disclaimers")}</p>
       <p className="mb-4">
         {t("footer.disclaimer1")}
       </p>
