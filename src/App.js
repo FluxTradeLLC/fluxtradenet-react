@@ -18,6 +18,7 @@ import { AffiliatesPage } from './pages/AffiliatesPage';
 import { SupportPage } from './pages/SupportPage';
 import { TermsAndConditionsPage } from './pages/TermsAndConditionsPage';
 import { StreamingPage } from './pages/StreamingPage';
+import { DisclaimersPage } from './pages/DisclaimersPage';
 import { BlogPage } from './pages/BlogPage';
 import { BlogPostFluxTrident } from './pages/blog/BlogPostFluxTrident';
 import { BlogPostFluxSignal } from './pages/blog/BlogPostFluxSignal';
@@ -101,6 +102,7 @@ function App() {
           <Route path="/affiliates" element={<AffiliatesPage />} />
           <Route path="/support" element={<SupportPage />} />
           <Route path="/terms" element={<TermsAndConditionsPage />} />
+          <Route path="/disclaimers" element={<DisclaimersPage />} />
           <Route path="/stream" element={<StreamingPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/flux-trident-strategy" element={<BlogPostFluxTrident />} />

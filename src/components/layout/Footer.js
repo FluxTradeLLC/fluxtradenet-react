@@ -58,6 +58,11 @@ export const Footer = () => {
               {t("footer.terms")}
             </Link>
           </li>
+          <li onClick={handleClick}>
+            <Link to="/disclaimers" className="hover:underline">
+              {t("footer.disclaimers")}
+            </Link>
+          </li>
         </ul>
       </nav>
 
