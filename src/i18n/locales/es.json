@@ -202,6 +202,7 @@
     "strategiesSubtitle": "Altamente personalizables con entradas y salidas automatizadas",
     "wins": "Ganancias",
     "winsSubtitle": "Ganancias usando las herramientas de miembros en el Discord",
+    "winsDisclaimer": "Los testimonios que aparecen en este sitio web pueden no ser representativos de otros clientes o clientes y no son una garantía de rendimiento o éxito futuro.",
     "officialVendor": "Vendedor Oficial del Ecosistema NinjaTrader",
     "affiliateLink": "(Enlace de afiliado*)",
     "signUp": "Regístrate",
@@ -585,7 +586,8 @@
     "followTwitch": "Síguenos en Twitch (se abre en nueva pestaña)",
     "followInstagram": "Síguenos en Instagram (se abre en nueva pestaña)",
     "followTikTok": "Síguenos en TikTok (se abre en nueva pestaña)",
-    "followFacebook": "Síguenos en Facebook (se abre en nueva pestaña)"
+    "followFacebook": "Síguenos en Facebook (se abre en nueva pestaña)",
+    "disclaimer": "Esta presentación es solo para fines educativos y las opiniones expresadas son solo las del presentador. Todas las operaciones presentadas deben considerarse hipotéticas y no se debe esperar que se repliquen en una cuenta de trading en vivo."
   },
   "backtestExplorer": {
     "loading": "Cargando datos de backtest...",

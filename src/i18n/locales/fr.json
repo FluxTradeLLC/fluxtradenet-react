@@ -573,7 +573,8 @@
     "viewBacktest": "Voir le Backtest",
     "winRate": "Taux de réussite",
     "wins": "Gains",
-    "winsSubtitle": "Gains utilisant les outils des membres du Discord"
+    "winsSubtitle": "Gains utilisant les outils des membres du Discord",
+    "winsDisclaimer": "Les témoignages apparaissant sur ce site Web peuvent ne pas être représentatifs d'autres clients ou clients et ne constituent pas une garantie de performance ou de succès futurs."
   },
   "language": {
     "chinese": "Chinois",
@@ -732,7 +733,8 @@
     "followTwitch": "Suivez-nous sur Twitch (s'ouvre dans un nouvel onglet)",
     "followUs": "Suivez-nous",
     "followYouTube": "Suivez-nous sur YouTube (s'ouvre dans un nouvel onglet)",
-    "title": "Diffusion en Direct"
+    "title": "Diffusion en Direct",
+    "disclaimer": "Cette présentation est uniquement à des fins éducatives et les opinions exprimées sont celles du présentateur uniquement. Toutes les transactions présentées doivent être considérées comme hypothétiques et ne doivent pas être attendues pour être reproduites dans un compte de trading en direct."
   },
   "support": {
     "additionalResources": "Ressources Supplémentaires",

@@ -2557,6 +2557,9 @@ export function LandingPage() {
                       alt="Screenshot showing successful trading results from a Discord community member using FluxTrade tools"
                       className="w-full h-auto rounded-lg"
                     />
+                    <p className="col-span-full text-center text-gray-400 italic mt-4">
+                      {t("landing.winsDisclaimer")}
+                    </p>
                   </div>
                 )}
               </section>
@@ -2575,7 +2578,7 @@ export function LandingPage() {
           <div className="flex flex-col flex-wrap justify-center items-center space-x-8 text-white bg-[#0c111b] p-6 rounded-lg">
             <div className="flex flex-col lg:flex-row flex-wrap justify-center items-center lg:space-x-8">
               <a
-                href="http://account.ninjatrader.com/register?introducingPartner=FluxTrade"
+                href="https://ninjatraderus.pxf.io/APNodJ"
                 aria-label="Register for NinjaTrader (opens in new tab)"
                 target="_blank"
                 rel="noopener noreferrer"

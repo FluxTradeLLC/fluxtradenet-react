@@ -202,6 +202,7 @@
     "strategiesSubtitle": "高度可定制，具有自动化入场和出场",
     "wins": "盈利",
     "winsSubtitle": "使用 Discord 成员的工具获得的盈利",
+    "winsDisclaimer": "本网站上出现的推荐可能不代表其他客户或客户，也不保证未来的表现或成功。",
     "officialVendor": "官方 NinjaTrader 生态系统供应商",
     "affiliateLink": "（联盟链接*）",
     "signUp": "注册",
@@ -585,7 +586,8 @@
     "followTwitch": "在Twitch上关注我们（在新标签页中打开）",
     "followInstagram": "在Instagram上关注我们（在新标签页中打开）",
     "followTikTok": "在TikTok上关注我们（在新标签页中打开）",
-    "followFacebook": "在Facebook上关注我们（在新标签页中打开）"
+    "followFacebook": "在Facebook上关注我们（在新标签页中打开）",
+    "disclaimer": "本演示仅用于教育目的，所表达的观点仅为演示者的观点。所有展示的交易均应视为假设性交易，不应期望在真实交易账户中复制。"
   },
   "backtestExplorer": {
     "loading": "正在加载回测数据...",

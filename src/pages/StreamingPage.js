@@ -28,6 +28,10 @@ export function StreamingPage() {
           <TwitchEmbedPlayer channel={twitchChannel} />
         </div>
 
+        <p className="text-center text-gray-400 italic mb-8">
+          {t("streaming.disclaimer")}
+        </p>
+
         <div className="mt-12">
           <p className="mb-4 font-semibold text-center text-xl">
             {t("streaming.followUs")}

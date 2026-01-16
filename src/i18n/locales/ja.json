@@ -202,6 +202,7 @@
     "strategiesSubtitle": "自動化されたエントリーとエグジットで高度にカスタマイズ可能",
     "wins": "勝利",
     "winsSubtitle": "Discordのメンバーのツールを使用した勝利",
+    "winsDisclaimer": "このウェブサイトに表示されるお客様の声は、他のクライアントや顧客を代表するものではない場合があり、将来のパフォーマンスや成功を保証するものではありません。",
     "officialVendor": "公式NinjaTraderエコシステムベンダー",
     "affiliateLink": "（アフィリエイトリンク*）",
     "signUp": "登録",
@@ -585,7 +586,8 @@
     "followTwitch": "Twitchでフォロー（新しいタブで開く）",
     "followInstagram": "Instagramでフォロー（新しいタブで開く）",
     "followTikTok": "TikTokでフォロー（新しいタブで開く）",
-    "followFacebook": "Facebookでフォロー（新しいタブで開く）"
+    "followFacebook": "Facebookでフォロー（新しいタブで開く）",
+    "disclaimer": "このプレゼンテーションは教育目的のみであり、表明された意見はプレゼンターのみのものです。提示されたすべての取引は仮想的なものと見なされ、実際の取引口座で再現されることは期待されません。"
   },
   "backtestExplorer": {
     "loading": "バックテストデータを読み込み中...",
