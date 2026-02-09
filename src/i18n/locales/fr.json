@@ -349,6 +349,46 @@
           "Alignement avec les objectifs des entreprises prop"
         ],
         "name": "Pluton"
+      },
+      "emaCross": {
+        "features": [
+          "Signaux de croisement EMA pour l'identification de tendance",
+          "Gestion des risques conforme aux entreprises prop",
+          "Faible drawdown avec entrées cohérentes"
+        ],
+        "name": "Croisement EMA"
+      },
+      "parabolicTrend": {
+        "features": [
+          "Système de suivi de tendance Parabolic SAR",
+          "Gestion adaptative du stop loss",
+          "Conçu pour les objectifs de mise à l'échelle des entreprises prop"
+        ],
+        "name": "Tendance Parabolique"
+      },
+      "propSafeORB": {
+        "features": [
+          "Rupture de la fourchette d'ouverture avec protections pour entreprises prop",
+          "Risque contrôlé par trade",
+          "Conformité aux limites de perte quotidienne intégrée"
+        ],
+        "name": "ORB Sécurisé Prop"
+      },
+      "trendingBreakout": {
+        "features": [
+          "Entrées de rupture dans les marchés en tendance",
+          "Confirmation de tendance avant l'entrée",
+          "Dimensionnement de position adapté aux entreprises prop"
+        ],
+        "name": "Rupture Tendancielle"
+      },
+      "vwapFade": {
+        "features": [
+          "Stratégie de retour à la moyenne utilisant VWAP",
+          "Fade les mouvements extrêmes depuis VWAP",
+          "Approche à faible risque adaptée aux entreprises prop"
+        ],
+        "name": "VWAP Fade"
       }
     },
     "seeItTrade": "Voyez-le trader en 60s",

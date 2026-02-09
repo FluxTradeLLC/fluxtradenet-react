@@ -977,6 +977,51 @@ export function LandingPage() {
   // New Prop Focused strategies (NinjaTrader only)
   const propFocusedStrategies = [
     {
+      name: "EMA Cross",
+      nameKey: "emaCross",
+      images: [],
+      features: [],
+      backtestUrl: "/backtests/ema-cross",
+      isNew: true,
+      categories: ["Prop-firm-safe"],
+    },
+    {
+      name: "Parabolic Trend",
+      nameKey: "parabolicTrend",
+      images: [],
+      features: [],
+      backtestUrl: "/backtests/parabolic-trend",
+      isNew: true,
+      categories: ["Prop-firm-safe", "Trend"],
+    },
+    {
+      name: "Prop Safe ORB",
+      nameKey: "propSafeORB",
+      images: [],
+      features: [],
+      backtestUrl: "/backtests/prop-safe-orb",
+      isNew: true,
+      categories: ["Prop-firm-safe"],
+    },
+    {
+      name: "Trending Breakout",
+      nameKey: "trendingBreakout",
+      images: [],
+      features: [],
+      backtestUrl: "/backtests/trending-breakout",
+      isNew: true,
+      categories: ["Prop-firm-safe", "Trend", "Breakout"],
+    },
+    {
+      name: "VWAP Fade",
+      nameKey: "vwapFade",
+      images: [],
+      features: [],
+      backtestUrl: "/backtests/vwap-fade",
+      isNew: true,
+      categories: ["Prop-firm-safe"],
+    },
+    {
       name: "Centauri",
       nameKey: "centauri",
       images: [centauri1, centauri2],
@@ -986,7 +1031,7 @@ export function LandingPage() {
         "Strict daily loss compliance",
       ],
       backtestUrl: "/backtests/centauri",
-      isNew: true,
+      isNew: false,
       categories: ["Prop-firm-safe"],
     },
     {
@@ -999,7 +1044,7 @@ export function LandingPage() {
         "Prop account scaling focus",
       ],
       backtestUrl: "/backtests/mars",
-      isNew: true,
+      isNew: false,
       categories: ["Prop-firm-safe", "Trend"],
     },
     {
@@ -1012,7 +1057,7 @@ export function LandingPage() {
         "Consistent performance characteristics",
       ],
       backtestUrl: "/backtests/moon",
-      isNew: true,
+      isNew: false,
       categories: ["Prop-firm-safe", "Trend"],
     },
     {
@@ -1025,7 +1070,7 @@ export function LandingPage() {
         "Prop firm objective alignment",
       ],
       backtestUrl: "/backtests/pluto",
-      isNew: true,
+      isNew: false,
       categories: ["Prop-firm-safe"],
     },
   ];

@@ -577,6 +577,46 @@
           "Dimensionamento de posição consciente da volatilidade",
           "Alinhamento com objetivos de empresa prop"
         ]
+      },
+      "emaCross": {
+        "name": "Cruzamento EMA",
+        "features": [
+          "Sinais de cruzamento EMA para identificação de tendência",
+          "Gestão de risco compatível com empresas prop",
+          "Baixo drawdown com entradas consistentes"
+        ]
+      },
+      "parabolicTrend": {
+        "name": "Tendência Parabólica",
+        "features": [
+          "Sistema de seguimento de tendência Parabolic SAR",
+          "Gestão adaptativa de stop loss",
+          "Projetado para objetivos de escalonamento de empresas prop"
+        ]
+      },
+      "propSafeORB": {
+        "name": "ORB Seguro para Prop",
+        "features": [
+          "Ruptura de faixa de abertura com salvaguardas para empresas prop",
+          "Risco controlado por operação",
+          "Conformidade com limite de perda diária incorporada"
+        ]
+      },
+      "trendingBreakout": {
+        "name": "Ruptura Tendencial",
+        "features": [
+          "Entradas de ruptura em mercados em tendência",
+          "Confirmação de tendência antes de entrar",
+          "Dimensionamento de posição amigável para empresas prop"
+        ]
+      },
+      "vwapFade": {
+        "name": "VWAP Fade",
+        "features": [
+          "Estratégia de reversão à média usando VWAP",
+          "Fade movimentos extremos desde VWAP",
+          "Abordagem de baixo risco adequada para empresas prop"
+        ]
       }
     }
   },

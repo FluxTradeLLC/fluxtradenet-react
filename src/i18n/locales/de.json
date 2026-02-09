@@ -577,6 +577,46 @@
           "Volatilitätsbewusstes Positionsgrößen",
           "Ausrichtung mit Prop-Firm-Zielen"
         ]
+      },
+      "emaCross": {
+        "name": "EMA-Kreuzung",
+        "features": [
+          "EMA-Kreuzungssignale zur Trendidentifikation",
+          "Prop-Firm-freundliches Risikomanagement",
+          "Niedriges Drawdown mit konsistenten Einstiegen"
+        ]
+      },
+      "parabolicTrend": {
+        "name": "Parabolischer Trend",
+        "features": [
+          "Parabolic SAR Trendfolgesystem",
+          "Adaptives Stop-Loss-Management",
+          "Entwickelt für Prop-Firm-Skalierungsziele"
+        ]
+      },
+      "propSafeORB": {
+        "name": "Prop-Sicheres ORB",
+        "features": [
+          "Eröffnungsbereichsausbruch mit Prop-Firm-Sicherungen",
+          "Kontrolliertes Risiko pro Trade",
+          "Tägliches Verlustlimit-Compliance eingebaut"
+        ]
+      },
+      "trendingBreakout": {
+        "name": "Trendausbruch",
+        "features": [
+          "Ausbruchseinstiege in trendigen Märkten",
+          "Trendbestätigung vor dem Einstieg",
+          "Prop-Firm-freundliche Positionsgröße"
+        ]
+      },
+      "vwapFade": {
+        "name": "VWAP Fade",
+        "features": [
+          "Mean-Reversion-Strategie mit VWAP",
+          "Fadet extreme Bewegungen von VWAP",
+          "Niedrigrisiko-Ansatz geeignet für Prop-Firmen"
+        ]
       }
     }
   },

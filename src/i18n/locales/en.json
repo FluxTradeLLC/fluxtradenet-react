@@ -577,6 +577,46 @@
           "Volatility-aware position sizing",
           "Prop firm objective alignment"
         ]
+      },
+      "emaCross": {
+        "name": "EMA Cross",
+        "features": [
+          "EMA crossover signals for trend identification",
+          "Prop firm compliant risk management",
+          "Low drawdown with consistent entries"
+        ]
+      },
+      "parabolicTrend": {
+        "name": "Parabolic Trend",
+        "features": [
+          "Parabolic SAR trend following system",
+          "Adaptive stop loss management",
+          "Designed for prop firm scaling objectives"
+        ]
+      },
+      "propSafeORB": {
+        "name": "Prop Safe ORB",
+        "features": [
+          "Opening range breakout with prop firm safeguards",
+          "Controlled risk per trade",
+          "Daily loss limit compliance built-in"
+        ]
+      },
+      "trendingBreakout": {
+        "name": "Trending Breakout",
+        "features": [
+          "Breakout entries in trending markets",
+          "Trend confirmation before entry",
+          "Prop firm friendly position sizing"
+        ]
+      },
+      "vwapFade": {
+        "name": "VWAP Fade",
+        "features": [
+          "Mean reversion strategy using VWAP",
+          "Fades extreme moves from VWAP",
+          "Low risk approach suitable for prop firms"
+        ]
       }
     }
   },

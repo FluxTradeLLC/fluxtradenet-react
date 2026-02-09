@@ -97,6 +97,11 @@ function App() {
           <Route path="/backtests/mega-bands" element={<BacktestPage file="megaBands.csv" />} />
           <Route path="/backtests/stop-hunter" element={<BacktestPage file="stopHunter.csv" />} />
           <Route path="/backtests/chat-gpt" element={<BacktestPage file="chatGpt.csv" />} />
+          <Route path="/backtests/ema-cross" element={<BacktestPage file="emaCross.csv" />} />
+          <Route path="/backtests/parabolic-trend" element={<BacktestPage file="parabolicTrend.csv" />} />
+          <Route path="/backtests/prop-safe-orb" element={<BacktestPage file="propSafeORB.csv" />} />
+          <Route path="/backtests/trending-breakout" element={<BacktestPage file="trendingBreakout.csv" />} />
+          <Route path="/backtests/vwap-fade" element={<BacktestPage file="vwapFade.csv" />} />
           <Route path="/backtests/explorer" element={<BacktestExplorerPage />} />
           <Route path="/policies" element={<PolicyPage />} />
           <Route path="/affiliates" element={<AffiliatesPage />} />

@@ -23,6 +23,7 @@ const BACKTEST_FILES = [
   "cointegratedPairs.csv",
   "donchianTurtle.csv",
   "elliotWave.csv",
+  "emaCross.csv",
   "fluxLightning.csv",
   "fluxPivotStrat.csv",
   "fluxSignalStrat.csv",
@@ -39,14 +40,18 @@ const BACKTEST_FILES = [
   "moon.csv",
   "orb.csv",
   "orms.csv",
+  "parabolicTrend.csv",
   "pluto.csv",
   "projectGamma.csv",
+  "propSafeORB.csv",
   "quadConfluence.csv",
   "rileySR.csv",
   "slowAndSteady.csv",
   "stopHunter.csv",
   "superMomentum.csv",
   "trendCatcher.csv",
+  "trendingBreakout.csv",
+  "vwapFade.csv",
 ];
 
 // Helper function to parse currency string like "$880.00" or "($500.00)" to number

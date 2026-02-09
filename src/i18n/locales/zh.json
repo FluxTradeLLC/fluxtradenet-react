@@ -577,6 +577,46 @@
           "波动性感知的仓位大小",
           "与prop公司目标对齐"
         ]
+      },
+      "emaCross": {
+        "name": "EMA交叉",
+        "features": [
+          "用于趋势识别的EMA交叉信号",
+          "符合prop公司的风险管理",
+          "一致入场，低回撤"
+        ]
+      },
+      "parabolicTrend": {
+        "name": "抛物线趋势",
+        "features": [
+          "抛物线SAR趋势跟踪系统",
+          "自适应止损管理",
+          "专为prop公司扩展目标设计"
+        ]
+      },
+      "propSafeORB": {
+        "name": "Prop安全ORB",
+        "features": [
+          "开盘区间突破，带prop公司保护措施",
+          "每笔交易受控风险",
+          "内置每日亏损限制合规"
+        ]
+      },
+      "trendingBreakout": {
+        "name": "趋势突破",
+        "features": [
+          "趋势市场中的突破入场",
+          "入场前趋势确认",
+          "适合prop公司的仓位大小"
+        ]
+      },
+      "vwapFade": {
+        "name": "VWAP均值回归",
+        "features": [
+          "使用VWAP的均值回归策略",
+          "从VWAP的极端走势中回归",
+          "适合prop公司的低风险方法"
+        ]
       }
     }
   },
