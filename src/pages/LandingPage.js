@@ -151,6 +151,11 @@ const getCsvFilename = (backtestUrl) => {
     "mega-bands": "megaBands.csv",
     "stop-hunter": "stopHunter.csv",
     "chat-gpt": "chatGpt.csv",
+    "ema-cross": "emaCross.csv",
+    "parabolic-trend": "parabolicTrend.csv",
+    "prop-safe-orb": "propSafeORB.csv",
+    "trending-breakout": "trendingBreakout.csv",
+    "vwap-fade": "vwapFade.csv",
   };
 
   return urlToCsvMap[strategyName] || null;
