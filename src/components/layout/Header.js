@@ -251,7 +251,7 @@ export const Header = () => {
                 href="https://discord.gg/UTcxDRQ26U"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 text-gray-400 hover:text-gray-300 font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 border-gray-700"
+                className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 border-transparent"
                 style={{ textDecoration: "none" }}
                 aria-label="Join FluxTrade Discord community (opens in new tab)"
               >
@@ -261,6 +261,20 @@ export const Header = () => {
                   aria-hidden="true"
                 />
                 <span>{t("header.freeDiscord")}</span>
+              </a>
+            </li>
+          </ul>
+          <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
+            <li>
+              <a
+                href="https://www.shoulditradetoday.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 border-transparent"
+                style={{ textDecoration: "none" }}
+                aria-label="Should I Trade? (opens in new tab)"
+              >
+                <span>Should I Trade?</span>
               </a>
             </li>
           </ul>
