@@ -543,6 +543,94 @@
           "Powerful scalping strategy",
           "Identifies strong trend continuations"
         ]
+      },
+      "bitcoinRocket": {
+        "name": "Bitcoin Rocket",
+        "features": [
+          "Bitcoin/micro futures momentum strategy",
+          "Trend following with defined targets",
+          "ATR-based stops and position sizing"
+        ]
+      },
+      "dailySweep": {
+        "name": "Daily Sweep",
+        "features": [
+          "Sweep liquidity around daily swing levels",
+          "Swing rejection long and short signals",
+          "Quick scalps with tight risk"
+        ]
+      },
+      "deltaDivergence": {
+        "name": "Delta Divergence",
+        "features": [
+          "Delta divergence and exhaustion detection",
+          "Bullish and bearish reversal signals",
+          "Order flow based entries"
+        ]
+      },
+      "evolving": {
+        "name": "Evolving",
+        "features": [
+          "Adaptive strategy that evolves with market",
+          "Dynamic entry and exit logic",
+          "Works across different market regimes"
+        ]
+      },
+      "firstCandle": {
+        "name": "First Candle",
+        "features": [
+          "Trades first candle of session structure",
+          "Retest and breakout logic",
+          "Quick scalps with defined targets"
+        ]
+      },
+      "fvg": {
+        "name": "FVG (Fair Value Gap)",
+        "features": [
+          "Fair value gap detection and fills",
+          "Long and short FVG entries",
+          "ICT-style imbalance trading"
+        ]
+      },
+      "hundo": {
+        "name": "Hundo",
+        "features": [
+          "100-tick based strategy",
+          "Scalps quick moves in direction",
+          "Tight risk with fast targets"
+        ]
+      },
+      "hyperscalp": {
+        "name": "Hyperscalp",
+        "features": [
+          "Ultra-fast scalping strategy",
+          "EMA-based momentum entries",
+          "One-bar profit targets"
+        ]
+      },
+      "orderFlowStrat": {
+        "name": "Order Flow Strat",
+        "features": [
+          "Order flow and volume analysis",
+          "Long and short flow-based entries",
+          "Volume-confirmed signals"
+        ]
+      },
+      "ribbonStrat": {
+        "name": "Ribbon Strat",
+        "features": [
+          "EMA ribbon alignment strategy",
+          "Strong momentum continuation signals",
+          "Quick profit targets on alignment"
+        ]
+      },
+      "trappedBreakout": {
+        "name": "Trapped Breakout",
+        "features": [
+          "Trapped buyers/sellers detection",
+          "Reversal from failed breakouts",
+          "High-probability counter-trend entries"
+        ]
       }
     },
     "propFocusedStrategies": {

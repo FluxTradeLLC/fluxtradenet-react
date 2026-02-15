@@ -102,6 +102,17 @@ function App() {
           <Route path="/backtests/prop-safe-orb" element={<BacktestPage file="propSafeORB.csv" />} />
           <Route path="/backtests/trending-breakout" element={<BacktestPage file="trendingBreakout.csv" />} />
           <Route path="/backtests/vwap-fade" element={<BacktestPage file="vwapFade.csv" />} />
+          <Route path="/backtests/bitcoin-rocket" element={<BacktestPage file="bitcoinRocket.csv" />} />
+          <Route path="/backtests/daily-sweep" element={<BacktestPage file="dailySweep.csv" />} />
+          <Route path="/backtests/delta-divergence" element={<BacktestPage file="deltaDivergence.csv" />} />
+          <Route path="/backtests/evolving" element={<BacktestPage file="evolving.csv" />} />
+          <Route path="/backtests/first-candle" element={<BacktestPage file="firstCandle.csv" />} />
+          <Route path="/backtests/fvg" element={<BacktestPage file="fvg.csv" />} />
+          <Route path="/backtests/hundo" element={<BacktestPage file="hundo.csv" />} />
+          <Route path="/backtests/hyperscalp" element={<BacktestPage file="hyperscalp.csv" />} />
+          <Route path="/backtests/order-flow-strat" element={<BacktestPage file="orderFlowStrat.csv" />} />
+          <Route path="/backtests/ribbon-strat" element={<BacktestPage file="ribbonStrat.csv" />} />
+          <Route path="/backtests/trapped-breakout" element={<BacktestPage file="trappedBreakout.csv" />} />
           <Route path="/backtests/explorer" element={<BacktestExplorerPage />} />
           <Route path="/policies" element={<PolicyPage />} />
           <Route path="/affiliates" element={<AffiliatesPage />} />

@@ -1,0 +1,7 @@
+Trade number,Instrument,Account,Strategy,Market pos.,Qty,Entry price,Exit price,Entry time,Exit time,Entry name,Exit name,Profit,Cum. net profit,Commission,Clearing Fee,Exchange Fee,IP Fee,NFA Fee,MAE,MFE,ETD,Bars,
+1,MNQ MAR26,Backtest,FluxTrade_FirstCandle,Short,14,25535.75,25511.00,10/9/2025 09:53:00 AM,10/9/2025 09:57:00 AM,ShortRetest,Buy to cover,$666.40,$666.40,$26.60,$0.00,$0.00,$0.00,$0.00,$154.00,$910.00,$243.60,5,
+2,MNQ MAR26,Backtest,FluxTrade_FirstCandle,Short,14,24945.50,24953.00,10/17/2025 09:45:00 AM,10/17/2025 09:45:00 AM,ShortRetest,Stop loss,($236.60),$429.80,$26.60,$0.00,$0.00,$0.00,$0.00,$210.00,$0.00,$236.60,1,
+3,MNQ MAR26,Backtest,FluxTrade_FirstCandle,Short,14,26277.00,26235.00,10/30/2025 09:37:00 AM,10/30/2025 09:38:00 AM,ShortRetest,Buy to cover,$1149.40,$1579.20,$26.60,$0.00,$0.00,$0.00,$0.00,$28.00,$1225.00,$75.60,2,
+4,MNQ MAR26,Backtest,FluxTrade_FirstCandle,Short,14,25882.00,25889.50,11/6/2025 09:51:00 AM,11/6/2025 09:51:00 AM,ShortRetest,Stop loss,($236.60),$1342.60,$26.60,$0.00,$0.00,$0.00,$0.00,$210.00,$0.00,$236.60,1,
+5,MNQ MAR26,Backtest,FluxTrade_FirstCandle,Short,14,25439.50,25389.50,11/26/2025 10:00:00 AM,11/26/2025 10:01:00 AM,ShortRetest,Profit target,$1373.40,$2716.00,$26.60,$0.00,$0.00,$0.00,$0.00,$7.00,$1400.00,$26.60,2,
+6,MNQ MAR26,Backtest,FluxTrade_FirstCandle,Short,14,25594.50,25602.00,11/28/2025 09:43:00 AM,11/28/2025 09:43:00 AM,ShortRetest,Stop loss,($236.60),$2479.40,$26.60,$0.00,$0.00,$0.00,$0.00,$210.00,$0.00,$236.60,1,

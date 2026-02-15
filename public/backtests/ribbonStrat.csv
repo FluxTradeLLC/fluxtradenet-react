@@ -1,0 +1,7 @@
+Trade number,Instrument,Account,Strategy,Market pos.,Qty,Entry price,Exit price,Entry time,Exit time,Entry name,Exit name,Profit,Cum. net profit,Commission,Clearing Fee,Exchange Fee,IP Fee,NFA Fee,MAE,MFE,ETD,Bars,
+1,MNQ MAR26,Backtest,FluxTrade_RibbonStrat,Short,30,25846.75,25821.75,11/12/2025 09:56:00 AM,11/12/2025 09:56:00 AM,Sell short,Profit target,$1443.00,$1443.00,$57.00,$0.00,$0.00,$0.00,$0.00,$0.00,$1500.00,$57.00,1,
+2,MNQ MAR26,Backtest,FluxTrade_RibbonStrat,Short,30,25070.75,25045.75,11/25/2025 10:01:00 AM,11/25/2025 10:01:00 AM,Sell short,Profit target,$1443.00,$2886.00,$57.00,$0.00,$0.00,$0.00,$0.00,$0.00,$1500.00,$57.00,1,
+3,MNQ MAR26,Backtest,FluxTrade_RibbonStrat,Short,30,25875.75,25883.25,12/10/2025 09:41:00 AM,12/10/2025 09:42:00 AM,Sell short,Stop loss,($507.00),$2379.00,$57.00,$0.00,$0.00,$0.00,$0.00,$450.00,$1140.00,$1647.00,2,
+4,MNQ MAR26,Backtest,FluxTrade_RibbonStrat,Short,30,25602.75,25577.75,12/12/2025 10:36:00 AM,12/12/2025 10:37:00 AM,Sell short,Profit target,$1443.00,$3822.00,$57.00,$0.00,$0.00,$0.00,$0.00,$210.00,$1500.00,$57.00,2,
+5,MNQ MAR26,Backtest,FluxTrade_RibbonStrat,Short,30,25651.50,25659.00,1/8/2026 09:50:00 AM,1/8/2026 09:50:00 AM,Sell short,Stop loss,($507.00),$3315.00,$57.00,$0.00,$0.00,$0.00,$0.00,$450.00,$0.00,$507.00,1,
+6,MNQ MAR26,Backtest,FluxTrade_RibbonStrat,Short,30,25588.25,25563.25,1/22/2026 09:57:00 AM,1/22/2026 09:59:00 AM,Sell short,Profit target,$1443.00,$4758.00,$57.00,$0.00,$0.00,$0.00,$0.00,$285.00,$1500.00,$57.00,3,
