@@ -55,7 +55,7 @@ export function SupportPage() {
           {s("support.discordHelp")}
 
           <a
-            href="https://discord.gg/x7mMh2uxC"
+            href="https://discord.gg/239t9xcrxV"
             target="_blank"
             rel="noopener noreferrer"
             className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 text-gray-400 hover:text-gray-300 py-2 px-4 transition-colors duration-200 border border-gray-700 rounded-lg p-2"

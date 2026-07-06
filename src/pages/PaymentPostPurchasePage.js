@@ -67,7 +67,7 @@ export function PaymentPostPurchasePage() {
             </p>
             <p className="mt-6">
               {s("paymentPostPurchase.joinDiscord")}{" "}
-              <a className="text-blue-400" href="https://discord.gg/x7mMh2uxC">
+              <a className="text-blue-400" href="https://discord.gg/239t9xcrxV">
                 {s("paymentPostPurchase.discord")}
               </a>
             </p>
