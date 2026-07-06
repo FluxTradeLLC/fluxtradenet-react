@@ -226,7 +226,7 @@ export const Header = () => {
           <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
             <li>
               <a
-                href="https://discord.gg/UTcxDRQ26U"
+                href="https://discord.gg/x7mMh2uxC"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 border-transparent"
