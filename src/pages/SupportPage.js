@@ -1,13 +1,12 @@
 import React, { useState } from "react";
+import { s } from "../strings.js";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import api from "../api/axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 export function SupportPage() {
-  const { t } = useTranslation();
-  const [supportName, setSupportName] = useState("");
+    const [supportName, setSupportName] = useState("");
   const [supportEmail, setSupportEmail] = useState("");
   const [supportSubject, setSupportSubject] = useState("");
   const [supportMessage, setSupportMessage] = useState("");
@@ -35,7 +34,7 @@ export function SupportPage() {
       setSupportMessage("");
       setTimeout(() => setSupportSuccess(false), 5000);
     } catch (err) {
-      setSupportError(err.response?.data?.error || t("support.error"));
+      setSupportError(err.response?.data?.error || s("support.error"));
     } finally {
       setSupportLoading(false);
     }
@@ -44,16 +43,16 @@ export function SupportPage() {
   return (
     <div className="bg-gray-900 text-white min-h-full">
       <div className="max-w-3xl mx-auto px-6 pt-12 pb-12">
-        <h1 className="text-5xl font-extrabold mb-4 text-center">{t("support.title")}</h1>
+        <h1 className="text-5xl font-extrabold mb-4 text-center">{s("support.title")}</h1>
         <p className="text-gray-300 mb-4">
-          {t("support.description")}{" "}
+          {s("support.description")}{" "}
           <a href="mailto:grant@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">
             grant@fluxtrade.net
           </a>
-          &nbsp;{t("support.orSendMessage")}
+          &nbsp;{s("support.orSendMessage")}
         </p>
         <p className="text-gray-300 mb-8 flex items-center gap-2">
-          {t("support.discordHelp")}
+          {s("support.discordHelp")}
 
           <a
             href="https://discord.gg/UTcxDRQ26U"
@@ -63,52 +62,52 @@ export function SupportPage() {
             style={{ textDecoration: "none" }}
           >
             <FontAwesomeIcon icon={faDiscord} size="sm" />
-            <span>{t("header.freeDiscord")}</span>
+            <span>{s("header.freeDiscord")}</span>
           </a>
         </p>
         
         {/* Additional Resources Section */}
         <div className="mb-8 bg-gray-800 rounded-lg shadow-lg p-6">
-          <h2 className="text-2xl font-bold mb-4 text-white">{t("support.additionalResources")}</h2>
+          <h2 className="text-2xl font-bold mb-4 text-white">{s("support.additionalResources")}</h2>
           <div className="space-y-3 text-gray-300">
             <p>
-              {t("support.resourcesDescription")}
+              {s("support.resourcesDescription")}
             </p>
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li>
-                {t("support.refundInfo")}{" "}
+                {s("support.refundInfo")}{" "}
                 <Link to="/policies" className="underline text-blue-400 hover:text-blue-300">
-                  {t("footer.refundPolicies")}
+                  {s("footer.refundPolicies")}
                 </Link>
               </li>
               <li>
-                {t("support.termsInfo")}{" "}
+                {s("support.termsInfo")}{" "}
                 <Link to="/terms" className="underline text-blue-400 hover:text-blue-300">
-                  {t("footer.terms")}
+                  {s("footer.terms")}
                 </Link>
               </li>
             </ul>
             <p className="mt-4">
-              {t("support.stillNeedHelp")} <a href="mailto:grant@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">{t("support.emailDirectly")}</a>.
+              {s("support.stillNeedHelp")} <a href="mailto:grant@fluxtrade.net" className="underline text-blue-400 hover:text-blue-300">{s("support.emailDirectly")}</a>.
             </p>
           </div>
         </div>
         
         <div className="mt-8 bg-gray-800 rounded-lg shadow-lg p-6">
-          <h2 className="text-2xl font-bold text-center mb-6">{t("support.sendMessage")}</h2>
+          <h2 className="text-2xl font-bold text-center mb-6">{s("support.sendMessage")}</h2>
           <form onSubmit={handleSupportSubmit} className="space-y-4">
             {supportError && (
               <p className="text-red-500 text-sm text-center">{supportError}</p>
             )}
             {supportSuccess && (
               <p className="text-green-500 text-sm text-center">
-                {t("support.success")}
+                {s("support.success")}
               </p>
             )}
             <div>
               <input
                 type="text"
-                placeholder={t("support.yourName")}
+                placeholder={s("support.yourName")}
                 className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={supportName}
                 onChange={(e) => setSupportName(e.target.value)}
@@ -118,7 +117,7 @@ export function SupportPage() {
             <div>
               <input
                 type="email"
-                placeholder={t("support.yourEmail")}
+                placeholder={s("support.yourEmail")}
                 className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={supportEmail}
                 onChange={(e) => setSupportEmail(e.target.value)}
@@ -128,7 +127,7 @@ export function SupportPage() {
             <div>
               <input
                 type="text"
-                placeholder={t("support.subject")}
+                placeholder={s("support.subject")}
                 className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={supportSubject}
                 onChange={(e) => setSupportSubject(e.target.value)}
@@ -137,7 +136,7 @@ export function SupportPage() {
             </div>
             <div>
               <textarea
-                placeholder={t("support.message")}
+                placeholder={s("support.message")}
                 rows="6"
                 className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                 value={supportMessage}
@@ -150,7 +149,7 @@ export function SupportPage() {
               disabled={supportLoading}
               className="w-full bg-[#5865F2] hover:bg-[#4752C4] disabled:bg-gray-600 disabled:cursor-not-allowed disabled:hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
             >
-              {supportLoading ? t("support.sending") : t("support.sendEmail")}
+              {supportLoading ? s("support.sending") : s("support.sendEmail")}
             </button>
           </form>
         </div>

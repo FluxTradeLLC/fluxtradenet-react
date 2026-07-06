@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { s } from "../../strings.js";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import api from "../../api/axios";
 import { PRICING_IDS } from "../../constants";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 
 export const StickyCTA = () => {
-  const { t } = useTranslation();
-  const prefersReducedMotion = useReducedMotion();
+    const prefersReducedMotion = useReducedMotion();
   const [activePlatform, setActivePlatform] = useState(() => {
     const savedPlatform = localStorage.getItem("stickyCTAActivePlatform");
     return savedPlatform || "NinjaTrader";
@@ -76,7 +75,7 @@ export const StickyCTA = () => {
                   : "text-gray-300 hover:text-white hover:bg-gray-700"
               }`}
             >
-              {t("stickyCTA.ninjaTrader")}
+              {s("stickyCTA.ninjaTrader")}
             </button>
             <button
               onClick={() => setActivePlatform("TradingView")}
@@ -88,7 +87,7 @@ export const StickyCTA = () => {
                   : "text-gray-300 hover:text-white hover:bg-gray-700"
               }`}
             >
-              {t("stickyCTA.tradingView")}
+              {s("stickyCTA.tradingView")}
             </button>
             <button
               onClick={() => setActivePlatform("Both")}
@@ -100,7 +99,7 @@ export const StickyCTA = () => {
                   : "text-gray-300 hover:text-white hover:bg-gray-700"
               }`}
             >
-              {t("stickyCTA.bothPlatforms")}
+              {s("stickyCTA.bothPlatforms")}
             </button>
           </div>
 
@@ -113,12 +112,12 @@ export const StickyCTA = () => {
               animation: prefersReducedMotion ? "none" : "soft-gradient-x 3s ease-in-out infinite",
             }}
             aria-label={isAuthenticated
-              ? t("stickyCTA.startTrialLabel", { platform: activePlatform })
-              : t("stickyCTA.signUpTrialLabel", { platform: activePlatform })}
+              ? s("stickyCTA.startTrialLabel", { platform: activePlatform })
+              : s("stickyCTA.signUpTrialLabel", { platform: activePlatform })}
           >
             {isAuthenticated
-              ? t("stickyCTA.startTrial")
-              : t("stickyCTA.signUpTrial")}
+              ? s("stickyCTA.startTrial")
+              : s("stickyCTA.signUpTrial")}
           </button>
         </div>
       </div>

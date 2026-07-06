@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import fluxLogo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
-import { LanguageSelector } from "./LanguageSelector";
 
 export const Header = () => {
-  const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
   const location = useLocation();
   // const [hasSession, setHasSession] = useState(false);
@@ -42,7 +39,6 @@ export const Header = () => {
           </h1>
         </Link>
         <div className="xl:hidden absolute right-6 top-6 flex items-center space-x-2">
-          <LanguageSelector />
           <button
             aria-label={
               isMenuOpen ? "Close navigation menu" : "Open navigation menu"
@@ -105,7 +101,7 @@ export const Header = () => {
                 style={{ textDecoration: "none" }}
                 aria-current={location.pathname === "/" ? "page" : undefined}
               >
-                <span>{t("header.home")}</span>
+                <span>Home</span>
               </Link>
             </li>
           </ul>
@@ -131,7 +127,7 @@ export const Header = () => {
                   location.pathname === "/pricing" ? "page" : undefined
                 }
               >
-                <span>{t("header.pricing")}</span>
+                <span>Pricing</span>
               </Link>
             </li>
           </ul>
@@ -151,25 +147,7 @@ export const Header = () => {
                     : undefined
                 }
               >
-                <span>{t("header.backtestExplorer")}</span>
-              </Link>
-            </li>
-          </ul>
-          <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
-            <li>
-              <Link
-                to="/blog"
-                className={`flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 ${
-                  location.pathname === "/blog"
-                    ? "border-white"
-                    : "border-transparent"
-                }`}
-                style={{ textDecoration: "none" }}
-                aria-current={
-                  location.pathname === "/blog" ? "page" : undefined
-                }
-              >
-                <span>{t("header.blog")}</span>
+                <span>Backtest Explorer</span>
               </Link>
             </li>
           </ul>
@@ -187,7 +165,7 @@ export const Header = () => {
                   location.pathname === "/affiliates" ? "page" : undefined
                 }
               >
-                <span>{t("header.affiliates")}</span>
+                <span>Affiliates</span>
               </Link>
             </li>
           </ul>
@@ -205,7 +183,7 @@ export const Header = () => {
                   location.pathname === "/account" ? "page" : undefined
                 }
               >
-                <span>{t("header.account")}</span>
+                <span>Account</span>
               </Link>
             </li>
           </ul>
@@ -223,7 +201,7 @@ export const Header = () => {
                   location.pathname === "/support" ? "page" : undefined
                 }
               >
-                <span>{t("header.support")}</span>
+                <span>Support</span>
               </Link>
             </li>
           </ul>
@@ -241,7 +219,7 @@ export const Header = () => {
                   location.pathname === "/stream" ? "page" : undefined
                 }
               >
-                <span>{t("header.liveStream")}</span>
+                <span>Live Stream</span>
               </Link>
             </li>
           </ul>
@@ -260,27 +238,10 @@ export const Header = () => {
                   size="sm"
                   aria-hidden="true"
                 />
-                <span>{t("header.freeDiscord")}</span>
+                <span>Free Discord</span>
               </a>
             </li>
           </ul>
-          <ul className="w-full lg:w-auto max-w-[500px]" onClick={handleClick}>
-            <li>
-              <a
-                href="https://www.shoulditradetoday.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex w-full lg:w-auto max-w-[500px] justify-center items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md border-2 border-transparent"
-                style={{ textDecoration: "none" }}
-                aria-label="Should I Trade? (opens in new tab)"
-              >
-                <span>Should I Trade?</span>
-              </a>
-            </li>
-          </ul>
-          <div className="w-full lg:w-auto max-w-[500px] flex justify-center lg:justify-start">
-            <LanguageSelector />
-          </div>
         </nav>
       </div>
     </header>

@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+import { s } from "../strings.js";
 import TwitchEmbedPlayer from "../components/TwitchEmbed";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,17 +11,16 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 export function StreamingPage() {
-  const { t } = useTranslation();
-  const twitchChannel = "fluxtradellc";
+    const twitchChannel = "fluxtradellc";
 
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       <div className="max-w-7xl mx-auto px-6 pt-8 pb-12">
         <h1 className="text-5xl font-extrabold mb-4 text-center">
-          {t("streaming.title")}
+          {s("streaming.title")}
         </h1>
         <p className="text-gray-300 mb-8 text-center">
-          {t("streaming.description")}
+          {s("streaming.description")}
         </p>
 
         <div className="mb-8 flex items-center justify-center">
@@ -29,12 +28,12 @@ export function StreamingPage() {
         </div>
 
         <p className="text-center text-gray-400 italic mb-8">
-          {t("streaming.disclaimer")}
+          {s("streaming.disclaimer")}
         </p>
 
         <div className="mt-12">
           <p className="mb-4 font-semibold text-center text-xl">
-            {t("streaming.followUs")}
+            {s("streaming.followUs")}
           </p>
           <ul className="flex gap-6 items-center justify-center flex-wrap">
             <li>
@@ -43,7 +42,7 @@ export function StreamingPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-red-500 transition-colors duration-200"
-                aria-label={t("streaming.followYouTube")}
+                aria-label={s("streaming.followYouTube")}
               >
                 <FontAwesomeIcon
                   icon={faYoutube}
@@ -58,7 +57,7 @@ export function StreamingPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-purple-500 transition-colors duration-200"
-                aria-label={t("streaming.followTwitch")}
+                aria-label={s("streaming.followTwitch")}
               >
                 <FontAwesomeIcon icon={faTwitch} size="2x" aria-hidden="true" />
               </a>
@@ -69,7 +68,7 @@ export function StreamingPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-pink-500 transition-colors duration-200"
-                aria-label={t("streaming.followInstagram")}
+                aria-label={s("streaming.followInstagram")}
               >
                 <FontAwesomeIcon
                   icon={faInstagram}
@@ -84,7 +83,7 @@ export function StreamingPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors duration-200"
-                aria-label={t("streaming.followTikTok")}
+                aria-label={s("streaming.followTikTok")}
               >
                 <FontAwesomeIcon icon={faTiktok} size="2x" aria-hidden="true" />
               </a>
@@ -95,7 +94,7 @@ export function StreamingPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-500 transition-colors duration-200"
-                aria-label={t("streaming.followFacebook")}
+                aria-label={s("streaming.followFacebook")}
               >
                 <FontAwesomeIcon
                   icon={faFacebook}

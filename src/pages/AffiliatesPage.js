@@ -1,53 +1,52 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+import { s } from "../strings.js";
 
 export function AffiliatesPage() {
-  const { t } = useTranslation();
-  return (
+    return (
     <div className="bg-gray-900 text-white min-h-full">
       <div className="max-w-5xl mx-auto px-6 pt-12 pb-16">
         <h1 className="text-5xl font-extrabold mb-4 text-center">
-          {t("affiliates.title")}
+          {s("affiliates.title")}
         </h1>
         <p className="text-lg text-gray-300 mb-10 text-center max-w-3xl mx-auto">
-          {t("affiliates.subtitle")}
+          {s("affiliates.subtitle")}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-            <p className="text-4xl font-extrabold text-indigo-400 mb-2">{t("affiliates.commission")}</p>
+            <p className="text-4xl font-extrabold text-indigo-400 mb-2">{s("affiliates.commission")}</p>
             <p className="text-gray-300">
-              {t("affiliates.commissionDesc")}
+              {s("affiliates.commissionDesc")}
             </p>
           </div>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-            <p className="text-2xl font-bold mb-2">{t("affiliates.payouts")}</p>
+            <p className="text-2xl font-bold mb-2">{s("affiliates.payouts")}</p>
             <p className="text-gray-300">
-              {t("affiliates.payoutsDesc")}
+              {s("affiliates.payoutsDesc")}
             </p>
           </div>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-            <p className="text-2xl font-bold mb-2">{t("affiliates.useAssets")}</p>
+            <p className="text-2xl font-bold mb-2">{s("affiliates.useAssets")}</p>
             <p className="text-gray-300">
-              {t("affiliates.useAssetsDesc")}
+              {s("affiliates.useAssetsDesc")}
             </p>
           </div>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-            <p className="text-2xl font-bold mb-2">{t("affiliates.freeTrial")}</p>
+            <p className="text-2xl font-bold mb-2">{s("affiliates.freeTrial")}</p>
             <p className="text-gray-300">
-              {t("affiliates.freeTrialDesc")}
+              {s("affiliates.freeTrialDesc")}
             </p>
           </div>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-            <p className="text-2xl font-bold mb-2">{t("affiliates.powerfulTools")}</p>
+            <p className="text-2xl font-bold mb-2">{s("affiliates.powerfulTools")}</p>
             <p className="text-gray-300">
-              {t("affiliates.powerfulToolsDesc")}
+              {s("affiliates.powerfulToolsDesc")}
             </p>
           </div>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-            <p className="text-2xl font-bold mb-2">{t("affiliates.growingCommunity")}</p>
+            <p className="text-2xl font-bold mb-2">{s("affiliates.growingCommunity")}</p>
             <p className="text-gray-300">
-              {t("affiliates.growingCommunityDesc")}
+              {s("affiliates.growingCommunityDesc")}
             </p>
           </div>
         </div>
@@ -59,7 +58,7 @@ export function AffiliatesPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-colors duration-300"
           >
-            {t("affiliates.joinProgram")}
+            {s("affiliates.joinProgram")}
             <svg
               className="w-5 h-5"
               fill="none"
@@ -78,21 +77,21 @@ export function AffiliatesPage() {
         </div>
 
         <div className="bg-gray-800 border border-gray-700 rounded-lg p-6 space-y-4">
-          <h2 className="text-2xl font-bold">{t("affiliates.programDetails")}</h2>
+          <h2 className="text-2xl font-bold">{s("affiliates.programDetails")}</h2>
           <ul className="list-disc list-inside text-gray-300 space-y-2">
             <li>
-              {t("affiliates.commissionLabel")}{" "}
-              <span className="font-semibold text-white">{t("affiliates.commissionValue")}</span> {t("affiliates.commissionFull")}
+              {s("affiliates.commissionLabel")}{" "}
+              <span className="font-semibold text-white">{s("affiliates.commissionValue")}</span> {s("affiliates.commissionFull")}
             </li>
             <li>
-              {t("affiliates.payoutTerms")}{" "}
-              <span className="font-semibold text-white">{t("affiliates.payoutValue")}</span> {t("affiliates.payoutMethod")}
+              {s("affiliates.payoutTerms")}{" "}
+              <span className="font-semibold text-white">{s("affiliates.payoutValue")}</span> {s("affiliates.payoutMethod")}
             </li>
             <li>
-              {t("affiliates.attribution")}
+              {s("affiliates.attribution")}
             </li>
             <li>
-              {t("affiliates.marketingAssets")}
+              {s("affiliates.marketingAssets")}
               <a
                 className="text-indigo-400 hover:text-indigo-300 ml-1"
                 href="https://www.youtube.com/@FluxTradeLLC"
@@ -101,17 +100,17 @@ export function AffiliatesPage() {
               >
                 @FluxTradeLLC
               </a>
-              . {t("affiliates.marketingMaterialsDesc")}{" "}
+              . {s("affiliates.marketingMaterialsDesc")}{" "}
               <a
                 href="https://drive.google.com/drive/folders/1uWxQeNQLEhiq8swh375AQVEkOc_mEn8Z?usp=sharing"
                 className="text-indigo-400 hover:text-indigo-300"
               >
-                {t("affiliates.marketingMaterials")}
+                {s("affiliates.marketingMaterials")}
               </a>{" "}
-              {t("affiliates.marketingMaterialsDesc")}
+              {s("affiliates.marketingMaterialsDesc")}
             </li>
             <li>
-              {t("affiliates.getStarted")}
+              {s("affiliates.getStarted")}
               <a
                 className="text-indigo-400 hover:text-indigo-300 ml-1"
                 href="https://fluxtrade.promotekit.com"
@@ -123,7 +122,7 @@ export function AffiliatesPage() {
               .
             </li>
             <li>
-              {t("affiliates.questions")}{" "}
+              {s("affiliates.questions")}{" "}
               <a
                 className="text-indigo-400 hover:text-indigo-300"
                 href="mailto:grant@fluxtrade.net"

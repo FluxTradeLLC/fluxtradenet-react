@@ -1,7 +1,7 @@
+import { s } from "../strings.js";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { createChart, CandlestickSeries, LineSeries } from "lightweight-charts";
 import { calculateFluxPivot } from "../assets/javascriptIndicators/fluxPivot";
-import { useTranslation } from "react-i18next";
 
 // Simplified indicator configurations for lightweight-charts
 const FLUX_INDICATORS = {
@@ -176,8 +176,7 @@ const validateAndNormalizeData = (data) => {
 };
 
 export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => {
-  const { t } = useTranslation();
-  const chartContainerRef = useRef(null);
+    const chartContainerRef = useRef(null);
   const chartRef = useRef(null);
   const candleSeriesRef = useRef(null);
   const indicatorSeriesRef = useRef({});
@@ -202,34 +201,34 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
   const getPresetLayouts = () => {
     return {
       "FluxTrade": {
-        name: t("tradingViewChart.presets.fluxTrade.name"),
+        name: s("tradingViewChart.presets.fluxTrade.name"),
         indicators: ["FluxPivot"],
-        description: t("tradingViewChart.presets.fluxTrade.description"),
+        description: s("tradingViewChart.presets.fluxTrade.description"),
       },
       "Trend Following": {
-        name: t("tradingViewChart.presets.trendFollowing.name"),
+        name: s("tradingViewChart.presets.trendFollowing.name"),
         indicators: ["Moving Average (14)", "Moving Average (50)", "Moving Average (200)"],
-        description: t("tradingViewChart.presets.trendFollowing.description"),
+        description: s("tradingViewChart.presets.trendFollowing.description"),
       },
       "Momentum": {
-        name: t("tradingViewChart.presets.momentum.name"),
+        name: s("tradingViewChart.presets.momentum.name"),
         indicators: ["EMA (12)", "EMA (26)"],
-        description: t("tradingViewChart.presets.momentum.description"),
+        description: s("tradingViewChart.presets.momentum.description"),
       },
       "Support/Resistance": {
-        name: t("tradingViewChart.presets.supportResistance.name"),
+        name: s("tradingViewChart.presets.supportResistance.name"),
         indicators: ["Moving Average (50)", "Moving Average (200)"],
-        description: t("tradingViewChart.presets.supportResistance.description"),
+        description: s("tradingViewChart.presets.supportResistance.description"),
       },
       "All Indicators": {
-        name: t("tradingViewChart.presets.allIndicators.name"),
+        name: s("tradingViewChart.presets.allIndicators.name"),
         indicators: Object.keys(FLUX_INDICATORS),
-        description: t("tradingViewChart.presets.allIndicators.description"),
+        description: s("tradingViewChart.presets.allIndicators.description"),
       },
       "Minimal": {
-        name: t("tradingViewChart.presets.minimal.name"),
+        name: s("tradingViewChart.presets.minimal.name"),
         indicators: ["Moving Average (14)"],
-        description: t("tradingViewChart.presets.minimal.description"),
+        description: s("tradingViewChart.presets.minimal.description"),
       },
     };
   };
@@ -817,7 +816,7 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
   const getIndicatorName = useCallback((indicatorName) => {
     const key = INDICATOR_NAME_KEYS[indicatorName];
     if (key) {
-      return t(`tradingViewChart.indicators.${key}.name`);
+      return s(`tradingViewChart.indicators.${key}.name`);
     }
     return indicatorName;
   }, [t]);
@@ -825,7 +824,7 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
   const getIndicatorDescription = useCallback((indicatorName) => {
     const key = INDICATOR_NAME_KEYS[indicatorName];
     if (key) {
-      return t(`tradingViewChart.indicators.${key}.description`);
+      return s(`tradingViewChart.indicators.${key}.description`);
     }
     const indicator = FLUX_INDICATORS[indicatorName];
     return indicator ? indicator.description : "";
@@ -953,10 +952,10 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
           // Create a series for each segment
           segments.forEach((segment, idx) => {
             const directionLabel = segment.direction === 1 
-              ? t("tradingViewChart.directions.long")
+              ? s("tradingViewChart.directions.long")
               : segment.direction === -1 
-              ? t("tradingViewChart.directions.short")
-              : t("tradingViewChart.directions.flat");
+              ? s("tradingViewChart.directions.short")
+              : s("tradingViewChart.directions.flat");
             const indicatorDisplayName = getIndicatorName(indicatorName);
             const series = chartRef.current.addSeries(LineSeries, {
               color: segment.color,
@@ -1031,24 +1030,24 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
       <div className="mb-6">
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-            {t("tradingViewChart.title")}
+            {s("tradingViewChart.title")}
           </h2>
         </div>
         <p className="text-gray-400">
-          {t("tradingViewChart.subtitle")}
+          {s("tradingViewChart.subtitle")}
         </p>
       </div>
 
       {/* Preset Layouts */}
       <div className="mb-4">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-lg font-semibold text-gray-300">{t("tradingViewChart.presetLayouts")}</h3>
+          <h3 className="text-lg font-semibold text-gray-300">{s("tradingViewChart.presetLayouts")}</h3>
           <button
             type="button"
             onClick={() => setShowIndicators((prev) => !prev)}
             className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer px-2 py-1 rounded hover:bg-gray-800"
           >
-            {showIndicators ? t("tradingViewChart.hideIndicators") : t("tradingViewChart.showIndicators")}
+            {showIndicators ? s("tradingViewChart.hideIndicators") : s("tradingViewChart.showIndicators")}
           </button>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -1071,7 +1070,7 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
           })}
           {selectedPreset === "Custom" && (
             <button className="px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-gradient-to-r from-green-600 to-blue-600 text-white shadow-lg scale-105">
-              {t("tradingViewChart.custom")} ✓
+              {s("tradingViewChart.custom")} ✓
             </button>
           )}
         </div>
@@ -1083,8 +1082,8 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
         {selectedPreset === "Custom" && (
           <p className="mt-2 text-xs text-gray-400 italic">
             {activeIndicators.length === 1 
-              ? t("tradingViewChart.customLayout", { count: activeIndicators.length })
-              : t("tradingViewChart.customLayoutPlural", { count: activeIndicators.length })}
+              ? s("tradingViewChart.customLayout", { count: activeIndicators.length })
+              : s("tradingViewChart.customLayoutPlural", { count: activeIndicators.length })}
           </p>
         )}
       </div>
@@ -1093,7 +1092,7 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
       {showIndicators && (
         <div className="mb-4">
           <h3 className="text-lg font-semibold mb-3 text-gray-300">
-            {t("tradingViewChart.toggleIndicators")} ({t("tradingViewChart.activeCount", { count: activeIndicators.length })})
+            {s("tradingViewChart.toggleIndicators")} ({s("tradingViewChart.activeCount", { count: activeIndicators.length })})
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
             {Object.keys(FLUX_INDICATORS).map((indicatorName) => {
@@ -1112,7 +1111,7 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
                     <span className="font-medium text-xs">{getIndicatorName(indicatorName)}</span>
                     {isActive && (
                       <span className="text-xs bg-white bg-opacity-20 px-1.5 py-0.5 rounded">
-                        {t("tradingViewChart.on")}
+                        {s("tradingViewChart.on")}
                       </span>
                     )}
                   </div>
@@ -1130,14 +1129,14 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
           <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-90 z-10">
             <div className="text-center">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
-              <p className="text-gray-400">{t("tradingViewChart.loadingChart")}</p>
+              <p className="text-gray-400">{s("tradingViewChart.loadingChart")}</p>
             </div>
           </div>
         )}
         {isLoadingMore && (
           <div className="absolute top-2 left-2 z-10 bg-blue-600 bg-opacity-90 text-white px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-2">
             <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
-            <span className="text-xs font-medium">{t("tradingViewChart.loadingMoreData")}</span>
+            <span className="text-xs font-medium">{s("tradingViewChart.loadingMoreData")}</span>
           </div>
         )}
         <div
@@ -1149,8 +1148,8 @@ export const TradingViewChart = ({ symbol = "MNQ!", height = 800, dataUrl }) => 
 
       {/* Info Footer */}
       <div className="mt-4 text-xs text-gray-500 text-center">
-        <p>{t("tradingViewChart.tip")}</p>
-        <p className="mt-1">{t("tradingViewChart.footer")}</p>
+        <p>{s("tradingViewChart.tip")}</p>
+        <p className="mt-1">{s("tradingViewChart.footer")}</p>
       </div>
     </div>
   );

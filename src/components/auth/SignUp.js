@@ -1,13 +1,12 @@
 import React, { useState } from "react";
+import { s } from "../../strings.js";
 // import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
 import api from "../../api/axios";
 
 export const SignUp = () => {
-  const { t } = useTranslation();
-  const [email, setEmail] = useState("");
+    const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -22,7 +21,7 @@ export const SignUp = () => {
       return false;
     }
     if (!emailRegex.test(emailValue)) {
-      setEmailError(t("auth.validEmail"));
+      setEmailError(s("auth.validEmail"));
       return false;
     }
     setEmailError("");
@@ -62,7 +61,7 @@ export const SignUp = () => {
       }
       window.location.reload();
     } catch (err) {
-      setError(err.response?.data?.error || t("auth.registrationFailed"));
+      setError(err.response?.data?.error || s("auth.registrationFailed"));
     }
   };
 
@@ -72,23 +71,23 @@ export const SignUp = () => {
       const res = await api.get("/users/login/google");
       window.location.href = res.data.url;
     } catch (err) {
-      setError(err.response?.data?.error || t("auth.googleSignInFailed"));
+      setError(err.response?.data?.error || s("auth.googleSignInFailed"));
     }
   };
 
   return (
     <div className="max-w-md mx-auto p-8 bg-gray-800 rounded-lg shadow-lg">
       <h2 className="text-2xl font-bold text-center text-white mb-8">
-        {t("auth.signUp")}
+        {s("auth.signUp")}
       </h2>
       {error && <p className="text-red-500 text-center mb-4" role="alert" aria-live="polite">{error}</p>}
       <form onSubmit={handleSubmit} aria-label="Sign up form">
         <div className="mb-4">
-          <label htmlFor="signup-email" className="sr-only">{t("auth.email")}</label>
+          <label htmlFor="signup-email" className="sr-only">{s("auth.email")}</label>
           <input
             id="signup-email"
             type="email"
-            placeholder={t("auth.email")}
+            placeholder={s("auth.email")}
             className={`w-full px-4 py-2 bg-gray-700 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${
               emailError
                 ? "border-red-500 focus:ring-red-500"
@@ -106,11 +105,11 @@ export const SignUp = () => {
           )}
         </div>
         <div className="mb-6">
-          <label htmlFor="signup-password" className="sr-only">{t("auth.password")}</label>
+          <label htmlFor="signup-password" className="sr-only">{s("auth.password")}</label>
           <input
             id="signup-password"
             type="password"
-            placeholder={t("auth.password")}
+            placeholder={s("auth.password")}
             className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -129,7 +128,7 @@ export const SignUp = () => {
               aria-describedby="terms-description"
             />
             <span id="terms-description">
-              {t("auth.agreeTerms")}{" "}
+              {s("auth.agreeTerms")}{" "}
               <Link
                 to="/terms"
                 onClick={(e) => {
@@ -137,11 +136,11 @@ export const SignUp = () => {
                   window.open("/terms", "_blank", "noopener,noreferrer");
                 }}
                 className="text-blue-400 hover:text-blue-300 underline"
-                aria-label={`${t("footer.terms")} (opens in new tab)`}
+                aria-label={`${s("footer.terms")} (opens in new tab)`}
               >
-                {t("footer.terms")}
+                {s("footer.terms")}
               </Link>{" "}
-              {t("auth.and")}{" "}
+              {s("auth.and")}{" "}
               <Link
                 to="/policies"
                 onClick={(e) => {
@@ -149,9 +148,9 @@ export const SignUp = () => {
                   window.open("/policies", "_blank", "noopener,noreferrer");
                 }}
                 className="text-blue-400 hover:text-blue-300 underline"
-                aria-label={`${t("footer.refundPolicies")} (opens in new tab)`}
+                aria-label={`${s("footer.refundPolicies")} (opens in new tab)`}
               >
-                {t("footer.refundPolicies")}
+                {s("footer.refundPolicies")}
               </Link>
             </span>
           </label>
@@ -160,14 +159,14 @@ export const SignUp = () => {
           type="submit"
           disabled={!acceptedTerms || !email || !password || !!emailError}
           className="w-full bg-[#5865F2] hover:bg-[#4752C4] disabled:bg-gray-600 disabled:cursor-not-allowed disabled:hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-          aria-label={t("auth.signUp")}
+          aria-label={s("auth.signUp")}
         >
-          {t("auth.signUp")}
+          {s("auth.signUp")}
         </button>
       </form>
-      <div className="relative flex py-5 items-center" role="separator" aria-label={t("auth.or")}>
+      <div className="relative flex py-5 items-center" role="separator" aria-label={s("auth.or")}>
         <div className="flex-grow border-t border-gray-600"></div>
-        <span className="flex-shrink mx-4 text-gray-400">{t("auth.or")}</span>
+        <span className="flex-shrink mx-4 text-gray-400">{s("auth.or")}</span>
         <div className="flex-grow border-t border-gray-600"></div>
       </div>
       <button
@@ -175,7 +174,7 @@ export const SignUp = () => {
         onClick={handleGoogleSubmit}
         disabled={!acceptedTerms}
         className="w-full bg-white hover:bg-gray-100 disabled:bg-gray-600 disabled:cursor-not-allowed disabled:hover:bg-gray-600 disabled:text-gray-400 text-gray-900 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm flex items-center justify-center"
-        aria-label={t("auth.continueWithGoogle")}
+        aria-label={s("auth.continueWithGoogle")}
       >
         <svg
           className="w-5 h-5 mr-2"
@@ -200,7 +199,7 @@ export const SignUp = () => {
             d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.089,5.571l6.19,5.238C42.022,34.627,44,29.692,44,24C44,22.659,43.862,21.35,43.611,20.083z"
           />
         </svg>
-        {t("auth.continueWithGoogle")}
+        {s("auth.continueWithGoogle")}
       </button>
     </div>
   );

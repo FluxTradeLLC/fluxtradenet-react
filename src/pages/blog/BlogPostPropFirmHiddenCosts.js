@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "../../components/SEO";
-import { useBlogTranslation } from "../../i18n/blog/useBlogTranslation";
+import content from "../../content/blog/propFirmHiddenCosts.json";
 
 export const BlogPostPropFirmHiddenCosts = () => {
-  const t = useBlogTranslation("propFirmHiddenCosts");
+  const t = content;
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });

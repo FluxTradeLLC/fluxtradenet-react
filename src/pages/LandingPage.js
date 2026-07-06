@@ -1,6 +1,6 @@
+import { s } from "../strings.js";
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { useTranslation } from "react-i18next";
 import { TradingViewChart } from "../components/TradingViewChart";
 import { useReducedMotion } from "../hooks/useReducedMotion";
 import { SEO } from "../components/SEO";
@@ -232,39 +232,38 @@ const calculateMetrics = (csvData) => {
 };
 
 export function LandingPage() {
-  const { t } = useTranslation();
-  const prefersReducedMotion = useReducedMotion();
+    const prefersReducedMotion = useReducedMotion();
 
   // Helper function to get translated indicator name
   const getIndicatorName = (key) => {
-    return t(`landing.indicators.${key}.name`, { defaultValue: key });
+    return s(`landing.indicators.${key}.name`, { defaultValue: key });
   };
 
   // Helper function to get translated indicator features
   const getIndicatorFeatures = (key) => {
-    const features = t(`landing.indicators.${key}.features`, { returnObjects: true });
+    const features = s(`landing.indicators.${key}.features`, { returnObjects: true });
     return Array.isArray(features) ? features : [];
   };
 
   // Helper function to get translated strategy name
   const getStrategyName = (key) => {
-    return t(`landing.strategies.${key}.name`, { defaultValue: key });
+    return s(`landing.strategies.${key}.name`, { defaultValue: key });
   };
 
   // Helper function to get translated strategy features
   const getStrategyFeatures = (key) => {
-    const features = t(`landing.strategies.${key}.features`, { returnObjects: true });
+    const features = s(`landing.strategies.${key}.features`, { returnObjects: true });
     return Array.isArray(features) ? features : [];
   };
 
   // Helper function to get translated prop-focused strategy name
   const getPropStrategyName = (key) => {
-    return t(`landing.propFocusedStrategies.${key}.name`, { defaultValue: key });
+    return s(`landing.propFocusedStrategies.${key}.name`, { defaultValue: key });
   };
 
   // Helper function to get translated prop-focused strategy features
   const getPropStrategyFeatures = (key) => {
-    const features = t(`landing.propFocusedStrategies.${key}.features`, { returnObjects: true });
+    const features = s(`landing.propFocusedStrategies.${key}.features`, { returnObjects: true });
     return Array.isArray(features) ? features : [];
   };
   const [activeTab, setActiveTab] = useState(() => {
@@ -345,19 +344,19 @@ export function LandingPage() {
   const videos = [
     {
       src: previous,
-      label: t("landing.videoLabels.previousLevels"),
+      label: s("landing.videoLabels.previousLevels"),
     },
     {
       src: confluenceVideo,
-      label: t("landing.videoLabels.fluxConfluence"),
+      label: s("landing.videoLabels.fluxConfluence"),
     },
     {
       src: pivotVideo,
-      label: t("landing.videoLabels.fluxPivot"),
+      label: s("landing.videoLabels.fluxPivot"),
     },
     {
       src: signalVideo,
-      label: t("landing.videoLabels.fluxSignal"),
+      label: s("landing.videoLabels.fluxSignal"),
     },
   ];
 
@@ -382,20 +381,20 @@ export function LandingPage() {
 
   // Filter chips configuration
   const filterOptions = [
-    t("landing.filters.trend"),
-    t("landing.filters.meanReversion"),
-    t("landing.filters.scalping"),
-    t("landing.filters.conservative"),
-    t("landing.filters.propFirmSafe"),
+    s("landing.filters.trend"),
+    s("landing.filters.meanReversion"),
+    s("landing.filters.scalping"),
+    s("landing.filters.conservative"),
+    s("landing.filters.propFirmSafe"),
   ];
 
   // Indicator filter chips configuration
   const indicatorFilterOptions = [
-    t("landing.filters.trend"),
-    t("landing.filters.momentum"),
-    t("landing.filters.volatility"),
-    t("landing.filters.levels"),
-    t("landing.filters.signals"),
+    s("landing.filters.trend"),
+    s("landing.filters.momentum"),
+    s("landing.filters.volatility"),
+    s("landing.filters.levels"),
+    s("landing.filters.signals"),
   ];
 
   // Toggle filter selection
@@ -1671,34 +1670,34 @@ export function LandingPage() {
           {/* Left side: Headline and CTA */}
           <div className="flex-1 text-center lg:text-left">
             <h1 className="pt-[20px] lg:text-[80px] md:text-[50px] text-[40px] font-bold mb-4">
-              {t("landing.understandMarkets")}{" "}
+              {s("landing.understandMarkets")}{" "}
               <span
                 className={`italic bg-gradient-to-tl from-red-600 via-gray-300 to-green-600 hover:bg-gradient-to-br hover:from-green-500 hover:via-green-200 hover:to-lime-500 text-transparent bg-clip-text bg-300 ${prefersReducedMotion ? "" : "animate-gradient-pan"} cursor-default`}
-                aria-label={t("landing.markets")}
+                aria-label={s("landing.markets")}
               >
-                {t("landing.markets")}
+                {s("landing.markets")}
               </span>
               .
             </h1>
             <h2 className="lg:text-[80px] md:text-[50px] text-[40px] font-bold mb-6">
-              {t("landing.gainEdge")}{" "}
+              {s("landing.gainEdge")}{" "}
               <span
                 className={`italic bg-gradient-to-tl from-green-500 via-yellow-500 to-purple-800 hover:bg-gradient-to-br hover:from-purple-400 hover:via-indigo-400 hover:to-blue-400 text-transparent bg-clip-text bg-300 ${prefersReducedMotion ? "" : "animate-gradient-pan"} cursor-default`}
-                aria-label={t("landing.edge")}
+                aria-label={s("landing.edge")}
               >
-                {t("landing.edge")}
+                {s("landing.edge")}
               </span>
               .
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 font-medium">
-              {t("landing.subtitle")}
+              {s("landing.subtitle")}
             </p>
             <Link
               to="/pricing"
               className={`inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg relative overflow-hidden ${prefersReducedMotion ? "" : "animate-pulse-glow"}`}
-              aria-label={`${t("landing.seeItTrade")} - Go to pricing page`}
+              aria-label={`${s("landing.seeItTrade")} - Go to pricing page`}
             >
-              <span className="relative z-10">{t("landing.seeItTrade")}</span>
+              <span className="relative z-10">{s("landing.seeItTrade")}</span>
               {!prefersReducedMotion && (
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer bg-[length:200%_100%]"></span>
               )}
@@ -1708,7 +1707,7 @@ export function LandingPage() {
           {/* Right side: Video Carousel */}
           <div
             className="w-auto flex flex-col items-center h-[600px]"
-            aria-label={t("landing.videoCarousel")}
+            aria-label={s("landing.videoCarousel")}
           >
             <div
               className="relative rounded-lg overflow-hidden shadow-lg mb-4"
@@ -1726,7 +1725,7 @@ export function LandingPage() {
                 controls={false}
                 onLoadedData={handleVideoLoaded}
                 onClick={togglePause}
-                aria-label={t("landing.demonstrationVideo", {
+                aria-label={s("landing.demonstrationVideo", {
                   label: videos[currentVideoIndex].label,
                 })}
                 aria-describedby="video-description"
@@ -1741,7 +1740,7 @@ export function LandingPage() {
                 Your browser does not support the video tag.
               </video>
               <div id="video-description" className="sr-only">
-                {t("landing.demonstrationVideo", {
+                {s("landing.demonstrationVideo", {
                   label: videos[currentVideoIndex].label,
                 })}
               </div>
@@ -1756,8 +1755,8 @@ export function LandingPage() {
                   className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white rounded-full p-4 transition-all duration-200 z-20 shadow-lg"
                   aria-label={
                     isPaused
-                      ? t("landing.playCarousel")
-                      : t("landing.pauseCarousel")
+                      ? s("landing.playCarousel")
+                      : s("landing.pauseCarousel")
                   }
                 >
                   {isPaused ? (
@@ -1784,7 +1783,7 @@ export function LandingPage() {
               <button
                 onClick={prevVideo}
                 className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-200 z-10"
-                aria-label={t("landing.previousVideo")}
+                aria-label={s("landing.previousVideo")}
               >
                 <svg
                   className="w-6 h-6"
@@ -1803,7 +1802,7 @@ export function LandingPage() {
               <button
                 onClick={nextVideo}
                 className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-200 z-10"
-                aria-label={t("landing.nextVideo")}
+                aria-label={s("landing.nextVideo")}
               >
                 <svg
                   className="w-6 h-6"
@@ -1827,8 +1826,8 @@ export function LandingPage() {
                   className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-all duration-200 relative w-12 h-12 flex items-center justify-center"
                   aria-label={
                     isPaused
-                      ? t("landing.playCarousel")
-                      : t("landing.pauseCarousel")
+                      ? s("landing.playCarousel")
+                      : s("landing.pauseCarousel")
                   }
                 >
                   {/* Circular Progress Indicator */}
@@ -1898,7 +1897,7 @@ export function LandingPage() {
             <div
               className="flex gap-2 justify-center"
               role="tablist"
-              aria-label={t("landing.videoCarouselNav")}
+              aria-label={s("landing.videoCarouselNav")}
             >
               {videos.map((_, index) => (
                 <button
@@ -1912,7 +1911,7 @@ export function LandingPage() {
                       ? "bg-[#5865F2] w-8"
                       : "bg-gray-600 hover:bg-gray-500"
                   }`}
-                  aria-label={t("landing.goToVideo", {
+                  aria-label={s("landing.goToVideo", {
                     label: videos[index].label,
                   })}
                 />
@@ -1938,7 +1937,7 @@ export function LandingPage() {
               aria-controls="ninjatrader-content"
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "NinjaTrader" ? "bg-[#5865F2] hover:bg-[#4752C4] text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
             >
-              {t("landing.ninjaTrader")}
+              {s("landing.ninjaTrader")}
             </button>
             <button
               onClick={() => setActiveTab("TradingView")}
@@ -1948,12 +1947,12 @@ export function LandingPage() {
               aria-controls="tradingview-content"
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "TradingView" ? "bg-[#5865F2] hover:bg-[#4752C4] text-white" : "text-gray-300 hover:text-white hover:bg-gray-700"}`}
             >
-              {t("landing.tradingView")}{" "}
+              {s("landing.tradingView")}{" "}
               <span
                 className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                aria-label={t("landing.new")}
+                aria-label={s("landing.new")}
               >
-                {t("landing.new")}
+                {s("landing.new")}
               </span>
             </button>
           </div>
@@ -1994,10 +1993,10 @@ export function LandingPage() {
                   >
                     <div className="text-center">
                       <h2 className="text-3xl font-bold mb-2">
-                        {t("landing.propFirmFocused")}
+                        {s("landing.propFirmFocused")}
                       </h2>
                       <h3 className="text-2xl">
-                        {t("landing.propFirmSubtitle")}
+                        {s("landing.propFirmSubtitle")}
                       </h3>
                     </div>
                     <svg
@@ -2051,9 +2050,9 @@ export function LandingPage() {
                               ? "bg-gray-600 text-gray-300 hover:bg-gray-500 hover:text-white"
                               : "bg-gray-700 text-gray-500 cursor-not-allowed opacity-50"
                           }`}
-                          aria-label={t("landing.clearFilters")}
+                          aria-label={s("landing.clearFilters")}
                         >
-                          {t("landing.clearFilters")}
+                          {s("landing.clearFilters")}
                         </button>
                       </div>
                       <div
@@ -2073,9 +2072,9 @@ export function LandingPage() {
                                   {strategy.isNew && (
                                     <span
                                       className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                                      aria-label={t("landing.new")}
+                                      aria-label={s("landing.new")}
                                     >
-                                      {t("landing.new")}
+                                      {s("landing.new")}
                                     </span>
                                   )}
                                 </h3>
@@ -2092,14 +2091,14 @@ export function LandingPage() {
                                         className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded transition-colors duration-300 inline-block"
                                         aria-label={`View backtest results for ${strategy.name}`}
                                       >
-                                        {t("landing.viewBacktest")}
+                                        {s("landing.viewBacktest")}
                                       </Link>
                                       <Link
                                         to={`/backtests/explorer?strategy=${getStrategyNameForExplorer(strategy.backtestUrl)}`}
                                         className="bg-[#10b981] hover:bg-[#059669] text-white font-bold py-2 px-4 rounded transition-colors duration-300 inline-block"
                                         aria-label={`Explore backtest results for ${strategy.name}`}
                                       >
-                                        {t("landing.exploreBacktest")}
+                                        {s("landing.exploreBacktest")}
                                       </Link>
                                     </div>
                                     {/* Hide win rate and profit factor for NinjaTrader strategies */}
@@ -2143,10 +2142,10 @@ export function LandingPage() {
                   >
                     <div className="text-center">
                       <h2 className="text-3xl font-bold mb-2">
-                        {t("landing.propFirmFocused")}
+                        {s("landing.propFirmFocused")}
                       </h2>
                       <h3 className="text-2xl">
-                        {t("landing.propFirmSubtitle")}
+                        {s("landing.propFirmSubtitle")}
                       </h3>
                     </div>
                     <svg
@@ -2200,9 +2199,9 @@ export function LandingPage() {
                               ? "bg-gray-600 text-gray-300 hover:bg-gray-500 hover:text-white"
                               : "bg-gray-700 text-gray-500 cursor-not-allowed opacity-50"
                           }`}
-                          aria-label={t("landing.clearFilters")}
+                          aria-label={s("landing.clearFilters")}
                         >
-                          {t("landing.clearFilters")}
+                          {s("landing.clearFilters")}
                         </button>
                       </div>
                       <div
@@ -2222,9 +2221,9 @@ export function LandingPage() {
                                   {strategy.isNew && (
                                     <span
                                       className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                                      aria-label={t("landing.new")}
+                                      aria-label={s("landing.new")}
                                     >
-                                      {t("landing.new")}
+                                      {s("landing.new")}
                                     </span>
                                   )}
                                 </h3>
@@ -2241,27 +2240,27 @@ export function LandingPage() {
                                         className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded transition-colors duration-300 inline-block"
                                         aria-label={`View backtest results for ${strategy.name}`}
                                       >
-                                        {t("landing.viewBacktest")}
+                                        {s("landing.viewBacktest")}
                                       </Link>
                                       <Link
                                         to={`/backtests/explorer?strategy=${getStrategyNameForExplorer(strategy.backtestUrl)}`}
                                         className="bg-[#10b981] hover:bg-[#059669] text-white font-bold py-2 px-4 rounded transition-colors duration-300 inline-block"
                                         aria-label={`Explore backtest results for ${strategy.name}`}
                                       >
-                                        {t("landing.exploreBacktest")}
+                                        {s("landing.exploreBacktest")}
                                       </Link>
                                     </div>
                                     {strategy?.backtestUrl &&
                                       strategyMetrics[strategy.backtestUrl] && (
                                         <div className="mt-2 text-xs text-gray-400 text-center">
                                           <span>
-                                            {t("landing.winRate")}{" "}
+                                            {s("landing.winRate")}{" "}
                                             {
                                               strategyMetrics[
                                                 strategy.backtestUrl
                                               ].winRate
                                             }{" "}
-                                            | {t("landing.profitFactor")}{" "}
+                                            | {s("landing.profitFactor")}{" "}
                                             {strategyMetrics[
                                               strategy.backtestUrl
                                             ].profitFactor || "N/A"}
@@ -2332,10 +2331,10 @@ export function LandingPage() {
                 >
                   <div className="text-center">
                     <h2 className="text-3xl font-bold mb-2">
-                      {t("landing.ourAutomatedStrategies")}
+                      {s("landing.ourAutomatedStrategies")}
                     </h2>
                     <h3 className="text-2xl">
-                      {t("landing.strategiesSubtitle")}
+                      {s("landing.strategiesSubtitle")}
                     </h3>
                   </div>
                   <svg
@@ -2412,9 +2411,9 @@ export function LandingPage() {
                                 {strategy.isNew && (
                                   <span
                                     className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                                    aria-label={t("landing.new")}
+                                    aria-label={s("landing.new")}
                                   >
-                                    {t("landing.new")}
+                                    {s("landing.new")}
                                   </span>
                                 )}
                               </h3>
@@ -2431,14 +2430,14 @@ export function LandingPage() {
                                       className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-2 px-4 rounded transition-colors duration-300"
                                       aria-label={`View backtest results for ${strategy.name}`}
                                     >
-                                      {t("landing.viewBacktest")}
+                                      {s("landing.viewBacktest")}
                                     </Link>
                                     <Link
                                       to={`/backtests/explorer?strategy=${getStrategyNameForExplorer(strategy.backtestUrl)}`}
                                       className="bg-[#10b981] hover:bg-[#059669] text-white font-bold py-2 px-4 rounded transition-colors duration-300"
                                       aria-label={`Explore backtest results for ${strategy.name}`}
                                     >
-                                      {t("landing.exploreBacktest")}
+                                      {s("landing.exploreBacktest")}
                                     </Link>
                                   </div>
                                   {/* Hide win rate and profit factor for NinjaTrader strategies */}
@@ -2446,12 +2445,12 @@ export function LandingPage() {
                                     strategyMetrics[strategy.backtestUrl] && (
                                       <div className="mt-2 text-xs text-gray-400 text-center">
                                         <span>
-                                          {t("landing.winRate")}{" "}
+                                          {s("landing.winRate")}{" "}
                                           {
                                             strategyMetrics[strategy.backtestUrl]
                                               .winRate
                                           }{" "}
-                                          | {t("landing.profitFactor")}{" "}
+                                          | {s("landing.profitFactor")}{" "}
                                           {
                                             strategyMetrics[strategy.backtestUrl]
                                               .profitFactor
@@ -2506,7 +2505,7 @@ export function LandingPage() {
                         <button
                           onClick={loadMoreStrategies}
                           className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300"
-                          aria-label={t("landing.loadMoreStrategies")}
+                          aria-label={s("landing.loadMoreStrategies")}
                         >
                           Load More Strategies
                         </button>
@@ -2526,10 +2525,10 @@ export function LandingPage() {
                 >
                   <div className="text-center">
                     <h2 className="text-3xl font-bold mb-2">
-                      {t("landing.ourIndicators")}
+                      {s("landing.ourIndicators")}
                     </h2>
                     <h3 className="text-2xl">
-                      {t("landing.indicatorsSubtitle")}
+                      {s("landing.indicatorsSubtitle")}
                     </h3>
                   </div>
                   <svg
@@ -2609,9 +2608,9 @@ export function LandingPage() {
                                 {indicator.isNew && (
                                   <span
                                     className={`ml-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded ${prefersReducedMotion ? "" : "animate-pulse"}`}
-                                    aria-label={t("landing.new")}
+                                    aria-label={s("landing.new")}
                                   >
-                                    {t("landing.new")}
+                                    {s("landing.new")}
                                   </span>
                                 )}
                               </h3>
@@ -2645,9 +2644,9 @@ export function LandingPage() {
                         <button
                           onClick={loadMoreIndicators}
                           className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300"
-                          aria-label={t("landing.loadMoreIndicators")}
+                          aria-label={s("landing.loadMoreIndicators")}
                         >
-                          {t("landing.loadMoreIndicators")}
+                          {s("landing.loadMoreIndicators")}
                         </button>
                       </div>
                     )}
@@ -2665,9 +2664,9 @@ export function LandingPage() {
                 >
                   <div className="text-center">
                     <h2 className="text-3xl font-bold mb-2">
-                      {t("landing.wins")}
+                      {s("landing.wins")}
                     </h2>
-                    <h3 className="text-2xl">{t("landing.winsSubtitle")}</h3>
+                    <h3 className="text-2xl">{s("landing.winsSubtitle")}</h3>
                   </div>
                   <svg
                     className={`w-6 h-6 transition-transform flex-shrink-0 ${
@@ -2707,7 +2706,7 @@ export function LandingPage() {
                       className="w-full h-auto rounded-lg"
                     />
                     <p className="col-span-full text-center text-gray-400 italic mt-4">
-                      {t("landing.winsDisclaimer")}
+                      {s("landing.winsDisclaimer")}
                     </p>
                   </div>
                 )}
@@ -2722,7 +2721,7 @@ export function LandingPage() {
           aria-label="Partners and affiliates"
         >
           <h2 className="text-3xl font-bold text-center mb-4 text-white">
-            {t("landing.officialVendor")}
+            {s("landing.officialVendor")}
           </h2>
           <div className="flex flex-col flex-wrap justify-center items-center space-x-8 text-white bg-[#0c111b] p-6 rounded-lg">
             <div className="flex flex-col lg:flex-row flex-wrap justify-center items-center lg:space-x-8">
@@ -2767,19 +2766,19 @@ export function LandingPage() {
                 />
               </a>
               <p className="text-white w-[300px] lg:ml-[20px] mt-8 md:mt-0">
-                {t("landing.affiliateLink")}{" "}
+                {s("landing.affiliateLink")}{" "}
                 <a
                   href="https://ninjatraderus.pxf.io/APNodJ"
                   className="text-blue-500 underline"
-                  aria-label={t("landing.signUpAriaLabel")}
+                  aria-label={s("landing.signUpAriaLabel")}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {t("landing.signUp")}
+                  {s("landing.signUp")}
                 </a>{" "}
-                {t("landing.ninjaTraderDescription")} <br />
+                {s("landing.ninjaTraderDescription")} <br />
                 <br />
-                {t("landing.ninjaTraderEndorsement")}
+                {s("landing.ninjaTraderEndorsement")}
               </p>
             </div>
           </div>

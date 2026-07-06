@@ -1,69 +1,68 @@
 import React, { useEffect } from "react";
+import { s } from "../strings.js";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { SEO } from "../components/SEO";
 
 export const BlogPage = () => {
-  const { t } = useTranslation();
-  useEffect(() => {
+    useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
   const articles = [
     {
       id: 1,
-      title: t("blog.articles.fluxTrident.title"),
-      category: t("blog.categories.strategyIntro"),
-      excerpt: t("blog.articles.fluxTrident.excerpt"),
+      title: s("blog.articles.fluxTrident.title"),
+      category: s("blog.categories.strategyIntro"),
+      excerpt: s("blog.articles.fluxTrident.excerpt"),
       link: "/blog/flux-trident-strategy",
     },
     {
       id: 2,
-      title: t("blog.articles.fluxSignal.title"),
-      category: t("blog.categories.strategyIntro"),
-      excerpt: t("blog.articles.fluxSignal.excerpt"),
+      title: s("blog.articles.fluxSignal.title"),
+      category: s("blog.categories.strategyIntro"),
+      excerpt: s("blog.articles.fluxSignal.excerpt"),
       link: "/blog/flux-signal-strategy",
     },
     {
       id: 3,
-      title: t("blog.articles.fluxPivot.title"),
-      category: t("blog.categories.strategyIntro"),
-      excerpt: t("blog.articles.fluxPivot.excerpt"),
+      title: s("blog.articles.fluxPivot.title"),
+      category: s("blog.categories.strategyIntro"),
+      excerpt: s("blog.articles.fluxPivot.excerpt"),
       link: "/blog/flux-pivot-strategy",
     },
     {
       id: 4,
-      title: t("blog.articles.propFirmHiddenCosts.title"),
-      category: t("blog.categories.propFirmPitfalls"),
-      excerpt: t("blog.articles.propFirmHiddenCosts.excerpt"),
+      title: s("blog.articles.propFirmHiddenCosts.title"),
+      category: s("blog.categories.propFirmPitfalls"),
+      excerpt: s("blog.articles.propFirmHiddenCosts.excerpt"),
       link: "/blog/prop-firm-hidden-costs",
     },
     {
       id: 5,
-      title: t("blog.articles.propFirmFailure.title"),
-      category: t("blog.categories.propFirmPitfalls"),
-      excerpt: t("blog.articles.propFirmFailure.excerpt"),
+      title: s("blog.articles.propFirmFailure.title"),
+      category: s("blog.categories.propFirmPitfalls"),
+      excerpt: s("blog.articles.propFirmFailure.excerpt"),
       link: "/blog/prop-firm-failure",
     },
     {
       id: 6,
-      title: t("blog.articles.cointegratedPairs.title"),
-      category: t("blog.categories.strategyIntro"),
-      excerpt: t("blog.articles.cointegratedPairs.excerpt"),
+      title: s("blog.articles.cointegratedPairs.title"),
+      category: s("blog.categories.strategyIntro"),
+      excerpt: s("blog.articles.cointegratedPairs.excerpt"),
       link: "/blog/cointegrated-pairs-trading",
     },
     {
       id: 7,
-      title: t("blog.articles.propFirmDrawdown.title"),
-      category: t("blog.categories.propFirmPitfalls"),
-      excerpt: t("blog.articles.propFirmDrawdown.excerpt"),
+      title: s("blog.articles.propFirmDrawdown.title"),
+      category: s("blog.categories.propFirmPitfalls"),
+      excerpt: s("blog.articles.propFirmDrawdown.excerpt"),
       link: "/blog/prop-firm-drawdown-trap",
     },
     {
       id: 8,
-      title: t("blog.articles.orb.title"),
-      category: t("blog.categories.strategyIntro"),
-      excerpt: t("blog.articles.orb.excerpt"),
+      title: s("blog.articles.orb.title"),
+      category: s("blog.categories.strategyIntro"),
+      excerpt: s("blog.articles.orb.excerpt"),
       link: "/blog/orb-strategy",
     },
   ];
@@ -79,9 +78,9 @@ export const BlogPage = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12 text-center">
-          <h1 className="text-5xl font-extrabold mb-4">{t("blog.title")}</h1>
+          <h1 className="text-5xl font-extrabold mb-4">{s("blog.title")}</h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            {t("blog.subtitle")}
+            {s("blog.subtitle")}
           </p>
         </div>
 
@@ -107,7 +106,7 @@ export const BlogPage = () => {
                 to={article.link}
                 className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold transition-colors duration-200 group"
               >
-                <span>{t("blog.readFullArticle")}</span>
+                <span>{s("blog.readFullArticle")}</span>
                 <svg
                   className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-200"
                   fill="none"
@@ -128,22 +127,22 @@ export const BlogPage = () => {
 
         {/* Call to Action */}
         <div className="bg-gradient-to-r from-blue-600 via-pink-500 to-purple-600 rounded-lg p-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">{t("blog.readyToStart")}</h2>
+          <h2 className="text-3xl font-bold mb-4">{s("blog.readyToStart")}</h2>
           <p className="text-lg mb-6 text-gray-100">
-            {t("blog.readyDesc")}
+            {s("blog.readyDesc")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/backtests/explorer"
               className="bg-white text-gray-900 font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors duration-200"
             >
-              {t("blog.viewStrategies")}
+              {s("blog.viewStrategies")}
             </Link>
             <Link
               to="/pricing"
               className="bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-200 border-2 border-white"
             >
-              {t("blog.seePricing")}
+              {s("blog.seePricing")}
             </Link>
           </div>
         </div>

@@ -1,5 +1,5 @@
+import { s } from "../../strings.js";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faYoutube,
@@ -10,8 +10,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 export const Footer = () => {
-  const { t } = useTranslation();
-  const handleClick = () => {
+    const handleClick = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
@@ -21,53 +20,53 @@ export const Footer = () => {
       role="contentinfo"
     >
       <nav className="mb-8" aria-label="Footer navigation">
-        <p className="mb-2 font-semibold text-center">{t("footer.navigation")}</p>
+        <p className="mb-2 font-semibold text-center">{s("footer.navigation")}</p>
         <ul className="text-gray-300 flex gap-4 items-center justify-center flex-wrap">
           <li onClick={handleClick}>
             <Link to="/" className="hover:underline">
-              {t("footer.home")}
+              {s("footer.home")}
             </Link>
           </li>
           <li onClick={handleClick}>
             <Link to="/pricing" className="hover:underline">
-              {t("footer.pricing")}
+              {s("footer.pricing")}
             </Link>
           </li>
           <li onClick={handleClick}>
             <Link to="/account" className="hover:underline">
-              {t("footer.account")}
+              {s("footer.account")}
             </Link>
           </li>
           <li onClick={handleClick}>
             <Link to="/policies" className="hover:underline">
-              {t("footer.refundPolicies")}
+              {s("footer.refundPolicies")}
             </Link>
           </li>
           <li onClick={handleClick}>
             <Link to="/affiliates" className="hover:underline">
-              {t("footer.affiliates")}
+              {s("footer.affiliates")}
             </Link>
           </li>
           <li onClick={handleClick}>
             <Link to="/support" className="hover:underline">
-              {t("footer.support")}
+              {s("footer.support")}
             </Link>
           </li>
           <li onClick={handleClick}>
             <Link to="/terms" className="hover:underline">
-              {t("footer.terms")}
+              {s("footer.terms")}
             </Link>
           </li>
           <li onClick={handleClick}>
             <Link to="/disclaimers" className="hover:underline">
-              {t("footer.disclaimers")}
+              {s("footer.disclaimers")}
             </Link>
           </li>
         </ul>
       </nav>
 
       <div className="mb-8 mt-12">
-        <p className="mb-2 font-semibold text-center">{t("footer.followUs")}</p>
+        <p className="mb-2 font-semibold text-center">{s("footer.followUs")}</p>
         <ul className="flex gap-4 items-center justify-center">
           <li>
             <a
@@ -161,19 +160,19 @@ export const Footer = () => {
         </a>
       </div>
 
-      <p className="mb-4 mt-12" id="disclaimers">{t("footer.disclaimers")}</p>
+      <p className="mb-4 mt-12" id="disclaimers">{s("footer.disclaimers")}</p>
       <p className="mb-4">
-        {t("footer.disclaimer1")}
+        {s("footer.disclaimer1")}
       </p>
       <p className="mb-4">
-        {t("footer.disclaimer2")}
+        {s("footer.disclaimer2")}
       </p>
       <p>
-        {t("footer.disclaimer3")}
+        {s("footer.disclaimer3")}
       </p>
 
       <p className="text-center mt-12">
-        {t("footer.copyright", { year: new Date().getFullYear() })}
+        {s("footer.copyright", { year: new Date().getFullYear() })}
       </p>
     </footer>
   );
