@@ -1,0 +1,953 @@
+{
+    "product": "FluxTrade Hydra",
+    "platform": "NinjaTrader 8",
+    "description": "Multi-mode brick-chart strategy with seven entry engines, structural risk management, daily limits, and optional filters.",
+    "entryModes": [
+      {
+        "value": "ABC",
+        "label": "ABC",
+        "summary": "Trend continuation after impulse leg (A), counter-trend pullback (B), and resumption (C)."
+      },
+      {
+        "value": "PullbackContinuation",
+        "label": "Pullback Continuation",
+        "summary": "Lean trend plus small pullback, then resume in trend direction."
+      },
+      {
+        "value": "NBrickReversal",
+        "label": "N-Brick Reversal",
+        "summary": "Enter on the flip after N consecutive same-direction bricks."
+      },
+      {
+        "value": "MarketStructureBreak",
+        "label": "Market Structure Break (BOS)",
+        "summary": "Enter on break of structure through confirmed swing pivots."
+      },
+      {
+        "value": "ConsolidationBreakout",
+        "label": "Consolidation Breakout",
+        "summary": "Enter on breakout from a tight consolidation box."
+      },
+      {
+        "value": "ThreeBrickThrust",
+        "label": "Three-Brick Thrust",
+        "summary": "Enter on momentum thrust after consecutive same-direction bricks."
+      },
+      {
+        "value": "DoubleTopBottom",
+        "label": "Double Top / Bottom",
+        "summary": "Enter on neckline break after equal swing highs or lows."
+      }
+    ],
+    "parameterGroups": [
+      {
+        "id": "parameters",
+        "name": "Parameters",
+        "properties": [
+          {
+            "name": "Default Quantity",
+            "propertyKey": "DQ",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 1,
+            "purpose": "Number of contracts or shares per entry."
+          },
+          {
+            "name": "Take Longs",
+            "propertyKey": "TakeLongs",
+            "type": "boolean",
+            "values": [true, false],
+            "default": true,
+            "purpose": "Allow long entries."
+          },
+          {
+            "name": "Take Shorts",
+            "propertyKey": "TakeShorts",
+            "type": "boolean",
+            "values": [true, false],
+            "default": true,
+            "purpose": "Allow short entries."
+          }
+        ]
+      },
+      {
+        "id": "entry-mode",
+        "name": "1. Entry Mode",
+        "properties": [
+          {
+            "name": "Entry Mode",
+            "propertyKey": "EntryMode",
+            "type": "enum",
+            "values": [
+              "ABC",
+              "PullbackContinuation",
+              "NBrickReversal",
+              "MarketStructureBreak",
+              "ConsolidationBreakout",
+              "ThreeBrickThrust",
+              "DoubleTopBottom"
+            ],
+            "default": "ABC",
+            "purpose": "Selects which pattern engine Hydra uses to find trades."
+          }
+        ]
+      },
+      {
+        "id": "abc-pattern",
+        "name": "2. ABC Pattern",
+        "appliesWhen": { "entryMode": "ABC" },
+        "properties": [
+          {
+            "name": "Leg A Min Bars",
+            "propertyKey": "LegAMinBars",
+            "type": "integer",
+            "range": { "min": 2, "max": null },
+            "default": 5,
+            "purpose": "Minimum bars or bricks in the initial trend leg (A)."
+          },
+          {
+            "name": "Leg B Min Bars",
+            "propertyKey": "LegBMinBars",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 3,
+            "purpose": "Minimum bars in the counter-trend pullback (B)."
+          },
+          {
+            "name": "Leg B Max Bars",
+            "propertyKey": "LegBMaxBars",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 6,
+            "purpose": "Maximum bars allowed in the counter-trend pullback (B)."
+          },
+          {
+            "name": "Leg C Min Bars",
+            "propertyKey": "LegCMinBars",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 1,
+            "purpose": "Bars of resumption (C) required before entry."
+          },
+          {
+            "name": "Leg C Max Bars",
+            "propertyKey": "LegCMaxBars",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 2,
+            "purpose": "Only enter while the C run is at or below this many bars; avoids chasing."
+          },
+          {
+            "name": "Use Retrace Filter",
+            "propertyKey": "UseRetraceFilter",
+            "type": "boolean",
+            "values": [true, false],
+            "default": true,
+            "purpose": "Require Leg B retracement of Leg A to fall within the min/max percentage band."
+          },
+          {
+            "name": "Min Retrace %",
+            "propertyKey": "MinRetracePercent",
+            "type": "double",
+            "range": { "min": 0, "max": 100 },
+            "default": 20,
+            "purpose": "Leg B must retrace at least this percentage of Leg A."
+          },
+          {
+            "name": "Max Retrace %",
+            "propertyKey": "MaxRetracePercent",
+            "type": "double",
+            "range": { "min": 0, "max": 100 },
+            "default": 80,
+            "purpose": "Leg B must retrace no more than this percentage of Leg A. Keep below 100 to preserve a valid ABC."
+          }
+        ]
+      },
+      {
+        "id": "pullback-mode",
+        "name": "3. Pullback Mode",
+        "appliesWhen": { "entryMode": "PullbackContinuation" },
+        "properties": [
+          {
+            "name": "Trend Bars",
+            "propertyKey": "PullbackTrendBars",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 5,
+            "purpose": "Minimum trend bricks or bars before the pullback."
+          },
+          {
+            "name": "Max Trend Bars",
+            "propertyKey": "PullbackTrendMaxBars",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 0,
+            "specialValues": { "0": "No cap — filter disabled" },
+            "purpose": "Skip setups if the trend leg exceeds this length; avoids chasing exhausted trends."
+          },
+          {
+            "name": "Min Pullback Bars",
+            "propertyKey": "PullbackMinBars",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 1,
+            "purpose": "Minimum counter-trend bars in the pullback."
+          },
+          {
+            "name": "Max Pullback Bars",
+            "propertyKey": "PullbackMaxBars",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 2,
+            "purpose": "Maximum counter-trend bars in the pullback."
+          },
+          {
+            "name": "Resume Bars",
+            "propertyKey": "PullbackResumeBars",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 1,
+            "purpose": "Bars of resumption in the trend direction required before entry."
+          },
+          {
+            "name": "Pullback Target Multiplier",
+            "propertyKey": "PullbackTargetMult",
+            "type": "double",
+            "range": { "min": 0.1, "max": 100 },
+            "default": 1.0,
+            "purpose": "When Use Structural Target is on: target = trend-leg (A) size × this multiplier, projected from entry."
+          }
+        ]
+      },
+      {
+        "id": "reversal-mode",
+        "name": "4. Reversal Mode",
+        "appliesWhen": { "entryMode": "NBrickReversal" },
+        "properties": [
+          {
+            "name": "Reversal Brick Count",
+            "propertyKey": "NBrickReversalCount",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 4,
+            "purpose": "Consecutive same-direction bricks or bars required before the flip entry."
+          },
+          {
+            "name": "Reversal Max Brick Count",
+            "propertyKey": "NBrickReversalMaxCount",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 0,
+            "specialValues": { "0": "No cap — filter disabled" },
+            "purpose": "Only take the flip while the exhausted run is at or below this count; skips over-extended runs."
+          },
+          {
+            "name": "Reversal Min Run (Ticks)",
+            "propertyKey": "NBrickReversalMinRunTicks",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 0,
+            "specialValues": { "0": "Filter disabled" },
+            "purpose": "The exhausted run must span at least this many ticks to count as real exhaustion."
+          },
+          {
+            "name": "Reversal Target Multiplier",
+            "propertyKey": "NBrickReversalTargetMult",
+            "type": "double",
+            "range": { "min": 0.1, "max": 100 },
+            "default": 1.0,
+            "purpose": "When Use Structural Target is on: target = exhausted-run size × this multiplier, projected from entry."
+          }
+        ]
+      },
+      {
+        "id": "market-structure-bos",
+        "name": "5. Market Structure (BOS)",
+        "appliesWhen": { "entryMode": "MarketStructureBreak" },
+        "properties": [
+          {
+            "name": "Swing Strength (Bars)",
+            "propertyKey": "BosSwingStrength",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 1,
+            "purpose": "Counter-move in bricks or bars needed to confirm a swing pivot. 1 = every reversal is a pivot."
+          },
+          {
+            "name": "Break Buffer (Ticks)",
+            "propertyKey": "BosBreakBufferTicks",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 0,
+            "specialValues": { "0": "Exact break — no buffer" },
+            "purpose": "Require price to close this many ticks beyond the swing level to confirm a break."
+          },
+          {
+            "name": "Min Swing Size (Ticks)",
+            "propertyKey": "BosMinSwingTicks",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 0,
+            "specialValues": { "0": "Filter disabled" },
+            "purpose": "Skip the break unless swing range (pivot high to pivot low) is at least this many ticks."
+          },
+          {
+            "name": "Target Multiplier",
+            "propertyKey": "BosTargetMult",
+            "type": "double",
+            "range": { "min": 0.1, "max": 100 },
+            "default": 1.0,
+            "purpose": "When Use Structural Target is on: measured-move target = swing range × this, beyond the break level."
+          }
+        ]
+      },
+      {
+        "id": "consolidation-box",
+        "name": "6. Consolidation Box",
+        "appliesWhen": { "entryMode": "ConsolidationBreakout" },
+        "properties": [
+          {
+            "name": "Box Lookback (Bars)",
+            "propertyKey": "BoxLookbackBars",
+            "type": "integer",
+            "range": { "min": 2, "max": null },
+            "default": 10,
+            "purpose": "Number of bars defining the consolidation range."
+          },
+          {
+            "name": "Box Max Height (Ticks)",
+            "propertyKey": "BoxMaxHeightTicks",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 20,
+            "purpose": "Range only counts as a box if high-to-low height is at or below this many ticks."
+          },
+          {
+            "name": "Box Target Multiplier",
+            "propertyKey": "BoxTargetMultiplier",
+            "type": "double",
+            "range": { "min": 0.1, "max": 100 },
+            "default": 1.0,
+            "purpose": "Profit target = box height × this multiplier (measured move)."
+          },
+          {
+            "name": "Box Min Height (Ticks)",
+            "propertyKey": "BoxMinHeightTicks",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 0,
+            "specialValues": { "0": "Filter disabled" },
+            "purpose": "Range only counts as a box if height is at least this many ticks; skips ultra-tight noise."
+          },
+          {
+            "name": "Box Break Buffer (Ticks)",
+            "propertyKey": "BoxBreakBufferTicks",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 0,
+            "specialValues": { "0": "Exact break — no buffer" },
+            "purpose": "Require price to close this many ticks beyond the box edge to confirm breakout."
+          }
+        ]
+      },
+      {
+        "id": "three-brick-thrust",
+        "name": "7. Three-Brick Thrust",
+        "appliesWhen": { "entryMode": "ThreeBrickThrust" },
+        "properties": [
+          {
+            "name": "Thrust Bricks",
+            "propertyKey": "ThrustBricks",
+            "type": "integer",
+            "range": { "min": 2, "max": null },
+            "default": 3,
+            "purpose": "Consecutive same-direction bricks or bars (after an opposite bar) that define a momentum thrust."
+          },
+          {
+            "name": "Thrust Exact Count",
+            "propertyKey": "ThrustExactCount",
+            "type": "boolean",
+            "values": [true, false],
+            "default": true,
+            "purpose": "True = fire only on exactly Thrust Bricks (fresh ignition). False = fire on Thrust Bricks or more consecutive bars."
+          },
+          {
+            "name": "Thrust Min Size (Ticks)",
+            "propertyKey": "ThrustMinTicks",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 0,
+            "specialValues": { "0": "Filter disabled" },
+            "purpose": "The thrust run must span at least this many ticks to qualify."
+          },
+          {
+            "name": "Thrust Target Multiplier",
+            "propertyKey": "ThrustTargetMult",
+            "type": "double",
+            "range": { "min": 0.1, "max": 100 },
+            "default": 1.0,
+            "purpose": "When Use Structural Target is on: target = thrust size × this, projected from entry."
+          }
+        ]
+      },
+      {
+        "id": "double-top-bottom",
+        "name": "8. Double Top/Bottom",
+        "appliesWhen": { "entryMode": "DoubleTopBottom" },
+        "properties": [
+          {
+            "name": "Swing Strength (Bars)",
+            "propertyKey": "DoubleSwingStrength",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 1,
+            "purpose": "Counter-move needed to confirm a swing pivot. 1 = every reversal is a pivot."
+          },
+          {
+            "name": "Equality Tolerance (Ticks)",
+            "propertyKey": "DoubleToleranceTicks",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 4,
+            "purpose": "Two swing lows or highs count as equal if within this many ticks."
+          },
+          {
+            "name": "Break Buffer (Ticks)",
+            "propertyKey": "DoubleBreakBufferTicks",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 0,
+            "specialValues": { "0": "Exact break — no buffer" },
+            "purpose": "Require price to close this many ticks beyond the neckline to confirm the break."
+          },
+          {
+            "name": "Min Pattern Height (Ticks)",
+            "propertyKey": "DoubleMinHeightTicks",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 0,
+            "specialValues": { "0": "Filter disabled" },
+            "purpose": "Neckline-to-extremes height must be at least this many ticks; skips shallow patterns."
+          },
+          {
+            "name": "Target Multiplier",
+            "propertyKey": "DoubleTargetMult",
+            "type": "double",
+            "range": { "min": 0.1, "max": 100 },
+            "default": 1.0,
+            "purpose": "When Use Structural Target is on: measured-move target = pattern height × this, beyond the neckline."
+          }
+        ]
+      },
+      {
+        "id": "trade-window",
+        "name": "Trade Window",
+        "properties": [
+          {
+            "name": "Use Time Window",
+            "propertyKey": "UseTimeWindow",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Restrict entries to a daily time range using chart or session time."
+          },
+          {
+            "name": "Start Hour",
+            "propertyKey": "StartHour",
+            "type": "integer",
+            "range": { "min": 0, "max": 23 },
+            "default": 9,
+            "purpose": "Hour when the trading window opens."
+          },
+          {
+            "name": "Start Minute",
+            "propertyKey": "StartMinute",
+            "type": "integer",
+            "range": { "min": 0, "max": 59 },
+            "default": 30,
+            "purpose": "Minute when the trading window opens."
+          },
+          {
+            "name": "End Hour",
+            "propertyKey": "EndHour",
+            "type": "integer",
+            "range": { "min": 0, "max": 23 },
+            "default": 16,
+            "purpose": "Hour when the trading window closes."
+          },
+          {
+            "name": "End Minute",
+            "propertyKey": "EndMinute",
+            "type": "integer",
+            "range": { "min": 0, "max": 59 },
+            "default": 0,
+            "purpose": "Minute when the trading window closes."
+          }
+        ]
+      },
+      {
+        "id": "risk",
+        "name": "Risk",
+        "properties": [
+          {
+            "name": "Profit Target (Ticks)",
+            "propertyKey": "ProfitTargetTicks",
+            "type": "integer",
+            "range": { "min": 1, "max": 1000 },
+            "default": 24,
+            "purpose": "Fixed take-profit distance in ticks; used when structural target is off or as fallback."
+          },
+          {
+            "name": "Stop Loss (Ticks)",
+            "propertyKey": "StopLossTicks",
+            "type": "integer",
+            "range": { "min": 1, "max": 1000 },
+            "default": 16,
+            "purpose": "Fixed stop distance when structural stop is off or invalid."
+          },
+          {
+            "name": "Use Structural Target",
+            "propertyKey": "UseStructuralTarget",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Target the pattern's structural level instead of fixed ticks."
+          },
+          {
+            "name": "Structural Target Buffer (Ticks)",
+            "propertyKey": "StructuralTargetBufferTicks",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 0,
+            "purpose": "Take profit this many ticks before the structural target level."
+          },
+          {
+            "name": "Use Structural Stop",
+            "propertyKey": "UseStructuralStop",
+            "type": "boolean",
+            "values": [true, false],
+            "default": true,
+            "purpose": "Place the stop just beyond the Leg B extreme instead of a fixed tick distance."
+          },
+          {
+            "name": "Structural Stop Buffer (Ticks)",
+            "propertyKey": "StructuralStopBufferTicks",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 2,
+            "purpose": "Extra ticks beyond the Leg B extreme for the structural stop."
+          },
+          {
+            "name": "Use Custom Trail Stop",
+            "propertyKey": "UseCustomTrailStop",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Enable Hydra's built-in trailing stop logic."
+          },
+          {
+            "name": "Custom Trail Distance (Ticks)",
+            "propertyKey": "CustomTrailDistanceTicks",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 10,
+            "purpose": "Trail distance behind the favorable extreme once trailing is active."
+          },
+          {
+            "name": "Custom Trail Activation (Ticks)",
+            "propertyKey": "CustomTrailActivationTicks",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 0,
+            "specialValues": { "0": "Trailing begins immediately" },
+            "purpose": "Require this many ticks of favorable movement before trailing begins."
+          }
+        ]
+      },
+      {
+        "id": "risk-management",
+        "name": "Risk Management",
+        "properties": [
+          {
+            "name": "Breakeven Profit (Currency)",
+            "propertyKey": "BreakevenProfit",
+            "type": "integer",
+            "range": { "min": 0, "max": null },
+            "default": 0,
+            "specialValues": { "0": "Breakeven stop disabled" },
+            "unit": "currency",
+            "purpose": "Move stop to breakeven when unrealized profit reaches this dollar amount."
+          },
+          {
+            "name": "Use Max Daily Profit",
+            "propertyKey": "UseMaxDailyProfit",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Enable a daily profit cap in account currency."
+          },
+          {
+            "name": "Max Daily Profit ($)",
+            "propertyKey": "MaxDailyProfit",
+            "type": "double",
+            "range": { "min": 0, "max": null },
+            "default": 500,
+            "unit": "currency",
+            "purpose": "Daily profit cap amount."
+          },
+          {
+            "name": "Use Max Daily Loss",
+            "propertyKey": "UseMaxDailyLoss",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Enable a daily loss cap in account currency."
+          },
+          {
+            "name": "Max Daily Loss ($)",
+            "propertyKey": "MaxDailyLoss",
+            "type": "double",
+            "range": { "min": 0, "max": null },
+            "default": 500,
+            "unit": "currency",
+            "purpose": "Daily loss cap amount."
+          },
+          {
+            "name": "End day on unrealized profit?",
+            "propertyKey": "EndDayOnUnrealizedProfit",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "When daily limits are hit, include open-trade unrealized P&L, close the current trade, and halt for the day."
+          },
+          {
+            "name": "Use Tiered Profit Lock",
+            "propertyKey": "UseTieredProfitLock",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Dynamically raise the daily loss floor as realized profit accumulates."
+          },
+          {
+            "name": "Tier 1 Profit Threshold ($)",
+            "propertyKey": "Tier1ProfitThreshold",
+            "type": "double",
+            "range": { "min": 0, "max": null },
+            "default": 150,
+            "unit": "currency",
+            "purpose": "When realized profit reaches this amount, the daily loss floor moves to Tier 1 Floor."
+          },
+          {
+            "name": "Tier 1 Floor ($)",
+            "propertyKey": "Tier1Floor",
+            "type": "double",
+            "default": 0,
+            "unit": "currency",
+            "purpose": "Daily loss floor once Tier 1 is reached. 0 = breakeven; negative values allow a small drawdown from peak."
+          },
+          {
+            "name": "Tier 2 Profit Threshold ($)",
+            "propertyKey": "Tier2ProfitThreshold",
+            "type": "double",
+            "range": { "min": 0, "max": null },
+            "default": 300,
+            "unit": "currency",
+            "purpose": "When realized profit reaches this amount, the daily loss floor moves to Tier 2 Floor."
+          },
+          {
+            "name": "Tier 2 Floor ($)",
+            "propertyKey": "Tier2Floor",
+            "type": "double",
+            "default": 150,
+            "unit": "currency",
+            "purpose": "Daily loss floor once Tier 2 is reached."
+          },
+          {
+            "name": "Tier 3 Profit Threshold ($)",
+            "propertyKey": "Tier3ProfitThreshold",
+            "type": "double",
+            "range": { "min": 0, "max": null },
+            "default": 0,
+            "specialValues": { "0": "Tier 3 disabled" },
+            "unit": "currency",
+            "purpose": "When realized profit reaches this amount, the daily loss floor moves to Tier 3 Floor."
+          },
+          {
+            "name": "Tier 3 Floor ($)",
+            "propertyKey": "Tier3Floor",
+            "type": "double",
+            "default": 0,
+            "unit": "currency",
+            "purpose": "Daily loss floor once Tier 3 is reached."
+          },
+          {
+            "name": "Use Max Daily Losses",
+            "propertyKey": "UseMaxDailyLosses",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Halt trading after N consecutive losing trades in the same day."
+          },
+          {
+            "name": "Max Daily Losses",
+            "propertyKey": "MaxDailyLosses",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 2,
+            "purpose": "Number of losing trades before the day is halted."
+          },
+          {
+            "name": "Use Max Daily Trades",
+            "propertyKey": "UseMaxDailyTrades",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Cap total entries per calendar day."
+          },
+          {
+            "name": "Max Daily Trades",
+            "propertyKey": "MaxDailyTrades",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 4,
+            "purpose": "Maximum entries allowed per calendar day."
+          }
+        ]
+      },
+      {
+        "id": "quick-exit",
+        "name": "Quick Exit",
+        "properties": [
+          {
+            "name": "Enable Quick Exit",
+            "propertyKey": "EnableQuickExit",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Exit open trades after a set number of bars if conditions are met."
+          },
+          {
+            "name": "Quick Exit Bars",
+            "propertyKey": "QuickExitBars",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 5,
+            "purpose": "Bars after entry before quick exit is evaluated."
+          },
+          {
+            "name": "Quick Exit Only In Profit",
+            "propertyKey": "QuickExitOnlyInProfit",
+            "type": "boolean",
+            "values": [true, false],
+            "default": true,
+            "purpose": "Only quick-exit when the trade is in profit."
+          }
+        ]
+      },
+      {
+        "id": "filters",
+        "name": "Filters",
+        "properties": [
+          {
+            "name": "Enable Choppiness Filter",
+            "propertyKey": "EnableChoppinessFilter",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Block entries when the market is too choppy (Choppiness Index)."
+          },
+          {
+            "name": "Choppiness Period",
+            "propertyKey": "ChoppinessPeriod",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 14,
+            "purpose": "Lookback period for the Choppiness Index."
+          },
+          {
+            "name": "Choppiness Threshold",
+            "propertyKey": "ChoppinessThreshold",
+            "type": "double",
+            "range": { "min": 0, "max": 100 },
+            "default": 61.8,
+            "purpose": "Entries blocked when choppiness is above this level."
+          },
+          {
+            "name": "Use Minimum Volume Filter",
+            "propertyKey": "UseMinimumVolumeFilter",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Require minimum bar volume before entry."
+          },
+          {
+            "name": "Minimum Volume",
+            "propertyKey": "MinimumVolume",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 1000,
+            "purpose": "Minimum bar volume required for entry."
+          },
+          {
+            "name": "Use RSI Filter",
+            "propertyKey": "UseRsiFilter",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Filter or optionally reverse entries based on RSI extremes."
+          },
+          {
+            "name": "RSI Period",
+            "propertyKey": "RsiPeriod",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 14,
+            "purpose": "RSI lookback period."
+          },
+          {
+            "name": "RSI Overbought",
+            "propertyKey": "RsiOverbought",
+            "type": "integer",
+            "range": { "min": 50, "max": 100 },
+            "default": 70,
+            "purpose": "RSI level considered overbought."
+          },
+          {
+            "name": "RSI Oversold",
+            "propertyKey": "RsiOversold",
+            "type": "integer",
+            "range": { "min": 0, "max": 50 },
+            "default": 30,
+            "purpose": "RSI level considered oversold."
+          },
+          {
+            "name": "Reverse on RSI Extremes",
+            "propertyKey": "ReverseOnRsiExtremes",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "When enabled, RSI extremes can flip trade direction instead of blocking."
+          },
+          {
+            "name": "Use Momentum Filter",
+            "propertyKey": "UseMomentumFilter",
+            "type": "boolean",
+            "values": [true, false],
+            "default": true,
+            "notes": "Recommended off for NBrickReversal and DoubleTopBottom modes.",
+            "purpose": "Require price above or below EMA and a closing bar in trade direction."
+          },
+          {
+            "name": "Momentum EMA Fast",
+            "propertyKey": "MomentumEmaFast",
+            "type": "integer",
+            "range": { "min": 1, "max": null },
+            "default": 9,
+            "purpose": "Fast EMA period for the momentum filter."
+          },
+          {
+            "name": "Require Bullish/Bearish Bar",
+            "propertyKey": "RequireBullishBreakoutBar",
+            "type": "boolean",
+            "values": [true, false],
+            "default": true,
+            "purpose": "Longs require close > open; shorts require close < open."
+          }
+        ]
+      },
+      {
+        "id": "market-regime-filter",
+        "name": "Market Regime Filter",
+        "properties": [
+          {
+            "name": "Use Market Regime Filter",
+            "propertyKey": "UseMarketRegimeFilter",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Master switch for regime-based trade permission using FluxTrade Market Regime."
+          },
+          {
+            "name": "Trade UpTrend High Vol",
+            "propertyKey": "TradeUpTrendHighVol",
+            "type": "boolean",
+            "values": [true, false],
+            "default": true,
+            "purpose": "Allow trades in uptrend plus high volatility."
+          },
+          {
+            "name": "Trade UpTrend Low Vol",
+            "propertyKey": "TradeUpTrendLowVol",
+            "type": "boolean",
+            "values": [true, false],
+            "default": true,
+            "purpose": "Allow trades in uptrend plus low volatility."
+          },
+          {
+            "name": "Trade Sideways High Vol",
+            "propertyKey": "TradeSidewaysHighVol",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Allow trades in sideways market plus high volatility."
+          },
+          {
+            "name": "Trade Sideways Low Vol",
+            "propertyKey": "TradeSidewaysLowVol",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Allow trades in sideways market plus low volatility."
+          },
+          {
+            "name": "Trade DownTrend High Vol",
+            "propertyKey": "TradeDownTrendHighVol",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Allow trades in downtrend plus high volatility."
+          },
+          {
+            "name": "Trade DownTrend Low Vol",
+            "propertyKey": "TradeDownTrendLowVol",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Allow trades in downtrend plus low volatility."
+          },
+          {
+            "name": "Use High Impact Event Filter",
+            "propertyKey": "UseHighImpactEventFilter",
+            "type": "boolean",
+            "values": [true, false],
+            "default": false,
+            "purpose": "Filter entries based on scheduled high-impact economic events."
+          },
+          {
+            "name": "Min High Impact Events",
+            "propertyKey": "MinHighImpactEvents",
+            "type": "integer",
+            "default": 0,
+            "purpose": "Minimum high-impact events in the lookback window."
+          },
+          {
+            "name": "Max High Impact Events",
+            "propertyKey": "MaxHighImpactEvents",
+            "type": "integer",
+            "default": 1,
+            "purpose": "Maximum high-impact events in the lookback window."
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "sourceFile": "Strategies/FluxTrade_Hydra.cs",
+      "propertyCount": 97,
+      "notes": [
+        "Mode-specific parameter groups only apply when the matching Entry Mode is selected.",
+        "null max values indicate no upper bound enforced by NinjaTrader Range attribute (int.MaxValue).",
+        "MinHighImpactEvents and MaxHighImpactEvents have no Range attribute in source code.",
+        "Tier floor properties accept negative values to allow a small drawdown from peak profit."
+      ]
+    }
+  }
